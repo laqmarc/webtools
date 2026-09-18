@@ -28,29 +28,51 @@ Obre <http://localhost:5180>.
 
 ## Desplegament
 
-El lloc viu a <https://webtools.quexulo.cat/>, en un Plesk amb nginx. El
-repositori conté el lloc ja construït, de manera que publicar és construir amb
-el domini bo i pujar-ho.
+El lloc viu a <https://webtools.quexulo.cat/>, en un Plesk que fa `git pull`
+del repositori al docroot. Això vol dir una cosa important: **el que commets
+surt publicat**. El lloc construït és al repositori a posta i no s'ha de treure
+del seguiment.
+
+Abans de fer push:
 
 ```bash
-npm run check   # rutes duplicades, traduccions que falten, vendor incomplet
-npm run build   # regenera les 195 pàgines amb la canònica de producció
+npm run preflight
 ```
 
-El domini és a `package.json` i al workflow, no a la línia d'ordres, perquè una
-construcció local amb `localhost` no s'hagi de recordar de canviar-lo. Ja ha
-passat un cop: tot el lloc publicat tenia `canonical` cap a `localhost:5180`,
-que per a un cercador vol dir «la versió bona d'aquesta pàgina no existeix».
+Que és `check` + `build` + `verify`:
 
-`.github/workflows/build.yml` no desplega —les pujades les fas tu—, però a cada
-push comprova el registre, les traduccions i que cap canònica apunti a
-localhost, i deixa un `dist/` descarregable com a artefacte.
+- **check** — rutes duplicades, traduccions que falten, paràmetres sense valor
+  per defecte, `vendor/` incomplet.
+- **build** — regenera les 195 pàgines amb la canònica de producció. El domini
+  és al `package.json`, no a la línia d'ordres, perquè no s'hagi de recordar.
+- **verify** — construeix en un directori temporal i el compara amb el
+  repositori. Si editaves un text i no havies reconstruït, això ho atura; sense
+  la comprovació, el lloc continuaria servint la versió vella sense que res ho
+  digués.
 
-Si el que vols és veure en local exactament el que s'ha de pujar:
+`verify` només funciona perquè **la construcció és reproduïble**: no hi ha cap
+data ni cap marca de temps a la sortida. El sitemap no porta `<lastmod>`, entre
+altres coses perquè l'únic valor honest seria «avui» a totes les pàgines. Si
+algun dia hi afegeixes una data, la comprovació mor amb ella.
 
-```bash
-npm run dist    # munta dist/ i res més
-```
+`.github/workflows/build.yml` fa les mateixes tres coses a cada push, per si
+te'n descuides.
+
+### Això ja ha passat
+
+Tot el lloc va estar publicat amb `canonical`, `hreflang`, el sitemap i el
+`robots.txt` apuntant a `http://localhost:5180`. Des del navegador no es veu
+res; per a un cercador vol dir que la versió bona de cada pàgina no existeix.
+D'aquí ve que el domini estigui escrit al `package.json` i que la CI ho
+comprovi explícitament.
+
+### El repositori és el docroot
+
+Tot el que hi ha al repo es pot descarregar del web: `scripts/`, `content/`, el
+`README`. No hi ha res secret —és un projecte MIT públic— i `.git/` sí que està
+bloquejat pel Plesk, comprovat. El `robots.txt` generat els exclou de la
+indexació perquè no té sentit que un cercador es miri el generador ni un fitxer
+de 76 kB amb el mateix text que ja és a les pàgines.
 
 ## Tres idiomes, una URL per eina i per idioma
 
@@ -108,6 +130,12 @@ Dues peces, i les dues calen.
 la pàgina és oberta pots desendollar la xarxa i tot continua funcionant.
 `src/core/deps.js` és l'únic lloc que en sap les rutes.
 
+**`assets/fonts/`** són les dues tipografies, Play als titulars i Google Sans
+al text, baixades de Google Fonts per `scripts/fonts.mjs` i servides des d'aquí.
+Una webfont remota seria l'única petició a fora que faria el lloc, i a més
+diria a Google qui llegeix cada eina. Totes dues són OFL 1.1, que permet
+allotjar-les un mateix; la llicència va al costat dels fitxers.
+
 **`sw.js`** és el que permet *obrir* el lloc sense xarxa. Precacheja la closca
 —les 195 pàgines, el CSS, les icones, els JSON d'idioma i tot el JavaScript— i
 cacheja `vendor/` a mesura que es fa servir, perquè precarregar 30 MB de models
@@ -135,14 +163,17 @@ i un `.svg` a l'optimitzador. Ho recull `src/ui/filetool.js` des de
 ```
 .github/workflows/       construeix i publica a Pages a cada push
 scripts/dist.mjs         munta dist/: el que es desplega, i res més
+scripts/verify-build.mjs comprova que el build comès sigui el d'ara
 scripts/check.mjs        el que val la pena que faci fallar una construcció
 scripts/build-pages.mjs  genera les 195 pàgines, sw.js, manifests, sitemap
 scripts/icons.mjs        dibuixa les icones i escriu els PNG, sense deps
 scripts/vendor.mjs       baixa les llibreries (+ --extras per a OCR i model)
+scripts/fonts.mjs        baixa Play i Google Sans a assets/fonts/
 content/seo.js           text català de cada pàgina (font)
 content/i18n/            ui.js, errors.js, panels.js + ca/es/en
 vendor/                  llibreries de tercers + llicències + manifest
 assets/styles.css        tot l'estil, amb variables i mode clar/fosc
+assets/fonts/            Play i Google Sans en woff2, latin i latin-ext
 src/main.js              arrenca segons el que declari window.__PAGE__
 src/i18n.js              carrega l'idioma i tradueix les eines en viu
 src/registry.js          ← el fitxer important: totes les eines i variants
@@ -226,7 +257,8 @@ els dos extrems: títol, filtre, paràmetres i text es deriven de la taula
 
 MIT, al fitxer `LICENSE`. El contingut de `vendor/` és codi de tercers
 redistribuït sense modificar sota les seves pròpies llicències, reproduïdes a
-`vendor/LICENSES.md`.
+`vendor/LICENSES.md`. Les tipografies d'`assets/fonts/` són SIL Open Font
+License 1.1; el text és a `assets/fonts/LICENSE.txt`.
 
 ## Per on continuar
 

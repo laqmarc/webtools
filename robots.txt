@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /scripts/
+Disallow: /content/
+Disallow: /tests/
+Disallow: /.github/
 
 Sitemap: https://webtools.quexulo.cat/sitemap.xml

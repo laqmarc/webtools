@@ -197,11 +197,17 @@ ${hreflangs(alternates, pageId)}
 <meta property="og:locale" content="${locale.ogLocale}">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="${toRoot}assets/styles.css">
+<!-- Les dues cares que surten a tot arreu. El navegador no les descobriria
+     fins a haver llegit el CSS, i el titular apareixeria un instant amb la
+     serif del sistema. Els subconjunts latin-ext els demana només qui els
+     necessita, via unicode-range. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/play-700-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/google-sans-latin.woff2">
 <link rel="icon" href="${toRoot}icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${toRoot}icons/apple-touch-icon.png">
 <link rel="manifest" href="${toLang}manifest.webmanifest">
-<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="${esc(SITE_BASE.name)}">
 <script type="application/ld+json">
@@ -445,8 +451,8 @@ function renderManifest(allPages, locale) {
     scope: './',
     display: 'standalone',
     orientation: 'any',
-    background_color: '#0f1115',
-    theme_color: '#161922',
+    background_color: '#f6f3ec',
+    theme_color: '#f6f3ec',
     categories: ['utilities', 'productivity', 'photo'],
     icons: [
       { src: `${locale.dir ? '../' : './'}icons/icon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
@@ -469,8 +475,14 @@ function renderManifest(allPages, locale) {
   }, null, 2)}\n`;
 }
 
+/**
+ * No <lastmod>. We do not track when each page's text last changed, so the
+ * only honest value would be "today" — which tells a crawler every page
+ * changed on every build, and makes the output differ from one run to the
+ * next, which is exactly what stops CI from checking that the committed build
+ * is current. An absent lastmod beats a wrong one.
+ */
 function renderSitemap(editions) {
-  const today = new Date().toISOString().slice(0, 10);
   const rows = [];
   for (const { locale, pages } of editions) {
     rows.push({ loc: absolute(locale, ''), priority: locale.dir ? '0.9' : '1.0' });
@@ -478,7 +490,7 @@ function renderSitemap(editions) {
   }
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${rows.map((r) => `  <url>\n    <loc>${r.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${r.priority}</priority>\n  </url>`).join('\n')}
+${rows.map((r) => `  <url>\n    <loc>${r.loc}</loc>\n    <priority>${r.priority}</priority>\n  </url>`).join('\n')}
 </urlset>
 `;
 }
@@ -511,6 +523,15 @@ async function jsFilesUnder(dir, base = dir) {
   return out;
 }
 
+// Les tipografies formen part de l'esquelet: sense elles una pàgina oberta
+// sense connexió canviaria de cara. Ordenades, perquè la llista entra al
+// hash de la versió del service worker i la construcció ha de ser repetible.
+async function fontFiles(out) {
+  const dir = join(out, 'assets', 'fonts');
+  if (!existsSync(dir)) return [];
+  return (await readdir(dir)).filter((f) => f.endsWith('.woff2')).sort();
+}
+
 /**
  * Vendoring means the tools keep working once a page is open. Opening the site
  * with no network at all needs the documents cached too, which is this.
@@ -523,6 +544,7 @@ async function renderServiceWorker(out, editions) {
   const shell = [
     './',
     'assets/styles.css',
+    ...(await fontFiles(out)).map((f) => `assets/fonts/${f}`),
     'manifest.webmanifest',
     'icons/icon.svg',
     ...ICON_FILES.map((i) => i.file),
@@ -677,10 +699,24 @@ export async function buildPages({ out = ROOT, site = SITE_BASE.url, quiet = fal
 
   await writeFile(join(out, 'sw.js'), await renderServiceWorker(out, editions), 'utf8');
   await writeFile(join(out, 'sitemap.xml'), renderSitemap(editions), 'utf8');
-  await writeFile(join(out, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n`, 'utf8');
+  // The deployment is a git pull into the docroot, so the build system is
+  // served alongside the site. There is nothing secret in it, but there is no
+  // reason for a crawler to index the generator, or a 76 kB file holding the
+  // same prose that is already on the pages.
+  await writeFile(join(out, 'robots.txt'), [
+    'User-agent: *',
+    'Allow: /',
+    'Disallow: /scripts/',
+    'Disallow: /content/',
+    'Disallow: /tests/',
+    'Disallow: /.github/',
+    '',
+    `Sitemap: ${SITE_URL}/sitemap.xml`,
+    '',
+  ].join('\n'), 'utf8');
   await writeFile(
     manifestPath,
-    `${JSON.stringify({ built: new Date().toISOString(), site: SITE_URL, slugs: [...livePaths] }, null, 2)}\n`,
+    `${JSON.stringify({ site: SITE_URL, slugs: [...livePaths].sort() }, null, 2)}\n`,
     'utf8',
   );
 

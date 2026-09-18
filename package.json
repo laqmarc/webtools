@@ -19,7 +19,10 @@
     "dist": "node scripts/dist.mjs --site https://webtools.quexulo.cat",
     "vendor": "node scripts/vendor.mjs",
     "vendor:extras": "node scripts/vendor.mjs --extras",
+    "fonts": "node scripts/fonts.mjs",
     "check": "node scripts/check.mjs",
-    "test": "node --test tests/"
+    "test": "node --test tests/",
+    "verify": "node scripts/verify-build.mjs --site https://webtools.quexulo.cat",
+    "preflight": "npm run check && npm run build && npm run verify"
   }
 }

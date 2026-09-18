@@ -50,7 +50,9 @@ export function mountTextTool(root, tool, mod) {
   }
   const schedule = debounce(go, 250);
 
-  root.append(
+  // Amb h() els nuls desapareixen; amb append() s'escriuen tal qual, i una
+  // eina sense opcions es quedava amb un «null» de text a sobre.
+  root.append(...[
     form && !form.empty ? h('div', { class: 'panel' }, h('h3', null, t('params.title')), form.el) : null,
     h('div', { class: 'io' },
       h('div', null,
@@ -76,7 +78,7 @@ export function mountTextTool(root, tool, mod) {
           }, t('text.save'))),
         output)),
     notices,
-  );
+  ].filter(Boolean));
 
   // Drop a file anywhere on the page to load it.
   const onDrop = async (e) => {

@@ -112,7 +112,8 @@ export function mountFileTool(root, tool, mod) {
 
     clear(actions);
     const outs = allOutputs();
-    actions.append(
+    // append() no filtra els nuls com fa h(): escriu literalment «null».
+    const buttons = [
       h('button', { class: 'btn', disabled: running || !items.length, onclick: run },
         running ? t('file.processing') : t(tool.aggregate ? 'file.combine' : 'file.process')),
       h('button', { class: 'btn ghost', disabled: running, onclick: () => { items.length = 0; clear(notices); render(); } }, t('file.clear')),
@@ -124,7 +125,8 @@ export function mountFileTool(root, tool, mod) {
       outs.length === 1
         ? h('button', { class: 'btn', onclick: () => downloadBlob(outs[0].blob, outs[0].name) }, t('file.download'))
         : null,
-    );
+    ];
+    actions.append(...buttons.filter(Boolean));
   }
 
   /**

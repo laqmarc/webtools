@@ -13,8 +13,9 @@
 
 import { deflateSync } from 'node:zlib';
 
-const BG = [0x16, 0x19, 0x22]; // --bg-2, the panel colour
-const FG = [0x6a, 0xa8, 0xff]; // --accent
+const BG = [0x1c, 0x1a, 0x16]; // --bg-2 fosc, el color del panell
+const FG = [0xf0, 0x8a, 0x5d]; // --accent
+const hex = (c) => `#${c.map((n) => n.toString(16).padStart(2, '0')).join('')}`;
 
 // Geometry, all as fractions so every size comes out identical.
 const LOGO = 0.62; // side of the glyph box, normal icon
@@ -126,9 +127,9 @@ export function renderSvg() {
   const t = box * STROKE;
   const fmt = (n) => Number(n.toFixed(2));
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${S} ${S}" role="img" aria-label="WebTools">
-  <rect width="${S}" height="${S}" rx="${fmt(S * RADIUS)}" fill="#${BG.map((c) => c.toString(16).padStart(2, '0')).join('')}"/>
-  <rect x="${fmt(o + t / 2)}" y="${fmt(o + t / 2)}" width="${fmt(box - t)}" height="${fmt(box - t)}" fill="none" stroke="#6aa8ff" stroke-width="${fmt(t)}"/>
-  <rect x="${fmt(o + t)}" y="${fmt(o + t)}" width="${fmt(box / 2 - t)}" height="${fmt(box - t * 2)}" fill="#6aa8ff"/>
+  <rect width="${S}" height="${S}" rx="${fmt(S * RADIUS)}" fill="${hex(BG)}"/>
+  <rect x="${fmt(o + t / 2)}" y="${fmt(o + t / 2)}" width="${fmt(box - t)}" height="${fmt(box - t)}" fill="none" stroke="${hex(FG)}" stroke-width="${fmt(t)}"/>
+  <rect x="${fmt(o + t)}" y="${fmt(o + t)}" width="${fmt(box / 2 - t)}" height="${fmt(box - t * 2)}" fill="${hex(FG)}"/>
 </svg>
 `;
 }

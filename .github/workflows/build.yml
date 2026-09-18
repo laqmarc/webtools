@@ -1,11 +1,15 @@
 name: Construeix i comprova
 
-# Això NO desplega res: el lloc viu en un Plesk i les pujades les fas tu.
-# El que fa és impedir que arribi a producció una construcció trencada, i
-# deixar-te un dist/ ja fet per baixar si el vols pujar tal qual.
+# Això NO desplega res, i no cal: el Plesk fa git pull del repositori, així
+# que el push ja és el desplegament. Per això la feina d'aquest workflow és
+# una altra — evitar que un push publiqui alguna cosa trencada:
 #
-# Quan em diguis com hi puges (SFTP, rsync, el Git de Plesk…), afegir el pas
-# de desplegament aquí baix són deu línies.
+#   · el registre i les traduccions són consistents
+#   · cap canònica apunta a localhost
+#   · el lloc comès és idèntic al que produeix una construcció nova
+#
+# L'última és la important: sense ella, editar un text i no reconstruir deixa
+# el lloc servint la versió vella sense que res ho digui.
 
 env:
   SITE: https://webtools.quexulo.cat
@@ -55,14 +59,11 @@ jobs:
           fi
           echo "Canòniques sobre $SITE"
 
-      # Comprova que el que s'ha comès al repositori és el que s'hauria de
-      # publicar: si el build de dist/ no coincideix amb l'arrel, és que algú
-      # ha pujat una construcció vella o feta amb un altre domini.
-      - name: Compara amb el que hi ha comès
-        run: |
-          if [ -f index.html ] && ! diff -q dist/index.html index.html >/dev/null; then
-            echo "::warning::index.html del repositori no coincideix amb la construcció. Torna a executar «npm run build» i comet-ho."
-          fi
+      # El desplegament és un git pull al docroot: el que hi ha comès surt
+      # publicat. Si no coincideix amb una construcció nova, el push publicaria
+      # pàgines velles, així que això ha de fallar, no avisar.
+      - name: El lloc comès ha d'estar al dia
+        run: node scripts/verify-build.mjs --site "$SITE"
 
       - uses: actions/upload-artifact@v4
         with:

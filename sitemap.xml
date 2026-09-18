@@ -2,977 +2,782 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://webtools.quexulo.cat/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/convertir-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comprimir-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/redimensionar-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/retallar-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/girar-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/treure-metadades-imatge/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/marca-aigua-imatge/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/veure-metadades-imatge/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/generador-de-favicons/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/imatges-a-gif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/treure-el-fons/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/optimitzar-svg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/svg-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comprimir-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/organitzar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/pdf-a-imatges/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/pdf-a-text/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/extreure-imatges-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/unir-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/separar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/girar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/extreure-pagines-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/imatges-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/marca-aigua-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/numerar-pagines-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/ocr-imatge-i-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/json-a-csv/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/csv-a-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/json-a-yaml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/yaml-a-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/formatar-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/descodificar-jwt/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/base64-text/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/fitxer-a-base64/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/hash-md5-sha256/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/minificar-css/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/minificar-javascript/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comptar-paraules/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/canviar-majuscules/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/ordenar-linies/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/codificar-url/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/entitats-html/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/generar-slug/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/formatar-html/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/formatar-xml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/formatar-sql/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/convertidor-de-colors/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/provador-de-regex/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/generador-qr/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comparar-textos/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/png-a-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/jpg-a-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/png-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/jpg-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/webp-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/webp-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/png-a-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/jpg-a-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/avif-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/avif-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comprimir-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/comprimir-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/jpg-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/png-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/convertir-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/comprimir-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/redimensionar-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/recortar-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/girar-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/quitar-metadatos-imagen/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/marca-de-agua-imagen/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/ver-metadatos-imagen/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/generador-de-favicons/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/imagenes-a-gif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/quitar-el-fondo/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/optimizar-svg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/svg-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/comprimir-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/organizar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/pdf-a-imagenes/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/pdf-a-texto/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/extraer-imagenes-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/unir-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/separar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/girar-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/extraer-paginas-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/imagenes-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/marca-de-agua-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/numerar-paginas-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/ocr-imagen-y-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/json-a-csv/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/csv-a-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/json-a-yaml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/yaml-a-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/formatear-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/decodificar-jwt/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/base64-texto/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/archivo-a-base64/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/hash-md5-sha256/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/minificar-css/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/minificar-javascript/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/contar-palabras/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/cambiar-mayusculas/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/ordenar-lineas/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/codificar-url/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/entidades-html/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/generar-slug/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/formatear-html/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/formatear-xml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/formatear-sql/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/convertidor-de-colores/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/probador-de-regex/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/generador-qr/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/comparar-textos/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/png-a-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/jpg-a-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/png-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/jpg-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/webp-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/webp-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/png-a-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/jpg-a-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/avif-a-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/avif-a-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/comprimir-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/comprimir-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/jpg-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/es/png-a-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/convert-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/compress-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/resize-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/crop-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/rotate-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/strip-image-metadata/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/watermark-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/view-image-metadata/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/favicon-generator/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/images-to-gif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/remove-background/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/optimise-svg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/svg-to-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/compress-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/organise-pdf-pages/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/pdf-to-images/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/pdf-to-text/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/extract-images-from-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/merge-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/split-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/rotate-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/extract-pdf-pages/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/images-to-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/watermark-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/number-pdf-pages/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/ocr-images-and-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/json-to-csv/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/csv-to-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/json-to-yaml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/yaml-to-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/format-json/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/decode-jwt/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/base64-text/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/file-to-base64/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/hash-md5-sha256/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/minify-css/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/minify-javascript/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/word-counter/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/change-case/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/sort-lines/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/url-encode/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/html-entities/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/slug-generator/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/format-html/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/format-xml/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/format-sql/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/colour-converter/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/regex-tester/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/qr-code-generator/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/compare-text/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/png-to-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/jpg-to-webp/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/png-to-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/jpg-to-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/webp-to-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/webp-to-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/png-to-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/jpg-to-avif/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/avif-to-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/avif-to-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/compress-png/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/compress-jpg/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/jpg-to-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/png-to-pdf/</loc>
-    <lastmod>2026-09-18</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

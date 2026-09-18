@@ -1,10 +1,18 @@
 // Generat per scripts/build-pages.mjs. No l'editis.
-const VERSION = 'b9a5ee2738e3';
+const VERSION = 'e5861d986bce';
 const SHELL_CACHE = 'webtools-shell-' + VERSION;
 const LIB_CACHE = 'webtools-vendor-v1';
 const SHELL = [
   "./",
   "assets/styles.css",
+  "assets/fonts/google-sans-italic-latin-ext.woff2",
+  "assets/fonts/google-sans-italic-latin.woff2",
+  "assets/fonts/google-sans-latin-ext.woff2",
+  "assets/fonts/google-sans-latin.woff2",
+  "assets/fonts/play-400-latin-ext.woff2",
+  "assets/fonts/play-400-latin.woff2",
+  "assets/fonts/play-700-latin-ext.woff2",
+  "assets/fonts/play-700-latin.woff2",
   "manifest.webmanifest",
   "icons/icon.svg",
   "icons/icon-192.png",
