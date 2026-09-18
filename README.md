@@ -24,11 +24,32 @@ I després, cada vegada — genera les pàgines i serveix la carpeta:
 node serve.mjs
 ```
 
-Obre <http://localhost:5180>. Per desplegar-lo, genera amb el domini de debò i
-puja la carpeta a qualsevol allotjament estàtic:
+Obre <http://localhost:5180>.
+
+## Desplegament
+
+El lloc viu a <https://webtools.quexulo.cat/>, en un Plesk amb nginx. El
+repositori conté el lloc ja construït, de manera que publicar és construir amb
+el domini bo i pujar-ho.
 
 ```bash
-node scripts/build-pages.mjs --site https://el-teu-domini.cat
+npm run check   # rutes duplicades, traduccions que falten, vendor incomplet
+npm run build   # regenera les 195 pàgines amb la canònica de producció
+```
+
+El domini és a `package.json` i al workflow, no a la línia d'ordres, perquè una
+construcció local amb `localhost` no s'hagi de recordar de canviar-lo. Ja ha
+passat un cop: tot el lloc publicat tenia `canonical` cap a `localhost:5180`,
+que per a un cercador vol dir «la versió bona d'aquesta pàgina no existeix».
+
+`.github/workflows/build.yml` no desplega —les pujades les fas tu—, però a cada
+push comprova el registre, les traduccions i que cap canònica apunti a
+localhost, i deixa un `dist/` descarregable com a artefacte.
+
+Si el que vols és veure en local exactament el que s'ha de pujar:
+
+```bash
+npm run dist    # munta dist/ i res més
 ```
 
 ## Tres idiomes, una URL per eina i per idioma
@@ -112,6 +133,9 @@ i un `.svg` a l'optimitzador. Ho recull `src/ui/filetool.js` des de
 ## Com està fet
 
 ```
+.github/workflows/       construeix i publica a Pages a cada push
+scripts/dist.mjs         munta dist/: el que es desplega, i res més
+scripts/check.mjs        el que val la pena que faci fallar una construcció
 scripts/build-pages.mjs  genera les 195 pàgines, sw.js, manifests, sitemap
 scripts/icons.mjs        dibuixa les icones i escriu els PNG, sense deps
 scripts/vendor.mjs       baixa les llibreries (+ --extras per a OCR i model)
@@ -197,6 +221,12 @@ els dos extrems: títol, filtre, paràmetres i text es deriven de la taula
   sense un subjecte clar. Tots dos avisen quan no hi ha l'extra baixat.
 - **Tot passa en memòria**, així que un PDF de centenars de MB pot fer petar la
   pestanya.
+
+## Llicència
+
+MIT, al fitxer `LICENSE`. El contingut de `vendor/` és codi de tercers
+redistribuït sense modificar sota les seves pròpies llicències, reproduïdes a
+`vendor/LICENSES.md`.
 
 ## Per on continuar
 

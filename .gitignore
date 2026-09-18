@@ -1,0 +1,26 @@
+# Local only
+node_modules/
+dist/
+.DS_Store
+Thumbs.db
+*.log
+
+
+# ---------------------------------------------------------------------------
+# Sobre el lloc construït
+#
+# El lloc construït (index.html, es/, en/, les 192 carpetes d'eines, vendor/,
+# icons/, i18n/, sw.js, sitemap.xml) és al repositori. Amb un Plesk que fa git
+# pull al docroot, això ÉS el desplegament: no ho treguis del seguiment o
+# deixaràs de publicar.
+#
+# El cost és que vendor/ són 31 MB de binaris i que el git en guarda una còpia
+# sencera cada cop que els tornes a baixar. Si algun dia el desplegament passa
+# a fer-se amb rsync o SFTP des de la CI, llavors sí que val la pena treure'ls:
+#
+#   git rm -r --cached vendor icons i18n es en sw.js sitemap.xml robots.txt
+#   git rm --cached index.html manifest.webmanifest .pages-manifest.json
+#   git ls-files | grep -E '^[a-z0-9-]+/index\.html$' | xargs git rm --cached
+#
+# L'historial es queda els blobs igualment; això només atura el creixement.
+# ---------------------------------------------------------------------------

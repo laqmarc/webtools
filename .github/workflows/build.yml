@@ -1,0 +1,71 @@
+name: Construeix i comprova
+
+# Això NO desplega res: el lloc viu en un Plesk i les pujades les fas tu.
+# El que fa és impedir que arribi a producció una construcció trencada, i
+# deixar-te un dist/ ja fet per baixar si el vols pujar tal qual.
+#
+# Quan em diguis com hi puges (SFTP, rsync, el Git de Plesk…), afegir el pas
+# de desplegament aquí baix són deu línies.
+
+env:
+  SITE: https://webtools.quexulo.cat
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # La clau és el hash del guió, que és l'únic lloc on hi ha les versions:
+      # la cache es refresca exactament quan toca i ni un push abans.
+      - name: Recupera les llibreries de la cache
+        id: vendor-cache
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: vendor-${{ hashFiles('scripts/vendor.mjs') }}
+
+      - name: Baixa les llibreries
+        if: steps.vendor-cache.outputs.cache-hit != 'true'
+        run: node scripts/vendor.mjs --extras
+
+      - name: Comprova el registre i les traduccions
+        run: node scripts/check.mjs
+
+      - name: Construeix el lloc
+        run: node scripts/dist.mjs --site "$SITE"
+
+      # La canònica apuntant a localhost ja ha passat un cop i és invisible
+      # des del navegador. Ara falla aquí.
+      - name: Comprova les canòniques
+        run: |
+          if grep -rlE 'localhost|127\.0\.0\.1' dist/index.html dist/sitemap.xml dist/robots.txt dist/es/index.html dist/en/index.html; then
+            echo "::error::Hi ha canòniques que apunten a localhost."
+            exit 1
+          fi
+          echo "Canòniques sobre $SITE"
+
+      # Comprova que el que s'ha comès al repositori és el que s'hauria de
+      # publicar: si el build de dist/ no coincideix amb l'arrel, és que algú
+      # ha pujat una construcció vella o feta amb un altre domini.
+      - name: Compara amb el que hi ha comès
+        run: |
+          if [ -f index.html ] && ! diff -q dist/index.html index.html >/dev/null; then
+            echo "::warning::index.html del repositori no coincideix amb la construcció. Torna a executar «npm run build» i comet-ho."
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lloc
+          path: dist
+          retention-days: 7

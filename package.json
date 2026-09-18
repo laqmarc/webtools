@@ -1,0 +1,25 @@
+{
+  "name": "webtools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Conversió i compressió d'imatges, SVG, PDF, dades i text, tot dins del navegador. En català, castellà i anglès.",
+  "homepage": "https://webtools.quexulo.cat/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laqmarc/webtools.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "node serve.mjs",
+    "build": "node scripts/build-pages.mjs --site https://webtools.quexulo.cat",
+    "dist": "node scripts/dist.mjs --site https://webtools.quexulo.cat",
+    "vendor": "node scripts/vendor.mjs",
+    "vendor:extras": "node scripts/vendor.mjs --extras",
+    "check": "node scripts/check.mjs",
+    "test": "node --test tests/"
+  }
+}
