@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imágenes a GIF animado en línea, en el navegador — WebTools</title>
+<meta name="description" content="Haz un GIF animado a partir de una serie de imágenes. El orden es el de la lista, y como las filas se pueden arrastrar, reordenar los fotogramas es cuestión…">
+<link rel="canonical" href="http://localhost:5180/es/imagenes-a-gif/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/imatges-a-gif/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/imagenes-a-gif/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/images-to-gif/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/imatges-a-gif/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Imágenes a GIF animado en línea, en el navegador — WebTools">
+<meta property="og:description" content="Haz un GIF animado a partir de una serie de imágenes. El orden es el de la lista, y como las filas se pueden arrastrar, reordenar los fotogramas es cuestión…">
+<meta property="og:url" content="http://localhost:5180/es/imagenes-a-gif/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Imágenes a GIF animado",
+          "item": "http://localhost:5180/es/imagenes-a-gif/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Imágenes a GIF animado",
+      "url": "http://localhost:5180/es/imagenes-a-gif/",
+      "description": "Haz un GIF animado a partir de una serie de imágenes. El orden es el de la lista, y como las filas se pueden arrastrar, reordenar los fotogramas es cuestión…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué pesa tanto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el GIF es un formato de los años ochenta: sin pérdida, limitado a 256 colores y sin compresión entre fotogramas. Baja la anchura, recorta la paleta o usa menos fotogramas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué duración de fotograma debo poner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "100 ms son diez imágenes por segundo, que es lo que se ve fluido sin disparar el peso. Por debajo de 20 ms muchos navegadores imponen su propio mínimo igualmente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué hace «volver atrás al acabar»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Añade los fotogramas del revés al final, de modo que la animación va y vuelve en vez de dar un salto seco al reiniciarse."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../imatges-a-gif/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/images-to-gif/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Imágenes a GIF animado</h1>
+    <p>Un GIF a partir de una secuencia de imágenes, en el orden que dejes.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Haz un GIF animado a partir de una serie de imágenes. El orden es el de la lista, y como las filas se pueden arrastrar, reordenar los fotogramas es cuestión de moverlos.</p>
+    <p>Los fotogramas se encajan dentro de un lienzo común, centrados y sin deformarse, de modo que mezclar imágenes de tamaños distintos no hace saltar la animación.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Arrastra las imágenes en el orden que quieras.</li>
+      <li>Ajusta la duración del fotograma y la anchura.</li>
+      <li>Combina y descarga el GIF.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué pesa tanto?</dt>
+      <dd>Porque el GIF es un formato de los años ochenta: sin pérdida, limitado a 256 colores y sin compresión entre fotogramas. Baja la anchura, recorta la paleta o usa menos fotogramas.</dd>
+      <dt>¿Qué duración de fotograma debo poner?</dt>
+      <dd>100 ms son diez imágenes por segundo, que es lo que se ve fluido sin disparar el peso. Por debajo de 20 ms muchos navegadores imponen su propio mínimo igualmente.</dd>
+      <dt>¿Qué hace «volver atrás al acabar»?</dt>
+      <dd>Añade los fotogramas del revés al final, de modo que la animación va y vuelve en vez de dar un salto seco al reiniciarse.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="../girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "images-to-gif","slug": "imagenes-a-gif","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

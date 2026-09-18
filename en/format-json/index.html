@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Format and validate JSON online, in your browser — WebTools</title>
+<meta name="description" content="Indent, minify or sort the keys of a JSON document, and when it is invalid get the line, the column and what was expected there.">
+<link rel="canonical" href="http://localhost:5180/en/format-json/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/formatar-json/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/formatear-json/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/format-json/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/formatar-json/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Format and validate JSON online, in your browser — WebTools">
+<meta property="og:description" content="Indent, minify or sort the keys of a JSON document, and when it is invalid get the line, the column and what was expected there.">
+<meta property="og:url" content="http://localhost:5180/en/format-json/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Format and validate JSON",
+          "item": "http://localhost:5180/en/format-json/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Format and validate JSON",
+      "url": "http://localhost:5180/en/format-json/",
+      "description": "Indent, minify or sort the keys of a JSON document, and when it is invalid get the line, the column and what was expected there.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is sorting the keys for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For comparing two JSON documents that hold the same content in a different order. Once both are sorted, a text diff shows only the real differences."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the file uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Everything happens inside the tab, which matters when the JSON you paste holds API keys or customer data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it accept JSON with comments or trailing commas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and it will tell you exactly where. That is not standard JSON, even though some configuration files allow it."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../formatar-json/" hreflang="ca">Català</a><a class="lang" href="../../es/formatear-json/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Data</nav>
+  <header class="tool-head">
+    <h1>Format and validate JSON</h1>
+    <p>Indent, minify or sort keys, and get the error’s line and column.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Indent, minify or sort the keys of a JSON document, and when it is invalid get the line, the column and what was expected there.</p>
+    <p>The browser engine no longer says where it failed, so when JSON does not parse the page walks it again with its own analyser, which can: “a comma too many before }”, “expected a key name in double quotes”, always with the exact position.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste the JSON, however messy.</li>
+      <li>Choose indented, minified or key-sorted output.</li>
+      <li>Copy the result.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>What is sorting the keys for?</dt>
+      <dd>For comparing two JSON documents that hold the same content in a different order. Once both are sorted, a text diff shows only the real differences.</dd>
+      <dt>Is the file uploaded anywhere?</dt>
+      <dd>No. Everything happens inside the tab, which matters when the JSON you paste holds API keys or customer data.</dd>
+      <dt>Does it accept JSON with comments or trailing commas?</dt>
+      <dd>No, and it will tell you exactly where. That is not standard JSON, even though some configuration files allow it.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../json-to-csv/" data-search="json to csv an array of objects into a table, flattening nested objects. json csv table excel export convert json-to-csv"><b>JSON to CSV</b><span>An array of objects into a table, flattening nested objects.</span></a>
+      <a class="card" href="../csv-to-json/" data-search="csv to json detects the separator, respects quotes and types the values. csv json convert table import tsv csv-to-json"><b>CSV to JSON</b><span>Detects the separator, respects quotes and types the values.</span></a>
+      <a class="card" href="../json-to-yaml/" data-search="json to yaml a straight conversion that keeps the key order. json yaml yml convert configuration json-to-yaml"><b>JSON to YAML</b><span>A straight conversion that keeps the key order.</span></a>
+      <a class="card" href="../yaml-to-json/" data-search="yaml to json takes files with several documents in them. yaml yml json convert configuration yaml-to-json"><b>YAML to JSON</b><span>Takes files with several documents in them.</span></a>
+      <a class="card" href="../decode-jwt/" data-search="decode a jwt header, payload and expiry. the signature is not verified. jwt token jose decode auth bearer decode-jwt"><b>Decode a JWT</b><span>Header, payload and expiry. The signature is not verified.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "json-format","slug": "format-json","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

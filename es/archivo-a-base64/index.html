@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Archivo a Base64 en línea, en el navegador — WebTools</title>
+<meta name="description" content="Convierte un archivo en un data URI listo para pegar dentro de una hoja de estilo, un HTML o un JSON de configuración. Sirve para incrustar un icono pequeño…">
+<link rel="canonical" href="http://localhost:5180/es/archivo-a-base64/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/fitxer-a-base64/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/archivo-a-base64/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/file-to-base64/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/fitxer-a-base64/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Archivo a Base64 en línea, en el navegador — WebTools">
+<meta property="og:description" content="Convierte un archivo en un data URI listo para pegar dentro de una hoja de estilo, un HTML o un JSON de configuración. Sirve para incrustar un icono pequeño…">
+<meta property="og:url" content="http://localhost:5180/es/archivo-a-base64/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Archivo a Base64",
+          "item": "http://localhost:5180/es/archivo-a-base64/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Archivo a Base64",
+      "url": "http://localhost:5180/es/archivo-a-base64/",
+      "description": "Convierte un archivo en un data URI listo para pegar dentro de una hoja de estilo, un HTML o un JSON de configuración. Sirve para incrustar un icono pequeño…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Hasta qué tamaño vale la pena incrustar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Como regla práctica, por debajo de unos 4 kB. Por encima, el crecimiento del 33 % y la pérdida de caché suelen hacer más daño que bien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo incrustar un SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, pero para SVG suele ir mejor codificarlo con porcentajes en vez de Base64: ocupa menos y sigue siendo legible dentro del CSS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El tipo MIME sale bien?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Se toma del que el sistema operativo indica para el archivo. Si el navegador no sabe el tipo, se pone application/octet-stream y lo puedes corregir a mano."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../fitxer-a-base64/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/file-to-base64/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Datos</nav>
+  <header class="tool-head">
+    <h1>Archivo a Base64</h1>
+    <p>Genera un data URI listo para pegar en CSS o HTML.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Convierte un archivo en un data URI listo para pegar dentro de una hoja de estilo, un HTML o un JSON de configuración. Sirve para incrustar un icono pequeño y ahorrarse una petición de red.</p>
+    <p>Tiene sentido con archivos pequeños. A partir de unos pocos kilobytes, incrustar sale a cuenta perder: el recurso deja de poder cachearse por separado y la hoja de estilo engorda para todo el mundo.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el archivo.</li>
+      <li>Elige si quieres el data URI completo o solo el Base64.</li>
+      <li>Procesa y descarga el .txt.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Hasta qué tamaño vale la pena incrustar?</dt>
+      <dd>Como regla práctica, por debajo de unos 4 kB. Por encima, el crecimiento del 33 % y la pérdida de caché suelen hacer más daño que bien.</dd>
+      <dt>¿Puedo incrustar un SVG?</dt>
+      <dd>Sí, pero para SVG suele ir mejor codificarlo con porcentajes en vez de Base64: ocupa menos y sigue siendo legible dentro del CSS.</dd>
+      <dt>¿El tipo MIME sale bien?</dt>
+      <dd>Se toma del que el sistema operativo indica para el archivo. Si el navegador no sabe el tipo, se pone application/octet-stream y lo puedes corregir a mano.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array de objetos a tabla, aplanando los objetos anidados. json csv tabla excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array de objetos a tabla, aplanando los objetos anidados.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respeta las comillas y tipa los valores. csv json convertir tabla importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respeta las comillas y tipa los valores.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversión directa manteniendo el orden de las claves. json yaml yml convertir configuración json-a-yaml"><b>JSON a YAML</b><span>Conversión directa manteniendo el orden de las claves.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json acepta varios documentos en un mismo archivo. yaml yml json convertir configuración yaml-a-json"><b>YAML a JSON</b><span>Acepta varios documentos en un mismo archivo.</span></a>
+      <a class="card" href="../formatear-json/" data-search="formatear y validar json indenta, minifica u ordena claves, y señala el error con línea y columna. json formatear validar bonito pretty minificar ordenar claves formatear-json"><b>Formatear y validar JSON</b><span>Indenta, minifica u ordena claves, y señala el error con línea y columna.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "base64-file","slug": "archivo-a-base64","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON a YAML en línia, al navegador — WebTools</title>
+<meta name="description" content="Passa un JSON a YAML mantenint l’ordre de les claus. És el que necessites quan has de posar una configuració que tens en JSON dins d’un docker-compose, un…">
+<link rel="canonical" href="http://localhost:5180/json-a-yaml/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/json-a-yaml/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/json-a-yaml/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/json-to-yaml/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/json-a-yaml/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="JSON a YAML en línia, al navegador — WebTools">
+<meta property="og:description" content="Passa un JSON a YAML mantenint l’ordre de les claus. És el que necessites quan has de posar una configuració que tens en JSON dins d’un docker-compose, un…">
+<meta property="og:url" content="http://localhost:5180/json-a-yaml/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JSON a YAML",
+          "item": "http://localhost:5180/json-a-yaml/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "JSON a YAML",
+      "url": "http://localhost:5180/json-a-yaml/",
+      "description": "Passa un JSON a YAML mantenint l’ordre de les claus. És el que necessites quan has de posar una configuració que tens en JSON dins d’un docker-compose, un…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quina indentació he de triar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dos espais és la convenció majoritària i la que fan servir Docker Compose i Kubernetes. El YAML no admet tabuladors en cap cas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què algunes cadenes surten entre cometes i altres no?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El YAML només les necessita quan el valor es podria confondre amb un altre tipus: «true», «null», «1.0» o una cadena que comenci amb un caràcter especial. Amb l’opció automàtica només se’n posen on calen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es conserva l’ordre de les claus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, surt el mateix ordre que tenia el JSON d’entrada."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/json-a-yaml/" hreflang="es">Español</a><a class="lang" href="../en/json-to-yaml/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Dades</nav>
+  <header class="tool-head">
+    <h1>JSON a YAML</h1>
+    <p>Conversió directa mantenint l’ordre de les claus.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Passa un JSON a YAML mantenint l’ordre de les claus. És el que necessites quan has de posar una configuració que tens en JSON dins d’un docker-compose, un manifest de Kubernetes o un flux de treball de CI.</p>
+    <p>El resultat evita les referències i les àncores, de manera que és llegible i es pot enganxar tal qual encara que hi hagi estructures repetides.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Enganxa el JSON.</li>
+      <li>Ajusta la indentació si el teu projecte n’usa una altra.</li>
+      <li>Copia el YAML.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quina indentació he de triar?</dt>
+      <dd>Dos espais és la convenció majoritària i la que fan servir Docker Compose i Kubernetes. El YAML no admet tabuladors en cap cas.</dd>
+      <dt>Per què algunes cadenes surten entre cometes i altres no?</dt>
+      <dd>El YAML només les necessita quan el valor es podria confondre amb un altre tipus: «true», «null», «1.0» o una cadena que comenci amb un caràcter especial. Amb l’opció automàtica només se’n posen on calen.</dd>
+      <dt>Es conserva l’ordre de les claus?</dt>
+      <dd>Sí, surt el mateix ordre que tenia el JSON d’entrada.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array d’objectes a taula, aplanant els objectes imbricats. json csv taula excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array d’objectes a taula, aplanant els objectes imbricats.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="../formatar-json/" data-search="formatar i validar json indenta, minifica o ordena claus, i assenyala l’error amb línia i columna. json formatar validar bonic pretty minificar ordenar claus formatar-json"><b>Formatar i validar JSON</b><span>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</span></a>
+      <a class="card" href="../descodificar-jwt/" data-search="descodificar jwt capçalera, càrrega útil i caducitat. la signatura no es verifica. jwt token jose descodificar auth bearer descodificar-jwt"><b>Descodificar JWT</b><span>Capçalera, càrrega útil i caducitat. La signatura no es verifica.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "json-to-yaml","slug": "json-a-yaml","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

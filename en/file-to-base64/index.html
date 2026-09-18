@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File to Base64 online, in your browser — WebTools</title>
+<meta name="description" content="Turn a file into a data URI ready to paste into a stylesheet, some HTML or a configuration file. Handy for inlining a small icon and saving a network request.">
+<link rel="canonical" href="http://localhost:5180/en/file-to-base64/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/fitxer-a-base64/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/archivo-a-base64/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/file-to-base64/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/fitxer-a-base64/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="File to Base64 online, in your browser — WebTools">
+<meta property="og:description" content="Turn a file into a data URI ready to paste into a stylesheet, some HTML or a configuration file. Handy for inlining a small icon and saving a network request.">
+<meta property="og:url" content="http://localhost:5180/en/file-to-base64/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "File to Base64",
+          "item": "http://localhost:5180/en/file-to-base64/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "File to Base64",
+      "url": "http://localhost:5180/en/file-to-base64/",
+      "description": "Turn a file into a data URI ready to paste into a stylesheet, some HTML or a configuration file. Handy for inlining a small icon and saving a network request.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Up to what size is inlining worth it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As a rule of thumb, under about 4 kB. Above that, the 33 % growth and the lost caching usually do more harm than good."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I inline an SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, but SVG is usually better encoded with percent-escapes than Base64: it takes less room and stays readable inside the CSS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the MIME type come out right?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It comes from what the operating system reports for the file. If the browser does not know the type, application/octet-stream is used and you can correct it by hand."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../fitxer-a-base64/" hreflang="ca">Català</a><a class="lang" href="../../es/archivo-a-base64/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Data</nav>
+  <header class="tool-head">
+    <h1>File to Base64</h1>
+    <p>Makes a data URI ready to paste into CSS or HTML.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Turn a file into a data URI ready to paste into a stylesheet, some HTML or a configuration file. Handy for inlining a small icon and saving a network request.</p>
+    <p>It makes sense with small files. Past a few kilobytes, inlining starts to lose: the resource can no longer be cached separately and the stylesheet gets heavier for everyone.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the file.</li>
+      <li>Choose the full data URI or just the Base64.</li>
+      <li>Process and download the .txt.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Up to what size is inlining worth it?</dt>
+      <dd>As a rule of thumb, under about 4 kB. Above that, the 33 % growth and the lost caching usually do more harm than good.</dd>
+      <dt>Can I inline an SVG?</dt>
+      <dd>Yes, but SVG is usually better encoded with percent-escapes than Base64: it takes less room and stays readable inside the CSS.</dd>
+      <dt>Does the MIME type come out right?</dt>
+      <dd>It comes from what the operating system reports for the file. If the browser does not know the type, application/octet-stream is used and you can correct it by hand.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../json-to-csv/" data-search="json to csv an array of objects into a table, flattening nested objects. json csv table excel export convert json-to-csv"><b>JSON to CSV</b><span>An array of objects into a table, flattening nested objects.</span></a>
+      <a class="card" href="../csv-to-json/" data-search="csv to json detects the separator, respects quotes and types the values. csv json convert table import tsv csv-to-json"><b>CSV to JSON</b><span>Detects the separator, respects quotes and types the values.</span></a>
+      <a class="card" href="../json-to-yaml/" data-search="json to yaml a straight conversion that keeps the key order. json yaml yml convert configuration json-to-yaml"><b>JSON to YAML</b><span>A straight conversion that keeps the key order.</span></a>
+      <a class="card" href="../yaml-to-json/" data-search="yaml to json takes files with several documents in them. yaml yml json convert configuration yaml-to-json"><b>YAML to JSON</b><span>Takes files with several documents in them.</span></a>
+      <a class="card" href="../format-json/" data-search="format and validate json indent, minify or sort keys, and get the error’s line and column. json format validate pretty print minify sort keys format-json"><b>Format and validate JSON</b><span>Indent, minify or sort keys, and get the error’s line and column.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "base64-file","slug": "file-to-base64","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

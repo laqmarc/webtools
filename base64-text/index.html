@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base64 (text) en línia, al navegador — WebTools</title>
+<meta name="description" content="Codifica i descodifica text en Base64, amb suport complet per a UTF-8: els accents, la ce trencada i els emoji passen i tornen intactes.">
+<link rel="canonical" href="http://localhost:5180/base64-text/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/base64-text/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/base64-texto/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/base64-text/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/base64-text/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Base64 (text) en línia, al navegador — WebTools">
+<meta property="og:description" content="Codifica i descodifica text en Base64, amb suport complet per a UTF-8: els accents, la ce trencada i els emoji passen i tornen intactes.">
+<meta property="og:url" content="http://localhost:5180/base64-text/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Base64 (text)",
+          "item": "http://localhost:5180/base64-text/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Base64 (text)",
+      "url": "http://localhost:5180/base64-text/",
+      "description": "Codifica i descodifica text en Base64, amb suport complet per a UTF-8: els accents, la ce trencada i els emoji passen i tornen intactes.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Base64 és xifrar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, en absolut. És només una manera de representar dades amb caràcters segurs per a transport. Qualsevol el pot desfer en un segon: no serveix per protegir res."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què el meu Base64 no es descodifica?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sol ser el farciment. Aquesta pàgina afegeix sola els signes «=» que faltin i accepta tant la variant estàndard com la segura per a URL, així que si tot i això falla és que el text està tallat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quant creix el text?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un terç aproximadament: cada tres bytes es converteixen en quatre caràcters."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/base64-texto/" hreflang="es">Español</a><a class="lang" href="../en/base64-text/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Dades</nav>
+  <header class="tool-head">
+    <h1>Base64 (text)</h1>
+    <p>Codifica i descodifica text UTF-8, amb variant segura per a URL.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Codifica i descodifica text en Base64, amb suport complet per a UTF-8: els accents, la ce trencada i els emoji passen i tornen intactes.</p>
+    <p>La variant segura per a URL substitueix els caràcters + i / per - i _, i treu el farciment final, que és el que demanen els JWT i molts paràmetres de consulta.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Tria la direcció.</li>
+      <li>Enganxa el text o el Base64.</li>
+      <li>Copia el resultat.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Base64 és xifrar?</dt>
+      <dd>No, en absolut. És només una manera de representar dades amb caràcters segurs per a transport. Qualsevol el pot desfer en un segon: no serveix per protegir res.</dd>
+      <dt>Per què el meu Base64 no es descodifica?</dt>
+      <dd>Sol ser el farciment. Aquesta pàgina afegeix sola els signes «=» que faltin i accepta tant la variant estàndard com la segura per a URL, així que si tot i això falla és que el text està tallat.</dd>
+      <dt>Quant creix el text?</dt>
+      <dd>Un terç aproximadament: cada tres bytes es converteixen en quatre caràcters.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array d’objectes a taula, aplanant els objectes imbricats. json csv taula excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array d’objectes a taula, aplanant els objectes imbricats.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversió directa mantenint l’ordre de les claus. json yaml yml convertir configuració json-a-yaml"><b>JSON a YAML</b><span>Conversió directa mantenint l’ordre de les claus.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="../formatar-json/" data-search="formatar i validar json indenta, minifica o ordena claus, i assenyala l’error amb línia i columna. json formatar validar bonic pretty minificar ordenar claus formatar-json"><b>Formatar i validar JSON</b><span>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "base64-text","slug": "base64-text","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

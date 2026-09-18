@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extract pages online, in your browser — WebTools</title>
+<meta name="description" content="Keep only the pages you want, or do the opposite and remove the ones you do not. It is the same operation seen from both sides, and the switch flips it.">
+<link rel="canonical" href="http://localhost:5180/en/extract-pdf-pages/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/extreure-pagines-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/extraer-paginas-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/extract-pdf-pages/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/extreure-pagines-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Extract pages online, in your browser — WebTools">
+<meta property="og:description" content="Keep only the pages you want, or do the opposite and remove the ones you do not. It is the same operation seen from both sides, and the switch flips it.">
+<meta property="og:url" content="http://localhost:5180/en/extract-pdf-pages/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Extract pages",
+          "item": "http://localhost:5180/en/extract-pdf-pages/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Extract pages",
+      "url": "http://localhost:5180/en/extract-pdf-pages/",
+      "description": "Keep only the pages you want, or do the opposite and remove the ones you do not. It is the same operation seen from both sides, and the switch flips it.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can the deleted pages be recovered from the new file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. The output document is built by copying only the pages that are kept, so the rest are simply not there, hidden or otherwise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the order I type respected?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pages come out in ascending order, not in the order you type them. To reorder, use “Organise pages”."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I drop the last page without knowing how many there are?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Type a high enough number at the end of a range: it is clipped to the last page that exists."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../extreure-pagines-pdf/" hreflang="ca">Català</a><a class="lang" href="../../es/extraer-paginas-pdf/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Extract pages</h1>
+    <p>Keep only some pages, or delete them from the document.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Keep only the pages you want, or do the opposite and remove the ones you do not. It is the same operation seen from both sides, and the switch flips it.</p>
+    <p>Useful for sending just the relevant chapter, dropping a blank cover, or removing pages with data you would rather not share.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Add the PDF.</li>
+      <li>Type the pages, for example “1-3, 7”.</li>
+      <li>Tick the box if you want to delete them rather than keep them.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Can the deleted pages be recovered from the new file?</dt>
+      <dd>No. The output document is built by copying only the pages that are kept, so the rest are simply not there, hidden or otherwise.</dd>
+      <dt>Is the order I type respected?</dt>
+      <dd>Pages come out in ascending order, not in the order you type them. To reorder, use “Organise pages”.</dd>
+      <dt>Can I drop the last page without knowing how many there are?</dt>
+      <dd>Type a high enough number at the end of a range: it is clipped to the last page that exists.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../compress-pdf/" data-search="compress pdf re-encodes the images inside without touching the text or structure. pdf compress shrink reduce size optimise scan compress-pdf"><b>Compress PDF</b><span>Re-encodes the images inside without touching the text or structure.</span></a>
+      <a class="card" href="../organise-pdf-pages/" data-search="organise pages see every page, drag them about, turn them and drop the spares. pdf organise reorder sort pages thumbnails move delete organise-pdf-pages"><b>Organise pages</b><span>See every page, drag them about, turn them and drop the spares.</span></a>
+      <a class="card" href="../pdf-to-images/" data-search="pdf to images one image per page, at whatever resolution you need. pdf image jpg png webp convert pages rasterise export pdf-to-images"><b>PDF to images</b><span>One image per page, at whatever resolution you need.</span></a>
+      <a class="card" href="../pdf-to-text/" data-search="pdf to text pulls out the document’s text layer, without ocr. pdf text extract copy content txt pdf-to-text"><b>PDF to text</b><span>Pulls out the document’s text layer, without OCR.</span></a>
+      <a class="card" href="../extract-images-from-pdf/" data-search="extract images from a pdf pulls the embedded photos and graphics out as separate files. pdf extract images photos save jpg png extract-images-from-pdf"><b>Extract images from a PDF</b><span>Pulls the embedded photos and graphics out as separate files.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-extract","slug": "extract-pdf-pages","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compress PNG online, free and with no upload — WebTools</title>
+<meta name="description" content="PNG compresses losslessly, which means there is a floor it cannot go below: if the image has gradients or photographic noise, the file will be large and…">
+<link rel="canonical" href="http://localhost:5180/en/compress-png/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comprimir-png/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/comprimir-png/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/compress-png/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comprimir-png/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Compress PNG online, free and with no upload — WebTools">
+<meta property="og:description" content="PNG compresses losslessly, which means there is a floor it cannot go below: if the image has gradients or photographic noise, the file will be large and…">
+<meta property="og:url" content="http://localhost:5180/en/compress-png/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compress PNG",
+          "item": "http://localhost:5180/en/compress-png/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Compress PNG",
+      "url": "http://localhost:5180/en/compress-png/",
+      "description": "PNG compresses losslessly, which means there is a floor it cannot go below: if the image has gradients or photographic noise, the file will be large and…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my PNG barely shrink when I choose “Keep the original”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the PNG was already compressed and this tool re-encodes it with the same lossless algorithm. Re-encoding a lossless format does not invent space: what really cuts the weight is moving to WebP or reducing the pixel dimensions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is lossless WebP as good as PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is identical pixel for pixel and, on average, 26 % smaller. The difference is support: every browser opens it, but some older desktop software still does not."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I cut the weight a lot without changing format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By reducing the pixel dimensions. A 3000 px-wide screenshot that will be shown at 800 px has nine times more pixels than it needs."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../comprimir-png/" hreflang="ca">Català</a><a class="lang" href="../../es/comprimir-png/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>Compress PNG</h1>
+    <p>Shrink PNG screenshots and graphics, out as WebP with transparency.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>PNG compresses losslessly, which means there is a floor it cannot go below: if the image has gradients or photographic noise, the file will be large and there is not much to do about it without changing format.</p>
+    <p>So this page is set up to produce a WebP. It keeps transparency just as PNG does, and for a typical screenshot the result is usually ten to thirty times lighter. If you need the output to stay PNG, switch the format to “Keep the original”: the gain will be far more modest.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the images you want to slim down.</li>
+      <li>Choose whether to fix the quality or a maximum size in kilobytes.</li>
+      <li>Check the percentage-saved column and download whatever convinces you.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Why does my PNG barely shrink when I choose “Keep the original”?</dt>
+      <dd>Because the PNG was already compressed and this tool re-encodes it with the same lossless algorithm. Re-encoding a lossless format does not invent space: what really cuts the weight is moving to WebP or reducing the pixel dimensions.</dd>
+      <dt>Is lossless WebP as good as PNG?</dt>
+      <dd>It is identical pixel for pixel and, on average, 26 % smaller. The difference is support: every browser opens it, but some older desktop software still does not.</dd>
+      <dt>How can I cut the weight a lot without changing format?</dt>
+      <dd>By reducing the pixel dimensions. A 3000 px-wide screenshot that will be shown at 800 px has nine times more pixels than it needs.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../compress-images/" data-search="compress images cut the weight by quality, or down to a size you pick. compress shrink reduce file size optimise kb image compress-images"><b>Compress images</b><span>Cut the weight by quality, or down to a size you pick.</span></a>
+      <a class="card" href="../compress-jpg/" data-search="compress jpg re-encode jpeg photos by quality or down to a size limit. compress-jpg"><b>Compress JPG</b><span>Re-encode JPEG photos by quality or down to a size limit.</span></a>
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../crop-images/" data-search="crop images draw the crop on the picture and apply it to the whole batch. crop cut aspect square visual mouse image crop-images"><b>Crop images</b><span>Draw the crop on the picture and apply it to the whole batch.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-compress","slug": "compress-png","lang": "en","accepts": ["image/png"],"preset": {"format": "webp"},"lock": []};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

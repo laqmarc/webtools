@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON to CSV online, in your browser — WebTools</title>
+<meta name="description" content="Turn a list of JSON objects into a table that Excel, Numbers or Google Sheets open directly. The columns come from the keys, and every key that appears in…">
+<link rel="canonical" href="http://localhost:5180/en/json-to-csv/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/json-a-csv/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/json-a-csv/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/json-to-csv/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/json-a-csv/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="JSON to CSV online, in your browser — WebTools">
+<meta property="og:description" content="Turn a list of JSON objects into a table that Excel, Numbers or Google Sheets open directly. The columns come from the keys, and every key that appears in…">
+<meta property="og:url" content="http://localhost:5180/en/json-to-csv/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JSON to CSV",
+          "item": "http://localhost:5180/en/json-to-csv/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "JSON to CSV",
+      "url": "http://localhost:5180/en/json-to-csv/",
+      "description": "Turn a list of JSON objects into a table that Excel, Numbers or Google Sheets open directly. The columns come from the keys, and every key that appears in…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which separator should I pick?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The comma is the standard, but Excel in many European locales expects a semicolon. If everything lands in one column when you open the file, switch."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Excel mangles my accents — why?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because it does not detect that the file is UTF-8. Tick the BOM box: it adds an invisible marker at the start that makes Excel get it right."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to values that are lists?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are stored inside the cell as JSON text. A table has no way to represent a list in a single cell, so showing it plainly is the honest option."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../json-a-csv/" hreflang="ca">Català</a><a class="lang" href="../../es/json-a-csv/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Data</nav>
+  <header class="tool-head">
+    <h1>JSON to CSV</h1>
+    <p>An array of objects into a table, flattening nested objects.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Turn a list of JSON objects into a table that Excel, Numbers or Google Sheets open directly. The columns come from the keys, and every key that appears in any of the objects is collected.</p>
+    <p>Nested objects are flattened with dot notation, so {&quot;address&quot;: {&quot;city&quot;: &quot;Girona&quot;}} becomes a column called address.city.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste the JSON or open a file.</li>
+      <li>Choose the separator your spreadsheet expects.</li>
+      <li>Copy the result or download it as .csv.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Which separator should I pick?</dt>
+      <dd>The comma is the standard, but Excel in many European locales expects a semicolon. If everything lands in one column when you open the file, switch.</dd>
+      <dt>Excel mangles my accents — why?</dt>
+      <dd>Because it does not detect that the file is UTF-8. Tick the BOM box: it adds an invisible marker at the start that makes Excel get it right.</dd>
+      <dt>What happens to values that are lists?</dt>
+      <dd>They are stored inside the cell as JSON text. A table has no way to represent a list in a single cell, so showing it plainly is the honest option.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../csv-to-json/" data-search="csv to json detects the separator, respects quotes and types the values. csv json convert table import tsv csv-to-json"><b>CSV to JSON</b><span>Detects the separator, respects quotes and types the values.</span></a>
+      <a class="card" href="../json-to-yaml/" data-search="json to yaml a straight conversion that keeps the key order. json yaml yml convert configuration json-to-yaml"><b>JSON to YAML</b><span>A straight conversion that keeps the key order.</span></a>
+      <a class="card" href="../yaml-to-json/" data-search="yaml to json takes files with several documents in them. yaml yml json convert configuration yaml-to-json"><b>YAML to JSON</b><span>Takes files with several documents in them.</span></a>
+      <a class="card" href="../format-json/" data-search="format and validate json indent, minify or sort keys, and get the error’s line and column. json format validate pretty print minify sort keys format-json"><b>Format and validate JSON</b><span>Indent, minify or sort keys, and get the error’s line and column.</span></a>
+      <a class="card" href="../decode-jwt/" data-search="decode a jwt header, payload and expiry. the signature is not verified. jwt token jose decode auth bearer decode-jwt"><b>Decode a JWT</b><span>Header, payload and expiry. The signature is not verified.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "json-to-csv","slug": "json-to-csv","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

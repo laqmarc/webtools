@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Images to animated GIF online, in your browser — WebTools</title>
+<meta name="description" content="Make an animated GIF from a series of images. The order is the order of the list, and since rows can be dragged, reordering frames is a matter of moving them.">
+<link rel="canonical" href="http://localhost:5180/en/images-to-gif/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/imatges-a-gif/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/imagenes-a-gif/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/images-to-gif/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/imatges-a-gif/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Images to animated GIF online, in your browser — WebTools">
+<meta property="og:description" content="Make an animated GIF from a series of images. The order is the order of the list, and since rows can be dragged, reordering frames is a matter of moving them.">
+<meta property="og:url" content="http://localhost:5180/en/images-to-gif/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Images to animated GIF",
+          "item": "http://localhost:5180/en/images-to-gif/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Images to animated GIF",
+      "url": "http://localhost:5180/en/images-to-gif/",
+      "description": "Make an animated GIF from a series of images. The order is the order of the list, and since rows can be dragged, reordering frames is a matter of moving them.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is it so heavy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because GIF is a format from the 1980s: lossless, limited to 256 colours and with no compression between frames. Drop the width, trim the palette or use fewer frames."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What frame duration should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "100 ms is ten images per second, which looks smooth without blowing up the weight. Below 20 ms many browsers impose their own minimum anyway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does “play backwards at the end” do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It appends the frames in reverse, so the animation goes out and back instead of jumping abruptly when it loops."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../imatges-a-gif/" hreflang="ca">Català</a><a class="lang" href="../../es/imagenes-a-gif/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>Images to animated GIF</h1>
+    <p>A GIF from a sequence of images, in the order you leave them.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Make an animated GIF from a series of images. The order is the order of the list, and since rows can be dragged, reordering frames is a matter of moving them.</p>
+    <p>Frames are fitted into a shared canvas, centred and undistorted, so mixing images of different sizes does not make the animation jump about.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drag the images in the order you want.</li>
+      <li>Set the frame duration and the width.</li>
+      <li>Combine and download the GIF.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Why is it so heavy?</dt>
+      <dd>Because GIF is a format from the 1980s: lossless, limited to 256 colours and with no compression between frames. Drop the width, trim the palette or use fewer frames.</dd>
+      <dt>What frame duration should I use?</dt>
+      <dd>100 ms is ten images per second, which looks smooth without blowing up the weight. Below 20 ms many browsers impose their own minimum anyway.</dd>
+      <dt>What does “play backwards at the end” do?</dt>
+      <dd>It appends the frames in reverse, so the animation goes out and back instead of jumping abruptly when it loops.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../compress-images/" data-search="compress images cut the weight by quality, or down to a size you pick. compress shrink reduce file size optimise kb image compress-images"><b>Compress images</b><span>Cut the weight by quality, or down to a size you pick.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../crop-images/" data-search="crop images draw the crop on the picture and apply it to the whole batch. crop cut aspect square visual mouse image crop-images"><b>Crop images</b><span>Draw the crop on the picture and apply it to the whole batch.</span></a>
+      <a class="card" href="../rotate-images/" data-search="rotate and flip quarter turns, and horizontal or vertical flips. rotate turn flip mirror image rotate-images"><b>Rotate and flip</b><span>Quarter turns, and horizontal or vertical flips.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "images-to-gif","slug": "images-to-gif","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

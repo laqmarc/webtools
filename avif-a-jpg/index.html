@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AVIF a JPG en línia, gratis i sense pujar res — WebTools</title>
+<meta name="description" content="Converteix imatges AVIF a JPEG directament al navegador, d’una en una o totes de cop. Cap fitxer no es puja a cap servidor: el teu propi ordinador fa la…">
+<link rel="canonical" href="http://localhost:5180/avif-a-jpg/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/avif-a-jpg/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/avif-a-jpg/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/avif-to-jpg/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/avif-a-jpg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="AVIF a JPG en línia, gratis i sense pujar res — WebTools">
+<meta property="og:description" content="Converteix imatges AVIF a JPEG directament al navegador, d’una en una o totes de cop. Cap fitxer no es puja a cap servidor: el teu propi ordinador fa la…">
+<meta property="og:url" content="http://localhost:5180/avif-a-jpg/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AVIF a JPG",
+          "item": "http://localhost:5180/avif-a-jpg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "AVIF a JPG",
+      "url": "http://localhost:5180/avif-a-jpg/",
+      "description": "Converteix imatges AVIF a JPEG directament al navegador, d’una en una o totes de cop. Cap fitxer no es puja a cap servidor: el teu propi ordinador fa la…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Es perd qualitat en passar de AVIF a JPEG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPEG comprimeix amb pèrdua, de manera que sí que en perd una mica, controlable amb el control de qualitat. Amb 80-85 la diferència no es veu en una pantalla. Parteix sempre de l’original per no acumular recompressions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què passa amb la transparència?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPEG no té canal alfa, així que les zones transparents es pinten amb el color de fons que triïs abans de codificar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc convertir-ne moltes de cop?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Deixa-hi tots els fitxers que vulguis, es processen en paral·lel aprofitant tots els nuclis del processador i te’ls pots baixar junts en un ZIP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "S’envien les imatges a algun servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tot passa dins d’aquesta pestanya. Un cop la pàgina s’ha carregat pots fins i tot desconnectar la xarxa i continuar convertint."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/avif-a-jpg/" hreflang="es">Español</a><a class="lang" href="../en/avif-to-jpg/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge</nav>
+  <header class="tool-head">
+    <h1>AVIF a JPG</h1>
+    <p>Converteix imatges AVIF a JPG en lot, dins del navegador.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Converteix imatges AVIF a JPEG directament al navegador, d’una en una o totes de cop. Cap fitxer no es puja a cap servidor: el teu propi ordinador fa la descodificació i la codificació, i per això la conversió és immediata i no hi ha límit de mida.</p>
+    <p>La sortida de compatibilitat quan un sistema antic no entén AVIF i tampoc et convé un PNG enorme.</p>
+    <p>AVIF és el més petit dels quatre a igualtat de qualitat, sovint la meitat que un JPEG. La contrapartida és que codificar-lo és lent i el suport fora del navegador encara és desigual. JPEG, en canvi, és el format fotogràfic de tota la vida, amb compressió amb pèrdua i suport universal, tot i que no té transparència i es degrada una mica cada vegada que es torna a desar.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Arrossega les imatges a la zona de dalt, o fes clic per triar-les.</li>
+      <li>Tria el format de destinació i, si en té, ajusta la qualitat.</li>
+      <li>Prem «Processa» i baixa els resultats d’un en un o tots junts en un ZIP.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Es perd qualitat en passar de AVIF a JPEG?</dt>
+      <dd>JPEG comprimeix amb pèrdua, de manera que sí que en perd una mica, controlable amb el control de qualitat. Amb 80-85 la diferència no es veu en una pantalla. Parteix sempre de l’original per no acumular recompressions.</dd>
+      <dt>Què passa amb la transparència?</dt>
+      <dd>JPEG no té canal alfa, així que les zones transparents es pinten amb el color de fons que triïs abans de codificar.</dd>
+      <dt>Puc convertir-ne moltes de cop?</dt>
+      <dd>Sí. Deixa-hi tots els fitxers que vulguis, es processen en paral·lel aprofitant tots els nuclis del processador i te’ls pots baixar junts en un ZIP.</dd>
+      <dt>S’envien les imatges a algun servidor?</dt>
+      <dd>No. Tot passa dins d’aquesta pestanya. Un cop la pàgina s’ha carregat pots fins i tot desconnectar la xarxa i continuar convertint.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="../png-a-webp/" data-search="png a webp converteix imatges png a webp en lot, dins del navegador. png-a-webp"><b>PNG a WebP</b><span>Converteix imatges PNG a WebP en lot, dins del navegador.</span></a>
+      <a class="card" href="../jpg-a-webp/" data-search="jpg a webp converteix imatges jpg a webp en lot, dins del navegador. jpg-a-webp"><b>JPG a WebP</b><span>Converteix imatges JPG a WebP en lot, dins del navegador.</span></a>
+      <a class="card" href="../png-a-jpg/" data-search="png a jpg converteix imatges png a jpg en lot, dins del navegador. png-a-jpg"><b>PNG a JPG</b><span>Converteix imatges PNG a JPG en lot, dins del navegador.</span></a>
+      <a class="card" href="../jpg-a-png/" data-search="jpg a png converteix imatges jpg a png en lot, dins del navegador. jpg-a-png"><b>JPG a PNG</b><span>Converteix imatges JPG a PNG en lot, dins del navegador.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-convert","slug": "avif-a-jpg","lang": "ca","accepts": ["image/avif"],"preset": {"format": "jpeg"},"lock": ["format"]};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

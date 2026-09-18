@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatar i validar JSON en línia, al navegador — WebTools</title>
+<meta name="description" content="Indenta, minifica o ordena les claus d’un JSON, i quan no és vàlid t’indica la línia, la columna i què hi esperava.">
+<link rel="canonical" href="http://localhost:5180/formatar-json/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/formatar-json/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/formatear-json/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/format-json/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/formatar-json/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Formatar i validar JSON en línia, al navegador — WebTools">
+<meta property="og:description" content="Indenta, minifica o ordena les claus d’un JSON, i quan no és vàlid t’indica la línia, la columna i què hi esperava.">
+<meta property="og:url" content="http://localhost:5180/formatar-json/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Formatar i validar JSON",
+          "item": "http://localhost:5180/formatar-json/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Formatar i validar JSON",
+      "url": "http://localhost:5180/formatar-json/",
+      "description": "Indenta, minifica o ordena les claus d’un JSON, i quan no és vàlid t’indica la línia, la columna i què hi esperava.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Per a què serveix ordenar les claus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per comparar dos JSON que tenen el mateix contingut en diferent ordre. Un cop ordenats tots dos, un diff de text només mostra les diferències reals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "S’hi puja el fitxer enlloc?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tot passa dins de la pestanya, cosa que importa quan el JSON que enganxes conté claus d’API o dades de clients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Accepta JSON amb comentaris o comes finals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, i t’ho dirà amb la posició exacta. Això no és JSON estàndard, encara que alguns fitxers de configuració ho admetin."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/formatear-json/" hreflang="es">Español</a><a class="lang" href="../en/format-json/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Dades</nav>
+  <header class="tool-head">
+    <h1>Formatar i validar JSON</h1>
+    <p>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Indenta, minifica o ordena les claus d’un JSON, i quan no és vàlid t’indica la línia, la columna i què hi esperava.</p>
+    <p>El motor del navegador ja no diu on falla, així que quan el JSON no passa la pàgina el torna a recórrer amb un analitzador propi que sí que ho pot dir: «sobra una coma abans de }», «s’esperava el nom d’una clau entre cometes dobles», i sempre amb la posició exacta.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Enganxa el JSON, tan desordenat com calgui.</li>
+      <li>Tria si el vols indentat, minificat o amb les claus ordenades.</li>
+      <li>Copia el resultat.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Per a què serveix ordenar les claus?</dt>
+      <dd>Per comparar dos JSON que tenen el mateix contingut en diferent ordre. Un cop ordenats tots dos, un diff de text només mostra les diferències reals.</dd>
+      <dt>S’hi puja el fitxer enlloc?</dt>
+      <dd>No. Tot passa dins de la pestanya, cosa que importa quan el JSON que enganxes conté claus d’API o dades de clients.</dd>
+      <dt>Accepta JSON amb comentaris o comes finals?</dt>
+      <dd>No, i t’ho dirà amb la posició exacta. Això no és JSON estàndard, encara que alguns fitxers de configuració ho admetin.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array d’objectes a taula, aplanant els objectes imbricats. json csv taula excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array d’objectes a taula, aplanant els objectes imbricats.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversió directa mantenint l’ordre de les claus. json yaml yml convertir configuració json-a-yaml"><b>JSON a YAML</b><span>Conversió directa mantenint l’ordre de les claus.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="../descodificar-jwt/" data-search="descodificar jwt capçalera, càrrega útil i caducitat. la signatura no es verifica. jwt token jose descodificar auth bearer descodificar-jwt"><b>Descodificar JWT</b><span>Capçalera, càrrega útil i caducitat. La signatura no es verifica.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "json-format","slug": "formatar-json","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crop images online, in your browser — WebTools</title>
+<meta name="description" content="Draw the crop with the mouse on the picture, with a rule-of-thirds grid over it and the pixel measurements updating as you drag. You can start fresh with a…">
+<link rel="canonical" href="http://localhost:5180/en/crop-images/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/retallar-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/recortar-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/crop-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/retallar-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Crop images online, in your browser — WebTools">
+<meta property="og:description" content="Draw the crop with the mouse on the picture, with a rule-of-thirds grid over it and the pixel measurements updating as you drag. You can start fresh with a…">
+<meta property="og:url" content="http://localhost:5180/en/crop-images/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Crop images",
+          "item": "http://localhost:5180/en/crop-images/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Crop images",
+      "url": "http://localhost:5180/en/crop-images/",
+      "description": "Draw the crop with the mouse on the picture, with a rule-of-thirds grid over it and the pixel measurements updating as you drag. You can start fresh with a…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I get a perfect square?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose 1:1 in the aspect ratio. From then on the rectangle keeps its proportions as you drag, and whatever was already there is adjusted around its own centre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My photos are different sizes — does it still work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The crop is stored as a fraction of each image, so “the middle third” is the middle third of each one, not a pixel rectangle that would fall outside some of them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I crop one differently from the rest?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Untick “Apply the same crop to all” and only the image selected in the thumbnail strip is cropped."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../retallar-imatges/" hreflang="ca">Català</a><a class="lang" href="../../es/recortar-imagenes/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>Crop images</h1>
+    <p>Draw the crop on the picture and apply it to the whole batch.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Draw the crop with the mouse on the picture, with a rule-of-thirds grid over it and the pixel measurements updating as you drag. You can start fresh with a new rectangle, move the existing one, or pull its corners.</p>
+    <p>The real point, though, is the batch: load twenty photos, leave the box ticked, and the same relative crop lands on all of them. Because it is stored as proportions rather than pixels, it works even when the images are different sizes.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drag in the images; the first one appears on the canvas.</li>
+      <li>Draw or adjust the rectangle, and lock an aspect ratio if you need a specific one.</li>
+      <li>Press “Crop” and download the result, as a ZIP if there is more than one.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>How do I get a perfect square?</dt>
+      <dd>Choose 1:1 in the aspect ratio. From then on the rectangle keeps its proportions as you drag, and whatever was already there is adjusted around its own centre.</dd>
+      <dt>My photos are different sizes — does it still work?</dt>
+      <dd>Yes. The crop is stored as a fraction of each image, so “the middle third” is the middle third of each one, not a pixel rectangle that would fall outside some of them.</dd>
+      <dt>Can I crop one differently from the rest?</dt>
+      <dd>Untick “Apply the same crop to all” and only the image selected in the thumbnail strip is cropped.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../compress-images/" data-search="compress images cut the weight by quality, or down to a size you pick. compress shrink reduce file size optimise kb image compress-images"><b>Compress images</b><span>Cut the weight by quality, or down to a size you pick.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../rotate-images/" data-search="rotate and flip quarter turns, and horizontal or vertical flips. rotate turn flip mirror image rotate-images"><b>Rotate and flip</b><span>Quarter turns, and horizontal or vertical flips.</span></a>
+      <a class="card" href="../strip-image-metadata/" data-search="strip metadata removes exif, gps and profiles by re-encoding to the same format. exif metadata gps privacy clean strip photo strip-image-metadata"><b>Strip metadata</b><span>Removes EXIF, GPS and profiles by re-encoding to the same format.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-crop","slug": "crop-images","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

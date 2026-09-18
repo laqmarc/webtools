@@ -1,0 +1,1304 @@
+{
+  "lang": "es",
+  "ui": {
+    "err.unknownDep": "Dependencia desconocida: {key}",
+    "err.libMissing": "Falta la librería «{key}» en vendor/. Ejecuta «node scripts/vendor.mjs» e inténtalo de nuevo. ({detail})",
+    "err.libNoGlobal": "La librería «{key}» se ha cargado pero no expone {global}.",
+    "err.libLoadFailed": "el archivo no se ha podido cargar",
+    "err.extraMissing": "Esta herramienta necesita un extra que no se ha descargado. Ejecuta «node scripts/vendor.mjs --extras».",
+    "err.noWorkers": "No se han podido crear workers.",
+    "err.workerFailed": "El worker ha fallado",
+    "err.imageUnreadable": "No se ha podido leer la imagen ({type}). {detail}",
+    "err.unknownType": "tipo desconocido",
+    "err.cannotWriteFormat": "Este navegador no sabe escribir {format}.",
+    "err.unknownOp": "Operación desconocida: {op}",
+    "err.encodeEmpty": "La codificación no ha producido ningún resultado.",
+    "err.encodeTo": "No se ha podido codificar a {type}.",
+    "err.canvasEncode": "El navegador no ha podido codificar a {type}.",
+    "err.watermarkText": "Escribe el texto de la marca de agua.",
+    "err.svgInvalid": "SVG no válido: {detail}",
+    "err.svgInvalidPlain": "SVG no válido.",
+    "err.svgDraw": "El navegador no ha podido dibujar este SVG. Comprueba que no tenga recursos externos.",
+    "err.badRange": "No entiendo el rango «{range}». Formato: 1-3, 7, 10-12",
+    "err.invalidRange": "Rango no válido: «{range}».",
+    "err.noPagesSelected": "Ninguna página seleccionada (el documento tiene {count}).",
+    "err.needRange": "Indica al menos un rango.",
+    "err.pdfOpen": "No se ha podido abrir el PDF: {detail}",
+    "err.pdfRead": "No se ha podido leer el PDF: {detail}",
+    "err.pdfPassword": "Este PDF está protegido con contraseña.",
+    "err.pdfNoPages": "Los PDF seleccionados no tienen ninguna página.",
+    "err.pdfResultEmpty": "El resultado no tendría ninguna página.",
+    "err.pdfNoImages": "No hay ninguna imagen que poner en el PDF.",
+    "err.pdfNonLatin": "El carácter «{char}» no se puede escribir con las tipografías internas del PDF. Quítalo o usa solo texto latino.",
+    "err.pdfNoExtracted": "No se ha podido extraer ninguna imagen (el documento declara {count}).",
+    "err.ocrStart": "No se ha podido iniciar el OCR: {detail}",
+    "err.ocrNoPages": "El OCR no ha producido ninguna página.",
+    "err.modelFailed": "El modelo no se ha podido ejecutar: {detail}",
+    "err.jsonAt": "JSON no válido en la línea {line}, columna {col}: {why}.",
+    "err.jsonPlain": "JSON no válido: {detail}",
+    "json.newlineInString": "un salto de línea dentro de un texto (usa \\n)",
+    "json.badEscape": "escape no válido «\\{char}»",
+    "json.badUnicode": "«\\u» debe ir seguido de 4 dígitos hexadecimales",
+    "json.unclosedString": "falta cerrar las comillas",
+    "json.badNumber": "número no válido",
+    "json.expectedKey": "se esperaba el nombre de una clave entre comillas dobles",
+    "json.expectedColon": "se esperaba «:» después de la clave",
+    "json.trailingCommaObject": "sobra una coma antes de «}»",
+    "json.expectedCommaObject": "se esperaba «,» o «}»",
+    "json.trailingCommaArray": "sobra una coma antes de «]»",
+    "json.expectedCommaArray": "se esperaba «,» o «]»",
+    "json.truncated": "el texto se acaba antes de tiempo",
+    "json.singleQuotes": "JSON solo admite comillas dobles",
+    "json.unexpected": "no se esperaba «{char}»",
+    "json.trailingContent": "sobra contenido después del valor",
+    "err.csvNeedsArray": "El CSV necesita una lista de objetos.",
+    "err.yamlInvalid": "YAML no válido: {detail}",
+    "err.base64Invalid": "Esto no es Base64 válido.",
+    "err.urlMalformed": "La cadena tiene secuencias «%» mal formadas y no se puede decodificar.",
+    "err.xmlInvalid": "XML no válido: {detail}",
+    "err.cssoInit": "No se ha podido inicializar CSSO.",
+    "err.terserInit": "No se ha podido inicializar Terser.",
+    "err.sqlInit": "No se ha podido inicializar el formateador SQL.",
+    "err.cssInvalid": "CSS no válido: {detail}",
+    "err.sqlUnparsed": "SQL que no se ha podido analizar: {detail}",
+    "err.jsAt": "{msg} (línea {line}, columna {col})",
+    "err.qrRaster": "No se ha podido rasterizar el QR.",
+    "err.qrTooLong": "El texto no cabe en un código QR con esta corrección de errores. {detail}",
+    "err.diffTooBig": "Demasiadas líneas para comparar ({n} × {m}). Recorta los textos.",
+    "err.regexInvalid": "Expresión no válida: {detail}",
+    "err.colorUnknown": "No reconozco este color. Prueba con #6aa8ff, rgb(106 168 255) o \"tomato\".",
+    "err.jwtParts": "Un JWT tiene tres partes separadas por puntos; este tiene {n}.",
+    "err.jwtHeader": "La cabecera no se puede decodificar.",
+    "err.jwtPayload": "La carga útil no se puede decodificar.",
+    "note.ocrText": "{pages} página(s) · {words} palabras",
+    "note.ocrNothing": "no se ha reconocido ningún texto",
+    "note.ocrPdf": "{pages} páginas con capa de texto · {words} palabras",
+    "note.gifFrames": "{n} fotogramas · {w}×{h}",
+    "note.pdfNoEmbedded": "no hay imágenes incrustadas: el peso es texto o vectores",
+    "note.pdfUnsafeImages": "{n} imagen(es) en formatos que no se pueden recodificar con seguridad",
+    "note.pdfRecoded": "{touched} de {total} imágenes recodificadas",
+    "note.pdfUntouched": "{n} intactas",
+    "note.pdfQuality": "calidad {q}",
+    "note.pdfQualityScaled": "calidad {q}, imágenes al {scale} %",
+    "note.pdfMissedTarget": "no se ha podido bajar de {size}",
+    "note.pdfNoFurther": "{parts} — no se ha podido reducir más",
+    "note.pdfTextEmpty": "ningún texto: el PDF es un escaneo sin OCR",
+    "note.pdfPages": "{n} páginas",
+    "note.rasterBigger": "rasterizarlo lo haría más grande ({size}): este PDF es texto, no imágenes",
+    "note.rasterDone": "{n} páginas redibujadas a {dpi} ppp — el texto ya no es seleccionable",
+    "prog.saving": "guardando…",
+    "prog.pdfOpening": "abriendo el documento…",
+    "prog.pdfReadingImage": "leyendo imagen {i}/{n}…",
+    "prog.pdfSearchQuality": "buscando la calidad para {size}…",
+    "prog.pdfScaling": "reduciendo las imágenes al {pct} %…",
+    "prog.pdfRecoding": "recodificando {i}/{n}…",
+    "prog.drawingPage": "dibujando página {i}/{n}…",
+    "prog.readingPage": "leyendo página {i}/{n}…",
+    "prog.extracting": "extrayendo {i}/{n}…",
+    "prog.rasterising": "rasterizando {i}/{n}…",
+    "prog.buildingPdf": "montando el PDF…",
+    "prog.engineWarmup": "preparando el motor…",
+    "prog.ocrReading": "leyendo… {pct} %",
+    "prog.loadingLanguage": "cargando el idioma",
+    "prog.ocrPage": "leyendo {i}/{n}…",
+    "prog.loadingModel": "cargando el modelo…",
+    "prog.matting": "separando el sujeto…",
+    "prog.compositing": "componiendo…",
+    "panel.text": "Texto",
+    "panel.file": "Archivo",
+    "panel.results": "Resultados",
+    "panel.options": "Opciones",
+    "panel.colour": "Color",
+    "panel.background": "Fondo",
+    "panel.reading": "Leyendo…",
+    "panel.writePlaceholder": "Escribe o pega un texto…",
+    "hash.drop": "Arrastra un archivo para calcular sus sumas",
+    "hash.dropHint": "se lee en memoria, no se envía a ninguna parte",
+    "jwt.token": "Token",
+    "jwt.header": "Cabecera",
+    "jwt.payload": "Carga útil",
+    "jwt.full": "JSON completo",
+    "jwt.expiredFlag": "CADUCADO",
+    "jwt.validFlag": "vigente",
+    "jwt.notYet": "todavía no válido",
+    "jwt.ok": "Formato correcto. La firma no se comprueba: no te fíes de este token solo por esto.",
+    "jwt.expiredAt": "Este token caducó el {when}.",
+    "exif.drop": "Arrastra una foto para ver qué lleva dentro",
+    "exif.dropHint": "no se envía a ninguna parte: se lee aquí mismo",
+    "exif.notImage": "Esto no es una imagen.",
+    "exif.readFailed": "No se ha podido leer: {detail}",
+    "exif.theFile": "El archivo",
+    "exif.name": "Archivo",
+    "exif.size": "Tamaño",
+    "exif.type": "Tipo",
+    "exif.dimensions": "Dimensiones",
+    "exif.unknown": "desconocido",
+    "exif.none": "Esta imagen no lleva ningún metadato EXIF. Si esperabas que tuviera, quizá ya la ha limpiado alguna aplicación por el camino.",
+    "exif.location": "Ubicación",
+    "exif.gpsWarning": "Esta foto lleva las coordenadas exactas del lugar donde se hizo. Si la vas a publicar, pásala antes por «Quitar metadatos».",
+    "exif.coords": "Coordenadas",
+    "exif.altitude": "Altitud",
+    "exif.camera": "Cámara",
+    "exif.exposure": "Exposición",
+    "exif.image": "Imagen",
+    "exif.dates": "Fechas",
+    "exif.authorship": "Autoría",
+    "exif.rest": "El resto ({n} campos)",
+    "exif.copyJson": "Copiarlo todo como JSON",
+    "color.formats": "Formatos",
+    "color.contrast": "Contraste WCAG",
+    "color.onWhite": "Sobre blanco",
+    "color.onBlack": "Sobre negro",
+    "color.aaLarge": "AA grande",
+    "color.fail": "insuficiente",
+    "color.scaleNote": "Escala del 0 % (blanco) al 100 % (negro). Haz clic en un tono para copiarlo.",
+    "color.sample": "Texto de muestra sobre el color, con el mejor de los dos contrastes.",
+    "regex.expression": "Expresión",
+    "regex.pattern": "Patrón",
+    "regex.replacement": "Sustitución (opcional)",
+    "regex.subject": "Texto de prueba",
+    "regex.sample": "Escribe a ana@example.com o a pedro@correo.es si tienes dudas.",
+    "regex.noMatches": "Ninguna coincidencia.",
+    "regex.matches": "{n} coincidencias",
+    "regex.matchOne": "1 coincidencia",
+    "regex.detail": "Detalle",
+    "regex.substitution": "Sustitución",
+    "regex.andMore": "…y {n} coincidencias más.",
+    "regex.flag.g": "global",
+    "regex.flag.i": "ignora mayúsculas",
+    "regex.flag.m": "multilínea",
+    "regex.flag.s": "el punto incluye saltos",
+    "regex.flag.u": "unicode",
+    "qr.content": "Contenido",
+    "qr.ecc": "Corrección de errores",
+    "qr.size": "Tamaño (px)",
+    "qr.margin": "Margen (módulos)",
+    "qr.downloadPng": "Descargar PNG {px}×{px}",
+    "qr.downloadSvg": "Descargar SVG",
+    "qr.copySvg": "Copiar el SVG",
+    "qr.stats": "{n}×{n} módulos · {chars} caracteres",
+    "diff.context": "Líneas de contexto",
+    "diff.trimWs": "Ignorar espacios al final",
+    "diff.original": "Original",
+    "diff.new": "Nuevo",
+    "diff.summary": "{added} añadidas · {removed} quitadas",
+    "diff.identical": "Los dos textos son idénticos",
+    "diff.folded": "⋯ {n} líneas iguales",
+    "count.placeholder": "Escribe o pega el texto…",
+    "count.chars": "Caracteres",
+    "count.charsNoSpaces": "Caracteres sin espacios",
+    "count.words": "Palabras",
+    "count.lines": "Líneas",
+    "count.paragraphs": "Párrafos",
+    "count.sentences": "Frases",
+    "count.readingTime": "Tiempo de lectura",
+    "count.speakingTime": "Tiempo si lo lees en voz alta",
+    "count.title": "Recuento",
+    "count.limits": "Límites habituales",
+    "count.copyText": "Copiar el texto",
+    "count.seoTitle": "Título SEO",
+    "count.metaDesc": "Meta descripción",
+    "shell.search": "Busca una herramienta…",
+    "shell.theme": "Cambia el tema",
+    "shell.install": "Instalar",
+    "shell.allTools": "Todas las herramientas",
+    "shell.footer": "Todo el procesamiento ocurre dentro de esta pestaña.",
+    "shell.footerLead": "No se sube nada a ningún servidor.",
+    "shell.noscript": "Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.",
+    "shell.noResults": "Ninguna herramienta para «{q}». Prueba con «webp», «pdf» o «json».",
+    "shell.loading": "Cargando la herramienta…",
+    "shell.loadFailed": "No se ha podido cargar la herramienta: {msg}",
+    "shell.bootFailed": "La herramienta ha fallado al arrancar: {msg}",
+    "shell.related": "Herramientas relacionadas",
+    "shell.howto": "Cómo se usa",
+    "shell.faq": "Preguntas frecuentes",
+    "shell.directConversions": "Conversiones directas",
+    "shell.whyBrowser": "Por qué en el navegador y no en el servidor",
+    "shell.language": "Idioma",
+    "file.drop": "Arrastra los archivos aquí",
+    "file.dropCombine": "Arrastra los archivos a combinar",
+    "file.orClick": "o haz clic para elegirlos",
+    "file.anyFile": "Cualquier archivo",
+    "file.anyImage": "Imágenes",
+    "file.process": "Procesar",
+    "file.combine": "Combinar",
+    "file.processing": "Procesando…",
+    "file.clear": "Vaciar la lista",
+    "file.defaults": "Opciones por defecto",
+    "file.downloadAll": "Descargarlo todo ({n}) .zip",
+    "file.download": "Descargar",
+    "file.remove": "Quitar de la lista",
+    "file.compare": "Comparar con el original",
+    "file.count": "{n} archivos",
+    "file.countOne": "1 archivo",
+    "file.done": "{n} hechos",
+    "file.failed": "{n} con error",
+    "file.included": "incluido",
+    "file.error": "Error",
+    "file.combinedResult": "resultado combinado",
+    "file.rejected": "{n} archivo(s) con un formato que esta herramienta no acepta: {names}",
+    "file.pasted": "{n} archivo(s) pegado(s) del portapapeles.",
+    "file.openedExternally": "{n} archivo(s) abierto(s) desde el sistema que esta herramienta no acepta.",
+    "file.dragToReorder": "Arrastra las filas para cambiar el orden",
+    "file.plainFile": "archivo",
+    "cmp.close": "Cerrar",
+    "cmp.hint": "Izquierda: original. Derecha: resultado. Arrastra el control para comparar.",
+    "text.input": "Entrada",
+    "text.output": "Resultado",
+    "text.placeholder": "Pega aquí el contenido…",
+    "text.outPlaceholder": "El resultado aparecerá aquí.",
+    "text.openFile": "Abrir un archivo",
+    "text.sample": "Ejemplo",
+    "text.empty": "Vaciar",
+    "text.save": "Descargar",
+    "text.chars": "{a} → {b} car. ({d}%)",
+    "params.title": "Opciones",
+    "params.quick": "Rápido:",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyFailed": "No se ha podido copiar",
+    "crop.drop": "Arrastra las imágenes a recortar",
+    "crop.dropHint": "las verás y dibujarás el recorte · o haz clic para elegirlas",
+    "crop.title": "Recorte",
+    "crop.ratio": "Relación de aspecto",
+    "crop.free": "Libre",
+    "crop.format": "Formato",
+    "crop.keep": "Mantener el original",
+    "crop.quality": "Calidad",
+    "crop.applyAll": "Aplicar el mismo recorte a todas",
+    "crop.run": "Recortar",
+    "crop.running": "Recortando…",
+    "crop.whole": "Toda la imagen",
+    "crop.removeThis": "Quitar esta",
+    "crop.readout": "{w} × {h} px · desde ({x}, {y}) · original {ow} × {oh}",
+    "crop.done": "{n} imagen(es) · {size} — descargado.",
+    "crop.notImages": "{n} archivo(s) que no son imágenes.",
+    "crop.cannotOpen": "No se ha podido abrir {name}.",
+    "org.drop": "Arrastra un PDF para organizarlo",
+    "org.dropHint": "verás todas sus páginas · o haz clic para elegirlo",
+    "org.notPdf": "Esto no es un PDF.",
+    "org.drawing": "Dibujando las páginas…",
+    "org.summary": "{name} — {kept} de {total} páginas",
+    "org.wasPage": "era la {n}",
+    "org.rotate": "Girar 90°",
+    "org.drop90": "Quitarla",
+    "org.restore": "Recuperar",
+    "org.export": "Exportar el PDF",
+    "org.reset": "Volver al original",
+    "org.reverse": "Invertir el orden",
+    "org.dragHint": "Arrastra las páginas para reordenarlas",
+    "org.noPages": "No queda ninguna página.",
+    "org.exported": "{n} páginas · {size} — descargado.",
+    "org.buildFailed": "No se ha podido construir el PDF: {msg}"
+  },
+  "tools": {
+    "image-convert": {
+      "title": "Convertir imágenes",
+      "desc": "PNG, JPG, WebP y AVIF entre sí, por lotes.",
+      "params": {
+        "format": {
+          "label": "Convertir a"
+        },
+        "lossless": {
+          "label": "Sin pérdida"
+        },
+        "quality": {
+          "label": "Calidad",
+          "hint": "Solo para formatos con pérdida."
+        },
+        "background": {
+          "label": "Fondo para transparencias",
+          "hint": "JPEG no admite canal alfa."
+        }
+      }
+    },
+    "image-compress": {
+      "title": "Comprimir imágenes",
+      "desc": "Baja el peso por calidad o hasta un tamaño concreto.",
+      "params": {
+        "mode": {
+          "label": "Objetivo",
+          "options": {
+            "quality": "Calidad fija",
+            "target": "Tamaño máximo del archivo"
+          }
+        },
+        "quality": {
+          "label": "Calidad",
+          "hint": "Solo para formatos con pérdida."
+        },
+        "targetKB": {
+          "label": "Peso máximo",
+          "hint": "Búsqueda binaria sobre la calidad (máximo 95) y, si hace falta, reducción de tamaño."
+        },
+        "format": {
+          "label": "Formato",
+          "options": {
+            "webp": "WebP (recomendado)",
+            "jpeg": "JPEG",
+            "avif": "AVIF (el más pequeño, más lento)",
+            "same": "Mantener el original"
+          }
+        },
+        "maxWidth": {
+          "label": "Anchura máxima",
+          "hint": "0 = no redimensionar."
+        }
+      },
+      "presets": [
+        "Para la web",
+        "Para correo",
+        "Miniatura"
+      ]
+    },
+    "image-resize": {
+      "title": "Redimensionar imágenes",
+      "desc": "Anchura y altura con control de ajuste y sin ampliar por defecto.",
+      "params": {
+        "width": {
+          "label": "Anchura",
+          "hint": "0 = automática."
+        },
+        "height": {
+          "label": "Altura",
+          "hint": "0 = automática."
+        },
+        "fit": {
+          "label": "Ajuste",
+          "options": {
+            "contain": "Hacia dentro (mantiene la proporción)",
+            "cover": "Rellenar y recortar",
+            "stretch": "Deformar hasta el tamaño"
+          }
+        },
+        "noUpscale": {
+          "label": "No amplíes las imágenes pequeñas"
+        },
+        "format": {
+          "label": "Formato de salida",
+          "options": {
+            "same": "Mantener el original"
+          }
+        },
+        "quality": {
+          "label": "Calidad",
+          "hint": "Solo para formatos con pérdida."
+        }
+      },
+      "presets": [
+        "Full HD",
+        "Instagram",
+        "Miniatura 400"
+      ]
+    },
+    "image-crop": {
+      "title": "Recortar imágenes",
+      "desc": "Dibuja el recorte sobre la imagen y aplícalo a todo el lote."
+    },
+    "image-rotate": {
+      "title": "Girar y reflejar",
+      "desc": "Rotación de 90 en 90 grados y volteo horizontal o vertical.",
+      "params": {
+        "angle": {
+          "label": "Rotación",
+          "options": {
+            "0": "Ninguna",
+            "90": "90° horario",
+            "180": "180°",
+            "270": "90° antihorario"
+          }
+        },
+        "flipH": {
+          "label": "Reflejar horizontalmente"
+        },
+        "flipV": {
+          "label": "Reflejar verticalmente"
+        },
+        "format": {
+          "label": "Formato de salida",
+          "options": {
+            "same": "Mantener el original"
+          }
+        },
+        "quality": {
+          "label": "Calidad",
+          "hint": "Solo para formatos con pérdida."
+        }
+      }
+    },
+    "image-strip": {
+      "title": "Quitar metadatos",
+      "desc": "Elimina EXIF, GPS y perfiles recodificando la imagen al mismo formato.",
+      "params": {
+        "quality": {
+          "label": "Calidad de recodificación",
+          "hint": "Los PNG se recodifican sin pérdida; esto solo afecta a JPEG, WebP y AVIF."
+        },
+        "applyOrientation": {
+          "label": "Aplicar la orientación EXIF al píxel",
+          "hint": "Evita que la foto salga girada una vez quitados los metadatos."
+        }
+      }
+    },
+    "image-watermark": {
+      "title": "Marca de agua en imágenes",
+      "desc": "Texto encima, en una esquina o repetido por toda la foto.",
+      "params": {
+        "text": {
+          "label": "Texto"
+        },
+        "tile": {
+          "label": "Repetirlo por toda la imagen"
+        },
+        "position": {
+          "label": "Posición",
+          "options": {
+            "top-left": "Arriba izquierda",
+            "top": "Arriba",
+            "top-right": "Arriba derecha",
+            "left": "Izquierda",
+            "center": "Centro",
+            "right": "Derecha",
+            "bottom-left": "Abajo izquierda",
+            "bottom": "Abajo",
+            "bottom-right": "Abajo derecha"
+          }
+        },
+        "size": {
+          "label": "Tamaño",
+          "hint": "Porcentaje del lado corto, para que salga igual en todas."
+        },
+        "opacity": {
+          "label": "Opacidad"
+        },
+        "color": {
+          "label": "Color"
+        },
+        "bold": {
+          "label": "Negrita"
+        },
+        "shadow": {
+          "label": "Sombra (para leerla sobre fondos claros)"
+        },
+        "margin": {
+          "label": "Margen"
+        },
+        "format": {
+          "label": "Formato de salida",
+          "options": {
+            "same": "Mantener el original"
+          }
+        },
+        "quality": {
+          "label": "Calidad"
+        }
+      }
+    },
+    "image-exif": {
+      "title": "Ver los metadatos",
+      "desc": "Cámara, exposición, fechas y las coordenadas GPS si las hay."
+    },
+    "favicons": {
+      "title": "Generador de favicons",
+      "desc": "De una imagen a todo el juego de iconos, con el .ico y el fragmento de HTML.",
+      "params": {
+        "background": {
+          "label": "Fondo"
+        },
+        "padding": {
+          "label": "Margen interior"
+        },
+        "snippet": {
+          "label": "Incluir el fragmento de HTML"
+        }
+      }
+    },
+    "images-to-gif": {
+      "title": "Imágenes a GIF animado",
+      "desc": "Un GIF a partir de una secuencia de imágenes, en el orden que dejes.",
+      "params": {
+        "delay": {
+          "label": "Duración de cada fotograma"
+        },
+        "maxWidth": {
+          "label": "Anchura máxima",
+          "hint": "0 = la de la primera imagen."
+        },
+        "colors": {
+          "label": "Colores de la paleta",
+          "hint": "Menos colores, menos peso y más grano."
+        },
+        "pingpong": {
+          "label": "Volver atrás al acabar"
+        },
+        "background": {
+          "label": "Fondo"
+        }
+      }
+    },
+    "remove-background": {
+      "title": "Quitar el fondo de una imagen",
+      "desc": "Separa el sujeto con un modelo que corre en tu ordenador.",
+      "params": {
+        "background": {
+          "label": "Qué pongo detrás",
+          "options": {
+            "transparent": "Nada: fondo transparente",
+            "color": "Un color sólido"
+          }
+        },
+        "color": {
+          "label": "Color"
+        },
+        "edge": {
+          "label": "Borde",
+          "options": {
+            "soft": "Suave (mejor para pelo y pelaje)",
+            "hard": "Limpio (mejor para objetos)"
+          }
+        },
+        "threshold": {
+          "label": "Umbral"
+        },
+        "format": {
+          "label": "Formato"
+        },
+        "quality": {
+          "label": "Calidad"
+        }
+      }
+    },
+    "svg-optimize": {
+      "title": "Optimizar SVG",
+      "desc": "SVGO en el navegador: quita metadatos de editor y redondea trazados.",
+      "params": {
+        "precision": {
+          "label": "Decimales en los trazados"
+        },
+        "multipass": {
+          "label": "Varias pasadas"
+        },
+        "removeDimensions": {
+          "label": "Quitar width/height (dejar viewBox)",
+          "hint": "Útil para iconos que deben escalar con CSS."
+        },
+        "prefixIds": {
+          "label": "Prefijar los id con el nombre del archivo",
+          "hint": "Evita colisiones si insertas varios SVG en la misma página."
+        },
+        "pretty": {
+          "label": "Salida indentada"
+        }
+      }
+    },
+    "svg-to-png": {
+      "title": "SVG a PNG",
+      "desc": "Rasteriza al tamaño que quieras, con fondo transparente o sólido.",
+      "params": {
+        "width": {
+          "label": "Anchura",
+          "hint": "0 = tamaño del viewBox."
+        },
+        "scale": {
+          "label": "Escala"
+        },
+        "transparent": {
+          "label": "Fondo transparente"
+        },
+        "background": {
+          "label": "Color de fondo"
+        },
+        "format": {
+          "label": "Formato"
+        },
+        "quality": {
+          "label": "Calidad",
+          "hint": "Solo para formatos con pérdida."
+        }
+      }
+    },
+    "pdf-compress": {
+      "title": "Comprimir PDF",
+      "desc": "Recodifica las imágenes de dentro sin tocar el texto ni la estructura.",
+      "params": {
+        "method": {
+          "label": "Método",
+          "options": {
+            "images": "Recodificar las imágenes (conserva el texto)",
+            "raster": "Rasterizar las páginas (lo máximo, pierde el texto)"
+          }
+        },
+        "mode": {
+          "label": "Objetivo",
+          "options": {
+            "quality": "Calidad fija",
+            "target": "Tamaño máximo del archivo"
+          }
+        },
+        "quality": {
+          "label": "Calidad de las imágenes"
+        },
+        "targetKB": {
+          "label": "Peso máximo",
+          "hint": "Busca la calidad más alta que quepa y, si hace falta, reduce las imágenes."
+        },
+        "maxWidth": {
+          "label": "Anchura máxima de las imágenes",
+          "hint": "0 = conservar la resolución. 1600 px ya imprime bien en A4."
+        },
+        "dpi": {
+          "label": "Resolución",
+          "hint": "120 ppp se lee bien en pantalla; 200 para imprimir."
+        },
+        "grayscale": {
+          "label": "Pasarlo a escala de grises",
+          "hint": "En documentos escaneados suele recortar otro buen trozo."
+        }
+      },
+      "presets": [
+        "Para correo",
+        "Ligero para la web",
+        "Escaneo de texto"
+      ]
+    },
+    "pdf-organize": {
+      "title": "Organizar páginas",
+      "desc": "Ve todas las páginas, arrástralas, gíralas y quita las que sobren."
+    },
+    "pdf-to-images": {
+      "title": "PDF a imágenes",
+      "desc": "Una imagen por página, a la resolución que necesites.",
+      "params": {
+        "format": {
+          "label": "Formato"
+        },
+        "dpi": {
+          "label": "Resolución",
+          "hint": "150 para leer, 300 para imprimir."
+        },
+        "pages": {
+          "label": "Páginas",
+          "hint": "Vacío = todas. Ejemplo: 1-3, 7"
+        },
+        "transparent": {
+          "label": "Fondo transparente"
+        },
+        "quality": {
+          "label": "Calidad"
+        }
+      }
+    },
+    "pdf-to-text": {
+      "title": "PDF a texto",
+      "desc": "Extrae la capa de texto del documento, sin OCR.",
+      "params": {
+        "pages": {
+          "label": "Páginas",
+          "hint": "Vacío = todas."
+        },
+        "joinParagraphs": {
+          "label": "Unir las líneas cortadas",
+          "hint": "Junta los saltos de línea que solo son del formato de la página."
+        },
+        "pageMarks": {
+          "label": "Marcar dónde empieza cada página"
+        }
+      }
+    },
+    "pdf-extract-images": {
+      "title": "Extraer imágenes de un PDF",
+      "desc": "Saca las fotos y los gráficos incrustados como archivos aparte.",
+      "params": {
+        "format": {
+          "label": "Formato",
+          "options": {
+            "original": "Tal como están en el PDF"
+          }
+        },
+        "minWidth": {
+          "label": "Anchura mínima",
+          "hint": "Descarta iconos y líneas decorativas."
+        },
+        "quality": {
+          "label": "Calidad"
+        }
+      }
+    },
+    "pdf-merge": {
+      "title": "Unir PDF",
+      "desc": "Pega varios PDF en uno solo, en el orden que quieras.",
+      "params": {
+        "order": {
+          "label": "Orden",
+          "options": {
+            "list": "Como en la lista",
+            "name": "Por nombre de archivo"
+          }
+        },
+        "outName": {
+          "label": "Nombre del resultado"
+        }
+      }
+    },
+    "pdf-split": {
+      "title": "Separar PDF",
+      "desc": "Una página por archivo, bloques de N páginas o rangos a medida.",
+      "params": {
+        "mode": {
+          "label": "Cómo",
+          "options": {
+            "each": "Una página por archivo",
+            "every": "Bloques de N páginas",
+            "ranges": "Rangos concretos"
+          }
+        },
+        "n": {
+          "label": "Páginas por bloque"
+        },
+        "ranges": {
+          "label": "Rangos",
+          "hint": "Separados por comas. Cada rango sale como un PDF."
+        }
+      }
+    },
+    "pdf-rotate": {
+      "title": "Girar páginas de PDF",
+      "desc": "Rota todas las páginas o solo las que indiques.",
+      "params": {
+        "angle": {
+          "label": "Rotación",
+          "options": {
+            "90": "90° horario",
+            "180": "180°",
+            "270": "90° antihorario"
+          }
+        },
+        "pages": {
+          "label": "Páginas",
+          "hint": "Vacío = todas. Ejemplo: 1-3, 7, 10-12"
+        }
+      }
+    },
+    "pdf-extract": {
+      "title": "Extraer páginas",
+      "desc": "Quédate solo con unas páginas, o bórralas del documento.",
+      "params": {
+        "pages": {
+          "label": "Páginas",
+          "hint": "Ejemplo: 1-3, 7, 10-12"
+        },
+        "invert": {
+          "label": "Borrar estas páginas (en vez de quedártelas)"
+        }
+      }
+    },
+    "images-to-pdf": {
+      "title": "Imágenes a PDF",
+      "desc": "Un PDF con una imagen por página, con tamaño y márgenes controlados.",
+      "params": {
+        "pageSize": {
+          "label": "Tamaño de página",
+          "options": {
+            "fit": "El de cada imagen",
+            "a4": "A4",
+            "letter": "Carta",
+            "a3": "A3",
+            "a5": "A5"
+          }
+        },
+        "orientation": {
+          "label": "Orientación",
+          "options": {
+            "auto": "Según la imagen",
+            "portrait": "Vertical",
+            "landscape": "Apaisada"
+          }
+        },
+        "margin": {
+          "label": "Margen"
+        },
+        "outName": {
+          "label": "Nombre del resultado"
+        }
+      }
+    },
+    "pdf-watermark": {
+      "title": "Marca de agua en PDF",
+      "desc": "Texto en todas las páginas, en una posición o repetido en diagonal.",
+      "params": {
+        "text": {
+          "label": "Texto"
+        },
+        "tile": {
+          "label": "Repetirlo por toda la página"
+        },
+        "position": {
+          "label": "Posición",
+          "options": {
+            "top-left": "Arriba izquierda",
+            "top": "Arriba",
+            "top-right": "Arriba derecha",
+            "left": "Izquierda",
+            "center": "Centro",
+            "right": "Derecha",
+            "bottom-left": "Abajo izquierda",
+            "bottom": "Abajo",
+            "bottom-right": "Abajo derecha"
+          }
+        },
+        "angle": {
+          "label": "Inclinación"
+        },
+        "size": {
+          "label": "Tamaño"
+        },
+        "opacity": {
+          "label": "Opacidad"
+        },
+        "color": {
+          "label": "Color"
+        },
+        "bold": {
+          "label": "Negrita"
+        },
+        "margin": {
+          "label": "Margen"
+        }
+      }
+    },
+    "pdf-page-numbers": {
+      "title": "Numerar páginas",
+      "desc": "Añade la numeración, con el formato y la posición que quieras.",
+      "params": {
+        "format": {
+          "label": "Formato",
+          "options": {
+            "Pàgina {n}": "Página 1",
+            "Pàgina {n} de {total}": "Página 1 de 10"
+          }
+        },
+        "position": {
+          "label": "Posición",
+          "options": {
+            "bottom-left": "Abajo izquierda",
+            "bottom": "Abajo centrado",
+            "bottom-right": "Abajo derecha",
+            "top-left": "Arriba izquierda",
+            "top": "Arriba centrado",
+            "top-right": "Arriba derecha"
+          }
+        },
+        "start": {
+          "label": "Empezar en"
+        },
+        "skip": {
+          "label": "Saltar las primeras",
+          "unit": "páginas",
+          "hint": "Para no numerar la portada."
+        },
+        "size": {
+          "label": "Tamaño de la letra"
+        },
+        "margin": {
+          "label": "Margen"
+        },
+        "color": {
+          "label": "Color"
+        }
+      }
+    },
+    "ocr": {
+      "title": "OCR: leer texto de imágenes y PDF",
+      "desc": "Reconoce el texto de escaneos y fotos, y hace un PDF buscable.",
+      "params": {
+        "lang": {
+          "label": "Idioma del documento",
+          "hint": "Cuantos menos idiomas, más rápido y más acierta.",
+          "options": {
+            "cat": "Catalán",
+            "spa": "Castellano",
+            "eng": "Inglés",
+            "cat+spa": "Catalán y castellano",
+            "cat+eng": "Catalán e inglés",
+            "spa+eng": "Castellano e inglés",
+            "cat+spa+eng": "Los tres"
+          }
+        },
+        "output": {
+          "label": "Resultado",
+          "options": {
+            "text": "Un archivo de texto",
+            "pdf": "Un PDF buscable (la imagen con el texto debajo)"
+          }
+        },
+        "dpi": {
+          "label": "Resolución al leer PDF",
+          "hint": "Por debajo de 150 el OCR empieza a fallar."
+        },
+        "pageMarks": {
+          "label": "Marcar dónde empieza cada página"
+        }
+      },
+      "presets": [
+        "Escaneo en catalán",
+        "Solo el texto"
+      ]
+    },
+    "json-to-csv": {
+      "title": "JSON a CSV",
+      "desc": "Array de objetos a tabla, aplanando los objetos anidados.",
+      "params": {
+        "delimiter": {
+          "label": "Separador",
+          "options": {
+            ",": "Coma",
+            ";": "Punto y coma",
+            "\t": "Tabulador",
+            "|": "Barra"
+          }
+        },
+        "flatten": {
+          "label": "Aplanar objetos anidados"
+        },
+        "bom": {
+          "label": "Añadir BOM (para Excel)"
+        }
+      }
+    },
+    "csv-to-json": {
+      "title": "CSV a JSON",
+      "desc": "Detecta el separador, respeta las comillas y tipa los valores.",
+      "params": {
+        "delimiter": {
+          "label": "Separador",
+          "options": {
+            "auto": "Detectarlo",
+            ",": "Coma",
+            ";": "Punto y coma",
+            "\t": "Tabulador",
+            "|": "Barra"
+          }
+        },
+        "header": {
+          "label": "La primera fila son encabezados"
+        },
+        "typed": {
+          "label": "Convertir números y booleanos"
+        },
+        "indent": {
+          "label": "Indentación",
+          "options": {
+            "0": "Minificado",
+            "2": "2 espacios",
+            "4": "4 espacios"
+          }
+        }
+      }
+    },
+    "json-to-yaml": {
+      "title": "JSON a YAML",
+      "desc": "Conversión directa manteniendo el orden de las claves.",
+      "params": {
+        "indent": {
+          "label": "Indentación"
+        },
+        "quoteStyle": {
+          "label": "Comillas",
+          "options": {
+            "auto": "Solo cuando hacen falta",
+            "single": "Simples",
+            "double": "Dobles"
+          }
+        }
+      }
+    },
+    "yaml-to-json": {
+      "title": "YAML a JSON",
+      "desc": "Acepta varios documentos en un mismo archivo.",
+      "params": {
+        "indent": {
+          "label": "Indentación",
+          "options": {
+            "0": "Minificado",
+            "2": "2 espacios",
+            "4": "4 espacios"
+          }
+        }
+      }
+    },
+    "json-format": {
+      "title": "Formatear y validar JSON",
+      "desc": "Indenta, minifica u ordena claves, y señala el error con línea y columna.",
+      "params": {
+        "indent": {
+          "label": "Salida",
+          "options": {
+            "0": "Minificado",
+            "2": "2 espacios",
+            "4": "4 espacios",
+            "tab": "Tabuladores"
+          }
+        },
+        "sortKeys": {
+          "label": "Ordenar las claves alfabéticamente"
+        }
+      }
+    },
+    "jwt-decode": {
+      "title": "Decodificar JWT",
+      "desc": "Cabecera, carga útil y caducidad. La firma no se verifica."
+    },
+    "base64-text": {
+      "title": "Base64 (texto)",
+      "desc": "Codifica y decodifica texto UTF-8, con variante segura para URL.",
+      "params": {
+        "dir": {
+          "label": "Dirección",
+          "options": {
+            "encode": "Texto a Base64",
+            "decode": "Base64 a texto"
+          }
+        },
+        "urlSafe": {
+          "label": "Variante segura para URL"
+        },
+        "wrap": {
+          "label": "Cortar las líneas a 76 caracteres"
+        }
+      }
+    },
+    "base64-file": {
+      "title": "Archivo a Base64",
+      "desc": "Genera un data URI listo para pegar en CSS o HTML.",
+      "params": {
+        "mode": {
+          "label": "Salida",
+          "options": {
+            "datauri": "Data URI completo",
+            "plain": "Solo Base64"
+          }
+        },
+        "wrap": {
+          "label": "Cortar las líneas a 76 caracteres"
+        }
+      }
+    },
+    "hash": {
+      "title": "Hash y checksum",
+      "desc": "MD5, SHA-1, SHA-256, SHA-384 y SHA-512 de texto o de archivos."
+    },
+    "minify-css": {
+      "title": "Minificar CSS",
+      "desc": "CSSO: reestructura y fusiona reglas, no solo quita espacios.",
+      "params": {
+        "restructure": {
+          "label": "Reestructurar y fusionar reglas"
+        },
+        "comments": {
+          "label": "Conservar los comentarios /*! */"
+        }
+      }
+    },
+    "minify-js": {
+      "title": "Minificar JavaScript",
+      "desc": "Terser en el navegador, con acortado de nombres opcional.",
+      "params": {
+        "mangle": {
+          "label": "Acortar los nombres de variable"
+        },
+        "compress": {
+          "label": "Optimizar el código"
+        },
+        "module": {
+          "label": "Es un módulo ES"
+        },
+        "ecma": {
+          "label": "Objetivo"
+        }
+      }
+    },
+    "text-count": {
+      "title": "Contar palabras y caracteres",
+      "desc": "Recuento en vivo, tiempo de lectura y los límites de cada plataforma."
+    },
+    "text-case": {
+      "title": "Cambiar mayúsculas y minúsculas",
+      "desc": "MAYÚSCULAS, minúsculas, Tipo Título, camelCase, snake_case y más.",
+      "params": {
+        "mode": {
+          "label": "Convertir a",
+          "options": {
+            "upper": "MAYÚSCULAS",
+            "lower": "minúsculas",
+            "sentence": "Como una frase",
+            "title": "Tipo Título",
+            "camel": "camelCase",
+            "pascal": "PascalCase",
+            "snake": "snake_case",
+            "kebab": "kebab-case",
+            "constant": "CONSTANT_CASE",
+            "invert": "iNVERTIR"
+          }
+        }
+      }
+    },
+    "text-lines": {
+      "title": "Ordenar y limpiar líneas",
+      "desc": "Ordena, quita duplicados y líneas vacías, numera o invierte una lista.",
+      "params": {
+        "sort": {
+          "label": "Ordenar",
+          "options": {
+            "none": "Dejarlo como está",
+            "asc": "A → Z",
+            "desc": "Z → A",
+            "length": "Por longitud",
+            "shuffle": "Al azar"
+          }
+        },
+        "dedupe": {
+          "label": "Quitar las repetidas"
+        },
+        "ignoreCase": {
+          "label": "Ignorar mayúsculas al comparar"
+        },
+        "trim": {
+          "label": "Quitar los espacios de los extremos"
+        },
+        "removeEmpty": {
+          "label": "Quitar las líneas vacías"
+        },
+        "reverse": {
+          "label": "Invertir el resultado"
+        },
+        "number": {
+          "label": "Numerarlas"
+        }
+      }
+    },
+    "url-encode": {
+      "title": "Codificar y decodificar URL",
+      "desc": "Percent-encoding, para direcciones enteras o solo para un parámetro.",
+      "params": {
+        "dir": {
+          "label": "Dirección",
+          "options": {
+            "encode": "Codificar",
+            "decode": "Decodificar"
+          }
+        },
+        "scope": {
+          "label": "Alcance",
+          "options": {
+            "component": "Un valor suelto (codifica / ? & =)",
+            "full": "Una dirección entera (respeta / ? & =)"
+          }
+        },
+        "plusSpaces": {
+          "label": "Espacios como «+»"
+        }
+      }
+    },
+    "html-entities": {
+      "title": "Entidades HTML",
+      "desc": "Escapa el texto para meterlo dentro de HTML, o deshazlo.",
+      "params": {
+        "dir": {
+          "label": "Dirección",
+          "options": {
+            "encode": "Texto → entidades",
+            "decode": "Entidades → texto"
+          }
+        },
+        "all": {
+          "label": "Escapar también los acentos y símbolos"
+        }
+      }
+    },
+    "slugify": {
+      "title": "Generar slugs para URL",
+      "desc": "Pasa un título a una dirección limpia, sin acentos ni símbolos.",
+      "params": {
+        "separator": {
+          "label": "Separador",
+          "options": {
+            "hyphen": "Guion -",
+            "underscore": "Guion bajo _"
+          }
+        },
+        "lower": {
+          "label": "Todo en minúsculas"
+        },
+        "maxLength": {
+          "label": "Longitud máxima",
+          "hint": "0 = sin límite."
+        }
+      }
+    },
+    "format-html": {
+      "title": "Formatear HTML",
+      "desc": "Indenta y ordena marcado desordenado o minificado.",
+      "params": {
+        "indent": {
+          "label": "Indentación"
+        },
+        "wrap": {
+          "label": "Cortar las líneas a",
+          "unit": "car.",
+          "hint": "0 = no cortarlas."
+        },
+        "preserveNewlines": {
+          "label": "Conservar los saltos de línea"
+        }
+      }
+    },
+    "format-xml": {
+      "title": "Formatear y validar XML",
+      "desc": "Indenta el documento y avisa si el marcado no cierra bien.",
+      "params": {
+        "indent": {
+          "label": "Indentación"
+        }
+      }
+    },
+    "format-sql": {
+      "title": "Formatear SQL",
+      "desc": "Consultas largas en una sola línea, ordenadas y legibles.",
+      "params": {
+        "dialect": {
+          "label": "Dialecto",
+          "options": {
+            "sql": "SQL estándar"
+          }
+        },
+        "keywordCase": {
+          "label": "Palabras clave",
+          "options": {
+            "upper": "MAYÚSCULAS",
+            "lower": "minúsculas",
+            "preserve": "Como están"
+          }
+        },
+        "indent": {
+          "label": "Indentación"
+        }
+      }
+    },
+    "color": {
+      "title": "Colores y contraste",
+      "desc": "HEX, RGB, HSL y OKLCH, escala de tonos y comprobación WCAG."
+    },
+    "regex": {
+      "title": "Probador de expresiones regulares",
+      "desc": "Coincidencias resaltadas, grupos con nombre y sustitución en vivo."
+    },
+    "qr": {
+      "title": "Generador de QR",
+      "desc": "Descarga en SVG vectorial o PNG a la resolución que quieras."
+    },
+    "diff": {
+      "title": "Comparar textos",
+      "desc": "Diferencias línea a línea con los bloques iguales plegados."
+    }
+  }
+}

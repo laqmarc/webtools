@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebTools — Convierte, comprime e inspecciona — sin subir nada</title>
+<meta name="description" content="Convierte y comprime imágenes, SVG y PDF, y trabaja con JSON, CSV, YAML y texto. Todo se ejecuta en tu navegador: ningún archivo se envía a ningún servidor.">
+<link rel="canonical" href="http://localhost:5180/es/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="WebTools — Convierte, comprime e inspecciona — sin subir nada">
+<meta property="og:description" content="Convierte y comprime imágenes, SVG y PDF, y trabaja con JSON, CSV, YAML y texto. Todo se ejecuta en tu navegador: ningún archivo se envía a ningún servidor.">
+<meta property="og:url" content="http://localhost:5180/es/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "WebTools",
+      "url": "http://localhost:5180/es/",
+      "description": "Convierte y comprime imágenes, SVG y PDF, y trabaja con JSON, CSV, YAML y texto. Todo se ejecuta en tu navegador: ningún archivo se envía a ningún servidor.",
+      "inLanguage": "es"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Tools",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Convertir imágenes",
+          "url": "http://localhost:5180/es/convertir-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comprimir imágenes",
+          "url": "http://localhost:5180/es/comprimir-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Redimensionar imágenes",
+          "url": "http://localhost:5180/es/redimensionar-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Recortar imágenes",
+          "url": "http://localhost:5180/es/recortar-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Girar y reflejar",
+          "url": "http://localhost:5180/es/girar-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Quitar metadatos",
+          "url": "http://localhost:5180/es/quitar-metadatos-imagen/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Marca de agua en imágenes",
+          "url": "http://localhost:5180/es/marca-de-agua-imagen/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Ver los metadatos",
+          "url": "http://localhost:5180/es/ver-metadatos-imagen/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Generador de favicons",
+          "url": "http://localhost:5180/es/generador-de-favicons/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Imágenes a GIF animado",
+          "url": "http://localhost:5180/es/imagenes-a-gif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Quitar el fondo de una imagen",
+          "url": "http://localhost:5180/es/quitar-el-fondo/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Optimizar SVG",
+          "url": "http://localhost:5180/es/optimizar-svg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "SVG a PNG",
+          "url": "http://localhost:5180/es/svg-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Comprimir PDF",
+          "url": "http://localhost:5180/es/comprimir-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Organizar páginas",
+          "url": "http://localhost:5180/es/organizar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "PDF a imágenes",
+          "url": "http://localhost:5180/es/pdf-a-imagenes/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "PDF a texto",
+          "url": "http://localhost:5180/es/pdf-a-texto/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Extraer imágenes de un PDF",
+          "url": "http://localhost:5180/es/extraer-imagenes-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Unir PDF",
+          "url": "http://localhost:5180/es/unir-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Separar PDF",
+          "url": "http://localhost:5180/es/separar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "Girar páginas de PDF",
+          "url": "http://localhost:5180/es/girar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Extraer páginas",
+          "url": "http://localhost:5180/es/extraer-paginas-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "Imágenes a PDF",
+          "url": "http://localhost:5180/es/imagenes-a-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "Marca de agua en PDF",
+          "url": "http://localhost:5180/es/marca-de-agua-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "Numerar páginas",
+          "url": "http://localhost:5180/es/numerar-paginas-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "OCR: leer texto de imágenes y PDF",
+          "url": "http://localhost:5180/es/ocr-imagen-y-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "JSON a CSV",
+          "url": "http://localhost:5180/es/json-a-csv/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "CSV a JSON",
+          "url": "http://localhost:5180/es/csv-a-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "name": "JSON a YAML",
+          "url": "http://localhost:5180/es/json-a-yaml/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "name": "YAML a JSON",
+          "url": "http://localhost:5180/es/yaml-a-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "name": "Formatear y validar JSON",
+          "url": "http://localhost:5180/es/formatear-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "name": "Decodificar JWT",
+          "url": "http://localhost:5180/es/decodificar-jwt/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "name": "Base64 (texto)",
+          "url": "http://localhost:5180/es/base64-texto/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "name": "Archivo a Base64",
+          "url": "http://localhost:5180/es/archivo-a-base64/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "name": "Hash y checksum",
+          "url": "http://localhost:5180/es/hash-md5-sha256/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "name": "Minificar CSS",
+          "url": "http://localhost:5180/es/minificar-css/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "name": "Minificar JavaScript",
+          "url": "http://localhost:5180/es/minificar-javascript/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "name": "Contar palabras y caracteres",
+          "url": "http://localhost:5180/es/contar-palabras/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "name": "Cambiar mayúsculas y minúsculas",
+          "url": "http://localhost:5180/es/cambiar-mayusculas/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "name": "Ordenar y limpiar líneas",
+          "url": "http://localhost:5180/es/ordenar-lineas/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "name": "Codificar y decodificar URL",
+          "url": "http://localhost:5180/es/codificar-url/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "name": "Entidades HTML",
+          "url": "http://localhost:5180/es/entidades-html/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "name": "Generar slugs para URL",
+          "url": "http://localhost:5180/es/generar-slug/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "name": "Formatear HTML",
+          "url": "http://localhost:5180/es/formatear-html/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "name": "Formatear y validar XML",
+          "url": "http://localhost:5180/es/formatear-xml/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "name": "Formatear SQL",
+          "url": "http://localhost:5180/es/formatear-sql/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "name": "Colores y contraste",
+          "url": "http://localhost:5180/es/convertidor-de-colores/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "name": "Probador de expresiones regulares",
+          "url": "http://localhost:5180/es/probador-de-regex/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "name": "Generador de QR",
+          "url": "http://localhost:5180/es/generador-qr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "name": "Comparar textos",
+          "url": "http://localhost:5180/es/comparar-textos/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "name": "PNG a WebP",
+          "url": "http://localhost:5180/es/png-a-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "name": "JPG a WebP",
+          "url": "http://localhost:5180/es/jpg-a-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "name": "PNG a JPG",
+          "url": "http://localhost:5180/es/png-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "name": "JPG a PNG",
+          "url": "http://localhost:5180/es/jpg-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "name": "WebP a PNG",
+          "url": "http://localhost:5180/es/webp-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "name": "WebP a JPG",
+          "url": "http://localhost:5180/es/webp-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "name": "PNG a AVIF",
+          "url": "http://localhost:5180/es/png-a-avif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "name": "JPG a AVIF",
+          "url": "http://localhost:5180/es/jpg-a-avif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "name": "AVIF a PNG",
+          "url": "http://localhost:5180/es/avif-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "name": "AVIF a JPG",
+          "url": "http://localhost:5180/es/avif-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "name": "Comprimir PNG",
+          "url": "http://localhost:5180/es/comprimir-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "name": "Comprimir JPG",
+          "url": "http://localhost:5180/es/comprimir-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "name": "JPG a PDF",
+          "url": "http://localhost:5180/es/jpg-a-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "name": "PNG a PDF",
+          "url": "http://localhost:5180/es/png-a-pdf/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href=""><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../en/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <div class="hero">
+    <h1>Convierte, comprime e inspecciona — sin subir nada</h1>
+    <p>Imágenes, SVG, PDF, JSON, CSV y texto. Todas las herramientas se ejecutan dentro de tu navegador: los archivos no salen del ordenador y no hay límites de tamaño ni colas.</p>
+  </div>
+  <div id="tools">
+    <section class="area">
+      <h2>Imagen</h2>
+      <div class="grid">
+      <a class="card" href="convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+      <a class="card" href="quitar-metadatos-imagen/" data-search="quitar metadatos elimina exif, gps y perfiles recodificando la imagen al mismo formato. exif metadatos gps privacidad limpiar borrar foto quitar-metadatos-imagen"><b>Quitar metadatos</b><span>Elimina EXIF, GPS y perfiles recodificando la imagen al mismo formato.</span></a>
+      <a class="card" href="marca-de-agua-imagen/" data-search="marca de agua en imágenes texto encima, en una esquina o repetido por toda la foto. marca de agua watermark texto copyright firmar proteger foto marca-de-agua-imagen"><b>Marca de agua en imágenes</b><span>Texto encima, en una esquina o repetido por toda la foto.</span></a>
+      <a class="card" href="ver-metadatos-imagen/" data-search="ver los metadatos cámara, exposición, fechas y las coordenadas gps si las hay. exif metadatos ver gps cámara iso apertura datos foto ver-metadatos-imagen"><b>Ver los metadatos</b><span>Cámara, exposición, fechas y las coordenadas GPS si las hay.</span></a>
+      <a class="card" href="generador-de-favicons/" data-search="generador de favicons de una imagen a todo el juego de iconos, con el .ico y el fragmento de html. favicon ico icono web apple touch icon manifest generar generador-de-favicons"><b>Generador de favicons</b><span>De una imagen a todo el juego de iconos, con el .ico y el fragmento de HTML.</span></a>
+      <a class="card" href="imagenes-a-gif/" data-search="imágenes a gif animado un gif a partir de una secuencia de imágenes, en el orden que dejes. gif animado animación secuencia fotogramas imágenes imagenes-a-gif"><b>Imágenes a GIF animado</b><span>Un GIF a partir de una secuencia de imágenes, en el orden que dejes.</span></a>
+      <a class="card" href="quitar-el-fondo/" data-search="quitar el fondo de una imagen separa el sujeto con un modelo que corre en tu ordenador. quitar fondo remove background recortar sujeto transparente png quitar-el-fondo"><b>Quitar el fondo de una imagen</b><span>Separa el sujeto con un modelo que corre en tu ordenador.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Imagen vectorial</h2>
+      <div class="grid">
+      <a class="card" href="optimizar-svg/" data-search="optimizar svg svgo en el navegador: quita metadatos de editor y redondea trazados. svg optimizar svgo minificar vector limpiar optimizar-svg"><b>Optimizar SVG</b><span>SVGO en el navegador: quita metadatos de editor y redondea trazados.</span></a>
+      <a class="card" href="svg-a-png/" data-search="svg a png rasteriza al tamaño que quieras, con fondo transparente o sólido. svg png rasterizar exportar bitmap webp svg-a-png"><b>SVG a PNG</b><span>Rasteriza al tamaño que quieras, con fondo transparente o sólido.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>PDF</h2>
+      <div class="grid">
+      <a class="card" href="comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+      <a class="card" href="unir-pdf/" data-search="unir pdf pega varios pdf en uno solo, en el orden que quieras. pdf unir juntar combinar merge unir-pdf"><b>Unir PDF</b><span>Pega varios PDF en uno solo, en el orden que quieras.</span></a>
+      <a class="card" href="separar-pdf/" data-search="separar pdf una página por archivo, bloques de n páginas o rangos a medida. pdf separar dividir split cortar páginas separar-pdf"><b>Separar PDF</b><span>Una página por archivo, bloques de N páginas o rangos a medida.</span></a>
+      <a class="card" href="girar-pdf/" data-search="girar páginas de pdf rota todas las páginas o solo las que indiques. pdf girar rotar orientación apaisado girar-pdf"><b>Girar páginas de PDF</b><span>Rota todas las páginas o solo las que indiques.</span></a>
+      <a class="card" href="extraer-paginas-pdf/" data-search="extraer páginas quédate solo con unas páginas, o bórralas del documento. pdf extraer páginas borrar eliminar quitar extraer-paginas-pdf"><b>Extraer páginas</b><span>Quédate solo con unas páginas, o bórralas del documento.</span></a>
+      <a class="card" href="imagenes-a-pdf/" data-search="imágenes a pdf un pdf con una imagen por página, con tamaño y márgenes controlados. imágenes pdf jpg png a pdf álbum escaneado imagenes-a-pdf"><b>Imágenes a PDF</b><span>Un PDF con una imagen por página, con tamaño y márgenes controlados.</span></a>
+      <a class="card" href="marca-de-agua-pdf/" data-search="marca de agua en pdf texto en todas las páginas, en una posición o repetido en diagonal. pdf marca de agua watermark confidencial borrador sello marca-de-agua-pdf"><b>Marca de agua en PDF</b><span>Texto en todas las páginas, en una posición o repetido en diagonal.</span></a>
+      <a class="card" href="numerar-paginas-pdf/" data-search="numerar páginas añade la numeración, con el formato y la posición que quieras. pdf numerar páginas número foliar pie de página numerar-paginas-pdf"><b>Numerar páginas</b><span>Añade la numeración, con el formato y la posición que quieras.</span></a>
+      <a class="card" href="ocr-imagen-y-pdf/" data-search="ocr: leer texto de imágenes y pdf reconoce el texto de escaneos y fotos, y hace un pdf buscable. ocr reconocimiento texto escaneo pdf buscable tesseract leer foto ocr-imagen-y-pdf"><b>OCR: leer texto de imágenes y PDF</b><span>Reconoce el texto de escaneos y fotos, y hace un PDF buscable.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Datos</h2>
+      <div class="grid">
+      <a class="card" href="json-a-csv/" data-search="json a csv array de objetos a tabla, aplanando los objetos anidados. json csv tabla excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array de objetos a tabla, aplanando los objetos anidados.</span></a>
+      <a class="card" href="csv-a-json/" data-search="csv a json detecta el separador, respeta las comillas y tipa los valores. csv json convertir tabla importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respeta las comillas y tipa los valores.</span></a>
+      <a class="card" href="json-a-yaml/" data-search="json a yaml conversión directa manteniendo el orden de las claves. json yaml yml convertir configuración json-a-yaml"><b>JSON a YAML</b><span>Conversión directa manteniendo el orden de las claves.</span></a>
+      <a class="card" href="yaml-a-json/" data-search="yaml a json acepta varios documentos en un mismo archivo. yaml yml json convertir configuración yaml-a-json"><b>YAML a JSON</b><span>Acepta varios documentos en un mismo archivo.</span></a>
+      <a class="card" href="formatear-json/" data-search="formatear y validar json indenta, minifica u ordena claves, y señala el error con línea y columna. json formatear validar bonito pretty minificar ordenar claves formatear-json"><b>Formatear y validar JSON</b><span>Indenta, minifica u ordena claves, y señala el error con línea y columna.</span></a>
+      <a class="card" href="decodificar-jwt/" data-search="decodificar jwt cabecera, carga útil y caducidad. la firma no se verifica. jwt token jose decodificar auth bearer decodificar-jwt"><b>Decodificar JWT</b><span>Cabecera, carga útil y caducidad. La firma no se verifica.</span></a>
+      <a class="card" href="base64-texto/" data-search="base64 (texto) codifica y decodifica texto utf-8, con variante segura para url. base64 codificar decodificar texto url safe atob btoa base64-texto"><b>Base64 (texto)</b><span>Codifica y decodifica texto UTF-8, con variante segura para URL.</span></a>
+      <a class="card" href="archivo-a-base64/" data-search="archivo a base64 genera un data uri listo para pegar en css o html. base64 data uri archivo imagen incrustar inline archivo-a-base64"><b>Archivo a Base64</b><span>Genera un data URI listo para pegar en CSS o HTML.</span></a>
+      <a class="card" href="hash-md5-sha256/" data-search="hash y checksum md5, sha-1, sha-256, sha-384 y sha-512 de texto o de archivos. hash md5 sha1 sha256 sha512 checksum suma verificación hash-md5-sha256"><b>Hash y checksum</b><span>MD5, SHA-1, SHA-256, SHA-384 y SHA-512 de texto o de archivos.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Texto y web</h2>
+      <div class="grid">
+      <a class="card" href="minificar-css/" data-search="minificar css csso: reestructura y fusiona reglas, no solo quita espacios. css minificar comprimir minify csso optimizar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura y fusiona reglas, no solo quita espacios.</span></a>
+      <a class="card" href="minificar-javascript/" data-search="minificar javascript terser en el navegador, con acortado de nombres opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser en el navegador, con acortado de nombres opcional.</span></a>
+      <a class="card" href="contar-palabras/" data-search="contar palabras y caracteres recuento en vivo, tiempo de lectura y los límites de cada plataforma. contar palabras caracteres longitud texto límite twitter seo lectura contar-palabras"><b>Contar palabras y caracteres</b><span>Recuento en vivo, tiempo de lectura y los límites de cada plataforma.</span></a>
+      <a class="card" href="cambiar-mayusculas/" data-search="cambiar mayúsculas y minúsculas mayúsculas, minúsculas, tipo título, camelcase, snake_case y más. mayúsculas minúsculas camelcase snakecase kebabcase título convertir texto cambiar-mayusculas"><b>Cambiar mayúsculas y minúsculas</b><span>MAYÚSCULAS, minúsculas, Tipo Título, camelCase, snake_case y más.</span></a>
+      <a class="card" href="ordenar-lineas/" data-search="ordenar y limpiar líneas ordena, quita duplicados y líneas vacías, numera o invierte una lista. ordenar líneas duplicados deduplicar lista alfabético numerar limpiar ordenar-lineas"><b>Ordenar y limpiar líneas</b><span>Ordena, quita duplicados y líneas vacías, numera o invierte una lista.</span></a>
+      <a class="card" href="codificar-url/" data-search="codificar y decodificar url percent-encoding, para direcciones enteras o solo para un parámetro. url encode decode percent codificar decodificar dirección parámetro query codificar-url"><b>Codificar y decodificar URL</b><span>Percent-encoding, para direcciones enteras o solo para un parámetro.</span></a>
+      <a class="card" href="entidades-html/" data-search="entidades html escapa el texto para meterlo dentro de html, o deshazlo. html entidades escapar amp lt gt nbsp codificar decodificar entidades-html"><b>Entidades HTML</b><span>Escapa el texto para meterlo dentro de HTML, o deshazlo.</span></a>
+      <a class="card" href="generar-slug/" data-search="generar slugs para url pasa un título a una dirección limpia, sin acentos ni símbolos. slug url amigable seo permalink acentos limpiar título generar-slug"><b>Generar slugs para URL</b><span>Pasa un título a una dirección limpia, sin acentos ni símbolos.</span></a>
+      <a class="card" href="formatear-html/" data-search="formatear html indenta y ordena marcado desordenado o minificado. html formatear indentar bonito pretty beautify ordenar formatear-html"><b>Formatear HTML</b><span>Indenta y ordena marcado desordenado o minificado.</span></a>
+      <a class="card" href="formatear-xml/" data-search="formatear y validar xml indenta el documento y avisa si el marcado no cierra bien. xml formatear indentar validar pretty rss sitemap formatear-xml"><b>Formatear y validar XML</b><span>Indenta el documento y avisa si el marcado no cierra bien.</span></a>
+      <a class="card" href="formatear-sql/" data-search="formatear sql consultas largas en una sola línea, ordenadas y legibles. sql formatear indentar consulta query mysql postgres bonito formatear-sql"><b>Formatear SQL</b><span>Consultas largas en una sola línea, ordenadas y legibles.</span></a>
+      <a class="card" href="convertidor-de-colores/" data-search="colores y contraste hex, rgb, hsl y oklch, escala de tonos y comprobación wcag. color hex rgb hsl oklch contraste wcag accesibilidad paleta convertidor-de-colores"><b>Colores y contraste</b><span>HEX, RGB, HSL y OKLCH, escala de tonos y comprobación WCAG.</span></a>
+      <a class="card" href="probador-de-regex/" data-search="probador de expresiones regulares coincidencias resaltadas, grupos con nombre y sustitución en vivo. regex regexp expresiones regulares probar test sustituir probador-de-regex"><b>Probador de expresiones regulares</b><span>Coincidencias resaltadas, grupos con nombre y sustitución en vivo.</span></a>
+      <a class="card" href="generador-qr/" data-search="generador de qr descarga en svg vectorial o png a la resolución que quieras. qr código generar svg png url wifi vcard generador-qr"><b>Generador de QR</b><span>Descarga en SVG vectorial o PNG a la resolución que quieras.</span></a>
+      <a class="card" href="comparar-textos/" data-search="comparar textos diferencias línea a línea con los bloques iguales plegados. diff comparar texto diferencias cambios comparar-textos"><b>Comparar textos</b><span>Diferencias línea a línea con los bloques iguales plegados.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Conversiones directas</h2>
+      <div class="grid">
+      <a class="card" href="png-a-webp/" data-search="png a webp convierte imágenes png a webp por lotes, dentro del navegador. png-a-webp"><b>PNG a WebP</b><span>Convierte imágenes PNG a WebP por lotes, dentro del navegador.</span></a>
+      <a class="card" href="jpg-a-webp/" data-search="jpg a webp convierte imágenes jpg a webp por lotes, dentro del navegador. jpg-a-webp"><b>JPG a WebP</b><span>Convierte imágenes JPG a WebP por lotes, dentro del navegador.</span></a>
+      <a class="card" href="png-a-jpg/" data-search="png a jpg convierte imágenes png a jpg por lotes, dentro del navegador. png-a-jpg"><b>PNG a JPG</b><span>Convierte imágenes PNG a JPG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="jpg-a-png/" data-search="jpg a png convierte imágenes jpg a png por lotes, dentro del navegador. jpg-a-png"><b>JPG a PNG</b><span>Convierte imágenes JPG a PNG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="webp-a-png/" data-search="webp a png convierte imágenes webp a png por lotes, dentro del navegador. webp-a-png"><b>WebP a PNG</b><span>Convierte imágenes WebP a PNG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="webp-a-jpg/" data-search="webp a jpg convierte imágenes webp a jpg por lotes, dentro del navegador. webp-a-jpg"><b>WebP a JPG</b><span>Convierte imágenes WebP a JPG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="png-a-avif/" data-search="png a avif convierte imágenes png a avif por lotes, dentro del navegador. png-a-avif"><b>PNG a AVIF</b><span>Convierte imágenes PNG a AVIF por lotes, dentro del navegador.</span></a>
+      <a class="card" href="jpg-a-avif/" data-search="jpg a avif convierte imágenes jpg a avif por lotes, dentro del navegador. jpg-a-avif"><b>JPG a AVIF</b><span>Convierte imágenes JPG a AVIF por lotes, dentro del navegador.</span></a>
+      <a class="card" href="avif-a-png/" data-search="avif a png convierte imágenes avif a png por lotes, dentro del navegador. avif-a-png"><b>AVIF a PNG</b><span>Convierte imágenes AVIF a PNG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="avif-a-jpg/" data-search="avif a jpg convierte imágenes avif a jpg por lotes, dentro del navegador. avif-a-jpg"><b>AVIF a JPG</b><span>Convierte imágenes AVIF a JPG por lotes, dentro del navegador.</span></a>
+      <a class="card" href="comprimir-png/" data-search="comprimir png reduce capturas y gráficos png, saliendo en webp con transparencia. comprimir-png"><b>Comprimir PNG</b><span>Reduce capturas y gráficos PNG, saliendo en WebP con transparencia.</span></a>
+      <a class="card" href="comprimir-jpg/" data-search="comprimir jpg recodifica fotos jpeg por calidad o hasta un peso máximo. comprimir-jpg"><b>Comprimir JPG</b><span>Recodifica fotos JPEG por calidad o hasta un peso máximo.</span></a>
+      <a class="card" href="jpg-a-pdf/" data-search="jpg a pdf fotografías jpeg en un solo pdf, una por página. jpg-a-pdf"><b>JPG a PDF</b><span>Fotografías JPEG en un solo PDF, una por página.</span></a>
+      <a class="card" href="png-a-pdf/" data-search="png a pdf capturas y gráficos png en un solo pdf, uno por página. png-a-pdf"><b>PNG a PDF</b><span>Capturas y gráficos PNG en un solo PDF, uno por página.</span></a>
+      </div>
+    </section>
+  </div>
+  <p class="empty" id="no-results" hidden></p>
+  <article class="prose">
+    <h2>Por qué en el navegador y no en el servidor</h2>
+    <p>La mayoría de conversores en línea funcionan igual: subes el archivo, un servidor lo procesa y te lo vuelves a descargar. Eso significa esperar la subida, confiar en quien guarda el archivo y aceptar los límites de tamaño que imponga el servicio.</p>
+    <p>Aquí no pasa nada de eso. El navegador ya sabe decodificar y codificar PNG, JPEG y WebP, y el resto llega en forma de librerías que se cargan dentro de la página. El archivo no viaja a ningún sitio: se abre, se procesa y se guarda desde la misma pestaña. Puedes incluso desconectar la red una vez cargada la herramienta.</p>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "home","lang": "es"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

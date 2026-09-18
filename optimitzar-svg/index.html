@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimitzar SVG en línia, al navegador — WebTools</title>
+<meta name="description" content="Els SVG que surten d’Illustrator, Figma o Inkscape arrosseguen molta cosa que el navegador no necessita: comentaris de l’editor, blocs de metadades, atributs…">
+<link rel="canonical" href="http://localhost:5180/optimitzar-svg/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/optimitzar-svg/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/optimizar-svg/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/optimise-svg/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/optimitzar-svg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Optimitzar SVG en línia, al navegador — WebTools">
+<meta property="og:description" content="Els SVG que surten d’Illustrator, Figma o Inkscape arrosseguen molta cosa que el navegador no necessita: comentaris de l’editor, blocs de metadades, atributs…">
+<meta property="og:url" content="http://localhost:5180/optimitzar-svg/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Optimitzar SVG",
+          "item": "http://localhost:5180/optimitzar-svg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Optimitzar SVG",
+      "url": "http://localhost:5180/optimitzar-svg/",
+      "description": "Els SVG que surten d’Illustrator, Figma o Inkscape arrosseguen molta cosa que el navegador no necessita: comentaris de l’editor, blocs de metadades, atributs…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quants decimals he de deixar als camins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tres va bé per a gairebé tot. Amb icones petites pots baixar a un o dos i estalviar encara més; si el dibuix té corbes llargues i suaus, baixar-hi massa pot fer aparèixer angles visibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què hi ha l’opció de treure width i height?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè una icona que ha d’escalar amb CSS va millor només amb viewBox: sense mides fixes, ocupa el que li digui el contenidor. Si en canvi inserixes l’SVG solt en una pàgina, deixa-les."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què fa el prefix dels identificadors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hi afegeix el nom del fitxer al davant. Si poses diversos SVG a la mateixa pàgina i tots tenen un degradat anomenat \"a\", es trepitgen entre ells; amb el prefix, cadascun manté el seu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es pot desfer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No des d’aquí, així que conserva els originals. L’optimització no és destructiva per al dibuix, però sí per a l’estructura editable amb què treballa el teu programa de disseny."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/optimizar-svg/" hreflang="es">Español</a><a class="lang" href="../en/optimise-svg/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge vectorial</nav>
+  <header class="tool-head">
+    <h1>Optimitzar SVG</h1>
+    <p>SVGO al navegador: treu metadades d’editor i arrodoneix camins.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Els SVG que surten d’Illustrator, Figma o Inkscape arrosseguen molta cosa que el navegador no necessita: comentaris de l’editor, blocs de metadades, atributs propietaris, identificadors generats i coordenades amb dotze decimals.</p>
+    <p>Aquesta pàgina hi passa SVGO amb la configuració per defecte més unes quantes opcions que val la pena poder tocar. En icones exportades d’un editor és habitual retallar entre el 40 i el 70 % del pes sense que canviï ni un píxel del dibuix.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Arrossega-hi els SVG, tants com vulguis.</li>
+      <li>Ajusta els decimals dels camins si necessites més o menys precisió.</li>
+      <li>Processa i mira quant ha baixat cadascun abans de descarregar.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quants decimals he de deixar als camins?</dt>
+      <dd>Tres va bé per a gairebé tot. Amb icones petites pots baixar a un o dos i estalviar encara més; si el dibuix té corbes llargues i suaus, baixar-hi massa pot fer aparèixer angles visibles.</dd>
+      <dt>Per què hi ha l’opció de treure width i height?</dt>
+      <dd>Perquè una icona que ha d’escalar amb CSS va millor només amb viewBox: sense mides fixes, ocupa el que li digui el contenidor. Si en canvi inserixes l’SVG solt en una pàgina, deixa-les.</dd>
+      <dt>Què fa el prefix dels identificadors?</dt>
+      <dd>Hi afegeix el nom del fitxer al davant. Si poses diversos SVG a la mateixa pàgina i tots tenen un degradat anomenat &quot;a&quot;, es trepitgen entre ells; amb el prefix, cadascun manté el seu.</dd>
+      <dt>Es pot desfer?</dt>
+      <dd>No des d’aquí, així que conserva els originals. L’optimització no és destructiva per al dibuix, però sí per a l’estructura editable amb què treballa el teu programa de disseny.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../svg-a-png/" data-search="svg a png rasteritza a la mida que vulguis, amb fons transparent o sòlid. svg png rasteritzar exportar bitmap webp svg-a-png"><b>SVG a PNG</b><span>Rasteritza a la mida que vulguis, amb fons transparent o sòlid.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-optimize","slug": "optimitzar-svg","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

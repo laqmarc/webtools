@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV a JSON en línea, en el navegador — WebTools</title>
+<meta name="description" content="Convierte una tabla en una lista de objetos JSON, con los encabezados como nombres de campo. El separador se detecta solo mirando la primera línea, pero lo…">
+<link rel="canonical" href="http://localhost:5180/es/csv-a-json/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/csv-a-json/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/csv-a-json/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/csv-to-json/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/csv-a-json/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="CSV a JSON en línea, en el navegador — WebTools">
+<meta property="og:description" content="Convierte una tabla en una lista de objetos JSON, con los encabezados como nombres de campo. El separador se detecta solo mirando la primera línea, pero lo…">
+<meta property="og:url" content="http://localhost:5180/es/csv-a-json/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CSV a JSON",
+          "item": "http://localhost:5180/es/csv-a-json/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "CSV a JSON",
+      "url": "http://localhost:5180/es/csv-a-json/",
+      "description": "Convierte una tabla en una lista de objetos JSON, con los encabezados como nombres de campo. El separador se detecta solo mirando la primera línea, pero lo…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué hace la opción de convertir números y booleanos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sin ella, todo sale como texto entrecomillado. Con ella, «42» pasa a ser el número 42 y «true» el booleano. Los valores que parecen números pero no lo son exactamente, como un código postal con cero delante, se dejan como texto."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mi CSV no tiene encabezados.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Desmarca la casilla correspondiente. Cada fila saldrá como una lista de valores en vez de un objeto con nombres de campo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si dos columnas se llaman igual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La segunda gana, porque un objeto JSON no puede tener dos claves iguales. Cambia el nombre de una de las columnas antes de convertir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../csv-a-json/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/csv-to-json/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Datos</nav>
+  <header class="tool-head">
+    <h1>CSV a JSON</h1>
+    <p>Detecta el separador, respeta las comillas y tipa los valores.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Convierte una tabla en una lista de objetos JSON, con los encabezados como nombres de campo. El separador se detecta solo mirando la primera línea, pero lo puedes forzar si la detección falla.</p>
+    <p>El lector sigue las reglas del RFC 4180: respeta las comillas, las comillas dobles escapadas dentro de un valor y los saltos de línea en medio de un campo entrecomillado.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Pega el CSV o abre el archivo.</li>
+      <li>Comprueba que el separador y la casilla de encabezados sean correctos.</li>
+      <li>Copia el JSON o descárgalo.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué hace la opción de convertir números y booleanos?</dt>
+      <dd>Sin ella, todo sale como texto entrecomillado. Con ella, «42» pasa a ser el número 42 y «true» el booleano. Los valores que parecen números pero no lo son exactamente, como un código postal con cero delante, se dejan como texto.</dd>
+      <dt>Mi CSV no tiene encabezados.</dt>
+      <dd>Desmarca la casilla correspondiente. Cada fila saldrá como una lista de valores en vez de un objeto con nombres de campo.</dd>
+      <dt>¿Qué pasa si dos columnas se llaman igual?</dt>
+      <dd>La segunda gana, porque un objeto JSON no puede tener dos claves iguales. Cambia el nombre de una de las columnas antes de convertir.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array de objetos a tabla, aplanando los objetos anidados. json csv tabla excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array de objetos a tabla, aplanando los objetos anidados.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversión directa manteniendo el orden de las claves. json yaml yml convertir configuración json-a-yaml"><b>JSON a YAML</b><span>Conversión directa manteniendo el orden de las claves.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json acepta varios documentos en un mismo archivo. yaml yml json convertir configuración yaml-a-json"><b>YAML a JSON</b><span>Acepta varios documentos en un mismo archivo.</span></a>
+      <a class="card" href="../formatear-json/" data-search="formatear y validar json indenta, minifica u ordena claves, y señala el error con línea y columna. json formatear validar bonito pretty minificar ordenar claves formatear-json"><b>Formatear y validar JSON</b><span>Indenta, minifica u ordena claves, y señala el error con línea y columna.</span></a>
+      <a class="card" href="../decodificar-jwt/" data-search="decodificar jwt cabecera, carga útil y caducidad. la firma no se verifica. jwt token jose decodificar auth bearer decodificar-jwt"><b>Decodificar JWT</b><span>Cabecera, carga útil y caducidad. La firma no se verifica.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "csv-to-json","slug": "csv-a-json","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

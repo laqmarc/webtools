@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF a imágenes en línea, en el navegador — WebTools</title>
+<meta name="description" content="Convierte cada página de un PDF en una imagen, a la resolución que le digas. Va bien para enviar una página por mensajería, ponerla en una presentación o…">
+<link rel="canonical" href="http://localhost:5180/es/pdf-a-imagenes/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/pdf-a-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/pdf-a-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/pdf-to-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/pdf-a-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="PDF a imágenes en línea, en el navegador — WebTools">
+<meta property="og:description" content="Convierte cada página de un PDF en una imagen, a la resolución que le digas. Va bien para enviar una página por mensajería, ponerla en una presentación o…">
+<meta property="og:url" content="http://localhost:5180/es/pdf-a-imagenes/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PDF a imágenes",
+          "item": "http://localhost:5180/es/pdf-a-imagenes/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "PDF a imágenes",
+      "url": "http://localhost:5180/es/pdf-a-imagenes/",
+      "description": "Convierte cada página de un PDF en una imagen, a la resolución que le digas. Va bien para enviar una página por mensajería, ponerla en una presentación o…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué resolución debo poner?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "150 ppp para mirar en pantalla, 300 para imprimir. Por encima de 300 el archivo crece mucho y la mejora es difícil de ver si el origen es texto vectorial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué formato me conviene?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG si la página es texto y gráficos, que es el caso habitual y donde el JPEG deja suciedad alrededor de las letras. JPEG o WebP si la página es sobre todo una fotografía."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué una página muy grande sale más pequeña de lo que he pedido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hay un límite de píxeles por página para no agotar la memoria de la pestaña. Un A0 a 600 ppp serían mil millones de píxeles; en ese caso se rebaja la escala justo lo necesario."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../pdf-a-imatges/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/pdf-to-images/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>PDF a imágenes</h1>
+    <p>Una imagen por página, a la resolución que necesites.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Convierte cada página de un PDF en una imagen, a la resolución que le digas. Va bien para enviar una página por mensajería, ponerla en una presentación o subirla a un sitio que no acepta PDF.</p>
+    <p>La resolución se pide en puntos por pulgada, que es la manera de decirlo que no depende del tamaño del folio: 150 ppp se lee cómodamente en pantalla y 300 es calidad de impresión.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el PDF.</li>
+      <li>Elige el formato y la resolución, y si quieres solo unas páginas.</li>
+      <li>Procesa y descárgalas una a una o todas en un ZIP.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué resolución debo poner?</dt>
+      <dd>150 ppp para mirar en pantalla, 300 para imprimir. Por encima de 300 el archivo crece mucho y la mejora es difícil de ver si el origen es texto vectorial.</dd>
+      <dt>¿Qué formato me conviene?</dt>
+      <dd>PNG si la página es texto y gráficos, que es el caso habitual y donde el JPEG deja suciedad alrededor de las letras. JPEG o WebP si la página es sobre todo una fotografía.</dd>
+      <dt>¿Por qué una página muy grande sale más pequeña de lo que he pedido?</dt>
+      <dd>Hay un límite de píxeles por página para no agotar la memoria de la pestaña. Un A0 a 600 ppp serían mil millones de píxeles; en ese caso se rebaja la escala justo lo necesario.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+      <a class="card" href="../unir-pdf/" data-search="unir pdf pega varios pdf en uno solo, en el orden que quieras. pdf unir juntar combinar merge unir-pdf"><b>Unir PDF</b><span>Pega varios PDF en uno solo, en el orden que quieras.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-to-images","slug": "pdf-a-imagenes","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

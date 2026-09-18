@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JSON a CSV en línia, al navegador — WebTools</title>
+<meta name="description" content="Converteix una llista d’objectes JSON en una taula que Excel, Numbers o Google Sheets obren directament. Les columnes surten de les claus, i es recullen…">
+<link rel="canonical" href="http://localhost:5180/json-a-csv/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/json-a-csv/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/json-a-csv/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/json-to-csv/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/json-a-csv/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="JSON a CSV en línia, al navegador — WebTools">
+<meta property="og:description" content="Converteix una llista d’objectes JSON en una taula que Excel, Numbers o Google Sheets obren directament. Les columnes surten de les claus, i es recullen…">
+<meta property="og:url" content="http://localhost:5180/json-a-csv/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "JSON a CSV",
+          "item": "http://localhost:5180/json-a-csv/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "JSON a CSV",
+      "url": "http://localhost:5180/json-a-csv/",
+      "description": "Converteix una llista d’objectes JSON en una taula que Excel, Numbers o Google Sheets obren directament. Les columnes surten de les claus, i es recullen…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quin separador he de triar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La coma és l’estàndard, però l’Excel en configuració catalana o espanyola sol esperar punt i coma. Si en obrir el fitxer tot et surt en una sola columna, canvia-ho."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L’Excel em fa malbé els accents, per què?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè no detecta que el fitxer és UTF-8. Marca la casella del BOM: hi afegeix una marca invisible al principi que fa que l’Excel ho encerti."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què passa amb els valors que són llistes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es desen dins de la cel·la com a text JSON. Una taula no té manera de representar una llista dins d’una casella, així que el més honest és deixar-la visible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El meu JSON no és una llista, és un objecte.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si conté una llista a dins, es fa servir la primera que hi hagi. Si no, es tracta l’objecte com una fila única."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/json-a-csv/" hreflang="es">Español</a><a class="lang" href="../en/json-to-csv/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Dades</nav>
+  <header class="tool-head">
+    <h1>JSON a CSV</h1>
+    <p>Array d’objectes a taula, aplanant els objectes imbricats.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Converteix una llista d’objectes JSON en una taula que Excel, Numbers o Google Sheets obren directament. Les columnes surten de les claus, i es recullen totes les que apareguin en qualsevol dels objectes.</p>
+    <p>Els objectes imbricats s’aplanen amb notació de punt, de manera que {&quot;adreca&quot;: {&quot;ciutat&quot;: &quot;Girona&quot;}} es converteix en una columna anomenada adreca.ciutat.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Enganxa el JSON o obre un fitxer.</li>
+      <li>Tria el separador que esperi el teu full de càlcul.</li>
+      <li>Copia el resultat o baixa’l com a .csv.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quin separador he de triar?</dt>
+      <dd>La coma és l’estàndard, però l’Excel en configuració catalana o espanyola sol esperar punt i coma. Si en obrir el fitxer tot et surt en una sola columna, canvia-ho.</dd>
+      <dt>L’Excel em fa malbé els accents, per què?</dt>
+      <dd>Perquè no detecta que el fitxer és UTF-8. Marca la casella del BOM: hi afegeix una marca invisible al principi que fa que l’Excel ho encerti.</dd>
+      <dt>Què passa amb els valors que són llistes?</dt>
+      <dd>Es desen dins de la cel·la com a text JSON. Una taula no té manera de representar una llista dins d’una casella, així que el més honest és deixar-la visible.</dd>
+      <dt>El meu JSON no és una llista, és un objecte.</dt>
+      <dd>Si conté una llista a dins, es fa servir la primera que hi hagi. Si no, es tracta l’objecte com una fila única.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversió directa mantenint l’ordre de les claus. json yaml yml convertir configuració json-a-yaml"><b>JSON a YAML</b><span>Conversió directa mantenint l’ordre de les claus.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="../formatar-json/" data-search="formatar i validar json indenta, minifica o ordena claus, i assenyala l’error amb línia i columna. json formatar validar bonic pretty minificar ordenar claus formatar-json"><b>Formatar i validar JSON</b><span>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</span></a>
+      <a class="card" href="../descodificar-jwt/" data-search="descodificar jwt capçalera, càrrega útil i caducitat. la signatura no es verifica. jwt token jose descodificar auth bearer descodificar-jwt"><b>Descodificar JWT</b><span>Capçalera, càrrega útil i caducitat. La signatura no es verifica.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "json-to-csv","slug": "json-a-csv","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

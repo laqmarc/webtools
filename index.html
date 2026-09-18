@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebTools — Converteix, comprimeix i inspecciona — sense pujar res</title>
+<meta name="description" content="Converteix i comprimeix imatges, SVG i PDF, i treballa amb JSON, CSV, YAML i text. Tot s’executa al teu navegador: cap fitxer no s’envia a cap servidor.">
+<link rel="canonical" href="http://localhost:5180/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="WebTools — Converteix, comprimeix i inspecciona — sense pujar res">
+<meta property="og:description" content="Converteix i comprimeix imatges, SVG i PDF, i treballa amb JSON, CSV, YAML i text. Tot s’executa al teu navegador: cap fitxer no s’envia a cap servidor.">
+<meta property="og:url" content="http://localhost:5180/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "WebTools",
+      "url": "http://localhost:5180/",
+      "description": "Converteix i comprimeix imatges, SVG i PDF, i treballa amb JSON, CSV, YAML i text. Tot s’executa al teu navegador: cap fitxer no s’envia a cap servidor.",
+      "inLanguage": "ca"
+    },
+    {
+      "@type": "ItemList",
+      "name": "Tools",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Convertir imatges",
+          "url": "http://localhost:5180/convertir-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comprimir imatges",
+          "url": "http://localhost:5180/comprimir-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Redimensionar imatges",
+          "url": "http://localhost:5180/redimensionar-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Retallar imatges",
+          "url": "http://localhost:5180/retallar-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Girar i reflectir",
+          "url": "http://localhost:5180/girar-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "Treure metadades",
+          "url": "http://localhost:5180/treure-metadades-imatge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Marca d’aigua en imatges",
+          "url": "http://localhost:5180/marca-aigua-imatge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Veure les metadades",
+          "url": "http://localhost:5180/veure-metadades-imatge/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Generador de favicons",
+          "url": "http://localhost:5180/generador-de-favicons/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 10,
+          "name": "Imatges a GIF animat",
+          "url": "http://localhost:5180/imatges-a-gif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 11,
+          "name": "Treure el fons d’una imatge",
+          "url": "http://localhost:5180/treure-el-fons/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 12,
+          "name": "Optimitzar SVG",
+          "url": "http://localhost:5180/optimitzar-svg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 13,
+          "name": "SVG a PNG",
+          "url": "http://localhost:5180/svg-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 14,
+          "name": "Comprimir PDF",
+          "url": "http://localhost:5180/comprimir-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 15,
+          "name": "Organitzar pàgines",
+          "url": "http://localhost:5180/organitzar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 16,
+          "name": "PDF a imatges",
+          "url": "http://localhost:5180/pdf-a-imatges/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 17,
+          "name": "PDF a text",
+          "url": "http://localhost:5180/pdf-a-text/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 18,
+          "name": "Extreure imatges d’un PDF",
+          "url": "http://localhost:5180/extreure-imatges-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 19,
+          "name": "Unir PDF",
+          "url": "http://localhost:5180/unir-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 20,
+          "name": "Separar PDF",
+          "url": "http://localhost:5180/separar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 21,
+          "name": "Girar pàgines de PDF",
+          "url": "http://localhost:5180/girar-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 22,
+          "name": "Extreure pàgines",
+          "url": "http://localhost:5180/extreure-pagines-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 23,
+          "name": "Imatges a PDF",
+          "url": "http://localhost:5180/imatges-a-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 24,
+          "name": "Marca d’aigua en PDF",
+          "url": "http://localhost:5180/marca-aigua-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 25,
+          "name": "Numerar pàgines",
+          "url": "http://localhost:5180/numerar-pagines-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 26,
+          "name": "OCR: llegir text d’imatges i PDF",
+          "url": "http://localhost:5180/ocr-imatge-i-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 27,
+          "name": "JSON a CSV",
+          "url": "http://localhost:5180/json-a-csv/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 28,
+          "name": "CSV a JSON",
+          "url": "http://localhost:5180/csv-a-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 29,
+          "name": "JSON a YAML",
+          "url": "http://localhost:5180/json-a-yaml/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 30,
+          "name": "YAML a JSON",
+          "url": "http://localhost:5180/yaml-a-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 31,
+          "name": "Formatar i validar JSON",
+          "url": "http://localhost:5180/formatar-json/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 32,
+          "name": "Descodificar JWT",
+          "url": "http://localhost:5180/descodificar-jwt/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 33,
+          "name": "Base64 (text)",
+          "url": "http://localhost:5180/base64-text/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 34,
+          "name": "Fitxer a Base64",
+          "url": "http://localhost:5180/fitxer-a-base64/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 35,
+          "name": "Hash i checksum",
+          "url": "http://localhost:5180/hash-md5-sha256/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 36,
+          "name": "Minificar CSS",
+          "url": "http://localhost:5180/minificar-css/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 37,
+          "name": "Minificar JavaScript",
+          "url": "http://localhost:5180/minificar-javascript/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 38,
+          "name": "Comptar paraules i caràcters",
+          "url": "http://localhost:5180/comptar-paraules/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 39,
+          "name": "Canviar majúscules i minúscules",
+          "url": "http://localhost:5180/canviar-majuscules/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 40,
+          "name": "Ordenar i netejar línies",
+          "url": "http://localhost:5180/ordenar-linies/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 41,
+          "name": "Codificar i descodificar URL",
+          "url": "http://localhost:5180/codificar-url/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 42,
+          "name": "Entitats HTML",
+          "url": "http://localhost:5180/entitats-html/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 43,
+          "name": "Generar slugs per a URL",
+          "url": "http://localhost:5180/generar-slug/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 44,
+          "name": "Formatar HTML",
+          "url": "http://localhost:5180/formatar-html/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 45,
+          "name": "Formatar i validar XML",
+          "url": "http://localhost:5180/formatar-xml/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 46,
+          "name": "Formatar SQL",
+          "url": "http://localhost:5180/formatar-sql/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 47,
+          "name": "Colors i contrast",
+          "url": "http://localhost:5180/convertidor-de-colors/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 48,
+          "name": "Provador d’expressions regulars",
+          "url": "http://localhost:5180/provador-de-regex/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 49,
+          "name": "Generador de QR",
+          "url": "http://localhost:5180/generador-qr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 50,
+          "name": "Comparar textos",
+          "url": "http://localhost:5180/comparar-textos/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 51,
+          "name": "PNG a WebP",
+          "url": "http://localhost:5180/png-a-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 52,
+          "name": "JPG a WebP",
+          "url": "http://localhost:5180/jpg-a-webp/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 53,
+          "name": "PNG a JPG",
+          "url": "http://localhost:5180/png-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 54,
+          "name": "JPG a PNG",
+          "url": "http://localhost:5180/jpg-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 55,
+          "name": "WebP a PNG",
+          "url": "http://localhost:5180/webp-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 56,
+          "name": "WebP a JPG",
+          "url": "http://localhost:5180/webp-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 57,
+          "name": "PNG a AVIF",
+          "url": "http://localhost:5180/png-a-avif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 58,
+          "name": "JPG a AVIF",
+          "url": "http://localhost:5180/jpg-a-avif/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 59,
+          "name": "AVIF a PNG",
+          "url": "http://localhost:5180/avif-a-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 60,
+          "name": "AVIF a JPG",
+          "url": "http://localhost:5180/avif-a-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 61,
+          "name": "Comprimir PNG",
+          "url": "http://localhost:5180/comprimir-png/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 62,
+          "name": "Comprimir JPG",
+          "url": "http://localhost:5180/comprimir-jpg/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 63,
+          "name": "JPG a PDF",
+          "url": "http://localhost:5180/jpg-a-pdf/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 64,
+          "name": "PNG a PDF",
+          "url": "http://localhost:5180/png-a-pdf/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href=""><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="es/" hreflang="es">Español</a><a class="lang" href="en/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <div class="hero">
+    <h1>Converteix, comprimeix i inspecciona — sense pujar res</h1>
+    <p>Imatges, SVG, PDF, JSON, CSV i text. Totes les eines s’executen dins del teu navegador: els fitxers no surten de l’ordinador i no hi ha límits de mida ni cues.</p>
+  </div>
+  <div id="tools">
+    <section class="area">
+      <h2>Imatge</h2>
+      <div class="grid">
+      <a class="card" href="convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="comprimir-imatges/" data-search="comprimir imatges baixa el pes per qualitat o fins a una mida objectiu concreta. comprimir compressió reduir pes optimitzar kb mida comprimir-imatges"><b>Comprimir imatges</b><span>Baixa el pes per qualitat o fins a una mida objectiu concreta.</span></a>
+      <a class="card" href="redimensionar-imatges/" data-search="redimensionar imatges amplada i alçada amb control d’ajust i sense ampliar per defecte. redimensionar mida escalar amplada alçada resize redimensionar-imatges"><b>Redimensionar imatges</b><span>Amplada i alçada amb control d’ajust i sense ampliar per defecte.</span></a>
+      <a class="card" href="retallar-imatges/" data-search="retallar imatges dibuixa el retall damunt de la imatge i aplica’l a tot el lot. retallar crop tallar aspecte quadrat visual ratolí retallar-imatges"><b>Retallar imatges</b><span>Dibuixa el retall damunt de la imatge i aplica’l a tot el lot.</span></a>
+      <a class="card" href="girar-imatges/" data-search="girar i reflectir rotació de 90° en 90° i volteig horitzontal o vertical. girar rotar rotate flip mirall voltejar girar-imatges"><b>Girar i reflectir</b><span>Rotació de 90° en 90° i volteig horitzontal o vertical.</span></a>
+      <a class="card" href="treure-metadades-imatge/" data-search="treure metadades elimina exif, gps i perfils recodificant la imatge al mateix format. exif metadades gps privacitat netejar strip treure-metadades-imatge"><b>Treure metadades</b><span>Elimina EXIF, GPS i perfils recodificant la imatge al mateix format.</span></a>
+      <a class="card" href="marca-aigua-imatge/" data-search="marca d’aigua en imatges text a sobre, en una cantonada o repetit per tota la foto. marca aigua watermark text copyright signar protegir marca-aigua-imatge"><b>Marca d’aigua en imatges</b><span>Text a sobre, en una cantonada o repetit per tota la foto.</span></a>
+      <a class="card" href="veure-metadades-imatge/" data-search="veure les metadades càmera, exposició, dates i les coordenades gps si n’hi ha. exif metadades veure gps càmera iso obertura dades foto veure-metadades-imatge"><b>Veure les metadades</b><span>Càmera, exposició, dates i les coordenades GPS si n’hi ha.</span></a>
+      <a class="card" href="generador-de-favicons/" data-search="generador de favicons d’una imatge a tot el joc d’icones, amb l’.ico i el fragment d’html. favicon ico icona web apple touch icon manifest generar generador-de-favicons"><b>Generador de favicons</b><span>D’una imatge a tot el joc d’icones, amb l’.ico i el fragment d’HTML.</span></a>
+      <a class="card" href="imatges-a-gif/" data-search="imatges a gif animat un gif a partir d’una seqüència d’imatges, en l’ordre que hi deixis. gif animat animació seqüència fotogrames imatges imatges-a-gif"><b>Imatges a GIF animat</b><span>Un GIF a partir d’una seqüència d’imatges, en l’ordre que hi deixis.</span></a>
+      <a class="card" href="treure-el-fons/" data-search="treure el fons d’una imatge separa el subjecte amb un model que corre al teu ordinador. treure fons remove background retallar subjecte transparent png recortar treure-el-fons"><b>Treure el fons d’una imatge</b><span>Separa el subjecte amb un model que corre al teu ordinador.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Imatge vectorial</h2>
+      <div class="grid">
+      <a class="card" href="optimitzar-svg/" data-search="optimitzar svg svgo al navegador: treu metadades d’editor i arrodoneix camins. svg optimitzar svgo minificar vector netejar optimitzar-svg"><b>Optimitzar SVG</b><span>SVGO al navegador: treu metadades d’editor i arrodoneix camins.</span></a>
+      <a class="card" href="svg-a-png/" data-search="svg a png rasteritza a la mida que vulguis, amb fons transparent o sòlid. svg png rasteritzar exportar bitmap webp svg-a-png"><b>SVG a PNG</b><span>Rasteritza a la mida que vulguis, amb fons transparent o sòlid.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>PDF</h2>
+      <div class="grid">
+      <a class="card" href="comprimir-pdf/" data-search="comprimir pdf recodifica les imatges de dins sense tocar el text ni l’estructura. pdf comprimir reduir pes mida optimitzar escaneig comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica les imatges de dins sense tocar el text ni l’estructura.</span></a>
+      <a class="card" href="organitzar-pdf/" data-search="organitzar pàgines veu totes les pàgines, arrossega-les, gira-les i treu les que sobren. pdf organitzar reordenar ordenar pàgines miniatures moure esborrar organitzar-pdf"><b>Organitzar pàgines</b><span>Veu totes les pàgines, arrossega-les, gira-les i treu les que sobren.</span></a>
+      <a class="card" href="pdf-a-imatges/" data-search="pdf a imatges una imatge per pàgina, a la resolució que necessitis. pdf imatge jpg png webp convertir pàgines rasteritzar exportar pdf-a-imatges"><b>PDF a imatges</b><span>Una imatge per pàgina, a la resolució que necessitis.</span></a>
+      <a class="card" href="pdf-a-text/" data-search="pdf a text extreu la capa de text del document, sense ocr. pdf text extreure copiar contingut txt pdf-a-text"><b>PDF a text</b><span>Extreu la capa de text del document, sense OCR.</span></a>
+      <a class="card" href="extreure-imatges-pdf/" data-search="extreure imatges d’un pdf treu les fotos i els gràfics incrustats com a fitxers a part. pdf extreure imatges fotos treure guardar jpg png extreure-imatges-pdf"><b>Extreure imatges d’un PDF</b><span>Treu les fotos i els gràfics incrustats com a fitxers a part.</span></a>
+      <a class="card" href="unir-pdf/" data-search="unir pdf enganxa diversos pdf en un de sol, en l’ordre que vulguis. pdf unir juntar combinar merge unir-pdf"><b>Unir PDF</b><span>Enganxa diversos PDF en un de sol, en l’ordre que vulguis.</span></a>
+      <a class="card" href="separar-pdf/" data-search="separar pdf una pàgina per fitxer, blocs de n pàgines o rangs a mida. pdf separar dividir split tallar pàgines separar-pdf"><b>Separar PDF</b><span>Una pàgina per fitxer, blocs de N pàgines o rangs a mida.</span></a>
+      <a class="card" href="girar-pdf/" data-search="girar pàgines de pdf rota totes les pàgines o només les que indiquis. pdf girar rotar orientació apaïsat girar-pdf"><b>Girar pàgines de PDF</b><span>Rota totes les pàgines o només les que indiquis.</span></a>
+      <a class="card" href="extreure-pagines-pdf/" data-search="extreure pàgines queda’t només amb unes pàgines, o esborra-les del document. pdf extreure pàgines esborrar eliminar treure extreure-pagines-pdf"><b>Extreure pàgines</b><span>Queda’t només amb unes pàgines, o esborra-les del document.</span></a>
+      <a class="card" href="imatges-a-pdf/" data-search="imatges a pdf un pdf amb una imatge per pàgina, amb mida i marges controlats. imatges pdf jpg png a pdf àlbum escanejat imatges-a-pdf"><b>Imatges a PDF</b><span>Un PDF amb una imatge per pàgina, amb mida i marges controlats.</span></a>
+      <a class="card" href="marca-aigua-pdf/" data-search="marca d’aigua en pdf text a totes les pàgines, en una posició o repetit en diagonal. pdf marca aigua watermark confidencial esborrany segell marca-aigua-pdf"><b>Marca d’aigua en PDF</b><span>Text a totes les pàgines, en una posició o repetit en diagonal.</span></a>
+      <a class="card" href="numerar-pagines-pdf/" data-search="numerar pàgines afegeix la numeració, amb el format i la posició que vulguis. pdf numerar pàgines número foliar peu de pàgina numerar-pagines-pdf"><b>Numerar pàgines</b><span>Afegeix la numeració, amb el format i la posició que vulguis.</span></a>
+      <a class="card" href="ocr-imatge-i-pdf/" data-search="ocr: llegir text d’imatges i pdf reconeix el text d’escanejos i fotos, i en fa un pdf cercable. ocr reconeixement text escaneig pdf cercable tesseract llegir foto ocr-imatge-i-pdf"><b>OCR: llegir text d’imatges i PDF</b><span>Reconeix el text d’escanejos i fotos, i en fa un PDF cercable.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Dades</h2>
+      <div class="grid">
+      <a class="card" href="json-a-csv/" data-search="json a csv array d’objectes a taula, aplanant els objectes imbricats. json csv taula excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array d’objectes a taula, aplanant els objectes imbricats.</span></a>
+      <a class="card" href="csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="json-a-yaml/" data-search="json a yaml conversió directa mantenint l’ordre de les claus. json yaml yml convertir configuració json-a-yaml"><b>JSON a YAML</b><span>Conversió directa mantenint l’ordre de les claus.</span></a>
+      <a class="card" href="yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="formatar-json/" data-search="formatar i validar json indenta, minifica o ordena claus, i assenyala l’error amb línia i columna. json formatar validar bonic pretty minificar ordenar claus formatar-json"><b>Formatar i validar JSON</b><span>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</span></a>
+      <a class="card" href="descodificar-jwt/" data-search="descodificar jwt capçalera, càrrega útil i caducitat. la signatura no es verifica. jwt token jose descodificar auth bearer descodificar-jwt"><b>Descodificar JWT</b><span>Capçalera, càrrega útil i caducitat. La signatura no es verifica.</span></a>
+      <a class="card" href="base64-text/" data-search="base64 (text) codifica i descodifica text utf-8, amb variant segura per a url. base64 codificar descodificar text url safe atob btoa base64-text"><b>Base64 (text)</b><span>Codifica i descodifica text UTF-8, amb variant segura per a URL.</span></a>
+      <a class="card" href="fitxer-a-base64/" data-search="fitxer a base64 genera un data uri llest per enganxar a css o html. base64 data uri fitxer imatge incrustar inline fitxer-a-base64"><b>Fitxer a Base64</b><span>Genera un data URI llest per enganxar a CSS o HTML.</span></a>
+      <a class="card" href="hash-md5-sha256/" data-search="hash i checksum md5, sha-1, sha-256, sha-384 i sha-512 de text o de fitxers. hash md5 sha1 sha256 sha512 checksum suma verificació hash-md5-sha256"><b>Hash i checksum</b><span>MD5, SHA-1, SHA-256, SHA-384 i SHA-512 de text o de fitxers.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Text i web</h2>
+      <div class="grid">
+      <a class="card" href="minificar-css/" data-search="minificar css csso: reestructura i fusiona regles, no només treu espais. css minificar comprimir minify csso optimitzar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura i fusiona regles, no només treu espais.</span></a>
+      <a class="card" href="minificar-javascript/" data-search="minificar javascript terser al navegador, amb escurçament de noms opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser al navegador, amb escurçament de noms opcional.</span></a>
+      <a class="card" href="comptar-paraules/" data-search="comptar paraules i caràcters recompte en viu, temps de lectura i els límits de cada plataforma. comptar paraules caràcters longitud text límit twitter seo lectura comptar-paraules"><b>Comptar paraules i caràcters</b><span>Recompte en viu, temps de lectura i els límits de cada plataforma.</span></a>
+      <a class="card" href="canviar-majuscules/" data-search="canviar majúscules i minúscules majúscules, minúscules, tipus títol, camelcase, snake_case i més. majúscules minúscules camelcase snakecase kebabcase títol convertir text canviar-majuscules"><b>Canviar majúscules i minúscules</b><span>MAJÚSCULES, minúscules, Tipus Títol, camelCase, snake_case i més.</span></a>
+      <a class="card" href="ordenar-linies/" data-search="ordenar i netejar línies ordena, treu duplicats i línies buides, numera o inverteix una llista. ordenar línies duplicats deduplicar llista alfabètic numerar netejar ordenar-linies"><b>Ordenar i netejar línies</b><span>Ordena, treu duplicats i línies buides, numera o inverteix una llista.</span></a>
+      <a class="card" href="codificar-url/" data-search="codificar i descodificar url percent-encoding, per a adreces senceres o només per a un paràmetre. url encode decode percent codificar descodificar adreça paràmetre query codificar-url"><b>Codificar i descodificar URL</b><span>Percent-encoding, per a adreces senceres o només per a un paràmetre.</span></a>
+      <a class="card" href="entitats-html/" data-search="entitats html escapa el text per posar-lo dins d’html, o desfes-ho. html entitats escapar amp lt gt nbsp codificar descodificar entitats-html"><b>Entitats HTML</b><span>Escapa el text per posar-lo dins d’HTML, o desfes-ho.</span></a>
+      <a class="card" href="generar-slug/" data-search="generar slugs per a url passa un títol a una adreça neta, sense accents ni símbols. slug url amigable seo permalink accents netejar títol generar-slug"><b>Generar slugs per a URL</b><span>Passa un títol a una adreça neta, sense accents ni símbols.</span></a>
+      <a class="card" href="formatar-html/" data-search="formatar html indenta i endreça marcatge desordenat o minificat. html formatar indentar bonic pretty beautify endreçar formatar-html"><b>Formatar HTML</b><span>Indenta i endreça marcatge desordenat o minificat.</span></a>
+      <a class="card" href="formatar-xml/" data-search="formatar i validar xml indenta el document i avisa si el marcatge no tanca bé. xml formatar indentar validar pretty rss sitemap formatar-xml"><b>Formatar i validar XML</b><span>Indenta el document i avisa si el marcatge no tanca bé.</span></a>
+      <a class="card" href="formatar-sql/" data-search="formatar sql consultes llargues en una sola línia, endreçades i llegibles. sql formatar indentar consulta query mysql postgres bonic formatar-sql"><b>Formatar SQL</b><span>Consultes llargues en una sola línia, endreçades i llegibles.</span></a>
+      <a class="card" href="convertidor-de-colors/" data-search="colors i contrast hex, rgb, hsl i oklch, escala de tons i comprovació wcag. color hex rgb hsl oklch contrast wcag accessibilitat paleta convertidor-de-colors"><b>Colors i contrast</b><span>HEX, RGB, HSL i OKLCH, escala de tons i comprovació WCAG.</span></a>
+      <a class="card" href="provador-de-regex/" data-search="provador d’expressions regulars coincidències ressaltades, grups amb nom i substitució en viu. regex regexp expressions regulars provar test substituir provador-de-regex"><b>Provador d’expressions regulars</b><span>Coincidències ressaltades, grups amb nom i substitució en viu.</span></a>
+      <a class="card" href="generador-qr/" data-search="generador de qr descàrrega en svg vectorial o png a la resolució que vulguis. qr codi generar svg png url wifi vcard generador-qr"><b>Generador de QR</b><span>Descàrrega en SVG vectorial o PNG a la resolució que vulguis.</span></a>
+      <a class="card" href="comparar-textos/" data-search="comparar textos diferències línia a línia amb els blocs iguals plegats. diff comparar text diferències canvis comparar-textos"><b>Comparar textos</b><span>Diferències línia a línia amb els blocs iguals plegats.</span></a>
+      </div>
+    </section>
+    <section class="area">
+      <h2>Conversions directes</h2>
+      <div class="grid">
+      <a class="card" href="png-a-webp/" data-search="png a webp converteix imatges png a webp en lot, dins del navegador. png-a-webp"><b>PNG a WebP</b><span>Converteix imatges PNG a WebP en lot, dins del navegador.</span></a>
+      <a class="card" href="jpg-a-webp/" data-search="jpg a webp converteix imatges jpg a webp en lot, dins del navegador. jpg-a-webp"><b>JPG a WebP</b><span>Converteix imatges JPG a WebP en lot, dins del navegador.</span></a>
+      <a class="card" href="png-a-jpg/" data-search="png a jpg converteix imatges png a jpg en lot, dins del navegador. png-a-jpg"><b>PNG a JPG</b><span>Converteix imatges PNG a JPG en lot, dins del navegador.</span></a>
+      <a class="card" href="jpg-a-png/" data-search="jpg a png converteix imatges jpg a png en lot, dins del navegador. jpg-a-png"><b>JPG a PNG</b><span>Converteix imatges JPG a PNG en lot, dins del navegador.</span></a>
+      <a class="card" href="webp-a-png/" data-search="webp a png converteix imatges webp a png en lot, dins del navegador. webp-a-png"><b>WebP a PNG</b><span>Converteix imatges WebP a PNG en lot, dins del navegador.</span></a>
+      <a class="card" href="webp-a-jpg/" data-search="webp a jpg converteix imatges webp a jpg en lot, dins del navegador. webp-a-jpg"><b>WebP a JPG</b><span>Converteix imatges WebP a JPG en lot, dins del navegador.</span></a>
+      <a class="card" href="png-a-avif/" data-search="png a avif converteix imatges png a avif en lot, dins del navegador. png-a-avif"><b>PNG a AVIF</b><span>Converteix imatges PNG a AVIF en lot, dins del navegador.</span></a>
+      <a class="card" href="jpg-a-avif/" data-search="jpg a avif converteix imatges jpg a avif en lot, dins del navegador. jpg-a-avif"><b>JPG a AVIF</b><span>Converteix imatges JPG a AVIF en lot, dins del navegador.</span></a>
+      <a class="card" href="avif-a-png/" data-search="avif a png converteix imatges avif a png en lot, dins del navegador. avif-a-png"><b>AVIF a PNG</b><span>Converteix imatges AVIF a PNG en lot, dins del navegador.</span></a>
+      <a class="card" href="avif-a-jpg/" data-search="avif a jpg converteix imatges avif a jpg en lot, dins del navegador. avif-a-jpg"><b>AVIF a JPG</b><span>Converteix imatges AVIF a JPG en lot, dins del navegador.</span></a>
+      <a class="card" href="comprimir-png/" data-search="comprimir png redueix captures i gràfics png, sortint en webp amb transparència. comprimir-png"><b>Comprimir PNG</b><span>Redueix captures i gràfics PNG, sortint en WebP amb transparència.</span></a>
+      <a class="card" href="comprimir-jpg/" data-search="comprimir jpg recodifica fotos jpeg per qualitat o fins a un pes màxim. comprimir-jpg"><b>Comprimir JPG</b><span>Recodifica fotos JPEG per qualitat o fins a un pes màxim.</span></a>
+      <a class="card" href="jpg-a-pdf/" data-search="jpg a pdf fotografies jpeg en un sol pdf, una per pàgina. jpg-a-pdf"><b>JPG a PDF</b><span>Fotografies JPEG en un sol PDF, una per pàgina.</span></a>
+      <a class="card" href="png-a-pdf/" data-search="png a pdf captures i gràfics png en un sol pdf, una per pàgina. png-a-pdf"><b>PNG a PDF</b><span>Captures i gràfics PNG en un sol PDF, una per pàgina.</span></a>
+      </div>
+    </section>
+  </div>
+  <p class="empty" id="no-results" hidden></p>
+  <article class="prose">
+    <h2>Per què al navegador i no al servidor</h2>
+    <p>La majoria de convertidors en línia funcionen igual: puges el fitxer, un servidor el processa i te’l tornes a baixar. Això vol dir esperar la pujada, confiar en qui guarda el fitxer i acceptar els límits de mida que imposi el servei.</p>
+    <p>Aquí no passa res d’això. El navegador ja sap descodificar i codificar PNG, JPEG i WebP, i la resta arriba en forma de llibreries que es carreguen dins de la pàgina. El fitxer no viatja enlloc: s’obre, es processa i es desa des de la mateixa pestanya. Pots fins i tot desconnectar la xarxa un cop carregada l’eina.</p>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "home","lang": "ca"};</script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

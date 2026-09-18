@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imágenes a PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Haz un PDF con una imagen por página. Sirve tanto para convertir fotos de documentos hechas con el móvil en un archivo único como para empaquetar un juego de…">
+<link rel="canonical" href="http://localhost:5180/es/imagenes-a-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/imatges-a-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/imagenes-a-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/images-to-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/imatges-a-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Imágenes a PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Haz un PDF con una imagen por página. Sirve tanto para convertir fotos de documentos hechas con el móvil en un archivo único como para empaquetar un juego de…">
+<meta property="og:url" content="http://localhost:5180/es/imagenes-a-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Imágenes a PDF",
+          "item": "http://localhost:5180/es/imagenes-a-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Imágenes a PDF",
+      "url": "http://localhost:5180/es/imagenes-a-pdf/",
+      "description": "Haz un PDF con una imagen por página. Sirve tanto para convertir fotos de documentos hechas con el móvil en un archivo único como para empaquetar un juego de…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué formatos de imagen acepta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cualquiera que el navegador sepa abrir. Los JPEG y los PNG se incrustan directamente; el resto se convierte a PNG antes de añadirlos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo cambio el orden de las páginas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Arrastrando las filas de la lista, que es el orden del resultado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El PDF pesa mucho, ¿qué puedo hacer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comprime o redimensiona las imágenes antes. Una foto de 12 megapíxeles tiene mucha más resolución de la que ninguna impresora aprovechará en un A4."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../imatges-a-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/images-to-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Imágenes a PDF</h1>
+    <p>Un PDF con una imagen por página, con tamaño y márgenes controlados.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Haz un PDF con una imagen por página. Sirve tanto para convertir fotos de documentos hechas con el móvil en un archivo único como para empaquetar un juego de capturas en algo que se pueda enviar e imprimir.</p>
+    <p>Con el tamaño de página «El de cada imagen», cada página tiene exactamente las dimensiones de su foto y no hay márgenes blancos ni escalados. Con A4 o carta, las imágenes se encajan centradas.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Arrastra las imágenes en el orden que quieras que salgan.</li>
+      <li>Elige el tamaño de página, la orientación y el margen.</li>
+      <li>Pulsa «Combinar» y descarga el PDF.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué formatos de imagen acepta?</dt>
+      <dd>Cualquiera que el navegador sepa abrir. Los JPEG y los PNG se incrustan directamente; el resto se convierte a PNG antes de añadirlos.</dd>
+      <dt>¿Cómo cambio el orden de las páginas?</dt>
+      <dd>Arrastrando las filas de la lista, que es el orden del resultado.</dd>
+      <dt>El PDF pesa mucho, ¿qué puedo hacer?</dt>
+      <dd>Comprime o redimensiona las imágenes antes. Una foto de 12 megapíxeles tiene mucha más resolución de la que ninguna impresora aprovechará en un A4.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "images-to-pdf","slug": "imagenes-a-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

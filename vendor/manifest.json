@@ -1,0 +1,256 @@
+{
+  "vendored": "2026-09-18T19:53:33.352Z",
+  "source": "https://cdn.jsdelivr.net",
+  "files": [
+    {
+      "file": "pdf-lib.js",
+      "bytes": 233933,
+      "sha256": "950fd5d707022497"
+    },
+    {
+      "file": "tslib-1.14.1.js",
+      "bytes": 6334,
+      "sha256": "98c97886287a55e4"
+    },
+    {
+      "file": "pdf-lib-standard-fonts-1.0.0.js",
+      "bytes": 130364,
+      "sha256": "759d6acb2fcdc1f5"
+    },
+    {
+      "file": "pako-1.0.11.js",
+      "bytes": 46363,
+      "sha256": "f92d0cd0504f73aa"
+    },
+    {
+      "file": "pdf-lib-upng-1.0.1.js",
+      "bytes": 25148,
+      "sha256": "2f902704eff1425f"
+    },
+    {
+      "file": "fflate.js",
+      "bytes": 32127,
+      "sha256": "50daf01c8e6bbda6"
+    },
+    {
+      "file": "js-yaml.js",
+      "bytes": 40290,
+      "sha256": "a4ea374b7fb71d9a"
+    },
+    {
+      "file": "qrcode-generator.js",
+      "bytes": 21702,
+      "sha256": "28752f5b02662b35"
+    },
+    {
+      "file": "csso.js",
+      "bytes": 32685,
+      "sha256": "5ded564ed14a1220"
+    },
+    {
+      "file": "css-tree-2.2.0.js",
+      "bytes": 156201,
+      "sha256": "e213786b188cc505"
+    },
+    {
+      "file": "source-map-js-1.0.2-lib-source-map-generator.js.js",
+      "bytes": 12005,
+      "sha256": "e95cedc9212c7524"
+    },
+    {
+      "file": "svgo.js",
+      "bytes": 910850,
+      "sha256": "bdcbbf4e38db6a2b"
+    },
+    {
+      "file": "terser.js",
+      "bytes": 1028181,
+      "sha256": "38af5a0fb14c73bc"
+    },
+    {
+      "file": "exifr.js",
+      "bytes": 45456,
+      "sha256": "9c18a09ddc50bb7f"
+    },
+    {
+      "file": "gifenc.js",
+      "bytes": 9098,
+      "sha256": "217761244379253b"
+    },
+    {
+      "file": "js-beautify.js",
+      "bytes": 99635,
+      "sha256": "fe1b6a246c91a4a1"
+    },
+    {
+      "file": "sql-formatter.js",
+      "bytes": 236400,
+      "sha256": "e5d730be1c718b33"
+    },
+    {
+      "file": "pdfjs/pdf.mjs",
+      "bytes": 329881,
+      "sha256": "cd6133c9c669b5d4"
+    },
+    {
+      "file": "pdfjs/pdf.worker.mjs",
+      "bytes": 1362587,
+      "sha256": "cffb06ed20994b30"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitDingbats.pfb",
+      "bytes": 29513,
+      "sha256": "845c752392b6c914"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitFixed.pfb",
+      "bytes": 17597,
+      "sha256": "b6c8fe53f134b8b6"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitFixedBold.pfb",
+      "bytes": 18055,
+      "sha256": "f1b7159702973f54"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitFixedBoldItalic.pfb",
+      "bytes": 19151,
+      "sha256": "8a000945843bd31a"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitFixedItalic.pfb",
+      "bytes": 18746,
+      "sha256": "5007faf8320fa1fc"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitSerif.pfb",
+      "bytes": 19469,
+      "sha256": "4f57d2b9d884af8f"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitSerifBold.pfb",
+      "bytes": 19395,
+      "sha256": "0bdf4b04e9641398"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitSerifBoldItalic.pfb",
+      "bytes": 20733,
+      "sha256": "a406cac82583bf98"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitSerifItalic.pfb",
+      "bytes": 21227,
+      "sha256": "610ae0687198045c"
+    },
+    {
+      "file": "pdfjs/standard_fonts/FoxitSymbol.pfb",
+      "bytes": 16729,
+      "sha256": "47967d055530e735"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LiberationSans-Bold.ttf",
+      "bytes": 137052,
+      "sha256": "361c61b82d575c5c"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LiberationSans-BoldItalic.ttf",
+      "bytes": 135124,
+      "sha256": "a224075ac17495ad"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LiberationSans-Italic.ttf",
+      "bytes": 162036,
+      "sha256": "832b4406dbef2362"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LiberationSans-Regular.ttf",
+      "bytes": 139512,
+      "sha256": "f8ace1f892b2bd9d"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LICENSE_FOXIT",
+      "bytes": 1553,
+      "sha256": "b578cdd2345840ad"
+    },
+    {
+      "file": "pdfjs/standard_fonts/LICENSE_LIBERATION",
+      "bytes": 4414,
+      "sha256": "93fed46019c38bbe"
+    },
+    {
+      "file": "jsquash-avif/meta.js",
+      "bytes": 345,
+      "sha256": "a89c8f4754b7ff80"
+    },
+    {
+      "file": "jsquash-avif/utils.js",
+      "bytes": 1272,
+      "sha256": "e71535eeee820d68"
+    },
+    {
+      "file": "jsquash-avif/codec/enc/avif_enc.js",
+      "bytes": 42096,
+      "sha256": "8c477790e1b84b23"
+    },
+    {
+      "file": "jsquash-avif/codec/enc/avif_enc.wasm",
+      "bytes": 2642196,
+      "sha256": "90d6b7b5dd26d070"
+    },
+    {
+      "file": "jsquash-avif/encode.js",
+      "bytes": 760,
+      "sha256": "a4111e227efc8fe1"
+    },
+    {
+      "file": "tesseract/tesseract.js",
+      "bytes": 66695,
+      "sha256": "a8e29918d098b2b0"
+    },
+    {
+      "file": "tesseract/worker.js",
+      "bytes": 123724,
+      "sha256": "aca1229639fc9907"
+    },
+    {
+      "file": "tesseract/tesseract-core-simd-lstm.wasm.js",
+      "bytes": 3938657,
+      "sha256": "ce20eda9533cbed1"
+    },
+    {
+      "file": "onnx/ort.mjs",
+      "bytes": 465733,
+      "sha256": "5764f6d083bb2c32"
+    },
+    {
+      "file": "onnx/ort-wasm-simd-threaded.wasm",
+      "bytes": 11018731,
+      "sha256": "1bf0b9ed7ad025cf"
+    },
+    {
+      "file": "tesseract/lang/cat.traineddata.gz",
+      "bytes": 645005,
+      "sha256": "b76e59bd8bc442f4"
+    },
+    {
+      "file": "tesseract/lang/spa.traineddata.gz",
+      "bytes": 1137561,
+      "sha256": "8db1167a8c9bb015"
+    },
+    {
+      "file": "tesseract/lang/eng.traineddata.gz",
+      "bytes": 1984273,
+      "sha256": "18c1ac52b75e35d4"
+    },
+    {
+      "file": "onnx/u2netp.onnx",
+      "bytes": 4574861,
+      "sha256": "309c8469258dda74"
+    },
+    {
+      "file": "LICENSES.md",
+      "bytes": 61357,
+      "sha256": "7a6265129b3c91ba"
+    }
+  ]
+}

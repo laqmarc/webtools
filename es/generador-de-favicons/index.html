@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de favicons en línea, en el navegador — WebTools</title>
+<meta name="description" content="De una sola imagen sale todo el juego: los iconos PNG de 16, 32, 48, 192 y 512 píxeles, el de 180 que pide iOS y un favicon.ico de verdad con tres tamaños…">
+<link rel="canonical" href="http://localhost:5180/es/generador-de-favicons/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/generador-de-favicons/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/generador-de-favicons/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/favicon-generator/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/generador-de-favicons/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Generador de favicons en línea, en el navegador — WebTools">
+<meta property="og:description" content="De una sola imagen sale todo el juego: los iconos PNG de 16, 32, 48, 192 y 512 píxeles, el de 180 que pide iOS y un favicon.ico de verdad con tres tamaños…">
+<meta property="og:url" content="http://localhost:5180/es/generador-de-favicons/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Generador de favicons",
+          "item": "http://localhost:5180/es/generador-de-favicons/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Generador de favicons",
+      "url": "http://localhost:5180/es/generador-de-favicons/",
+      "description": "De una sola imagen sale todo el juego: los iconos PNG de 16, 32, 48, 192 y 512 píxeles, el de 180 que pide iOS y un favicon.ico de verdad con tres tamaños…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué tamaño debe tener la imagen de partida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Como mínimo 512 × 512 píxeles, y mejor si es cuadrada. Si es un SVG, conviértelo antes a PNG grande con «SVG a PNG»: así controlas tú la resolución."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Todavía hace falta el .ico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, para navegadores y sitios antiguos que lo piden en la raíz por defecto. Pesa muy poco y te ahorras peticiones fallidas en el registro del servidor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué queda ilegible a 16 píxeles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque un logotipo con detalle fino no sobrevive a dieciséis píxeles. Para ese tamaño suele hacer falta una versión simplificada, a menudo solo la inicial o el símbolo."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../generador-de-favicons/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/favicon-generator/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Generador de favicons</h1>
+    <p>De una imagen a todo el juego de iconos, con el .ico y el fragmento de HTML.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>De una sola imagen sale todo el juego: los iconos PNG de 16, 32, 48, 192 y 512 píxeles, el de 180 que pide iOS y un favicon.ico de verdad con tres tamaños dentro.</p>
+    <p>La imagen se recorta cuadrada desde el centro y se escala con el filtro de calidad alta del navegador. Con el fragmento de HTML incluido, solo tienes que copiar cuatro líneas en tu &lt;head&gt;.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el logotipo, cuanto más cuadrado mejor.</li>
+      <li>Si lo quieres con fondo o con margen, ajústalo.</li>
+      <li>Procesa y descarga el ZIP con todo.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué tamaño debe tener la imagen de partida?</dt>
+      <dd>Como mínimo 512 × 512 píxeles, y mejor si es cuadrada. Si es un SVG, conviértelo antes a PNG grande con «SVG a PNG»: así controlas tú la resolución.</dd>
+      <dt>¿Todavía hace falta el .ico?</dt>
+      <dd>Sí, para navegadores y sitios antiguos que lo piden en la raíz por defecto. Pesa muy poco y te ahorras peticiones fallidas en el registro del servidor.</dd>
+      <dt>¿Por qué queda ilegible a 16 píxeles?</dt>
+      <dd>Porque un logotipo con detalle fino no sobrevive a dieciséis píxeles. Para ese tamaño suele hacer falta una versión simplificada, a menudo solo la inicial o el símbolo.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="../girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "favicons","slug": "generador-de-favicons","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

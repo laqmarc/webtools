@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de QR en línea, en el navegador — WebTools</title>
+<meta name="description" content="Genera un código QR y descárgalo en SVG vectorial, que es lo que quieres para imprimir a cualquier tamaño sin que se pixele, o en PNG a la resolución que…">
+<link rel="canonical" href="http://localhost:5180/es/generador-qr/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/generador-qr/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/generador-qr/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/qr-code-generator/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/generador-qr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Generador de QR en línea, en el navegador — WebTools">
+<meta property="og:description" content="Genera un código QR y descárgalo en SVG vectorial, que es lo que quieres para imprimir a cualquier tamaño sin que se pixele, o en PNG a la resolución que…">
+<meta property="og:url" content="http://localhost:5180/es/generador-qr/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Generador de QR",
+          "item": "http://localhost:5180/es/generador-qr/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Generador de QR",
+      "url": "http://localhost:5180/es/generador-qr/",
+      "description": "Genera un código QR y descárgalo en SVG vectorial, que es lo que quieres para imprimir a cualquier tamaño sin que se pixele, o en PNG a la resolución que…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué nivel de corrección debo elegir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "M para pantalla y para impresiones limpias. Q o H si el código irá en una etiqueta que puede rayarse o mojarse, o si tienes que poner un logotipo en medio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué no me lo lee el móvil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las tres causas habituales son poco contraste entre los dos colores, margen insuficiente (deja como mínimo cuatro módulos) o el código impreso demasiado pequeño para la cantidad de datos que contiene."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Caduca el código?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. No hay ningún servicio por medio: el QR contiene literalmente el texto que escribes. No es un enlace acortado que un día pueda dejar de funcionar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo poner una red wifi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, con el formato WIFI:T:WPA;S:nombre-de-la-red;P:contraseña;; . La mayoría de móviles lo reconocen y ofrecen conectarse directamente."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../generador-qr/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/qr-code-generator/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Texto y web</nav>
+  <header class="tool-head">
+    <h1>Generador de QR</h1>
+    <p>Descarga en SVG vectorial o PNG a la resolución que quieras.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Genera un código QR y descárgalo en SVG vectorial, que es lo que quieres para imprimir a cualquier tamaño sin que se pixele, o en PNG a la resolución que elijas.</p>
+    <p>Puedes controlar sus colores y el nivel de corrección de errores. Con corrección alta el código sigue siendo legible aunque una parte quede tapada o dañada, a cambio de tener más módulos y, por tanto, cuadraditos más pequeños.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Escribe el texto, la dirección o lo que quieras poner.</li>
+      <li>Ajusta el tamaño, el margen y los colores.</li>
+      <li>Descárgalo en SVG o en PNG.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué nivel de corrección debo elegir?</dt>
+      <dd>M para pantalla y para impresiones limpias. Q o H si el código irá en una etiqueta que puede rayarse o mojarse, o si tienes que poner un logotipo en medio.</dd>
+      <dt>¿Por qué no me lo lee el móvil?</dt>
+      <dd>Las tres causas habituales son poco contraste entre los dos colores, margen insuficiente (deja como mínimo cuatro módulos) o el código impreso demasiado pequeño para la cantidad de datos que contiene.</dd>
+      <dt>¿Caduca el código?</dt>
+      <dd>No. No hay ningún servicio por medio: el QR contiene literalmente el texto que escribes. No es un enlace acortado que un día pueda dejar de funcionar.</dd>
+      <dt>¿Puedo poner una red wifi?</dt>
+      <dd>Sí, con el formato WIFI:T:WPA;S:nombre-de-la-red;P:contraseña;; . La mayoría de móviles lo reconocen y ofrecen conectarse directamente.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-css/" data-search="minificar css csso: reestructura y fusiona reglas, no solo quita espacios. css minificar comprimir minify csso optimizar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura y fusiona reglas, no solo quita espacios.</span></a>
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser en el navegador, con acortado de nombres opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser en el navegador, con acortado de nombres opcional.</span></a>
+      <a class="card" href="../contar-palabras/" data-search="contar palabras y caracteres recuento en vivo, tiempo de lectura y los límites de cada plataforma. contar palabras caracteres longitud texto límite twitter seo lectura contar-palabras"><b>Contar palabras y caracteres</b><span>Recuento en vivo, tiempo de lectura y los límites de cada plataforma.</span></a>
+      <a class="card" href="../cambiar-mayusculas/" data-search="cambiar mayúsculas y minúsculas mayúsculas, minúsculas, tipo título, camelcase, snake_case y más. mayúsculas minúsculas camelcase snakecase kebabcase título convertir texto cambiar-mayusculas"><b>Cambiar mayúsculas y minúsculas</b><span>MAYÚSCULAS, minúsculas, Tipo Título, camelCase, snake_case y más.</span></a>
+      <a class="card" href="../ordenar-lineas/" data-search="ordenar y limpiar líneas ordena, quita duplicados y líneas vacías, numera o invierte una lista. ordenar líneas duplicados deduplicar lista alfabético numerar limpiar ordenar-lineas"><b>Ordenar y limpiar líneas</b><span>Ordena, quita duplicados y líneas vacías, numera o invierte una lista.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "qr","slug": "generador-qr","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

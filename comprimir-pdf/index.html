@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comprimir PDF en línia, al navegador — WebTools</title>
+<meta name="description" content="En un PDF escanejat o fet de fotografies, gairebé tot el pes són les imatges de dins. Aquesta eina les busca una per una, les torna a codificar més petites i…">
+<link rel="canonical" href="http://localhost:5180/comprimir-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comprimir-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/comprimir-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/compress-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comprimir-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Comprimir PDF en línia, al navegador — WebTools">
+<meta property="og:description" content="En un PDF escanejat o fet de fotografies, gairebé tot el pes són les imatges de dins. Aquesta eina les busca una per una, les torna a codificar més petites i…">
+<meta property="og:url" content="http://localhost:5180/comprimir-pdf/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comprimir PDF",
+          "item": "http://localhost:5180/comprimir-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Comprimir PDF",
+      "url": "http://localhost:5180/comprimir-pdf/",
+      "description": "En un PDF escanejat o fet de fotografies, gairebé tot el pes són les imatges de dins. Aquesta eina les busca una per una, les torna a codificar més petites i…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Es perd el text seleccionable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Només es reemplacen les imatges incrustades; la capa de text, els marcadors i els enllaços no es toquen. Si el PDF és un escaneig sense OCR, és que ja no en tenia abans."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quan hauria de fer servir el mode que rasteritza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quan el pes importi més que tota la resta. Redibuixa cada pàgina com una fotografia: baixa moltíssim, però el text deixa de poder-se seleccionar i cercar, i ja no hi ha marxa enrere. Prova primer el mode normal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El meu PDF amb prou feines baixa de pes, per què?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè el pes no és a les imatges. Un document de text i vectors fet des d’un processador de textos ja és compacte: no hi ha res a esprémer, i l’eina t’ho diu al costat del resultat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què fa l’amplada màxima?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Redimensiona les imatges abans de comprimir-les, i sol ser la palanca més forta de totes. Un escàner a 600 ppp genera imatges de 5000 px que cap pantalla ni cap impressora domèstica aprofitarà; amb 1600 px un A4 s’imprimeix bé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Serveix de res l’escala de grisos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Molt, si el document és text escanejat. Treu la informació de color, que en un full blanc amb lletra negra és sobretot soroll del sensor, i el resultat sovint torna a baixar a la meitat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es puja el document a algun servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tot passa dins de la pestanya, cosa que importa quan el que comprimeixes és un contracte, una factura o un informe mèdic."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/comprimir-pdf/" hreflang="es">Español</a><a class="lang" href="../en/compress-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Comprimir PDF</h1>
+    <p>Recodifica les imatges de dins sense tocar el text ni l’estructura.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>En un PDF escanejat o fet de fotografies, gairebé tot el pes són les imatges de dins. Aquesta eina les busca una per una, les torna a codificar més petites i les torna a posar al seu lloc, sense tocar res més del document.</p>
+    <p>Això és el que la separa de la majoria de compressors en línia, que aplanen cada pàgina en una fotografia: aquí el text continua sent text que es pot seleccionar i cercar, els enllaços segueixen funcionant i l’estructura es manté. En un escaneig típic la reducció va del 60 al 90 %.</p>
+    <p>Les imatges que no es poden recodificar amb garanties —màscares de transparència, JPEG 2000, CMYK, mapes de bits d’un sol bit— es deixen exactament com estaven. Una imatge malmesa en silenci seria molt pitjor que un fitxer que no ha aprimat tant.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Deixa-hi el PDF, o uns quants.</li>
+      <li>Tria una qualitat, o digues directament quant vols que pesi com a màxim.</li>
+      <li>Baixa el resultat i comprova’l abans de llençar l’original.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Es perd el text seleccionable?</dt>
+      <dd>No. Només es reemplacen les imatges incrustades; la capa de text, els marcadors i els enllaços no es toquen. Si el PDF és un escaneig sense OCR, és que ja no en tenia abans.</dd>
+      <dt>Quan hauria de fer servir el mode que rasteritza?</dt>
+      <dd>Quan el pes importi més que tota la resta. Redibuixa cada pàgina com una fotografia: baixa moltíssim, però el text deixa de poder-se seleccionar i cercar, i ja no hi ha marxa enrere. Prova primer el mode normal.</dd>
+      <dt>El meu PDF amb prou feines baixa de pes, per què?</dt>
+      <dd>Perquè el pes no és a les imatges. Un document de text i vectors fet des d’un processador de textos ja és compacte: no hi ha res a esprémer, i l’eina t’ho diu al costat del resultat.</dd>
+      <dt>Què fa l’amplada màxima?</dt>
+      <dd>Redimensiona les imatges abans de comprimir-les, i sol ser la palanca més forta de totes. Un escàner a 600 ppp genera imatges de 5000 px que cap pantalla ni cap impressora domèstica aprofitarà; amb 1600 px un A4 s’imprimeix bé.</dd>
+      <dt>Serveix de res l’escala de grisos?</dt>
+      <dd>Molt, si el document és text escanejat. Treu la informació de color, que en un full blanc amb lletra negra és sobretot soroll del sensor, i el resultat sovint torna a baixar a la meitat.</dd>
+      <dt>Es puja el document a algun servidor?</dt>
+      <dd>No. Tot passa dins de la pestanya, cosa que importa quan el que comprimeixes és un contracte, una factura o un informe mèdic.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../organitzar-pdf/" data-search="organitzar pàgines veu totes les pàgines, arrossega-les, gira-les i treu les que sobren. pdf organitzar reordenar ordenar pàgines miniatures moure esborrar organitzar-pdf"><b>Organitzar pàgines</b><span>Veu totes les pàgines, arrossega-les, gira-les i treu les que sobren.</span></a>
+      <a class="card" href="../pdf-a-imatges/" data-search="pdf a imatges una imatge per pàgina, a la resolució que necessitis. pdf imatge jpg png webp convertir pàgines rasteritzar exportar pdf-a-imatges"><b>PDF a imatges</b><span>Una imatge per pàgina, a la resolució que necessitis.</span></a>
+      <a class="card" href="../pdf-a-text/" data-search="pdf a text extreu la capa de text del document, sense ocr. pdf text extreure copiar contingut txt pdf-a-text"><b>PDF a text</b><span>Extreu la capa de text del document, sense OCR.</span></a>
+      <a class="card" href="../extreure-imatges-pdf/" data-search="extreure imatges d’un pdf treu les fotos i els gràfics incrustats com a fitxers a part. pdf extreure imatges fotos treure guardar jpg png extreure-imatges-pdf"><b>Extreure imatges d’un PDF</b><span>Treu les fotos i els gràfics incrustats com a fitxers a part.</span></a>
+      <a class="card" href="../unir-pdf/" data-search="unir pdf enganxa diversos pdf en un de sol, en l’ordre que vulguis. pdf unir juntar combinar merge unir-pdf"><b>Unir PDF</b><span>Enganxa diversos PDF en un de sol, en l’ordre que vulguis.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-compress","slug": "comprimir-pdf","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

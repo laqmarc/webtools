@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unir PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Junta varios PDF en uno solo conservando sus páginas tal como están: el texto sigue siendo texto seleccionable, los enlaces internos siguen funcionando y no…">
+<link rel="canonical" href="http://localhost:5180/es/unir-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/unir-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/unir-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/merge-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/unir-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Unir PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Junta varios PDF en uno solo conservando sus páginas tal como están: el texto sigue siendo texto seleccionable, los enlaces internos siguen funcionando y no…">
+<meta property="og:url" content="http://localhost:5180/es/unir-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Unir PDF",
+          "item": "http://localhost:5180/es/unir-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Unir PDF",
+      "url": "http://localhost:5180/es/unir-pdf/",
+      "description": "Junta varios PDF en uno solo conservando sus páginas tal como están: el texto sigue siendo texto seleccionable, los enlaces internos siguen funcionando y no…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se pierde calidad?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nada. Las páginas se copian enteras de un documento al otro; no se vuelven a dibujar ni se vuelven a comprimir las imágenes que contengan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo unir PDF protegidos con contraseña?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solo los que tienen restricciones de permisos, que se ignoran. Los que piden contraseña para abrirse están cifrados y no se pueden leer sin ella."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con los marcadores y los formularios?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los campos de formulario y los marcadores del documento original no se trasladan. Si el PDF es un formulario que debe poder rellenarse, únelo con una herramienta de escritorio."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../unir-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/merge-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Unir PDF</h1>
+    <p>Pega varios PDF en uno solo, en el orden que quieras.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Junta varios PDF en uno solo conservando sus páginas tal como están: el texto sigue siendo texto seleccionable, los enlaces internos siguen funcionando y no hay ninguna recodificación por medio.</p>
+    <p>El orden es el de la lista, que es el de selección, pero también puedes pedir que se ordenen por el nombre del archivo, que es lo que suele convenir cuando los documentos se llaman 01, 02, 03.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Arrastra todos los PDF que quieras unir.</li>
+      <li>Comprueba el orden, o pasa a ordenación por nombre.</li>
+      <li>Pulsa «Combinar» y descarga el documento resultante.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Se pierde calidad?</dt>
+      <dd>Nada. Las páginas se copian enteras de un documento al otro; no se vuelven a dibujar ni se vuelven a comprimir las imágenes que contengan.</dd>
+      <dt>¿Puedo unir PDF protegidos con contraseña?</dt>
+      <dd>Solo los que tienen restricciones de permisos, que se ignoran. Los que piden contraseña para abrirse están cifrados y no se pueden leer sin ella.</dd>
+      <dt>¿Qué pasa con los marcadores y los formularios?</dt>
+      <dd>Los campos de formulario y los marcadores del documento original no se trasladan. Si el PDF es un formulario que debe poder rellenarse, únelo con una herramienta de escritorio.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-merge","slug": "unir-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Separar PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Parte un PDF de tres maneras: una página por archivo, bloques de un número fijo de páginas, o los rangos concretos que le digas.">
+<link rel="canonical" href="http://localhost:5180/es/separar-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/separar-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/separar-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/split-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/separar-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Separar PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Parte un PDF de tres maneras: una página por archivo, bloques de un número fijo de páginas, o los rangos concretos que le digas.">
+<meta property="og:url" content="http://localhost:5180/es/separar-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Separar PDF",
+          "item": "http://localhost:5180/es/separar-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Separar PDF",
+      "url": "http://localhost:5180/es/separar-pdf/",
+      "description": "Parte un PDF de tres maneras: una página por archivo, bloques de un número fijo de páginas, o los rangos concretos que le digas.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo se escriben los rangos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Separados por comas, con guion para los intervalos: «1-3, 7, 10-12» genera tres archivos. Cada grupo separado por coma es un documento de salida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se pueden solapar los rangos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Nada impide pedir «1-5, 3-8»; la página 3 saldrá en los dos archivos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si pido una página que no existe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Los rangos se recortan a la última página del documento. Si tiene 10 y pides «8-50», obtendrás de la 8 a la 10."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../separar-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/split-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Separar PDF</h1>
+    <p>Una página por archivo, bloques de N páginas o rangos a medida.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Parte un PDF de tres maneras: una página por archivo, bloques de un número fijo de páginas, o los rangos concretos que le digas.</p>
+    <p>El resultado es un archivo por trozo, y cuando hay más de uno se pueden descargar todos juntos dentro de un ZIP con los nombres ya numerados.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Añade el PDF.</li>
+      <li>Elige cómo quieres partirlo y, si procede, escribe los rangos.</li>
+      <li>Procesa y descarga los trozos.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Cómo se escriben los rangos?</dt>
+      <dd>Separados por comas, con guion para los intervalos: «1-3, 7, 10-12» genera tres archivos. Cada grupo separado por coma es un documento de salida.</dd>
+      <dt>¿Se pueden solapar los rangos?</dt>
+      <dd>Sí. Nada impide pedir «1-5, 3-8»; la página 3 saldrá en los dos archivos.</dd>
+      <dt>¿Qué pasa si pido una página que no existe?</dt>
+      <dd>Los rangos se recortan a la última página del documento. Si tiene 10 y pides «8-50», obtendrás de la 8 a la 10.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-split","slug": "separar-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

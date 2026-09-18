@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veure les metadades en línia, al navegador — WebTools</title>
+<meta name="description" content="Mira tot el que porta amagat una fotografia: model de càmera i d’objectiu, obertura, velocitat, ISO, dates i, si el mòbil tenia la ubicació activada, les…">
+<link rel="canonical" href="http://localhost:5180/veure-metadades-imatge/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/veure-metadades-imatge/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ver-metadatos-imagen/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/view-image-metadata/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/veure-metadades-imatge/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Veure les metadades en línia, al navegador — WebTools">
+<meta property="og:description" content="Mira tot el que porta amagat una fotografia: model de càmera i d’objectiu, obertura, velocitat, ISO, dates i, si el mòbil tenia la ubicació activada, les…">
+<meta property="og:url" content="http://localhost:5180/veure-metadades-imatge/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Veure les metadades",
+          "item": "http://localhost:5180/veure-metadades-imatge/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Veure les metadades",
+      "url": "http://localhost:5180/veure-metadades-imatge/",
+      "description": "Mira tot el que porta amagat una fotografia: model de càmera i d’objectiu, obertura, velocitat, ISO, dates i, si el mòbil tenia la ubicació activada, les…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Per què la meva foto no té cap metadada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè algú les ha tretes pel camí. WhatsApp, Instagram i la majoria de xarxes les esborren en pujar la imatge, i una captura de pantalla no en té mai."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què és exactament el que hauria de preocupar-me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les coordenades GPS, sobretot en fotos fetes a casa. També la data i, en entorns professionals, el número de sèrie del cos de la càmera, que identifica l’aparell."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Com les trec?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Amb «Treure metadades», que recodifica la imatge a partir dels píxels nus i no hi copia cap camp."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/ver-metadatos-imagen/" hreflang="es">Español</a><a class="lang" href="../en/view-image-metadata/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge</nav>
+  <header class="tool-head">
+    <h1>Veure les metadades</h1>
+    <p>Càmera, exposició, dates i les coordenades GPS si n’hi ha.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Mira tot el que porta amagat una fotografia: model de càmera i d’objectiu, obertura, velocitat, ISO, dates i, si el mòbil tenia la ubicació activada, les coordenades exactes del lloc on es va fer.</p>
+    <p>És la cara complementària de «Treure metadades»: primer mires què hi ha i després decideixes si et molesta. Res no surt de la pestanya, cosa que amb fotos personals no és un detall menor.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Deixa-hi una foto.</li>
+      <li>Mira les dades agrupades per tema.</li>
+      <li>Si hi ha GPS, tens un avís ben visible.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Per què la meva foto no té cap metadada?</dt>
+      <dd>Perquè algú les ha tretes pel camí. WhatsApp, Instagram i la majoria de xarxes les esborren en pujar la imatge, i una captura de pantalla no en té mai.</dd>
+      <dt>Què és exactament el que hauria de preocupar-me?</dt>
+      <dd>Les coordenades GPS, sobretot en fotos fetes a casa. També la data i, en entorns professionals, el número de sèrie del cos de la càmera, que identifica l’aparell.</dd>
+      <dt>Com les trec?</dt>
+      <dd>Amb «Treure metadades», que recodifica la imatge a partir dels píxels nus i no hi copia cap camp.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="../comprimir-imatges/" data-search="comprimir imatges baixa el pes per qualitat o fins a una mida objectiu concreta. comprimir compressió reduir pes optimitzar kb mida comprimir-imatges"><b>Comprimir imatges</b><span>Baixa el pes per qualitat o fins a una mida objectiu concreta.</span></a>
+      <a class="card" href="../redimensionar-imatges/" data-search="redimensionar imatges amplada i alçada amb control d’ajust i sense ampliar per defecte. redimensionar mida escalar amplada alçada resize redimensionar-imatges"><b>Redimensionar imatges</b><span>Amplada i alçada amb control d’ajust i sense ampliar per defecte.</span></a>
+      <a class="card" href="../retallar-imatges/" data-search="retallar imatges dibuixa el retall damunt de la imatge i aplica’l a tot el lot. retallar crop tallar aspecte quadrat visual ratolí retallar-imatges"><b>Retallar imatges</b><span>Dibuixa el retall damunt de la imatge i aplica’l a tot el lot.</span></a>
+      <a class="card" href="../girar-imatges/" data-search="girar i reflectir rotació de 90° en 90° i volteig horitzontal o vertical. girar rotar rotate flip mirall voltejar girar-imatges"><b>Girar i reflectir</b><span>Rotació de 90° en 90° i volteig horitzontal o vertical.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-exif","slug": "veure-metadades-imatge","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

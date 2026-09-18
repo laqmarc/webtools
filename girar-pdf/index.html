@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girar pàgines de PDF en línia, al navegador — WebTools</title>
+<meta name="description" content="Corregeix pàgines escanejades de costat o de cap per avall. La rotació s’acumula sobre la que ja tingui la pàgina, així que el resultat és el que veus al…">
+<link rel="canonical" href="http://localhost:5180/girar-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/girar-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/girar-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/rotate-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/girar-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Girar pàgines de PDF en línia, al navegador — WebTools">
+<meta property="og:description" content="Corregeix pàgines escanejades de costat o de cap per avall. La rotació s’acumula sobre la que ja tingui la pàgina, així que el resultat és el que veus al…">
+<meta property="og:url" content="http://localhost:5180/girar-pdf/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Girar pàgines de PDF",
+          "item": "http://localhost:5180/girar-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Girar pàgines de PDF",
+      "url": "http://localhost:5180/girar-pdf/",
+      "description": "Corregeix pàgines escanejades de costat o de cap per avall. La rotació s’acumula sobre la que ja tingui la pàgina, així que el resultat és el que veus al…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Com indico només algunes pàgines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Amb la mateixa notació dels rangs: «1-3, 7, 10-12». Si deixes el camp buit, es giren totes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es torna a comprimir el document?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Girar una pàgina és canviar un atribut a l’estructura del PDF; el contingut no es toca ni perd qualitat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què el meu lector ja em mostrava la pàgina dreta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Alguns lectors giren la vista sense desar-ho. Aquesta eina escriu la rotació al fitxer, de manera que ja surt bé a tot arreu i en imprimir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/girar-pdf/" hreflang="es">Español</a><a class="lang" href="../en/rotate-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Girar pàgines de PDF</h1>
+    <p>Rota totes les pàgines o només les que indiquis.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Corregeix pàgines escanejades de costat o de cap per avall. La rotació s’acumula sobre la que ja tingui la pàgina, així que el resultat és el que veus al lector, no una suma que hagis de calcular tu.</p>
+    <p>Pots girar tot el document o només unes quantes pàgines, que és el cas habitual quan l’escàner ha girat només els fulls apaïsats.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Afegeix-hi el PDF.</li>
+      <li>Tria l’angle i, si no són totes, escriu les pàgines.</li>
+      <li>Processa i descarrega.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Com indico només algunes pàgines?</dt>
+      <dd>Amb la mateixa notació dels rangs: «1-3, 7, 10-12». Si deixes el camp buit, es giren totes.</dd>
+      <dt>Es torna a comprimir el document?</dt>
+      <dd>No. Girar una pàgina és canviar un atribut a l’estructura del PDF; el contingut no es toca ni perd qualitat.</dd>
+      <dt>Per què el meu lector ja em mostrava la pàgina dreta?</dt>
+      <dd>Alguns lectors giren la vista sense desar-ho. Aquesta eina escriu la rotació al fitxer, de manera que ja surt bé a tot arreu i en imprimir.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica les imatges de dins sense tocar el text ni l’estructura. pdf comprimir reduir pes mida optimitzar escaneig comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica les imatges de dins sense tocar el text ni l’estructura.</span></a>
+      <a class="card" href="../organitzar-pdf/" data-search="organitzar pàgines veu totes les pàgines, arrossega-les, gira-les i treu les que sobren. pdf organitzar reordenar ordenar pàgines miniatures moure esborrar organitzar-pdf"><b>Organitzar pàgines</b><span>Veu totes les pàgines, arrossega-les, gira-les i treu les que sobren.</span></a>
+      <a class="card" href="../pdf-a-imatges/" data-search="pdf a imatges una imatge per pàgina, a la resolució que necessitis. pdf imatge jpg png webp convertir pàgines rasteritzar exportar pdf-a-imatges"><b>PDF a imatges</b><span>Una imatge per pàgina, a la resolució que necessitis.</span></a>
+      <a class="card" href="../pdf-a-text/" data-search="pdf a text extreu la capa de text del document, sense ocr. pdf text extreure copiar contingut txt pdf-a-text"><b>PDF a text</b><span>Extreu la capa de text del document, sense OCR.</span></a>
+      <a class="card" href="../extreure-imatges-pdf/" data-search="extreure imatges d’un pdf treu les fotos i els gràfics incrustats com a fitxers a part. pdf extreure imatges fotos treure guardar jpg png extreure-imatges-pdf"><b>Extreure imatges d’un PDF</b><span>Treu les fotos i els gràfics incrustats com a fitxers a part.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-rotate","slug": "girar-pdf","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

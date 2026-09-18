@@ -1,0 +1,11 @@
+{
+	"type": "npm",
+	"name": "@imgly/background-removal-data",
+	"version": "1.4.5",
+	"status": 403,
+	"message": "Package size exceeded the configured limit of 150 MB.",
+	"links": {
+		"stats": "https://data.jsdelivr.com/v1/stats/packages/npm/@imgly/background-removal-data@1.4.5",
+		"entrypoints": "https://data.jsdelivr.com/v1/packages/npm/@imgly/background-removal-data@1.4.5/entrypoints"
+	}
+}

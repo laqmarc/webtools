@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Formatear y validar XML en línea, en el navegador — WebTools</title>
+<meta name="description" content="Indenta un documento XML y, de paso, comprueba que esté bien formado: si hay una etiqueta sin cerrar o un carácter ilegal, te lo dice antes de tocar nada.">
+<link rel="canonical" href="http://localhost:5180/es/formatear-xml/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/formatar-xml/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/formatear-xml/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/format-xml/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/formatar-xml/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Formatear y validar XML en línea, en el navegador — WebTools">
+<meta property="og:description" content="Indenta un documento XML y, de paso, comprueba que esté bien formado: si hay una etiqueta sin cerrar o un carácter ilegal, te lo dice antes de tocar nada.">
+<meta property="og:url" content="http://localhost:5180/es/formatear-xml/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Formatear y validar XML",
+          "item": "http://localhost:5180/es/formatear-xml/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Formatear y validar XML",
+      "url": "http://localhost:5180/es/formatear-xml/",
+      "description": "Indenta un documento XML y, de paso, comprueba que esté bien formado: si hay una etiqueta sin cerrar o un carácter ilegal, te lo dice antes de tocar nada.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué significa que no es válido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Que no está bien formado: una etiqueta sin cerrar, un «&» suelto que debería ser «&amp;» o dos elementos raíz. El mensaje indica qué esperaba."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Valida contra un esquema?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Comprueba la estructura, no si cumple un XSD o un DTD, que es una comprobación mucho más exigente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se conservan los comentarios y las secciones CDATA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, están en el resultado. Lo que puede cambiar es la indentación de lo que hay dentro."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../formatar-xml/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/format-xml/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Texto y web</nav>
+  <header class="tool-head">
+    <h1>Formatear y validar XML</h1>
+    <p>Indenta el documento y avisa si el marcado no cierra bien.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Indenta un documento XML y, de paso, comprueba que esté bien formado: si hay una etiqueta sin cerrar o un carácter ilegal, te lo dice antes de tocar nada.</p>
+    <p>Sirve para canales RSS, mapas del sitio, archivos de configuración y cualquier respuesta de API que llegue en XML en una sola línea inabarcable.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Pega el XML.</li>
+      <li>Elige la indentación.</li>
+      <li>Copia el resultado.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué significa que no es válido?</dt>
+      <dd>Que no está bien formado: una etiqueta sin cerrar, un «&amp;» suelto que debería ser «&amp;amp;» o dos elementos raíz. El mensaje indica qué esperaba.</dd>
+      <dt>¿Valida contra un esquema?</dt>
+      <dd>No. Comprueba la estructura, no si cumple un XSD o un DTD, que es una comprobación mucho más exigente.</dd>
+      <dt>¿Se conservan los comentarios y las secciones CDATA?</dt>
+      <dd>Sí, están en el resultado. Lo que puede cambiar es la indentación de lo que hay dentro.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-css/" data-search="minificar css csso: reestructura y fusiona reglas, no solo quita espacios. css minificar comprimir minify csso optimizar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura y fusiona reglas, no solo quita espacios.</span></a>
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser en el navegador, con acortado de nombres opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser en el navegador, con acortado de nombres opcional.</span></a>
+      <a class="card" href="../contar-palabras/" data-search="contar palabras y caracteres recuento en vivo, tiempo de lectura y los límites de cada plataforma. contar palabras caracteres longitud texto límite twitter seo lectura contar-palabras"><b>Contar palabras y caracteres</b><span>Recuento en vivo, tiempo de lectura y los límites de cada plataforma.</span></a>
+      <a class="card" href="../cambiar-mayusculas/" data-search="cambiar mayúsculas y minúsculas mayúsculas, minúsculas, tipo título, camelcase, snake_case y más. mayúsculas minúsculas camelcase snakecase kebabcase título convertir texto cambiar-mayusculas"><b>Cambiar mayúsculas y minúsculas</b><span>MAYÚSCULAS, minúsculas, Tipo Título, camelCase, snake_case y más.</span></a>
+      <a class="card" href="../ordenar-lineas/" data-search="ordenar y limpiar líneas ordena, quita duplicados y líneas vacías, numera o invierte una lista. ordenar líneas duplicados deduplicar lista alfabético numerar limpiar ordenar-lineas"><b>Ordenar y limpiar líneas</b><span>Ordena, quita duplicados y líneas vacías, numera o invierte una lista.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "format-xml","slug": "formatear-xml","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebP to JPG online, free and with no upload — WebTools</title>
+<meta name="description" content="Convert WebP images to JPEG straight in your browser, one at a time or all at once. No file is uploaded anywhere: your own computer does the decoding and the…">
+<link rel="canonical" href="http://localhost:5180/en/webp-to-jpg/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/webp-a-jpg/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/webp-a-jpg/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/webp-to-jpg/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/webp-a-jpg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="WebP to JPG online, free and with no upload — WebTools">
+<meta property="og:description" content="Convert WebP images to JPEG straight in your browser, one at a time or all at once. No file is uploaded anywhere: your own computer does the decoding and the…">
+<meta property="og:url" content="http://localhost:5180/en/webp-to-jpg/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "WebP to JPG",
+          "item": "http://localhost:5180/en/webp-to-jpg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "WebP to JPG",
+      "url": "http://localhost:5180/en/webp-to-jpg/",
+      "description": "Convert WebP images to JPEG straight in your browser, one at a time or all at once. No file is uploaded anywhere: your own computer does the decoding and the…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is quality lost going from WebP to JPEG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPEG compresses with loss, so yes, a little — controlled by the quality slider. At 80-85 the difference does not show on a screen. Always start from the original so recompressions do not stack up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens to transparency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JPEG has no alpha channel, so transparent areas are painted with the background colour you choose before encoding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a lot at once?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Drop in as many files as you like: they are processed in parallel across every core your processor has, and you can download them together as a ZIP."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the images sent to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Everything happens inside this tab. Once the page has loaded you can disconnect from the network and carry on converting."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../webp-a-jpg/" hreflang="ca">Català</a><a class="lang" href="../../es/webp-a-jpg/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>WebP to JPG</h1>
+    <p>Convert WebP images to JPG in batches, inside your browser.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Convert WebP images to JPEG straight in your browser, one at a time or all at once. No file is uploaded anywhere: your own computer does the decoding and the encoding, which is why the conversion is instant and there is no size limit.</p>
+    <p>Useful when the image has to go to a system that only swallows JPEG. If the WebP had transparency, it is flattened onto the background colour before encoding.</p>
+    <p>WebP is the recommended format for the web since 2020: transparency, lossy and lossless modes, and 25 to 35 % less weight than an equivalent JPEG. The trade-off is that older desktop software still does not always open it. JPEG, on the other hand, is the photographic format everyone has, with lossy compression and universal support, although it has no transparency and degrades a little every time it is saved again.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drag the images onto the area above, or click to pick them.</li>
+      <li>Choose the target format and, where it applies, the quality.</li>
+      <li>Press “Process” and download the results one by one or together as a ZIP.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Is quality lost going from WebP to JPEG?</dt>
+      <dd>JPEG compresses with loss, so yes, a little — controlled by the quality slider. At 80-85 the difference does not show on a screen. Always start from the original so recompressions do not stack up.</dd>
+      <dt>What happens to transparency?</dt>
+      <dd>JPEG has no alpha channel, so transparent areas are painted with the background colour you choose before encoding.</dd>
+      <dt>Can I convert a lot at once?</dt>
+      <dd>Yes. Drop in as many files as you like: they are processed in parallel across every core your processor has, and you can download them together as a ZIP.</dd>
+      <dt>Are the images sent to a server?</dt>
+      <dd>No. Everything happens inside this tab. Once the page has loaded you can disconnect from the network and carry on converting.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../png-to-webp/" data-search="png to webp convert png images to webp in batches, inside your browser. png-to-webp"><b>PNG to WebP</b><span>Convert PNG images to WebP in batches, inside your browser.</span></a>
+      <a class="card" href="../jpg-to-webp/" data-search="jpg to webp convert jpg images to webp in batches, inside your browser. jpg-to-webp"><b>JPG to WebP</b><span>Convert JPG images to WebP in batches, inside your browser.</span></a>
+      <a class="card" href="../png-to-jpg/" data-search="png to jpg convert png images to jpg in batches, inside your browser. png-to-jpg"><b>PNG to JPG</b><span>Convert PNG images to JPG in batches, inside your browser.</span></a>
+      <a class="card" href="../jpg-to-png/" data-search="jpg to png convert jpg images to png in batches, inside your browser. jpg-to-png"><b>JPG to PNG</b><span>Convert JPG images to PNG in batches, inside your browser.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-convert","slug": "webp-to-jpg","lang": "en","accepts": ["image/webp"],"preset": {"format": "jpeg"},"lock": ["format"]};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

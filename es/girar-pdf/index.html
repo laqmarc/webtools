@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Girar páginas de PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Corrige páginas escaneadas de lado o boca abajo. La rotación se acumula sobre la que ya tenga la página, así que el resultado es el que ves en el lector, no…">
+<link rel="canonical" href="http://localhost:5180/es/girar-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/girar-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/girar-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/rotate-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/girar-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Girar páginas de PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Corrige páginas escaneadas de lado o boca abajo. La rotación se acumula sobre la que ya tenga la página, así que el resultado es el que ves en el lector, no…">
+<meta property="og:url" content="http://localhost:5180/es/girar-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Girar páginas de PDF",
+          "item": "http://localhost:5180/es/girar-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Girar páginas de PDF",
+      "url": "http://localhost:5180/es/girar-pdf/",
+      "description": "Corrige páginas escaneadas de lado o boca abajo. La rotación se acumula sobre la que ya tenga la página, así que el resultado es el que ves en el lector, no…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo indico solo algunas páginas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con la misma notación de los rangos: «1-3, 7, 10-12». Si dejas el campo vacío, se giran todas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se vuelve a comprimir el documento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Girar una página es cambiar un atributo en la estructura del PDF; el contenido no se toca ni pierde calidad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi lector ya me mostraba la página derecha?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Algunos lectores giran la vista sin guardarlo. Esta herramienta escribe la rotación en el archivo, de modo que ya sale bien en todas partes y al imprimir."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../girar-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/rotate-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Girar páginas de PDF</h1>
+    <p>Rota todas las páginas o solo las que indiques.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Corrige páginas escaneadas de lado o boca abajo. La rotación se acumula sobre la que ya tenga la página, así que el resultado es el que ves en el lector, no una suma que tengas que calcular tú.</p>
+    <p>Puedes girar todo el documento o solo unas cuantas páginas, que es el caso habitual cuando el escáner ha girado solo los folios apaisados.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Añade el PDF.</li>
+      <li>Elige el ángulo y, si no son todas, escribe las páginas.</li>
+      <li>Procesa y descarga.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Cómo indico solo algunas páginas?</dt>
+      <dd>Con la misma notación de los rangos: «1-3, 7, 10-12». Si dejas el campo vacío, se giran todas.</dd>
+      <dt>¿Se vuelve a comprimir el documento?</dt>
+      <dd>No. Girar una página es cambiar un atributo en la estructura del PDF; el contenido no se toca ni pierde calidad.</dd>
+      <dt>¿Por qué mi lector ya me mostraba la página derecha?</dt>
+      <dd>Algunos lectores giran la vista sin guardarlo. Esta herramienta escribe la rotación en el archivo, de modo que ya sale bien en todas partes y al imprimir.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-rotate","slug": "girar-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

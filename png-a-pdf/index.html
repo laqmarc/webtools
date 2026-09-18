@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PNG a PDF en línia, gratis i sense pujar res — WebTools</title>
+<meta name="description" content="Converteix captures de pantalla, dibuixos i diagrames en PNG a un PDF amb una imatge per pàgina. Va bé per lliurar un joc de captures com un sol document, o…">
+<link rel="canonical" href="http://localhost:5180/png-a-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/png-a-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/png-a-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/png-to-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/png-a-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="PNG a PDF en línia, gratis i sense pujar res — WebTools">
+<meta property="og:description" content="Converteix captures de pantalla, dibuixos i diagrames en PNG a un PDF amb una imatge per pàgina. Va bé per lliurar un joc de captures com un sol document, o…">
+<meta property="og:url" content="http://localhost:5180/png-a-pdf/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PNG a PDF",
+          "item": "http://localhost:5180/png-a-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "PNG a PDF",
+      "url": "http://localhost:5180/png-a-pdf/",
+      "description": "Converteix captures de pantalla, dibuixos i diagrames en PNG a un PDF amb una imatge per pàgina. Va bé per lliurar un joc de captures com un sol document, o…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Es manté la transparència?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El PDF pinta les zones transparents de blanc, que és el que veuràs en imprimir. Si necessites conservar el canal alfa, deixa les imatges en PNG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La captura surt borrosa en imprimir, per què?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè un PNG de pantalla té pocs píxels per a la mida de paper. Amb la mida de pàgina «La de cada imatge» el PDF conserva la resolució original en comptes d’estirar-la fins a un A4."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc afegir-hi marges?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, sempre que triïs una mida de pàgina fixa. El marge es mesura en mil·límetres i s’aplica per igual als quatre costats."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/png-a-pdf/" hreflang="es">Español</a><a class="lang" href="../en/png-to-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>PNG a PDF</h1>
+    <p>Captures i gràfics PNG en un sol PDF, una per pàgina.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Converteix captures de pantalla, dibuixos i diagrames en PNG a un PDF amb una imatge per pàgina. Va bé per lliurar un joc de captures com un sol document, o per imprimir una sèrie de làmines.</p>
+    <p>A diferència dels JPEG, els PNG es tornen a comprimir en incrustar-los al PDF, de manera que el resultat sol pesar menys que la suma dels originals.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Arrossega-hi les imatges en l’ordre que vulguis que surtin.</li>
+      <li>Tria la mida de pàgina, l’orientació i el marge.</li>
+      <li>Prem «Combina» i baixa el PDF.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Es manté la transparència?</dt>
+      <dd>El PDF pinta les zones transparents de blanc, que és el que veuràs en imprimir. Si necessites conservar el canal alfa, deixa les imatges en PNG.</dd>
+      <dt>La captura surt borrosa en imprimir, per què?</dt>
+      <dd>Perquè un PNG de pantalla té pocs píxels per a la mida de paper. Amb la mida de pàgina «La de cada imatge» el PDF conserva la resolució original en comptes d’estirar-la fins a un A4.</dd>
+      <dt>Puc afegir-hi marges?</dt>
+      <dd>Sí, sempre que triïs una mida de pàgina fixa. El marge es mesura en mil·límetres i s’aplica per igual als quatre costats.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../imatges-a-pdf/" data-search="imatges a pdf un pdf amb una imatge per pàgina, amb mida i marges controlats. imatges pdf jpg png a pdf àlbum escanejat imatges-a-pdf"><b>Imatges a PDF</b><span>Un PDF amb una imatge per pàgina, amb mida i marges controlats.</span></a>
+      <a class="card" href="../jpg-a-pdf/" data-search="jpg a pdf fotografies jpeg en un sol pdf, una per pàgina. jpg-a-pdf"><b>JPG a PDF</b><span>Fotografies JPEG en un sol PDF, una per pàgina.</span></a>
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica les imatges de dins sense tocar el text ni l’estructura. pdf comprimir reduir pes mida optimitzar escaneig comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica les imatges de dins sense tocar el text ni l’estructura.</span></a>
+      <a class="card" href="../organitzar-pdf/" data-search="organitzar pàgines veu totes les pàgines, arrossega-les, gira-les i treu les que sobren. pdf organitzar reordenar ordenar pàgines miniatures moure esborrar organitzar-pdf"><b>Organitzar pàgines</b><span>Veu totes les pàgines, arrossega-les, gira-les i treu les que sobren.</span></a>
+      <a class="card" href="../pdf-a-imatges/" data-search="pdf a imatges una imatge per pàgina, a la resolució que necessitis. pdf imatge jpg png webp convertir pàgines rasteritzar exportar pdf-a-imatges"><b>PDF a imatges</b><span>Una imatge per pàgina, a la resolució que necessitis.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "images-to-pdf","slug": "png-a-pdf","lang": "ca","accepts": ["image/png"],"preset": {"outName": "captures.pdf"},"lock": []};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

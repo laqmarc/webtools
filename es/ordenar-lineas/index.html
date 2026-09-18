@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordenar y limpiar líneas en línea, en el navegador — WebTools</title>
+<meta name="description" content="Ordena una lista, quítale las repeticiones y las líneas vacías, numérala o inviértela. Es el trabajo que se acaba haciendo a mano en un editor de texto y que…">
+<link rel="canonical" href="http://localhost:5180/es/ordenar-lineas/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/ordenar-linies/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ordenar-lineas/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/sort-lines/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/ordenar-linies/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Ordenar y limpiar líneas en línea, en el navegador — WebTools">
+<meta property="og:description" content="Ordena una lista, quítale las repeticiones y las líneas vacías, numérala o inviértela. Es el trabajo que se acaba haciendo a mano en un editor de texto y que…">
+<meta property="og:url" content="http://localhost:5180/es/ordenar-lineas/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ordenar y limpiar líneas",
+          "item": "http://localhost:5180/es/ordenar-lineas/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Ordenar y limpiar líneas",
+      "url": "http://localhost:5180/es/ordenar-lineas/",
+      "description": "Ordena una lista, quítale las repeticiones y las líneas vacías, numérala o inviértela. Es el trabajo que se acaba haciendo a mano en un editor de texto y que…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué «archivo10» sale después de «archivo9»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque la ordenación es natural: cuando encuentra números dentro del texto los compara como números y no como texto. Es lo que casi siempre se quiere."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Quita los duplicados que solo se diferencian por las mayúsculas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Solo si marcas «ignorar mayúsculas al comparar». Por defecto «Manzana» y «manzana» se consideran distintas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se conserva el orden original si no ordeno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Con «dejarlo como está», el resto de operaciones se hacen respetando el orden en que has pegado las líneas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../ordenar-linies/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/sort-lines/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Texto y web</nav>
+  <header class="tool-head">
+    <h1>Ordenar y limpiar líneas</h1>
+    <p>Ordena, quita duplicados y líneas vacías, numera o invierte una lista.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Ordena una lista, quítale las repeticiones y las líneas vacías, numérala o inviértela. Es el trabajo que se acaba haciendo a mano en un editor de texto y que aquí se resuelve con cuatro casillas.</p>
+    <p>La ordenación entiende los acentos y los números como toca: «Álex» va antes que «Bernardo», y «archivo10» después de «archivo9», no antes.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Pega la lista, una entrada por línea.</li>
+      <li>Marca qué quieres que haga.</li>
+      <li>Copia el resultado.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué «archivo10» sale después de «archivo9»?</dt>
+      <dd>Porque la ordenación es natural: cuando encuentra números dentro del texto los compara como números y no como texto. Es lo que casi siempre se quiere.</dd>
+      <dt>¿Quita los duplicados que solo se diferencian por las mayúsculas?</dt>
+      <dd>Solo si marcas «ignorar mayúsculas al comparar». Por defecto «Manzana» y «manzana» se consideran distintas.</dd>
+      <dt>¿Se conserva el orden original si no ordeno?</dt>
+      <dd>Sí. Con «dejarlo como está», el resto de operaciones se hacen respetando el orden en que has pegado las líneas.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-css/" data-search="minificar css csso: reestructura y fusiona reglas, no solo quita espacios. css minificar comprimir minify csso optimizar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura y fusiona reglas, no solo quita espacios.</span></a>
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser en el navegador, con acortado de nombres opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser en el navegador, con acortado de nombres opcional.</span></a>
+      <a class="card" href="../contar-palabras/" data-search="contar palabras y caracteres recuento en vivo, tiempo de lectura y los límites de cada plataforma. contar palabras caracteres longitud texto límite twitter seo lectura contar-palabras"><b>Contar palabras y caracteres</b><span>Recuento en vivo, tiempo de lectura y los límites de cada plataforma.</span></a>
+      <a class="card" href="../cambiar-mayusculas/" data-search="cambiar mayúsculas y minúsculas mayúsculas, minúsculas, tipo título, camelcase, snake_case y más. mayúsculas minúsculas camelcase snakecase kebabcase título convertir texto cambiar-mayusculas"><b>Cambiar mayúsculas y minúsculas</b><span>MAYÚSCULAS, minúsculas, Tipo Título, camelCase, snake_case y más.</span></a>
+      <a class="card" href="../codificar-url/" data-search="codificar y decodificar url percent-encoding, para direcciones enteras o solo para un parámetro. url encode decode percent codificar decodificar dirección parámetro query codificar-url"><b>Codificar y decodificar URL</b><span>Percent-encoding, para direcciones enteras o solo para un parámetro.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "text-lines","slug": "ordenar-lineas","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

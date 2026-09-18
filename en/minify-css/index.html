@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minify CSS online, in your browser — WebTools</title>
+<meta name="description" content="Minify CSS with CSSO, which does rather more than strip whitespace: it shortens colours, collapses shorthand properties and, if you let it, merges rules that…">
+<link rel="canonical" href="http://localhost:5180/en/minify-css/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/minificar-css/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/minificar-css/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/minify-css/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/minificar-css/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Minify CSS online, in your browser — WebTools">
+<meta property="og:description" content="Minify CSS with CSSO, which does rather more than strip whitespace: it shortens colours, collapses shorthand properties and, if you let it, merges rules that…">
+<meta property="og:url" content="http://localhost:5180/en/minify-css/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Minify CSS",
+          "item": "http://localhost:5180/en/minify-css/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Minify CSS",
+      "url": "http://localhost:5180/en/minify-css/",
+      "description": "Minify CSS with CSSO, which does rather more than strip whitespace: it shortens colours, collapses shorthand properties and, if you let it, merges rules that…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is restructuring safe to enable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It is in the vast majority of stylesheets, but check the page afterwards. If you have rules that depend on source order to beat each other, better to leave it off."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are /*! */ comments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The convention for a comment that must not be removed, such as a licence header. With the box ticked they survive and the rest go."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much is usually saved?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Between 15 and 30 % on a hand-written stylesheet. If the server already gzips or brotlis, the end gain is more modest, but still real."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../minificar-css/" hreflang="ca">Català</a><a class="lang" href="../../es/minificar-css/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Text and web</nav>
+  <header class="tool-head">
+    <h1>Minify CSS</h1>
+    <p>CSSO: it restructures and merges rules, not just strips spaces.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Minify CSS with CSSO, which does rather more than strip whitespace: it shortens colours, collapses shorthand properties and, if you let it, merges rules that share declarations.</p>
+    <p>Restructuring is where the real difference comes from, and it is also what deserves a second look: it changes the order of rules, and in stylesheets with a lot of crossing specificity that can change the outcome.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste the CSS.</li>
+      <li>Decide whether to enable restructuring.</li>
+      <li>Copy or download the .min.css.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Is restructuring safe to enable?</dt>
+      <dd>It is in the vast majority of stylesheets, but check the page afterwards. If you have rules that depend on source order to beat each other, better to leave it off.</dd>
+      <dt>What are /*! */ comments?</dt>
+      <dd>The convention for a comment that must not be removed, such as a licence header. With the box ticked they survive and the rest go.</dd>
+      <dt>How much is usually saved?</dt>
+      <dd>Between 15 and 30 % on a hand-written stylesheet. If the server already gzips or brotlis, the end gain is more modest, but still real.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../minify-javascript/" data-search="minify javascript terser in the browser, with optional name mangling. js javascript minify compress terser uglify minify-javascript"><b>Minify JavaScript</b><span>Terser in the browser, with optional name mangling.</span></a>
+      <a class="card" href="../word-counter/" data-search="count words and characters a live count, reading time and the limits each platform imposes. word count characters length text limit twitter seo reading time word-counter"><b>Count words and characters</b><span>A live count, reading time and the limits each platform imposes.</span></a>
+      <a class="card" href="../change-case/" data-search="change letter case uppercase, lowercase, title case, camelcase, snake_case and more. uppercase lowercase camelcase snakecase kebabcase title convert text change-case"><b>Change letter case</b><span>UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.</span></a>
+      <a class="card" href="../sort-lines/" data-search="sort and clean up lines sort, drop duplicates and blanks, number or reverse a list. sort lines duplicates dedupe list alphabetical number clean sort-lines"><b>Sort and clean up lines</b><span>Sort, drop duplicates and blanks, number or reverse a list.</span></a>
+      <a class="card" href="../url-encode/" data-search="url encode and decode percent-encoding, for whole addresses or for a single parameter. url encode decode percent escape address parameter query url-encode"><b>URL encode and decode</b><span>Percent-encoding, for whole addresses or for a single parameter.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "minify-css","slug": "minify-css","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

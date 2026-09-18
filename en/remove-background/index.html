@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remove an image background online, in your browser — WebTools</title>
+<meta name="description" content="Cut the subject out of a photograph and leave the background transparent, or swap it for a solid colour. Good for product shots, portraits and anything that…">
+<link rel="canonical" href="http://localhost:5180/en/remove-background/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/treure-el-fons/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/quitar-el-fondo/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/remove-background/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/treure-el-fons/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Remove an image background online, in your browser — WebTools">
+<meta property="og:description" content="Cut the subject out of a photograph and leave the background transparent, or swap it for a solid colour. Good for product shots, portraits and anything that…">
+<meta property="og:url" content="http://localhost:5180/en/remove-background/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Remove an image background",
+          "item": "http://localhost:5180/en/remove-background/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Remove an image background",
+      "url": "http://localhost:5180/en/remove-background/",
+      "description": "Cut the subject out of a photograph and leave the background transparent, or swap it for a solid colour. Good for product shots, portraits and anything that…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "When does it work well and when not?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Very well with a clear subject against a distinct background: people, products, animals. Less well with scenes that have no obvious protagonist, with very thin objects, or when subject and background share a colour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between soft and clean edges?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Soft keeps the partial transparency at the boundary, which is what stops hair looking like a silhouette cut out with scissors. Clean decides for each pixel whether it is in or out, and suits hard-edged objects."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is the first run so slow?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the inference engine and the model have to be downloaded and compiled. From the second image onwards everything is in memory and it is much faster."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../treure-el-fons/" hreflang="ca">Català</a><a class="lang" href="../../es/quitar-el-fondo/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>Remove an image background</h1>
+    <p>Cuts the subject out with a model that runs on your own machine.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Cut the subject out of a photograph and leave the background transparent, or swap it for a solid colour. Good for product shots, portraits and anything that has to sit on top of another design.</p>
+    <p>A neural network (u2netp) does the work, running on your machine through ONNX Runtime compiled to WebAssembly. The model weighs 4.4 MB and downloads once; after that the photo never leaves the tab.</p>
+    <p>Do not expect the result of an hour with masks in Photoshop. Do expect a clean, usable cut-out in a few seconds, which for most purposes is exactly what was needed.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drag in the photos.</li>
+      <li>Choose whether the background goes transparent or takes a colour.</li>
+      <li>Soft edge for hair and fur; clean edge for objects with a defined outline.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>When does it work well and when not?</dt>
+      <dd>Very well with a clear subject against a distinct background: people, products, animals. Less well with scenes that have no obvious protagonist, with very thin objects, or when subject and background share a colour.</dd>
+      <dt>What is the difference between soft and clean edges?</dt>
+      <dd>Soft keeps the partial transparency at the boundary, which is what stops hair looking like a silhouette cut out with scissors. Clean decides for each pixel whether it is in or out, and suits hard-edged objects.</dd>
+      <dt>Why is the first run so slow?</dt>
+      <dd>Because the inference engine and the model have to be downloaded and compiled. From the second image onwards everything is in memory and it is much faster.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../compress-images/" data-search="compress images cut the weight by quality, or down to a size you pick. compress shrink reduce file size optimise kb image compress-images"><b>Compress images</b><span>Cut the weight by quality, or down to a size you pick.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../crop-images/" data-search="crop images draw the crop on the picture and apply it to the whole batch. crop cut aspect square visual mouse image crop-images"><b>Crop images</b><span>Draw the crop on the picture and apply it to the whole batch.</span></a>
+      <a class="card" href="../rotate-images/" data-search="rotate and flip quarter turns, and horizontal or vertical flips. rotate turn flip mirror image rotate-images"><b>Rotate and flip</b><span>Quarter turns, and horizontal or vertical flips.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "remove-background","slug": "remove-background","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

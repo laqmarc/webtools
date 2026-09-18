@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca de agua en PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Estampa «BORRADOR», «CONFIDENCIAL» o lo que haga falta en todas las páginas de un PDF. El texto se escribe como texto de verdad en el documento, no como una…">
+<link rel="canonical" href="http://localhost:5180/es/marca-de-agua-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/marca-aigua-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/marca-de-agua-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/watermark-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/marca-aigua-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Marca de agua en PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Estampa «BORRADOR», «CONFIDENCIAL» o lo que haga falta en todas las páginas de un PDF. El texto se escribe como texto de verdad en el documento, no como una…">
+<meta property="og:url" content="http://localhost:5180/es/marca-de-agua-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Marca de agua en PDF",
+          "item": "http://localhost:5180/es/marca-de-agua-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Marca de agua en PDF",
+      "url": "http://localhost:5180/es/marca-de-agua-pdf/",
+      "description": "Estampa «BORRADOR», «CONFIDENCIAL» o lo que haga falta en todas las páginas de un PDF. El texto se escribe como texto de verdad en el documento, no como una…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se puede quitar la marca?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Con un editor de PDF decente, sí: el texto es un objeto más del documento. Sirve para marcar la intención, no para impedir nada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar acentos y «ñ»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Lo que no entra son los caracteres de fuera del latín-1, porque las tipografías internas del PDF no los tienen; si pones alguno, te lo dice antes de hacer nada."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Queda por encima o por debajo del contenido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por encima. Con una opacidad baja el texto de debajo se sigue leyendo sin problemas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../marca-aigua-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/watermark-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Marca de agua en PDF</h1>
+    <p>Texto en todas las páginas, en una posición o repetido en diagonal.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Estampa «BORRADOR», «CONFIDENCIAL» o lo que haga falta en todas las páginas de un PDF. El texto se escribe como texto de verdad en el documento, no como una imagen pegada encima.</p>
+    <p>Con la opción de repetirlo, la marca cubre la página entera en diagonal, que es el patrón clásico para los documentos que no deben reutilizarse.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el PDF.</li>
+      <li>Escribe el texto y elige la posición, el tamaño y la opacidad.</li>
+      <li>Procesa y descarga.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Se puede quitar la marca?</dt>
+      <dd>Con un editor de PDF decente, sí: el texto es un objeto más del documento. Sirve para marcar la intención, no para impedir nada.</dd>
+      <dt>¿Puedo usar acentos y «ñ»?</dt>
+      <dd>Sí. Lo que no entra son los caracteres de fuera del latín-1, porque las tipografías internas del PDF no los tienen; si pones alguno, te lo dice antes de hacer nada.</dd>
+      <dt>¿Queda por encima o por debajo del contenido?</dt>
+      <dd>Por encima. Con una opacidad baja el texto de debajo se sigue leyendo sin problemas.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-watermark","slug": "marca-de-agua-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

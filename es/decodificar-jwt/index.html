@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decodificar JWT en línea, en el navegador — WebTools</title>
+<meta name="description" content="Abre un JSON Web Token y muestra qué hay dentro: el algoritmo de la cabecera, todos los campos de la carga útil y las fechas de emisión, validez y caducidad…">
+<link rel="canonical" href="http://localhost:5180/es/decodificar-jwt/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/descodificar-jwt/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/decodificar-jwt/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/decode-jwt/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/descodificar-jwt/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Decodificar JWT en línea, en el navegador — WebTools">
+<meta property="og:description" content="Abre un JSON Web Token y muestra qué hay dentro: el algoritmo de la cabecera, todos los campos de la carga útil y las fechas de emisión, validez y caducidad…">
+<meta property="og:url" content="http://localhost:5180/es/decodificar-jwt/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Decodificar JWT",
+          "item": "http://localhost:5180/es/decodificar-jwt/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Decodificar JWT",
+      "url": "http://localhost:5180/es/decodificar-jwt/",
+      "description": "Abre un JSON Web Token y muestra qué hay dentro: el algoritmo de la cabecera, todos los campos de la carga útil y las fechas de emisión, validez y caducidad…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se verifica la firma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Para verificarla haría falta la clave secreta o la pública de quien lo ha emitido, y esta herramienta no tiene ninguna. Sirve para ver el contenido, no para decidir si el token es de fiar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿El token llega a algún servidor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La decodificación es Base64 pura hecha en la pestaña, cosa que importa bastante cuando lo que pegas es un token de sesión vivo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué significa que ha caducado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Que el campo exp es anterior al momento actual. Muchos servidores dejan un margen de tolerancia de unos segundos, pero un token caducado normalmente se rechaza."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../descodificar-jwt/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/decode-jwt/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Datos</nav>
+  <header class="tool-head">
+    <h1>Decodificar JWT</h1>
+    <p>Cabecera, carga útil y caducidad. La firma no se verifica.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Abre un JSON Web Token y muestra qué hay dentro: el algoritmo de la cabecera, todos los campos de la carga útil y las fechas de emisión, validez y caducidad convertidas a hora local.</p>
+    <p>Un JWT no está cifrado, solo codificado en Base64: cualquiera que lo tenga puede leer su contenido. Por eso es importante no poner nunca nada que no quieras que se vea.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Pega el token, con o sin el prefijo Bearer.</li>
+      <li>Mira la cabecera y la carga útil.</li>
+      <li>Comprueba la línea de caducidad.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Se verifica la firma?</dt>
+      <dd>No. Para verificarla haría falta la clave secreta o la pública de quien lo ha emitido, y esta herramienta no tiene ninguna. Sirve para ver el contenido, no para decidir si el token es de fiar.</dd>
+      <dt>¿El token llega a algún servidor?</dt>
+      <dd>No. La decodificación es Base64 pura hecha en la pestaña, cosa que importa bastante cuando lo que pegas es un token de sesión vivo.</dd>
+      <dt>¿Qué significa que ha caducado?</dt>
+      <dd>Que el campo exp es anterior al momento actual. Muchos servidores dejan un margen de tolerancia de unos segundos, pero un token caducado normalmente se rechaza.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array de objetos a tabla, aplanando los objetos anidados. json csv tabla excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array de objetos a tabla, aplanando los objetos anidados.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respeta las comillas y tipa los valores. csv json convertir tabla importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respeta las comillas y tipa los valores.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversión directa manteniendo el orden de las claves. json yaml yml convertir configuración json-a-yaml"><b>JSON a YAML</b><span>Conversión directa manteniendo el orden de las claves.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json acepta varios documentos en un mismo archivo. yaml yml json convertir configuración yaml-a-json"><b>YAML a JSON</b><span>Acepta varios documentos en un mismo archivo.</span></a>
+      <a class="card" href="../formatear-json/" data-search="formatear y validar json indenta, minifica u ordena claves, y señala el error con línea y columna. json formatear validar bonito pretty minificar ordenar claves formatear-json"><b>Formatear y validar JSON</b><span>Indenta, minifica u ordena claves, y señala el error con línea y columna.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "jwt-decode","slug": "decodificar-jwt","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

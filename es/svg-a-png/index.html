@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG a PNG en línea, en el navegador — WebTools</title>
+<meta name="description" content="Rasteriza un SVG al tamaño que necesites. Como el origen es vectorial, puedes pedir cualquier resolución sin que se vea pixelado: el mismo icono sirve para…">
+<link rel="canonical" href="http://localhost:5180/es/svg-a-png/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/svg-a-png/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/svg-a-png/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/svg-to-png/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/svg-a-png/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="SVG a PNG en línea, en el navegador — WebTools">
+<meta property="og:description" content="Rasteriza un SVG al tamaño que necesites. Como el origen es vectorial, puedes pedir cualquier resolución sin que se vea pixelado: el mismo icono sirve para…">
+<meta property="og:url" content="http://localhost:5180/es/svg-a-png/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SVG a PNG",
+          "item": "http://localhost:5180/es/svg-a-png/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SVG a PNG",
+      "url": "http://localhost:5180/es/svg-a-png/",
+      "description": "Rasteriza un SVG al tamaño que necesites. Como el origen es vectorial, puedes pedir cualquier resolución sin que se vea pixelado: el mismo icono sirve para…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué me sale de 300×150?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es el tamaño por defecto que el navegador asigna a un SVG sin width, height ni viewBox. Añade un viewBox al archivo, o indica aquí una anchura explícita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "No se ven las letras, ¿qué pasa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un SVG rasterizado dentro de una página no puede cargar tipografías externas ni archivos de fuera. Convierte los textos a curvas desde tu editor antes de exportar el SVG."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo sacar un WebP en vez de PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, el selector de formato ofrece PNG, WebP y JPEG. Para iconos con transparencia, PNG y WebP; para ilustraciones con fondo sólido, WebP pesa mucho menos."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../svg-a-png/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/svg-to-png/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen vectorial</nav>
+  <header class="tool-head">
+    <h1>SVG a PNG</h1>
+    <p>Rasteriza al tamaño que quieras, con fondo transparente o sólido.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Rasteriza un SVG al tamaño que necesites. Como el origen es vectorial, puedes pedir cualquier resolución sin que se vea pixelado: el mismo icono sirve para un favicon de 32 px y para un cartel de 4000.</p>
+    <p>El tamaño se puede dar en píxeles o como multiplicador del viewBox, que es lo más cómodo para sacar versiones @2x y @3x de un juego de iconos entero de una sola pasada.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Añade los SVG.</li>
+      <li>Indica una anchura en píxeles, o déjala a cero y usa la escala.</li>
+      <li>Elige si quieres fondo transparente y procesa.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué me sale de 300×150?</dt>
+      <dd>Es el tamaño por defecto que el navegador asigna a un SVG sin width, height ni viewBox. Añade un viewBox al archivo, o indica aquí una anchura explícita.</dd>
+      <dt>No se ven las letras, ¿qué pasa?</dt>
+      <dd>Un SVG rasterizado dentro de una página no puede cargar tipografías externas ni archivos de fuera. Convierte los textos a curvas desde tu editor antes de exportar el SVG.</dd>
+      <dt>¿Puedo sacar un WebP en vez de PNG?</dt>
+      <dd>Sí, el selector de formato ofrece PNG, WebP y JPEG. Para iconos con transparencia, PNG y WebP; para ilustraciones con fondo sólido, WebP pesa mucho menos.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../optimizar-svg/" data-search="optimizar svg svgo en el navegador: quita metadatos de editor y redondea trazados. svg optimizar svgo minificar vector limpiar optimizar-svg"><b>Optimizar SVG</b><span>SVGO en el navegador: quita metadatos de editor y redondea trazados.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-to-png","slug": "svg-a-png","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

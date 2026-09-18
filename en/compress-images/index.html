@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compress images online, in your browser — WebTools</title>
+<meta name="description" content="Bring image weight down in one of two ways. You can fix a quality and see what comes out, or say how much the file is allowed to weigh and let the page get…">
+<link rel="canonical" href="http://localhost:5180/en/compress-images/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comprimir-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/comprimir-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/compress-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comprimir-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Compress images online, in your browser — WebTools">
+<meta property="og:description" content="Bring image weight down in one of two ways. You can fix a quality and see what comes out, or say how much the file is allowed to weigh and let the page get…">
+<meta property="og:url" content="http://localhost:5180/en/compress-images/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compress images",
+          "item": "http://localhost:5180/en/compress-images/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Compress images",
+      "url": "http://localhost:5180/en/compress-images/",
+      "description": "Bring image weight down in one of two ways. You can fix a quality and see what comes out, or say how much the file is allowed to weigh and let the page get…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What quality is good enough?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Between 75 and 85 in WebP is where most people cannot tell the result from the original. Below 60 you start to see artefacts in gradients and around text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does it not use all of the size limit I asked for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the search never goes above quality 95. Past that point the file grows fast with no visible gain, so if 95 already fits, it stops there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I compress without changing format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, choose “Keep the original”. It works well with JPEG and WebP; with PNG the gain is small, because it is a lossless format and re-encoding it frees little."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the maximum width do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It shrinks the image before compressing. It is usually the most effective lever of all: serving a 4000 px photo on a page that shows it at 800 px wastes 96 % of the pixels."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../comprimir-imatges/" hreflang="ca">Català</a><a class="lang" href="../../es/comprimir-imagenes/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>Compress images</h1>
+    <p>Cut the weight by quality, or down to a size you pick.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Bring image weight down in one of two ways. You can fix a quality and see what comes out, or say how much the file is allowed to weigh and let the page get there on its own.</p>
+    <p>The second mode runs a binary search over the quality until it finds the highest one that fits the budget, and if even the lowest sensible quality is too big, it shrinks the pixel dimensions in 20 % steps until it fits.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the images you want to slim down.</li>
+      <li>Choose whether to fix the quality or a maximum size in kilobytes.</li>
+      <li>Check the percentage-saved column and download whatever convinces you.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>What quality is good enough?</dt>
+      <dd>Between 75 and 85 in WebP is where most people cannot tell the result from the original. Below 60 you start to see artefacts in gradients and around text.</dd>
+      <dt>Why does it not use all of the size limit I asked for?</dt>
+      <dd>Because the search never goes above quality 95. Past that point the file grows fast with no visible gain, so if 95 already fits, it stops there.</dd>
+      <dt>Can I compress without changing format?</dt>
+      <dd>Yes, choose “Keep the original”. It works well with JPEG and WebP; with PNG the gain is small, because it is a lossless format and re-encoding it frees little.</dd>
+      <dt>What does the maximum width do?</dt>
+      <dd>It shrinks the image before compressing. It is usually the most effective lever of all: serving a 4000 px photo on a page that shows it at 800 px wastes 96 % of the pixels.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../crop-images/" data-search="crop images draw the crop on the picture and apply it to the whole batch. crop cut aspect square visual mouse image crop-images"><b>Crop images</b><span>Draw the crop on the picture and apply it to the whole batch.</span></a>
+      <a class="card" href="../rotate-images/" data-search="rotate and flip quarter turns, and horizontal or vertical flips. rotate turn flip mirror image rotate-images"><b>Rotate and flip</b><span>Quarter turns, and horizontal or vertical flips.</span></a>
+      <a class="card" href="../strip-image-metadata/" data-search="strip metadata removes exif, gps and profiles by re-encoding to the same format. exif metadata gps privacy clean strip photo strip-image-metadata"><b>Strip metadata</b><span>Removes EXIF, GPS and profiles by re-encoding to the same format.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-compress","slug": "compress-images","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

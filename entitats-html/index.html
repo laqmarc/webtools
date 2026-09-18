@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entitats HTML en línia, al navegador — WebTools</title>
+<meta name="description" content="Converteix «&lt;», «&gt;», «&amp;» i les cometes en les seves entitats, que és el que cal fer per ensenyar codi dins d’una pàgina sense que el navegador se l’empassi…">
+<link rel="canonical" href="http://localhost:5180/entitats-html/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/entitats-html/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/entidades-html/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/html-entities/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/entitats-html/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Entitats HTML en línia, al navegador — WebTools">
+<meta property="og:description" content="Converteix «&lt;», «&gt;», «&amp;» i les cometes en les seves entitats, que és el que cal fer per ensenyar codi dins d’una pàgina sense que el navegador se l’empassi…">
+<meta property="og:url" content="http://localhost:5180/entitats-html/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Entitats HTML",
+          "item": "http://localhost:5180/entitats-html/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Entitats HTML",
+      "url": "http://localhost:5180/entitats-html/",
+      "description": "Converteix «\u003c», «>», «&» i les cometes en les seves entitats, que és el que cal fer per ensenyar codi dins d’una pàgina sense que el navegador se l’empassi…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quins caràcters s’escapen per defecte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Els cinc que tenen significat dins del marcatge —&, \u003c, >, \" i '— més l’espai dur. Amb la casella marcada, també tot el que passi del codi 127."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Cal escapar els accents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, si la pàgina declara UTF-8, que hauria de ser sempre. L’opció hi és per a sistemes antics i per a correus en HTML, que encara pateixen amb la codificació."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "És prou per evitar injecció de codi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Escapar per a contingut HTML és una peça, però dins d’un atribut, d’un \u003cscript> o d’una URL les regles són diferents. No et refiïs d’aquesta eina com a mesura de seguretat."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/entidades-html/" hreflang="es">Español</a><a class="lang" href="../en/html-entities/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Text i web</nav>
+  <header class="tool-head">
+    <h1>Entitats HTML</h1>
+    <p>Escapa el text per posar-lo dins d’HTML, o desfes-ho.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Converteix «&lt;», «&gt;», «&amp;» i les cometes en les seves entitats, que és el que cal fer per ensenyar codi dins d’una pàgina sense que el navegador se l’empassi com a marcatge.</p>
+    <p>En sentit invers, la descodificació la fa el mateix analitzador del navegador, de manera que entén totes les entitats amb nom que existeixen, no una llista curta.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Tria la direcció.</li>
+      <li>Enganxa el text o el codi.</li>
+      <li>Copia el resultat.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quins caràcters s’escapen per defecte?</dt>
+      <dd>Els cinc que tenen significat dins del marcatge —&amp;, &lt;, &gt;, &quot; i &#39;— més l’espai dur. Amb la casella marcada, també tot el que passi del codi 127.</dd>
+      <dt>Cal escapar els accents?</dt>
+      <dd>No, si la pàgina declara UTF-8, que hauria de ser sempre. L’opció hi és per a sistemes antics i per a correus en HTML, que encara pateixen amb la codificació.</dd>
+      <dt>És prou per evitar injecció de codi?</dt>
+      <dd>Escapar per a contingut HTML és una peça, però dins d’un atribut, d’un &lt;script&gt; o d’una URL les regles són diferents. No et refiïs d’aquesta eina com a mesura de seguretat.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-css/" data-search="minificar css csso: reestructura i fusiona regles, no només treu espais. css minificar comprimir minify csso optimitzar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura i fusiona regles, no només treu espais.</span></a>
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser al navegador, amb escurçament de noms opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser al navegador, amb escurçament de noms opcional.</span></a>
+      <a class="card" href="../comptar-paraules/" data-search="comptar paraules i caràcters recompte en viu, temps de lectura i els límits de cada plataforma. comptar paraules caràcters longitud text límit twitter seo lectura comptar-paraules"><b>Comptar paraules i caràcters</b><span>Recompte en viu, temps de lectura i els límits de cada plataforma.</span></a>
+      <a class="card" href="../canviar-majuscules/" data-search="canviar majúscules i minúscules majúscules, minúscules, tipus títol, camelcase, snake_case i més. majúscules minúscules camelcase snakecase kebabcase títol convertir text canviar-majuscules"><b>Canviar majúscules i minúscules</b><span>MAJÚSCULES, minúscules, Tipus Títol, camelCase, snake_case i més.</span></a>
+      <a class="card" href="../ordenar-linies/" data-search="ordenar i netejar línies ordena, treu duplicats i línies buides, numera o inverteix una llista. ordenar línies duplicats deduplicar llista alfabètic numerar netejar ordenar-linies"><b>Ordenar i netejar línies</b><span>Ordena, treu duplicats i línies buides, numera o inverteix una llista.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "html-entities","slug": "entitats-html","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

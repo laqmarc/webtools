@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sort and clean up lines online, in your browser — WebTools</title>
+<meta name="description" content="Sort a list, drop its repeats and blank lines, number it or reverse it. It is the work that otherwise gets done by hand in a text editor, settled here with…">
+<link rel="canonical" href="http://localhost:5180/en/sort-lines/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/ordenar-linies/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ordenar-lineas/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/sort-lines/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/ordenar-linies/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Sort and clean up lines online, in your browser — WebTools">
+<meta property="og:description" content="Sort a list, drop its repeats and blank lines, number it or reverse it. It is the work that otherwise gets done by hand in a text editor, settled here with…">
+<meta property="og:url" content="http://localhost:5180/en/sort-lines/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sort and clean up lines",
+          "item": "http://localhost:5180/en/sort-lines/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Sort and clean up lines",
+      "url": "http://localhost:5180/en/sort-lines/",
+      "description": "Sort a list, drop its repeats and blank lines, number it or reverse it. It is the work that otherwise gets done by hand in a text editor, settled here with…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does “file10” come after “file9”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because the sort is natural: when it finds numbers inside text it compares them as numbers, not as text. That is nearly always what you want."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it drop duplicates that differ only in case?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you tick “ignore case when comparing”. By default “Apple” and “apple” count as different."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the original order kept if I do not sort?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. With “leave as is”, the other operations respect the order you pasted."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../ordenar-linies/" hreflang="ca">Català</a><a class="lang" href="../../es/ordenar-lineas/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Text and web</nav>
+  <header class="tool-head">
+    <h1>Sort and clean up lines</h1>
+    <p>Sort, drop duplicates and blanks, number or reverse a list.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Sort a list, drop its repeats and blank lines, number it or reverse it. It is the work that otherwise gets done by hand in a text editor, settled here with four checkboxes.</p>
+    <p>The sort understands accents and numbers properly: “Álex” comes before “Bernard”, and “file10” after “file9”, not before it.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste the list, one entry per line.</li>
+      <li>Tick what you want done.</li>
+      <li>Copy the result.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Why does “file10” come after “file9”?</dt>
+      <dd>Because the sort is natural: when it finds numbers inside text it compares them as numbers, not as text. That is nearly always what you want.</dd>
+      <dt>Does it drop duplicates that differ only in case?</dt>
+      <dd>Only if you tick “ignore case when comparing”. By default “Apple” and “apple” count as different.</dd>
+      <dt>Is the original order kept if I do not sort?</dt>
+      <dd>Yes. With “leave as is”, the other operations respect the order you pasted.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../minify-css/" data-search="minify css csso: it restructures and merges rules, not just strips spaces. css minify compress csso optimise minify-css"><b>Minify CSS</b><span>CSSO: it restructures and merges rules, not just strips spaces.</span></a>
+      <a class="card" href="../minify-javascript/" data-search="minify javascript terser in the browser, with optional name mangling. js javascript minify compress terser uglify minify-javascript"><b>Minify JavaScript</b><span>Terser in the browser, with optional name mangling.</span></a>
+      <a class="card" href="../word-counter/" data-search="count words and characters a live count, reading time and the limits each platform imposes. word count characters length text limit twitter seo reading time word-counter"><b>Count words and characters</b><span>A live count, reading time and the limits each platform imposes.</span></a>
+      <a class="card" href="../change-case/" data-search="change letter case uppercase, lowercase, title case, camelcase, snake_case and more. uppercase lowercase camelcase snakecase kebabcase title convert text change-case"><b>Change letter case</b><span>UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.</span></a>
+      <a class="card" href="../url-encode/" data-search="url encode and decode percent-encoding, for whole addresses or for a single parameter. url encode decode percent escape address parameter query url-encode"><b>URL encode and decode</b><span>Percent-encoding, for whole addresses or for a single parameter.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "text-lines","slug": "sort-lines","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

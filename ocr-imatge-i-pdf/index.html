@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCR: llegir text d’imatges i PDF en línia, al navegador — WebTools</title>
+<meta name="description" content="Un escaneig o una foto d’un document són una imatge: el text que hi veus no es pot seleccionar, ni cercar, ni copiar. L’OCR el reconeix i te’l torna com a…">
+<link rel="canonical" href="http://localhost:5180/ocr-imatge-i-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/ocr-imatge-i-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ocr-imagen-y-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/ocr-images-and-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/ocr-imatge-i-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="OCR: llegir text d’imatges i PDF en línia, al navegador — WebTools">
+<meta property="og:description" content="Un escaneig o una foto d’un document són una imatge: el text que hi veus no es pot seleccionar, ni cercar, ni copiar. L’OCR el reconeix i te’l torna com a…">
+<meta property="og:url" content="http://localhost:5180/ocr-imatge-i-pdf/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "OCR: llegir text d’imatges i PDF",
+          "item": "http://localhost:5180/ocr-imatge-i-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "OCR: llegir text d’imatges i PDF",
+      "url": "http://localhost:5180/ocr-imatge-i-pdf/",
+      "description": "Un escaneig o una foto d’un document són una imatge: el text que hi veus no es pot seleccionar, ni cercar, ni copiar. L’OCR el reconeix i te’l torna com a…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Per què he de dir l’idioma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè el reconeixement no va lletra a lletra: fa servir un model del llenguatge per decidir entre lectures possibles. Amb l’idioma equivocat, «paraula» pot acabar sent «parauIa»."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc marcar-ne dos alhora?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, per a documents bilingües. Té un cost: cada idioma afegit fa la feina més lenta i afegeix alguna confusió, així que no els posis tots per si de cas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El resultat té errors, què puc fer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L’OCR depèn sobretot de la qualitat de l’original. Puja la resolució a 300 ppp, endreça la imatge si està torta i mira que el contrast sigui bo. Un escaneig gris i tort no el salva cap motor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què és exactament un PDF cercable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El document original amb el text reconegut posat a sobre en tinta invisible, alineat amb les paraules de la imatge. El lector el pot cercar i seleccionar; tu continues veient l’escaneig."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reconeix escriptura a mà?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pràcticament no. Tesseract està entrenat amb text imprès; amb lletra manuscrita els resultats no són aprofitables."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/ocr-imagen-y-pdf/" hreflang="es">Español</a><a class="lang" href="../en/ocr-images-and-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>OCR: llegir text d’imatges i PDF</h1>
+    <p>Reconeix el text d’escanejos i fotos, i en fa un PDF cercable.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Un escaneig o una foto d’un document són una imatge: el text que hi veus no es pot seleccionar, ni cercar, ni copiar. L’OCR el reconeix i te’l torna com a text de veritat.</p>
+    <p>Pots demanar-ne un fitxer de text pla o, millor encara, un PDF cercable: la mateixa imatge de sempre, amb una capa de text invisible a sota. Es veu exactament igual, però ara el pots cercar i copiar-ne fragments.</p>
+    <p>El reconeixement el fa Tesseract compilat a WebAssembly, corrent dins de la pestanya. Un contracte o una factura escanejada no s’envia a cap servei per llegir-la, que amb aquesta mena de documents no és un detall menor.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Deixa-hi l’escaneig, la foto o el PDF.</li>
+      <li>Tria l’idioma del document: encertar-lo canvia molt el resultat.</li>
+      <li>Decideix si vols text pla o un PDF cercable, i processa.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Per què he de dir l’idioma?</dt>
+      <dd>Perquè el reconeixement no va lletra a lletra: fa servir un model del llenguatge per decidir entre lectures possibles. Amb l’idioma equivocat, «paraula» pot acabar sent «parauIa».</dd>
+      <dt>Puc marcar-ne dos alhora?</dt>
+      <dd>Sí, per a documents bilingües. Té un cost: cada idioma afegit fa la feina més lenta i afegeix alguna confusió, així que no els posis tots per si de cas.</dd>
+      <dt>El resultat té errors, què puc fer?</dt>
+      <dd>L’OCR depèn sobretot de la qualitat de l’original. Puja la resolució a 300 ppp, endreça la imatge si està torta i mira que el contrast sigui bo. Un escaneig gris i tort no el salva cap motor.</dd>
+      <dt>Què és exactament un PDF cercable?</dt>
+      <dd>El document original amb el text reconegut posat a sobre en tinta invisible, alineat amb les paraules de la imatge. El lector el pot cercar i seleccionar; tu continues veient l’escaneig.</dd>
+      <dt>Reconeix escriptura a mà?</dt>
+      <dd>Pràcticament no. Tesseract està entrenat amb text imprès; amb lletra manuscrita els resultats no són aprofitables.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica les imatges de dins sense tocar el text ni l’estructura. pdf comprimir reduir pes mida optimitzar escaneig comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica les imatges de dins sense tocar el text ni l’estructura.</span></a>
+      <a class="card" href="../organitzar-pdf/" data-search="organitzar pàgines veu totes les pàgines, arrossega-les, gira-les i treu les que sobren. pdf organitzar reordenar ordenar pàgines miniatures moure esborrar organitzar-pdf"><b>Organitzar pàgines</b><span>Veu totes les pàgines, arrossega-les, gira-les i treu les que sobren.</span></a>
+      <a class="card" href="../pdf-a-imatges/" data-search="pdf a imatges una imatge per pàgina, a la resolució que necessitis. pdf imatge jpg png webp convertir pàgines rasteritzar exportar pdf-a-imatges"><b>PDF a imatges</b><span>Una imatge per pàgina, a la resolució que necessitis.</span></a>
+      <a class="card" href="../pdf-a-text/" data-search="pdf a text extreu la capa de text del document, sense ocr. pdf text extreure copiar contingut txt pdf-a-text"><b>PDF a text</b><span>Extreu la capa de text del document, sense OCR.</span></a>
+      <a class="card" href="../extreure-imatges-pdf/" data-search="extreure imatges d’un pdf treu les fotos i els gràfics incrustats com a fitxers a part. pdf extreure imatges fotos treure guardar jpg png extreure-imatges-pdf"><b>Extreure imatges d’un PDF</b><span>Treu les fotos i els gràfics incrustats com a fitxers a part.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "ocr","slug": "ocr-imatge-i-pdf","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

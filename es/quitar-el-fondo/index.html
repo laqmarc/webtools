@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quitar el fondo de una imagen en línea, en el navegador — WebTools</title>
+<meta name="description" content="Recorta el sujeto de una fotografía y deja el fondo transparente, o cámbialo por un color sólido. Va bien para fotos de producto, retratos y cualquier imagen…">
+<link rel="canonical" href="http://localhost:5180/es/quitar-el-fondo/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/treure-el-fons/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/quitar-el-fondo/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/remove-background/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/treure-el-fons/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Quitar el fondo de una imagen en línea, en el navegador — WebTools">
+<meta property="og:description" content="Recorta el sujeto de una fotografía y deja el fondo transparente, o cámbialo por un color sólido. Va bien para fotos de producto, retratos y cualquier imagen…">
+<meta property="og:url" content="http://localhost:5180/es/quitar-el-fondo/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quitar el fondo de una imagen",
+          "item": "http://localhost:5180/es/quitar-el-fondo/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Quitar el fondo de una imagen",
+      "url": "http://localhost:5180/es/quitar-el-fondo/",
+      "description": "Recorta el sujeto de una fotografía y deja el fondo transparente, o cámbialo por un color sólido. Va bien para fotos de producto, retratos y cualquier imagen…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuándo funciona bien y cuándo no?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Muy bien con un sujeto claro sobre un fondo diferenciado: personas, productos, animales. Peor con escenas donde no hay ningún protagonista evidente, con objetos muy finos o cuando el sujeto y el fondo comparten color."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre borde suave y borde limpio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El suave conserva la transparencia parcial de los bordes, que es lo que hace que el pelo no quede como una silueta recortada con tijeras. El limpio decide para cada píxel si está o no, y va mejor con objetos de contorno duro."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué la primera vez tarda tanto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque hay que descargar y compilar el motor de inferencia y el modelo. A partir de la segunda imagen ya está todo en memoria y va mucho más rápido."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../treure-el-fons/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/remove-background/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Quitar el fondo de una imagen</h1>
+    <p>Separa el sujeto con un modelo que corre en tu ordenador.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Recorta el sujeto de una fotografía y deja el fondo transparente, o cámbialo por un color sólido. Va bien para fotos de producto, retratos y cualquier imagen que tenga que ir encima de otro diseño.</p>
+    <p>Lo hace una red neuronal (u2netp) que se ejecuta en tu ordenador con ONNX Runtime compilado a WebAssembly. El modelo pesa 4,4 MB y se descarga una vez; a partir de ahí la foto no sale de la pestaña.</p>
+    <p>No esperes el resultado de una hora de trabajo con máscaras en Photoshop. Sí deberías esperar un recorte limpio y utilizable en pocos segundos, que para la mayoría de casos es exactamente lo que hacía falta.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Arrastra las fotos.</li>
+      <li>Elige si el fondo queda transparente o de un color.</li>
+      <li>Borde suave para pelo y pelaje; borde limpio para objetos con contorno definido.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Cuándo funciona bien y cuándo no?</dt>
+      <dd>Muy bien con un sujeto claro sobre un fondo diferenciado: personas, productos, animales. Peor con escenas donde no hay ningún protagonista evidente, con objetos muy finos o cuando el sujeto y el fondo comparten color.</dd>
+      <dt>¿Qué diferencia hay entre borde suave y borde limpio?</dt>
+      <dd>El suave conserva la transparencia parcial de los bordes, que es lo que hace que el pelo no quede como una silueta recortada con tijeras. El limpio decide para cada píxel si está o no, y va mejor con objetos de contorno duro.</dd>
+      <dt>¿Por qué la primera vez tarda tanto?</dt>
+      <dd>Porque hay que descargar y compilar el motor de inferencia y el modelo. A partir de la segunda imagen ya está todo en memoria y va mucho más rápido.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="../girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "remove-background","slug": "quitar-el-fondo","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

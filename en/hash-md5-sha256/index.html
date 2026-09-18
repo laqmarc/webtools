@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hash and checksum online, in your browser — WebTools</title>
+<meta name="description" content="Compute MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of a text or a file, all five at once. The usual reason is checking that a download matches the sum…">
+<link rel="canonical" href="http://localhost:5180/en/hash-md5-sha256/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/hash-md5-sha256/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/hash-md5-sha256/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/hash-md5-sha256/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/hash-md5-sha256/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Hash and checksum online, in your browser — WebTools">
+<meta property="og:description" content="Compute MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of a text or a file, all five at once. The usual reason is checking that a download matches the sum…">
+<meta property="og:url" content="http://localhost:5180/en/hash-md5-sha256/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hash and checksum",
+          "item": "http://localhost:5180/en/hash-md5-sha256/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Hash and checksum",
+      "url": "http://localhost:5180/en/hash-md5-sha256/",
+      "description": "Compute MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of a text or a file, all five at once. The usual reason is checking that a download matches the sum…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the file uploaded to compute the hash?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. It is read into the tab’s memory and hashed there. With very large files, bear in mind it is loaded whole."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which hash should I look at?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whichever the distributor publishes. If you get to choose, SHA-256. MD5 and SHA-1 are fine for spotting a corrupted download, but not for proving nobody tampered with it deliberately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the hash change when the file “is the same”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because a single differing bit changes it completely. A CRLF line ending instead of LF, or one added metadata field, gives an entirely different result."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../hash-md5-sha256/" hreflang="ca">Català</a><a class="lang" href="../../es/hash-md5-sha256/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Data</nav>
+  <header class="tool-head">
+    <h1>Hash and checksum</h1>
+    <p>MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of text or files.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Compute MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of a text or a file, all five at once. The usual reason is checking that a download matches the sum published alongside it.</p>
+    <p>The SHA family is computed by the browser’s WebCrypto, which is native code. MD5 is not in there because it is no longer considered secure, so this page carries its own implementation: it still turns up in plenty of older checksum files.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Pick the Text or File tab.</li>
+      <li>Type the text or drop the file.</li>
+      <li>Compare the value with the one you were given.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Is the file uploaded to compute the hash?</dt>
+      <dd>No. It is read into the tab’s memory and hashed there. With very large files, bear in mind it is loaded whole.</dd>
+      <dt>Which hash should I look at?</dt>
+      <dd>Whichever the distributor publishes. If you get to choose, SHA-256. MD5 and SHA-1 are fine for spotting a corrupted download, but not for proving nobody tampered with it deliberately.</dd>
+      <dt>Why does the hash change when the file “is the same”?</dt>
+      <dd>Because a single differing bit changes it completely. A CRLF line ending instead of LF, or one added metadata field, gives an entirely different result.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../json-to-csv/" data-search="json to csv an array of objects into a table, flattening nested objects. json csv table excel export convert json-to-csv"><b>JSON to CSV</b><span>An array of objects into a table, flattening nested objects.</span></a>
+      <a class="card" href="../csv-to-json/" data-search="csv to json detects the separator, respects quotes and types the values. csv json convert table import tsv csv-to-json"><b>CSV to JSON</b><span>Detects the separator, respects quotes and types the values.</span></a>
+      <a class="card" href="../json-to-yaml/" data-search="json to yaml a straight conversion that keeps the key order. json yaml yml convert configuration json-to-yaml"><b>JSON to YAML</b><span>A straight conversion that keeps the key order.</span></a>
+      <a class="card" href="../yaml-to-json/" data-search="yaml to json takes files with several documents in them. yaml yml json convert configuration yaml-to-json"><b>YAML to JSON</b><span>Takes files with several documents in them.</span></a>
+      <a class="card" href="../format-json/" data-search="format and validate json indent, minify or sort keys, and get the error’s line and column. json format validate pretty print minify sort keys format-json"><b>Format and validate JSON</b><span>Indent, minify or sort keys, and get the error’s line and column.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "hash","slug": "hash-md5-sha256","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

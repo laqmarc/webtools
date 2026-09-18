@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Provador d’expressions regulars en línia, al navegador — WebTools</title>
+<meta name="description" content="Prova una expressió regular contra un text i mira’n les coincidències ressaltades, la posició de cadascuna i el contingut dels grups, numerats i amb nom.">
+<link rel="canonical" href="http://localhost:5180/provador-de-regex/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/provador-de-regex/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/probador-de-regex/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/regex-tester/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/provador-de-regex/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Provador d’expressions regulars en línia, al navegador — WebTools">
+<meta property="og:description" content="Prova una expressió regular contra un text i mira’n les coincidències ressaltades, la posició de cadascuna i el contingut dels grups, numerats i amb nom.">
+<meta property="og:url" content="http://localhost:5180/provador-de-regex/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Provador d’expressions regulars",
+          "item": "http://localhost:5180/provador-de-regex/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Provador d’expressions regulars",
+      "url": "http://localhost:5180/provador-de-regex/",
+      "description": "Prova una expressió regular contra un text i mira’n les coincidències ressaltades, la posició de cadascuna i el contingut dels grups, numerats i amb nom.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quines banderes hi ha?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "g per trobar-les totes, i per ignorar majúscules, m perquè ^ i $ funcionin línia a línia, s perquè el punt inclogui els salts de línia, i u per al mode Unicode complet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què només em surt una coincidència?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè la bandera g està desactivada. Sense ella, una expressió regular s’atura a la primera."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Aquestes expressions valen per a Python o PHP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les bàsiques sí, però els detalls canvien. Els grups amb nom, les mirades enrere i les classes Unicode tenen sintaxi o suport diferents segons el llenguatge."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/probador-de-regex/" hreflang="es">Español</a><a class="lang" href="../en/regex-tester/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Text i web</nav>
+  <header class="tool-head">
+    <h1>Provador d’expressions regulars</h1>
+    <p>Coincidències ressaltades, grups amb nom i substitució en viu.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Prova una expressió regular contra un text i mira’n les coincidències ressaltades, la posició de cadascuna i el contingut dels grups, numerats i amb nom.</p>
+    <p>Si hi escrius una substitució, la veuràs aplicada en viu, amb les referències $1, $2 i $&amp;. És el motor de JavaScript el que hi treballa, de manera que el que funciona aquí funciona igual al teu codi.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Escriu el patró i marca les banderes.</li>
+      <li>Enganxa el text de prova.</li>
+      <li>Si et cal, escriu la substitució i mira el resultat.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quines banderes hi ha?</dt>
+      <dd>g per trobar-les totes, i per ignorar majúscules, m perquè ^ i $ funcionin línia a línia, s perquè el punt inclogui els salts de línia, i u per al mode Unicode complet.</dd>
+      <dt>Per què només em surt una coincidència?</dt>
+      <dd>Perquè la bandera g està desactivada. Sense ella, una expressió regular s’atura a la primera.</dd>
+      <dt>Aquestes expressions valen per a Python o PHP?</dt>
+      <dd>Les bàsiques sí, però els detalls canvien. Els grups amb nom, les mirades enrere i les classes Unicode tenen sintaxi o suport diferents segons el llenguatge.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-css/" data-search="minificar css csso: reestructura i fusiona regles, no només treu espais. css minificar comprimir minify csso optimitzar minificar-css"><b>Minificar CSS</b><span>CSSO: reestructura i fusiona regles, no només treu espais.</span></a>
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser al navegador, amb escurçament de noms opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser al navegador, amb escurçament de noms opcional.</span></a>
+      <a class="card" href="../comptar-paraules/" data-search="comptar paraules i caràcters recompte en viu, temps de lectura i els límits de cada plataforma. comptar paraules caràcters longitud text límit twitter seo lectura comptar-paraules"><b>Comptar paraules i caràcters</b><span>Recompte en viu, temps de lectura i els límits de cada plataforma.</span></a>
+      <a class="card" href="../canviar-majuscules/" data-search="canviar majúscules i minúscules majúscules, minúscules, tipus títol, camelcase, snake_case i més. majúscules minúscules camelcase snakecase kebabcase títol convertir text canviar-majuscules"><b>Canviar majúscules i minúscules</b><span>MAJÚSCULES, minúscules, Tipus Títol, camelCase, snake_case i més.</span></a>
+      <a class="card" href="../ordenar-linies/" data-search="ordenar i netejar línies ordena, treu duplicats i línies buides, numera o inverteix una llista. ordenar línies duplicats deduplicar llista alfabètic numerar netejar ordenar-linies"><b>Ordenar i netejar línies</b><span>Ordena, treu duplicats i línies buides, numera o inverteix una llista.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "regex","slug": "provador-de-regex","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

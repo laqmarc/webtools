@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Minificar CSS en línia, al navegador — WebTools</title>
+<meta name="description" content="Minifica CSS amb CSSO, que fa bastant més que treure espais: escurça els colors, redueix les propietats abreujades i, si l’hi deixes, fusiona regles que…">
+<link rel="canonical" href="http://localhost:5180/minificar-css/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/minificar-css/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/minificar-css/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/minify-css/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/minificar-css/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Minificar CSS en línia, al navegador — WebTools">
+<meta property="og:description" content="Minifica CSS amb CSSO, que fa bastant més que treure espais: escurça els colors, redueix les propietats abreujades i, si l’hi deixes, fusiona regles que…">
+<meta property="og:url" content="http://localhost:5180/minificar-css/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Minificar CSS",
+          "item": "http://localhost:5180/minificar-css/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Minificar CSS",
+      "url": "http://localhost:5180/minificar-css/",
+      "description": "Minifica CSS amb CSSO, que fa bastant més que treure espais: escurça els colors, redueix les propietats abreujades i, si l’hi deixes, fusiona regles que…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "És segur activar la reestructuració?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ho és en la gran majoria de fulls, però comprova la pàgina després. Si tens regles que depenen de l’ordre en què apareixen per guanyar-se entre elles, val més desactivar-la."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què són els comentaris /*! */?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La convenció per marcar un comentari que no s’ha de treure, com una capçalera de llicència. Amb la casella activada es conserven i la resta desapareixen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quant se sol estalviar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entre un 15 i un 30 % en un full escrit a mà. Si el servidor ja comprimeix amb gzip o brotli, el guany final és més modest, però es nota igualment."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/minificar-css/" hreflang="es">Español</a><a class="lang" href="../en/minify-css/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Text i web</nav>
+  <header class="tool-head">
+    <h1>Minificar CSS</h1>
+    <p>CSSO: reestructura i fusiona regles, no només treu espais.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Minifica CSS amb CSSO, que fa bastant més que treure espais: escurça els colors, redueix les propietats abreujades i, si l’hi deixes, fusiona regles que comparteixen declaracions.</p>
+    <p>La reestructuració és el que dona la diferència de debò, i també és la que cal mirar amb més atenció: canvia l’ordre de les regles, i en fulls amb molta especificitat encreuada això pot alterar el resultat.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Enganxa el CSS.</li>
+      <li>Decideix si actives la reestructuració.</li>
+      <li>Copia o baixa el .min.css.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>És segur activar la reestructuració?</dt>
+      <dd>Ho és en la gran majoria de fulls, però comprova la pàgina després. Si tens regles que depenen de l’ordre en què apareixen per guanyar-se entre elles, val més desactivar-la.</dd>
+      <dt>Què són els comentaris /*! */?</dt>
+      <dd>La convenció per marcar un comentari que no s’ha de treure, com una capçalera de llicència. Amb la casella activada es conserven i la resta desapareixen.</dd>
+      <dt>Quant se sol estalviar?</dt>
+      <dd>Entre un 15 i un 30 % en un full escrit a mà. Si el servidor ja comprimeix amb gzip o brotli, el guany final és més modest, però es nota igualment.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../minificar-javascript/" data-search="minificar javascript terser al navegador, amb escurçament de noms opcional. js javascript minificar comprimir terser uglify minificar-javascript"><b>Minificar JavaScript</b><span>Terser al navegador, amb escurçament de noms opcional.</span></a>
+      <a class="card" href="../comptar-paraules/" data-search="comptar paraules i caràcters recompte en viu, temps de lectura i els límits de cada plataforma. comptar paraules caràcters longitud text límit twitter seo lectura comptar-paraules"><b>Comptar paraules i caràcters</b><span>Recompte en viu, temps de lectura i els límits de cada plataforma.</span></a>
+      <a class="card" href="../canviar-majuscules/" data-search="canviar majúscules i minúscules majúscules, minúscules, tipus títol, camelcase, snake_case i més. majúscules minúscules camelcase snakecase kebabcase títol convertir text canviar-majuscules"><b>Canviar majúscules i minúscules</b><span>MAJÚSCULES, minúscules, Tipus Títol, camelCase, snake_case i més.</span></a>
+      <a class="card" href="../ordenar-linies/" data-search="ordenar i netejar línies ordena, treu duplicats i línies buides, numera o inverteix una llista. ordenar línies duplicats deduplicar llista alfabètic numerar netejar ordenar-linies"><b>Ordenar i netejar línies</b><span>Ordena, treu duplicats i línies buides, numera o inverteix una llista.</span></a>
+      <a class="card" href="../codificar-url/" data-search="codificar i descodificar url percent-encoding, per a adreces senceres o només per a un paràmetre. url encode decode percent codificar descodificar adreça paràmetre query codificar-url"><b>Codificar i descodificar URL</b><span>Percent-encoding, per a adreces senceres o només per a un paràmetre.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "minify-css","slug": "minificar-css","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

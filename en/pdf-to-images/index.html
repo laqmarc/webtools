@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PDF to images online, in your browser — WebTools</title>
+<meta name="description" content="Turn each page of a PDF into an image, at whatever resolution you tell it. Useful for sending a single page over a messaging app, dropping it into a…">
+<link rel="canonical" href="http://localhost:5180/en/pdf-to-images/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/pdf-a-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/pdf-a-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/pdf-to-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/pdf-a-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="PDF to images online, in your browser — WebTools">
+<meta property="og:description" content="Turn each page of a PDF into an image, at whatever resolution you tell it. Useful for sending a single page over a messaging app, dropping it into a…">
+<meta property="og:url" content="http://localhost:5180/en/pdf-to-images/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "PDF to images",
+          "item": "http://localhost:5180/en/pdf-to-images/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "PDF to images",
+      "url": "http://localhost:5180/en/pdf-to-images/",
+      "description": "Turn each page of a PDF into an image, at whatever resolution you tell it. Useful for sending a single page over a messaging app, dropping it into a…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What resolution should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "150 dpi for screen, 300 for print. Above 300 the file grows a lot and the improvement is hard to see when the source is vector text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which format suits me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG if the page is text and graphics, which is the usual case and where JPEG leaves mush around the letters. JPEG or WebP if the page is mostly a photograph."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did a very large page come out smaller than I asked?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is a pixel ceiling per page so the tab does not run out of memory. An A0 at 600 dpi would be a gigapixel; in that case the scale is lowered by exactly as much as needed."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../pdf-a-imatges/" hreflang="ca">Català</a><a class="lang" href="../../es/pdf-a-imagenes/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>PDF to images</h1>
+    <p>One image per page, at whatever resolution you need.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Turn each page of a PDF into an image, at whatever resolution you tell it. Useful for sending a single page over a messaging app, dropping it into a presentation, or uploading it somewhere that will not take PDFs.</p>
+    <p>Resolution is asked for in dots per inch, which is the way of saying it that does not depend on paper size: 150 dpi reads comfortably on screen and 300 is print quality.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the PDF.</li>
+      <li>Choose the format and resolution, and a page range if you want one.</li>
+      <li>Process and download them singly or as a ZIP.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>What resolution should I use?</dt>
+      <dd>150 dpi for screen, 300 for print. Above 300 the file grows a lot and the improvement is hard to see when the source is vector text.</dd>
+      <dt>Which format suits me?</dt>
+      <dd>PNG if the page is text and graphics, which is the usual case and where JPEG leaves mush around the letters. JPEG or WebP if the page is mostly a photograph.</dd>
+      <dt>Why did a very large page come out smaller than I asked?</dt>
+      <dd>There is a pixel ceiling per page so the tab does not run out of memory. An A0 at 600 dpi would be a gigapixel; in that case the scale is lowered by exactly as much as needed.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../compress-pdf/" data-search="compress pdf re-encodes the images inside without touching the text or structure. pdf compress shrink reduce size optimise scan compress-pdf"><b>Compress PDF</b><span>Re-encodes the images inside without touching the text or structure.</span></a>
+      <a class="card" href="../organise-pdf-pages/" data-search="organise pages see every page, drag them about, turn them and drop the spares. pdf organise reorder sort pages thumbnails move delete organise-pdf-pages"><b>Organise pages</b><span>See every page, drag them about, turn them and drop the spares.</span></a>
+      <a class="card" href="../pdf-to-text/" data-search="pdf to text pulls out the document’s text layer, without ocr. pdf text extract copy content txt pdf-to-text"><b>PDF to text</b><span>Pulls out the document’s text layer, without OCR.</span></a>
+      <a class="card" href="../extract-images-from-pdf/" data-search="extract images from a pdf pulls the embedded photos and graphics out as separate files. pdf extract images photos save jpg png extract-images-from-pdf"><b>Extract images from a PDF</b><span>Pulls the embedded photos and graphics out as separate files.</span></a>
+      <a class="card" href="../merge-pdf/" data-search="merge pdf glue several pdfs into one, in the order you want. pdf merge join combine append merge-pdf"><b>Merge PDF</b><span>Glue several PDFs into one, in the order you want.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-to-images","slug": "pdf-to-images","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

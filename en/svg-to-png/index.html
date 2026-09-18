@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG to PNG online, in your browser — WebTools</title>
+<meta name="description" content="Rasterise an SVG at whatever size you need. Because the source is vector, you can ask for any resolution without pixelation: the same icon serves a 32 px…">
+<link rel="canonical" href="http://localhost:5180/en/svg-to-png/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/svg-a-png/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/svg-a-png/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/svg-to-png/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/svg-a-png/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="SVG to PNG online, in your browser — WebTools">
+<meta property="og:description" content="Rasterise an SVG at whatever size you need. Because the source is vector, you can ask for any resolution without pixelation: the same icon serves a 32 px…">
+<meta property="og:url" content="http://localhost:5180/en/svg-to-png/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SVG to PNG",
+          "item": "http://localhost:5180/en/svg-to-png/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SVG to PNG",
+      "url": "http://localhost:5180/en/svg-to-png/",
+      "description": "Rasterise an SVG at whatever size you need. Because the source is vector, you can ask for any resolution without pixelation: the same icon serves a 32 px…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why do I get 300×150?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That is the size a browser assigns to an SVG with no width, height or viewBox. Add a viewBox to the file, or give an explicit width here."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "The lettering is missing — what happened?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "An SVG rasterised inside a page cannot load external fonts or outside files. Convert the text to curves in your editor before exporting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a WebP instead of a PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, the format selector offers PNG, WebP and JPEG. For icons with transparency, PNG or WebP; for illustrations on a solid background, WebP weighs far less."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../svg-a-png/" hreflang="ca">Català</a><a class="lang" href="../../es/svg-a-png/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Vector images</nav>
+  <header class="tool-head">
+    <h1>SVG to PNG</h1>
+    <p>Rasterise at any size, on a transparent or solid background.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Rasterise an SVG at whatever size you need. Because the source is vector, you can ask for any resolution without pixelation: the same icon serves a 32 px favicon and a 4000 px poster.</p>
+    <p>The size can be given in pixels or as a multiplier of the viewBox, which is the convenient way to pull @2x and @3x versions of a whole icon set in one pass.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Add the SVGs.</li>
+      <li>Give a width in pixels, or leave it at zero and use the scale.</li>
+      <li>Choose whether you want a transparent background, then process.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Why do I get 300×150?</dt>
+      <dd>That is the size a browser assigns to an SVG with no width, height or viewBox. Add a viewBox to the file, or give an explicit width here.</dd>
+      <dt>The lettering is missing — what happened?</dt>
+      <dd>An SVG rasterised inside a page cannot load external fonts or outside files. Convert the text to curves in your editor before exporting.</dd>
+      <dt>Can I get a WebP instead of a PNG?</dt>
+      <dd>Yes, the format selector offers PNG, WebP and JPEG. For icons with transparency, PNG or WebP; for illustrations on a solid background, WebP weighs far less.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../optimise-svg/" data-search="optimise svg svgo in the browser: drops editor metadata and rounds paths. svg optimise svgo minify vector clean optimise-svg"><b>Optimise SVG</b><span>SVGO in the browser: drops editor metadata and rounds paths.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-to-png","slug": "svg-to-png","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

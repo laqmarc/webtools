@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCR: leer texto de imágenes y PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="Un escaneo o una foto de un documento son una imagen: el texto que ves no se puede seleccionar, ni buscar, ni copiar. El OCR lo reconoce y te lo devuelve…">
+<link rel="canonical" href="http://localhost:5180/es/ocr-imagen-y-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/ocr-imatge-i-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ocr-imagen-y-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/ocr-images-and-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/ocr-imatge-i-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="OCR: leer texto de imágenes y PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="Un escaneo o una foto de un documento son una imagen: el texto que ves no se puede seleccionar, ni buscar, ni copiar. El OCR lo reconoce y te lo devuelve…">
+<meta property="og:url" content="http://localhost:5180/es/ocr-imagen-y-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "OCR: leer texto de imágenes y PDF",
+          "item": "http://localhost:5180/es/ocr-imagen-y-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "OCR: leer texto de imágenes y PDF",
+      "url": "http://localhost:5180/es/ocr-imagen-y-pdf/",
+      "description": "Un escaneo o una foto de un documento son una imagen: el texto que ves no se puede seleccionar, ni buscar, ni copiar. El OCR lo reconoce y te lo devuelve…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué tengo que decir el idioma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el reconocimiento no va letra a letra: usa un modelo del lenguaje para decidir entre lecturas posibles. Con el idioma equivocado, «palabra» puede acabar siendo «paIabra»."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo marcar dos a la vez?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, para documentos bilingües. Tiene un coste: cada idioma añadido hace el trabajo más lento y añade alguna confusión."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El resultado tiene errores, ¿qué puedo hacer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El OCR depende sobre todo de la calidad del original. Sube la resolución a 300 ppp, endereza la imagen si está torcida y mira que el contraste sea bueno."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Reconoce escritura a mano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prácticamente no. Tesseract está entrenado con texto impreso; con letra manuscrita los resultados no son aprovechables."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../ocr-imatge-i-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/ocr-images-and-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>OCR: leer texto de imágenes y PDF</h1>
+    <p>Reconoce el texto de escaneos y fotos, y hace un PDF buscable.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Un escaneo o una foto de un documento son una imagen: el texto que ves no se puede seleccionar, ni buscar, ni copiar. El OCR lo reconoce y te lo devuelve como texto de verdad.</p>
+    <p>Puedes pedir un archivo de texto plano o, mejor aún, un PDF buscable: la misma imagen de siempre, con una capa de texto invisible debajo. Se ve exactamente igual, pero ahora lo puedes buscar y copiar fragmentos.</p>
+    <p>El reconocimiento lo hace Tesseract compilado a WebAssembly, corriendo dentro de la pestaña. Un contrato o una factura escaneada no se envía a ningún servicio para leerla, que con esta clase de documentos no es un detalle menor.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el escaneo, la foto o el PDF.</li>
+      <li>Elige el idioma del documento: acertarlo cambia mucho el resultado.</li>
+      <li>Decide si quieres texto plano o un PDF buscable, y procesa.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué tengo que decir el idioma?</dt>
+      <dd>Porque el reconocimiento no va letra a letra: usa un modelo del lenguaje para decidir entre lecturas posibles. Con el idioma equivocado, «palabra» puede acabar siendo «paIabra».</dd>
+      <dt>¿Puedo marcar dos a la vez?</dt>
+      <dd>Sí, para documentos bilingües. Tiene un coste: cada idioma añadido hace el trabajo más lento y añade alguna confusión.</dd>
+      <dt>El resultado tiene errores, ¿qué puedo hacer?</dt>
+      <dd>El OCR depende sobre todo de la calidad del original. Sube la resolución a 300 ppp, endereza la imagen si está torcida y mira que el contraste sea bueno.</dd>
+      <dt>¿Reconoce escritura a mano?</dt>
+      <dd>Prácticamente no. Tesseract está entrenado con texto impreso; con letra manuscrita los resultados no son aprovechables.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-pdf/" data-search="comprimir pdf recodifica las imágenes de dentro sin tocar el texto ni la estructura. pdf comprimir reducir peso tamaño optimizar escaneo comprimir-pdf"><b>Comprimir PDF</b><span>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</span></a>
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "ocr","slug": "ocr-imagen-y-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

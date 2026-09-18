@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comprimir PDF en línea, en el navegador — WebTools</title>
+<meta name="description" content="En un PDF escaneado o hecho de fotos, casi todo el peso son las imágenes de dentro. Esta herramienta las busca una a una, las vuelve a codificar más pequeñas…">
+<link rel="canonical" href="http://localhost:5180/es/comprimir-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comprimir-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/comprimir-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/compress-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comprimir-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Comprimir PDF en línea, en el navegador — WebTools">
+<meta property="og:description" content="En un PDF escaneado o hecho de fotos, casi todo el peso son las imágenes de dentro. Esta herramienta las busca una a una, las vuelve a codificar más pequeñas…">
+<meta property="og:url" content="http://localhost:5180/es/comprimir-pdf/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comprimir PDF",
+          "item": "http://localhost:5180/es/comprimir-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Comprimir PDF",
+      "url": "http://localhost:5180/es/comprimir-pdf/",
+      "description": "En un PDF escaneado o hecho de fotos, casi todo el peso son las imágenes de dentro. Esta herramienta las busca una a una, las vuelve a codificar más pequeñas…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Se pierde el texto seleccionable?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Solo se reemplazan las imágenes incrustadas; la capa de texto, los marcadores y los enlaces no se tocan. Si el PDF es un escaneo sin OCR, es que ya no tenía."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuándo debería usar el modo que rasteriza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cuando el peso importe más que todo lo demás. Redibuja cada página como una fotografía: baja muchísimo, pero el texto deja de poderse seleccionar y buscar, y ya no hay marcha atrás."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mi PDF apenas baja de peso, ¿por qué?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el peso no está en las imágenes. Un documento de texto y vectores hecho desde un procesador de textos ya es compacto: no hay nada que exprimir, y la herramienta te lo dice junto al resultado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sirve de algo la escala de grises?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mucho, si el documento es texto escaneado. Quita la información de color, que en un folio blanco con letra negra es sobre todo ruido del sensor, y el resultado a menudo vuelve a bajar a la mitad."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../comprimir-pdf/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/compress-pdf/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Comprimir PDF</h1>
+    <p>Recodifica las imágenes de dentro sin tocar el texto ni la estructura.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>En un PDF escaneado o hecho de fotos, casi todo el peso son las imágenes de dentro. Esta herramienta las busca una a una, las vuelve a codificar más pequeñas y las devuelve a su sitio, sin tocar nada más del documento.</p>
+    <p>Eso es lo que la separa de la mayoría de compresores en línea, que aplanan cada página en una fotografía: aquí el texto sigue siendo texto que se puede seleccionar y buscar, los enlaces siguen funcionando y la estructura se mantiene. En un escaneo típico la reducción va del 60 al 90 %.</p>
+    <p>Las imágenes que no se pueden recodificar con garantías —máscaras de transparencia, JPEG 2000, CMYK, mapas de bits de un solo bit— se dejan exactamente como estaban. Una imagen estropeada en silencio sería mucho peor que un archivo que no ha adelgazado tanto.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta el PDF, o unos cuantos.</li>
+      <li>Elige una calidad, o di directamente cuánto quieres que pese como máximo.</li>
+      <li>Descarga el resultado y compruébalo antes de tirar el original.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Se pierde el texto seleccionable?</dt>
+      <dd>No. Solo se reemplazan las imágenes incrustadas; la capa de texto, los marcadores y los enlaces no se tocan. Si el PDF es un escaneo sin OCR, es que ya no tenía.</dd>
+      <dt>¿Cuándo debería usar el modo que rasteriza?</dt>
+      <dd>Cuando el peso importe más que todo lo demás. Redibuja cada página como una fotografía: baja muchísimo, pero el texto deja de poderse seleccionar y buscar, y ya no hay marcha atrás.</dd>
+      <dt>Mi PDF apenas baja de peso, ¿por qué?</dt>
+      <dd>Porque el peso no está en las imágenes. Un documento de texto y vectores hecho desde un procesador de textos ya es compacto: no hay nada que exprimir, y la herramienta te lo dice junto al resultado.</dd>
+      <dt>¿Sirve de algo la escala de grises?</dt>
+      <dd>Mucho, si el documento es texto escaneado. Quita la información de color, que en un folio blanco con letra negra es sobre todo ruido del sensor, y el resultado a menudo vuelve a bajar a la mitad.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../organizar-pdf/" data-search="organizar páginas ve todas las páginas, arrástralas, gíralas y quita las que sobren. pdf organizar reordenar ordenar páginas miniaturas mover borrar organizar-pdf"><b>Organizar páginas</b><span>Ve todas las páginas, arrástralas, gíralas y quita las que sobren.</span></a>
+      <a class="card" href="../pdf-a-imagenes/" data-search="pdf a imágenes una imagen por página, a la resolución que necesites. pdf imagen jpg png webp convertir páginas rasterizar exportar pdf-a-imagenes"><b>PDF a imágenes</b><span>Una imagen por página, a la resolución que necesites.</span></a>
+      <a class="card" href="../pdf-a-texto/" data-search="pdf a texto extrae la capa de texto del documento, sin ocr. pdf texto extraer copiar contenido txt pdf-a-texto"><b>PDF a texto</b><span>Extrae la capa de texto del documento, sin OCR.</span></a>
+      <a class="card" href="../extraer-imagenes-pdf/" data-search="extraer imágenes de un pdf saca las fotos y los gráficos incrustados como archivos aparte. pdf extraer imágenes fotos sacar guardar jpg png extraer-imagenes-pdf"><b>Extraer imágenes de un PDF</b><span>Saca las fotos y los gráficos incrustados como archivos aparte.</span></a>
+      <a class="card" href="../unir-pdf/" data-search="unir pdf pega varios pdf en uno solo, en el orden que quieras. pdf unir juntar combinar merge unir-pdf"><b>Unir PDF</b><span>Pega varios PDF en uno solo, en el orden que quieras.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-compress","slug": "comprimir-pdf","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

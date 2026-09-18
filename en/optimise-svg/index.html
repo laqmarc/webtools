@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Optimise SVG online, in your browser — WebTools</title>
+<meta name="description" content="SVGs that come out of Illustrator, Figma or Inkscape drag along a lot the browser does not need: editor comments, metadata blocks, proprietary attributes,…">
+<link rel="canonical" href="http://localhost:5180/en/optimise-svg/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/optimitzar-svg/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/optimizar-svg/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/optimise-svg/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/optimitzar-svg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Optimise SVG online, in your browser — WebTools">
+<meta property="og:description" content="SVGs that come out of Illustrator, Figma or Inkscape drag along a lot the browser does not need: editor comments, metadata blocks, proprietary attributes,…">
+<meta property="og:url" content="http://localhost:5180/en/optimise-svg/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Optimise SVG",
+          "item": "http://localhost:5180/en/optimise-svg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Optimise SVG",
+      "url": "http://localhost:5180/en/optimise-svg/",
+      "description": "SVGs that come out of Illustrator, Figma or Inkscape drag along a lot the browser does not need: editor comments, metadata blocks, proprietary attributes,…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many decimals should I keep in paths?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three is fine for almost everything. With small icons you can go to one or two and save more still; if the drawing has long smooth curves, going too low can make visible corners appear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is there an option to drop width and height?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because an icon that should scale with CSS is better off with only a viewBox: with no fixed size it takes whatever the container gives it. If you are inlining the SVG on its own, keep them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does the id prefix do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It puts the file name in front. If you put several SVGs on one page and each has a gradient called \"a\", they collide; with the prefix each keeps its own."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../optimitzar-svg/" hreflang="ca">Català</a><a class="lang" href="../../es/optimizar-svg/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Vector images</nav>
+  <header class="tool-head">
+    <h1>Optimise SVG</h1>
+    <p>SVGO in the browser: drops editor metadata and rounds paths.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>SVGs that come out of Illustrator, Figma or Inkscape drag along a lot the browser does not need: editor comments, metadata blocks, proprietary attributes, generated identifiers and coordinates with twelve decimal places.</p>
+    <p>This page runs SVGO over them with the default preset plus a few switches worth exposing. On icons exported from a design tool it routinely cuts 40 to 70 % of the weight without changing a pixel of the drawing.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drag in the SVGs, as many as you like.</li>
+      <li>Adjust the path decimals if you need more or less precision.</li>
+      <li>Process and check how far each one dropped before downloading.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>How many decimals should I keep in paths?</dt>
+      <dd>Three is fine for almost everything. With small icons you can go to one or two and save more still; if the drawing has long smooth curves, going too low can make visible corners appear.</dd>
+      <dt>Why is there an option to drop width and height?</dt>
+      <dd>Because an icon that should scale with CSS is better off with only a viewBox: with no fixed size it takes whatever the container gives it. If you are inlining the SVG on its own, keep them.</dd>
+      <dt>What does the id prefix do?</dt>
+      <dd>It puts the file name in front. If you put several SVGs on one page and each has a gradient called &quot;a&quot;, they collide; with the prefix each keeps its own.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../svg-to-png/" data-search="svg to png rasterise at any size, on a transparent or solid background. svg png rasterise export bitmap webp svg-to-png"><b>SVG to PNG</b><span>Rasterise at any size, on a transparent or solid background.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-optimize","slug": "optimise-svg","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

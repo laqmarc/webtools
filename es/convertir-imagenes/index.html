@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convertir imágenes en línea, en el navegador — WebTools</title>
+<meta name="description" content="Convierte PNG, JPG, WebP y AVIF en cualquier dirección, de una en una o cincuenta de golpe. La decodificación y la codificación las hace el propio navegador,…">
+<link rel="canonical" href="http://localhost:5180/es/convertir-imagenes/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/convertir-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/convertir-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/convert-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/convertir-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Convertir imágenes en línea, en el navegador — WebTools">
+<meta property="og:description" content="Convierte PNG, JPG, WebP y AVIF en cualquier dirección, de una en una o cincuenta de golpe. La decodificación y la codificación las hace el propio navegador,…">
+<meta property="og:url" content="http://localhost:5180/es/convertir-imagenes/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Convertir imágenes",
+          "item": "http://localhost:5180/es/convertir-imagenes/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Convertir imágenes",
+      "url": "http://localhost:5180/es/convertir-imagenes/",
+      "description": "Convierte PNG, JPG, WebP y AVIF en cualquier dirección, de una en una o cincuenta de golpe. La decodificación y la codificación las hace el propio navegador,…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué formato debería usar en la web?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WebP en casi todos los casos. Lo soportan todos los navegadores desde 2020 y pesa entre un 25 y un 35 % menos que un JPEG de calidad equivalente. AVIF todavía es más pequeño, pero tarda mucho más en codificarse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se pierde calidad al convertir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depende del destino. PNG y WebP sin pérdida conservan el píxel exacto. JPEG, WebP normal y AVIF recomprimen, y la pérdida se acumula: convierte siempre desde el original, no desde una copia ya comprimida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa con la transparencia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "PNG, WebP y AVIF la conservan. JPEG no tiene, así que el canal alfa se funde con el color de fondo que elijas antes de codificar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hay límite de tamaño o de número de archivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ninguno artificial. El único límite es la memoria de la pestaña, porque las imágenes se decodifican enteras. Con archivos muy grandes conviene procesarlos por tandas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../convertir-imatges/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/convert-images/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Convertir imágenes</h1>
+    <p>PNG, JPG, WebP y AVIF entre sí, por lotes.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Convierte PNG, JPG, WebP y AVIF en cualquier dirección, de una en una o cincuenta de golpe. La decodificación y la codificación las hace el propio navegador, así que las imágenes no se suben a ninguna parte y la conversión es prácticamente instantánea.</p>
+    <p>Cada formato tiene su trabajo: PNG para gráficos con áreas planas de color, JPEG para compatibilidad máxima, WebP como opción por defecto en la web y AVIF cuando el peso importa más que el tiempo de cálculo.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Arrastra las imágenes a la zona de arriba, o haz clic para elegirlas.</li>
+      <li>Elige el formato de destino y, si lo tiene, ajusta la calidad.</li>
+      <li>Pulsa «Procesar» y descarga los resultados uno a uno o todos juntos en un ZIP.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Qué formato debería usar en la web?</dt>
+      <dd>WebP en casi todos los casos. Lo soportan todos los navegadores desde 2020 y pesa entre un 25 y un 35 % menos que un JPEG de calidad equivalente. AVIF todavía es más pequeño, pero tarda mucho más en codificarse.</dd>
+      <dt>¿Se pierde calidad al convertir?</dt>
+      <dd>Depende del destino. PNG y WebP sin pérdida conservan el píxel exacto. JPEG, WebP normal y AVIF recomprimen, y la pérdida se acumula: convierte siempre desde el original, no desde una copia ya comprimida.</dd>
+      <dt>¿Qué pasa con la transparencia?</dt>
+      <dd>PNG, WebP y AVIF la conservan. JPEG no tiene, así que el canal alfa se funde con el color de fondo que elijas antes de codificar.</dd>
+      <dt>¿Hay límite de tamaño o de número de archivos?</dt>
+      <dd>Ninguno artificial. El único límite es la memoria de la pestaña, porque las imágenes se decodifican enteras. Con archivos muy grandes conviene procesarlos por tandas.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="../girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+      <a class="card" href="../quitar-metadatos-imagen/" data-search="quitar metadatos elimina exif, gps y perfiles recodificando la imagen al mismo formato. exif metadatos gps privacidad limpiar borrar foto quitar-metadatos-imagen"><b>Quitar metadatos</b><span>Elimina EXIF, GPS y perfiles recodificando la imagen al mismo formato.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-convert","slug": "convertir-imagenes","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

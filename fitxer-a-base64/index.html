@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitxer a Base64 en línia, al navegador — WebTools</title>
+<meta name="description" content="Converteix un fitxer en un data URI llest per enganxar dins d’un full d’estil, un HTML o un JSON de configuració. Serveix per incrustar una icona petita i…">
+<link rel="canonical" href="http://localhost:5180/fitxer-a-base64/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/fitxer-a-base64/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/archivo-a-base64/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/file-to-base64/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/fitxer-a-base64/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Fitxer a Base64 en línia, al navegador — WebTools">
+<meta property="og:description" content="Converteix un fitxer en un data URI llest per enganxar dins d’un full d’estil, un HTML o un JSON de configuració. Serveix per incrustar una icona petita i…">
+<meta property="og:url" content="http://localhost:5180/fitxer-a-base64/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fitxer a Base64",
+          "item": "http://localhost:5180/fitxer-a-base64/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Fitxer a Base64",
+      "url": "http://localhost:5180/fitxer-a-base64/",
+      "description": "Converteix un fitxer en un data URI llest per enganxar dins d’un full d’estil, un HTML o un JSON de configuració. Serveix per incrustar una icona petita i…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Fins a quina mida val la pena incrustar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Com a regla pràctica, per sota d’uns 4 kB. Per sobre, el creixement del 33 % i la pèrdua de caché acostumen a fer més mal que bé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc incrustar un SVG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, però per a SVG sol anar millor codificar-lo amb percentatges en comptes de Base64: ocupa menys i continua sent llegible dins del CSS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El tipus MIME surt bé?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "S’agafa del que el sistema operatiu indica per al fitxer. Si el navegador no en sap el tipus, es posa application/octet-stream i el pots corregir a mà."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/archivo-a-base64/" hreflang="es">Español</a><a class="lang" href="../en/file-to-base64/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Dades</nav>
+  <header class="tool-head">
+    <h1>Fitxer a Base64</h1>
+    <p>Genera un data URI llest per enganxar a CSS o HTML.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Converteix un fitxer en un data URI llest per enganxar dins d’un full d’estil, un HTML o un JSON de configuració. Serveix per incrustar una icona petita i estalviar-se una petició de xarxa.</p>
+    <p>Té sentit amb fitxers petits. A partir d’uns pocs kilobytes, incrustar surt a compte perdre: el recurs deixa de poder-se cachejar per separat i el full d’estil engreixa per a tothom.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Deixa-hi el fitxer.</li>
+      <li>Tria si vols el data URI complet o només el Base64.</li>
+      <li>Processa i baixa el .txt.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Fins a quina mida val la pena incrustar?</dt>
+      <dd>Com a regla pràctica, per sota d’uns 4 kB. Per sobre, el creixement del 33 % i la pèrdua de caché acostumen a fer més mal que bé.</dd>
+      <dt>Puc incrustar un SVG?</dt>
+      <dd>Sí, però per a SVG sol anar millor codificar-lo amb percentatges en comptes de Base64: ocupa menys i continua sent llegible dins del CSS.</dd>
+      <dt>El tipus MIME surt bé?</dt>
+      <dd>S’agafa del que el sistema operatiu indica per al fitxer. Si el navegador no en sap el tipus, es posa application/octet-stream i el pots corregir a mà.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../json-a-csv/" data-search="json a csv array d’objectes a taula, aplanant els objectes imbricats. json csv taula excel exportar convertir json-a-csv"><b>JSON a CSV</b><span>Array d’objectes a taula, aplanant els objectes imbricats.</span></a>
+      <a class="card" href="../csv-a-json/" data-search="csv a json detecta el separador, respecta les cometes i tipa els valors. csv json convertir taula importar tsv csv-a-json"><b>CSV a JSON</b><span>Detecta el separador, respecta les cometes i tipa els valors.</span></a>
+      <a class="card" href="../json-a-yaml/" data-search="json a yaml conversió directa mantenint l’ordre de les claus. json yaml yml convertir configuració json-a-yaml"><b>JSON a YAML</b><span>Conversió directa mantenint l’ordre de les claus.</span></a>
+      <a class="card" href="../yaml-a-json/" data-search="yaml a json accepta diversos documents en un mateix fitxer. yaml yml json convertir configuració yaml-a-json"><b>YAML a JSON</b><span>Accepta diversos documents en un mateix fitxer.</span></a>
+      <a class="card" href="../formatar-json/" data-search="formatar i validar json indenta, minifica o ordena claus, i assenyala l’error amb línia i columna. json formatar validar bonic pretty minificar ordenar claus formatar-json"><b>Formatar i validar JSON</b><span>Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "base64-file","slug": "fitxer-a-base64","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

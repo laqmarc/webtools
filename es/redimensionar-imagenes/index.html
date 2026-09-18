@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redimensionar imágenes en línea, en el navegador — WebTools</title>
+<meta name="description" content="Cambia el tamaño de las imágenes indicando anchura, altura o ambas. Si solo rellenas una de las dos casillas, la otra se calcula sola para mantener la…">
+<link rel="canonical" href="http://localhost:5180/es/redimensionar-imagenes/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/redimensionar-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/redimensionar-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/resize-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/redimensionar-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Redimensionar imágenes en línea, en el navegador — WebTools">
+<meta property="og:description" content="Cambia el tamaño de las imágenes indicando anchura, altura o ambas. Si solo rellenas una de las dos casillas, la otra se calcula sola para mantener la…">
+<meta property="og:url" content="http://localhost:5180/es/redimensionar-imagenes/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Redimensionar imágenes",
+          "item": "http://localhost:5180/es/redimensionar-imagenes/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Redimensionar imágenes",
+      "url": "http://localhost:5180/es/redimensionar-imagenes/",
+      "description": "Cambia el tamaño de las imágenes indicando anchura, altura o ambas. Si solo rellenas una de las dos casillas, la otra se calcula sola para mantener la…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué no se amplían las imágenes pequeñas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque está activada la opción de no ampliar. Ampliar no añade detalle, solo interpola píxeles y el resultado sale blando. Desactívala si de verdad necesitas el tamaño mayor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué diferencia hay entre «hacia dentro» y «rellenar y recortar»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "«Hacia dentro» encaja la imagen entera dentro de las medidas que das, de modo que el resultado puede ser más pequeño en uno de los lados. «Rellenar y recortar» cubre todo el rectángulo y corta lo que sobra por los lados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Se verá borroso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El escalado usa el filtro de calidad alta del navegador, que va bien para reducir. Para reducciones muy agresivas, hacer dos pasadas a veces conserva más nitidez."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../redimensionar-imatges/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/resize-images/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Redimensionar imágenes</h1>
+    <p>Anchura y altura con control de ajuste y sin ampliar por defecto.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Cambia el tamaño de las imágenes indicando anchura, altura o ambas. Si solo rellenas una de las dos casillas, la otra se calcula sola para mantener la proporción.</p>
+    <p>Cuando pones las dos medidas puedes decidir qué pasa con la diferencia de proporción: encajar la imagen entera dentro, rellenar el rectángulo recortando lo que sobra, o deformarla hasta el tamaño exacto.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Añade las imágenes.</li>
+      <li>Escribe la anchura, la altura o ambas, y elige cómo deben ajustarse.</li>
+      <li>Procesa y descarga.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué no se amplían las imágenes pequeñas?</dt>
+      <dd>Porque está activada la opción de no ampliar. Ampliar no añade detalle, solo interpola píxeles y el resultado sale blando. Desactívala si de verdad necesitas el tamaño mayor.</dd>
+      <dt>¿Qué diferencia hay entre «hacia dentro» y «rellenar y recortar»?</dt>
+      <dd>«Hacia dentro» encaja la imagen entera dentro de las medidas que das, de modo que el resultado puede ser más pequeño en uno de los lados. «Rellenar y recortar» cubre todo el rectángulo y corta lo que sobra por los lados.</dd>
+      <dt>¿Se verá borroso?</dt>
+      <dd>El escalado usa el filtro de calidad alta del navegador, que va bien para reducir. Para reducciones muy agresivas, hacer dos pasadas a veces conserva más nitidez.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+      <a class="card" href="../girar-imagenes/" data-search="girar y reflejar rotación de 90 en 90 grados y volteo horizontal o vertical. girar rotar flip espejo voltear imagen girar-imagenes"><b>Girar y reflejar</b><span>Rotación de 90 en 90 grados y volteo horizontal o vertical.</span></a>
+      <a class="card" href="../quitar-metadatos-imagen/" data-search="quitar metadatos elimina exif, gps y perfiles recodificando la imagen al mismo formato. exif metadatos gps privacidad limpiar borrar foto quitar-metadatos-imagen"><b>Quitar metadatos</b><span>Elimina EXIF, GPS y perfiles recodificando la imagen al mismo formato.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-resize","slug": "redimensionar-imagenes","lang": "es"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotate PDF pages online, in your browser — WebTools</title>
+<meta name="description" content="Fix pages that were scanned sideways or upside down. The rotation is added to whatever the page already has, so the result is what you see in the reader, not…">
+<link rel="canonical" href="http://localhost:5180/en/rotate-pdf/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/girar-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/girar-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/rotate-pdf/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/girar-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Rotate PDF pages online, in your browser — WebTools">
+<meta property="og:description" content="Fix pages that were scanned sideways or upside down. The rotation is added to whatever the page already has, so the result is what you see in the reader, not…">
+<meta property="og:url" content="http://localhost:5180/en/rotate-pdf/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rotate PDF pages",
+          "item": "http://localhost:5180/en/rotate-pdf/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Rotate PDF pages",
+      "url": "http://localhost:5180/en/rotate-pdf/",
+      "description": "Fix pages that were scanned sideways or upside down. The rotation is added to whatever the page already has, so the result is what you see in the reader, not…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I name only some pages?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With the same range notation: “1-3, 7, 10-12”. Leave the field empty and every page is turned."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the document recompressed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Rotating a page changes one attribute in the PDF structure; the content is untouched and loses nothing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why did my reader already show the page the right way up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some readers rotate the view without saving it. This tool writes the rotation into the file, so it comes out right everywhere, including in print."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../girar-pdf/" hreflang="ca">Català</a><a class="lang" href="../../es/girar-pdf/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Rotate PDF pages</h1>
+    <p>Turn every page, or only the ones you name.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Fix pages that were scanned sideways or upside down. The rotation is added to whatever the page already has, so the result is what you see in the reader, not a sum you have to work out yourself.</p>
+    <p>You can turn the whole document or only a few pages, which is the usual case when the scanner has only turned the landscape sheets.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Add the PDF.</li>
+      <li>Choose the angle and, if it is not all of them, type the pages.</li>
+      <li>Process and download.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>How do I name only some pages?</dt>
+      <dd>With the same range notation: “1-3, 7, 10-12”. Leave the field empty and every page is turned.</dd>
+      <dt>Is the document recompressed?</dt>
+      <dd>No. Rotating a page changes one attribute in the PDF structure; the content is untouched and loses nothing.</dd>
+      <dt>Why did my reader already show the page the right way up?</dt>
+      <dd>Some readers rotate the view without saving it. This tool writes the rotation into the file, so it comes out right everywhere, including in print.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../compress-pdf/" data-search="compress pdf re-encodes the images inside without touching the text or structure. pdf compress shrink reduce size optimise scan compress-pdf"><b>Compress PDF</b><span>Re-encodes the images inside without touching the text or structure.</span></a>
+      <a class="card" href="../organise-pdf-pages/" data-search="organise pages see every page, drag them about, turn them and drop the spares. pdf organise reorder sort pages thumbnails move delete organise-pdf-pages"><b>Organise pages</b><span>See every page, drag them about, turn them and drop the spares.</span></a>
+      <a class="card" href="../pdf-to-images/" data-search="pdf to images one image per page, at whatever resolution you need. pdf image jpg png webp convert pages rasterise export pdf-to-images"><b>PDF to images</b><span>One image per page, at whatever resolution you need.</span></a>
+      <a class="card" href="../pdf-to-text/" data-search="pdf to text pulls out the document’s text layer, without ocr. pdf text extract copy content txt pdf-to-text"><b>PDF to text</b><span>Pulls out the document’s text layer, without OCR.</span></a>
+      <a class="card" href="../extract-images-from-pdf/" data-search="extract images from a pdf pulls the embedded photos and graphics out as separate files. pdf extract images photos save jpg png extract-images-from-pdf"><b>Extract images from a PDF</b><span>Pulls the embedded photos and graphics out as separate files.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-rotate","slug": "rotate-pdf","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

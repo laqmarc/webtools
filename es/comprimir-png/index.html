@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comprimir PNG en línea, gratis y sin subir nada — WebTools</title>
+<meta name="description" content="PNG comprime sin pérdida, y eso significa que hay un suelo por debajo del cual no puede bajar: si la imagen tiene degradados o ruido fotográfico, el archivo…">
+<link rel="canonical" href="http://localhost:5180/es/comprimir-png/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comprimir-png/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/comprimir-png/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/compress-png/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comprimir-png/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Comprimir PNG en línea, gratis y sin subir nada — WebTools">
+<meta property="og:description" content="PNG comprime sin pérdida, y eso significa que hay un suelo por debajo del cual no puede bajar: si la imagen tiene degradados o ruido fotográfico, el archivo…">
+<meta property="og:url" content="http://localhost:5180/es/comprimir-png/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Comprimir PNG",
+          "item": "http://localhost:5180/es/comprimir-png/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Comprimir PNG",
+      "url": "http://localhost:5180/es/comprimir-png/",
+      "description": "PNG comprime sin pérdida, y eso significa que hay un suelo por debajo del cual no puede bajar: si la imagen tiene degradados o ruido fotográfico, el archivo…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué mi PNG apenas baja de peso si elijo «Mantener el original»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque el PNG ya estaba comprimido y esta herramienta lo vuelve a codificar con el mismo algoritmo sin pérdida. Recodificar un formato sin pérdida no inventa espacio: lo que hace bajar el peso de verdad es cambiar a WebP o reducir el tamaño en píxeles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Un WebP sin pérdida es igual de bueno que el PNG?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Es idéntico píxel a píxel y, de media, un 26 % más pequeño. La diferencia es el soporte: todos los navegadores lo abren, pero algunos programas de escritorio antiguos todavía no."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo puedo bajar mucho el peso sin cambiar de formato?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Reduciendo el tamaño en píxeles. Una captura de 3000 px de ancho que se mostrará a 800 px tiene nueve veces más píxeles de los necesarios."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../comprimir-png/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/compress-png/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen</nav>
+  <header class="tool-head">
+    <h1>Comprimir PNG</h1>
+    <p>Reduce capturas y gráficos PNG, saliendo en WebP con transparencia.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>PNG comprime sin pérdida, y eso significa que hay un suelo por debajo del cual no puede bajar: si la imagen tiene degradados o ruido fotográfico, el archivo será grande y no hay mucho que hacer sin cambiar de formato.</p>
+    <p>Por eso esta página está configurada para sacar un WebP. Conserva la transparencia igual que el PNG, y para una captura de pantalla típica el resultado suele ser entre diez y treinta veces más ligero. Si necesitas que la salida siga siendo PNG, cambia el formato a «Mantener el original»: la ganancia será mucho más modesta.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Suelta aquí las imágenes que quieres adelgazar.</li>
+      <li>Elige si fijas la calidad o un peso máximo en kilobytes.</li>
+      <li>Mira la columna del porcentaje ahorrado y descarga lo que te convenza.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Por qué mi PNG apenas baja de peso si elijo «Mantener el original»?</dt>
+      <dd>Porque el PNG ya estaba comprimido y esta herramienta lo vuelve a codificar con el mismo algoritmo sin pérdida. Recodificar un formato sin pérdida no inventa espacio: lo que hace bajar el peso de verdad es cambiar a WebP o reducir el tamaño en píxeles.</dd>
+      <dt>¿Un WebP sin pérdida es igual de bueno que el PNG?</dt>
+      <dd>Es idéntico píxel a píxel y, de media, un 26 % más pequeño. La diferencia es el soporte: todos los navegadores lo abren, pero algunos programas de escritorio antiguos todavía no.</dd>
+      <dt>¿Cómo puedo bajar mucho el peso sin cambiar de formato?</dt>
+      <dd>Reduciendo el tamaño en píxeles. Una captura de 3000 px de ancho que se mostrará a 800 px tiene nueve veces más píxeles de los necesarios.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../comprimir-imagenes/" data-search="comprimir imágenes baja el peso por calidad o hasta un tamaño concreto. comprimir compresión reducir peso optimizar kb tamaño imagen comprimir-imagenes"><b>Comprimir imágenes</b><span>Baja el peso por calidad o hasta un tamaño concreto.</span></a>
+      <a class="card" href="../comprimir-jpg/" data-search="comprimir jpg recodifica fotos jpeg por calidad o hasta un peso máximo. comprimir-jpg"><b>Comprimir JPG</b><span>Recodifica fotos JPEG por calidad o hasta un peso máximo.</span></a>
+      <a class="card" href="../convertir-imagenes/" data-search="convertir imágenes png, jpg, webp y avif entre sí, por lotes. png jpg jpeg webp avif convertir formato imagen convertir-imagenes"><b>Convertir imágenes</b><span>PNG, JPG, WebP y AVIF entre sí, por lotes.</span></a>
+      <a class="card" href="../redimensionar-imagenes/" data-search="redimensionar imágenes anchura y altura con control de ajuste y sin ampliar por defecto. redimensionar tamaño escalar anchura altura resize imagen redimensionar-imagenes"><b>Redimensionar imágenes</b><span>Anchura y altura con control de ajuste y sin ampliar por defecto.</span></a>
+      <a class="card" href="../recortar-imagenes/" data-search="recortar imágenes dibuja el recorte sobre la imagen y aplícalo a todo el lote. recortar crop cortar aspecto cuadrado visual ratón imagen recortar-imagenes"><b>Recortar imágenes</b><span>Dibuja el recorte sobre la imagen y aplícalo a todo el lote.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-compress","slug": "comprimir-png","lang": "es","accepts": ["image/png"],"preset": {"format": "webp"},"lock": []};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR code generator online, in your browser — WebTools</title>
+<meta name="description" content="Generate a QR code and download it as vector SVG, which is what you want for printing at any size without pixelation, or as PNG at whatever resolution you…">
+<link rel="canonical" href="http://localhost:5180/en/qr-code-generator/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/generador-qr/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/generador-qr/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/qr-code-generator/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/generador-qr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="QR code generator online, in your browser — WebTools">
+<meta property="og:description" content="Generate a QR code and download it as vector SVG, which is what you want for printing at any size without pixelation, or as PNG at whatever resolution you…">
+<meta property="og:url" content="http://localhost:5180/en/qr-code-generator/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "QR code generator",
+          "item": "http://localhost:5180/en/qr-code-generator/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "QR code generator",
+      "url": "http://localhost:5180/en/qr-code-generator/",
+      "description": "Generate a QR code and download it as vector SVG, which is what you want for printing at any size without pixelation, or as PNG at whatever resolution you…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which error-correction level should I use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "M for screens and clean printing. Q or H if the code goes on a label that might be scratched or get wet, or if you are putting a logo in the middle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why will my phone not read it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The three usual causes are too little contrast between the colours, too small a quiet zone (leave at least four modules), or printing it too small for the amount of data it holds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the code expire?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no service in between: the QR literally contains the text you type. It is not a shortened link that can stop working one day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I encode a Wi-Fi network?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, with the format WIFI:T:WPA;S:network-name;P:password;; . Most phones recognise it and offer to connect."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../generador-qr/" hreflang="ca">Català</a><a class="lang" href="../../es/generador-qr/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Text and web</nav>
+  <header class="tool-head">
+    <h1>QR code generator</h1>
+    <p>Download as vector SVG or PNG at any resolution.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Generate a QR code and download it as vector SVG, which is what you want for printing at any size without pixelation, or as PNG at whatever resolution you choose.</p>
+    <p>You can control the colours and the error-correction level. At high correction the code stays readable even when part of it is covered or damaged, at the cost of more modules and therefore smaller squares.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Type the text, the address or whatever you want in it.</li>
+      <li>Adjust the size, the quiet zone and the colours.</li>
+      <li>Download it as SVG or PNG.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Which error-correction level should I use?</dt>
+      <dd>M for screens and clean printing. Q or H if the code goes on a label that might be scratched or get wet, or if you are putting a logo in the middle.</dd>
+      <dt>Why will my phone not read it?</dt>
+      <dd>The three usual causes are too little contrast between the colours, too small a quiet zone (leave at least four modules), or printing it too small for the amount of data it holds.</dd>
+      <dt>Does the code expire?</dt>
+      <dd>No. There is no service in between: the QR literally contains the text you type. It is not a shortened link that can stop working one day.</dd>
+      <dt>Can I encode a Wi-Fi network?</dt>
+      <dd>Yes, with the format WIFI:T:WPA;S:network-name;P:password;; . Most phones recognise it and offer to connect.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../minify-css/" data-search="minify css csso: it restructures and merges rules, not just strips spaces. css minify compress csso optimise minify-css"><b>Minify CSS</b><span>CSSO: it restructures and merges rules, not just strips spaces.</span></a>
+      <a class="card" href="../minify-javascript/" data-search="minify javascript terser in the browser, with optional name mangling. js javascript minify compress terser uglify minify-javascript"><b>Minify JavaScript</b><span>Terser in the browser, with optional name mangling.</span></a>
+      <a class="card" href="../word-counter/" data-search="count words and characters a live count, reading time and the limits each platform imposes. word count characters length text limit twitter seo reading time word-counter"><b>Count words and characters</b><span>A live count, reading time and the limits each platform imposes.</span></a>
+      <a class="card" href="../change-case/" data-search="change letter case uppercase, lowercase, title case, camelcase, snake_case and more. uppercase lowercase camelcase snakecase kebabcase title convert text change-case"><b>Change letter case</b><span>UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.</span></a>
+      <a class="card" href="../sort-lines/" data-search="sort and clean up lines sort, drop duplicates and blanks, number or reverse a list. sort lines duplicates dedupe list alphabetical number clean sort-lines"><b>Sort and clean up lines</b><span>Sort, drop duplicates and blanks, number or reverse a list.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "qr","slug": "qr-code-generator","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

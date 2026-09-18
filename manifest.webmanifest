@@ -1,0 +1,106 @@
+{
+  "name": "WebTools — Converteix, comprimeix i inspecciona — sense pujar res",
+  "short_name": "WebTools",
+  "description": "Converteix i comprimeix imatges, SVG i PDF, i treballa amb JSON, CSV, YAML i text. Tot s’executa al teu navegador: cap fitxer no s’envia a cap servidor.",
+  "lang": "ca",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f1115",
+  "theme_color": "#161922",
+  "categories": [
+    "utilities",
+    "productivity",
+    "photo"
+  ],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Comprimir imatges",
+      "short_name": "Comprimir imatges",
+      "description": "Baixa el pes per qualitat o fins a una mida objectiu concreta.",
+      "url": "./comprimir-imatges/"
+    },
+    {
+      "name": "PNG a WebP",
+      "short_name": "PNG a WebP",
+      "description": "Converteix imatges PNG a WebP en lot, dins del navegador.",
+      "url": "./png-a-webp/"
+    },
+    {
+      "name": "Unir PDF",
+      "short_name": "Unir PDF",
+      "description": "Enganxa diversos PDF en un de sol, en l’ordre que vulguis.",
+      "url": "./unir-pdf/"
+    },
+    {
+      "name": "Formatar i validar JSON",
+      "short_name": "Formatar i validar JSON",
+      "description": "Indenta, minifica o ordena claus, i assenyala l’error amb línia i columna.",
+      "url": "./formatar-json/"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "./convertir-imatges/",
+      "accept": {
+        "image/png": [
+          ".png"
+        ],
+        "image/jpeg": [
+          ".jpg",
+          ".jpeg"
+        ],
+        "image/webp": [
+          ".webp"
+        ],
+        "image/avif": [
+          ".avif"
+        ]
+      }
+    },
+    {
+      "action": "./optimitzar-svg/",
+      "accept": {
+        "image/svg+xml": [
+          ".svg"
+        ]
+      }
+    },
+    {
+      "action": "./unir-pdf/",
+      "accept": {
+        "application/pdf": [
+          ".pdf"
+        ]
+      }
+    }
+  ]
+}

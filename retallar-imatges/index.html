@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Retallar imatges en línia, al navegador — WebTools</title>
+<meta name="description" content="Dibuixa el retall amb el ratolí damunt de la imatge, amb la graella dels terços a sobre i les mides en píxels actualitzant-se mentre arrossegues. Pots partir…">
+<link rel="canonical" href="http://localhost:5180/retallar-imatges/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/retallar-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/recortar-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/crop-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/retallar-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Retallar imatges en línia, al navegador — WebTools">
+<meta property="og:description" content="Dibuixa el retall amb el ratolí damunt de la imatge, amb la graella dels terços a sobre i les mides en píxels actualitzant-se mentre arrossegues. Pots partir…">
+<meta property="og:url" content="http://localhost:5180/retallar-imatges/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Retallar imatges",
+          "item": "http://localhost:5180/retallar-imatges/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Retallar imatges",
+      "url": "http://localhost:5180/retallar-imatges/",
+      "description": "Dibuixa el retall amb el ratolí damunt de la imatge, amb la graella dels terços a sobre i les mides en píxels actualitzant-se mentre arrossegues. Pots partir…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Com fixo un quadrat perfecte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tria 1:1 a la relació d’aspecte. A partir d’aquell moment el rectangle manté la proporció mentre l’estires, i el que ja hi havia s’hi ajusta conservant-ne el centre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les meves fotos no fan la mateixa mida, funciona igual?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. El retall es guarda com a fracció de cada imatge, de manera que «el terç central» és el terç central de cadascuna, no un rectangle de píxels que en unes quedaria fora."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc retallar-ne una de diferent de la resta?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Desmarca «Aplica el mateix retall a totes» i es retallarà només la que tens seleccionada a la tira de miniatures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es perd qualitat en retallar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El retall en si no en perd cap. El que pot fer-ho és tornar a codificar: deixa «Mantén l’original» amb una qualitat alta si l’origen era PNG o un JPEG bo."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/recortar-imagenes/" hreflang="es">Español</a><a class="lang" href="../en/crop-images/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge</nav>
+  <header class="tool-head">
+    <h1>Retallar imatges</h1>
+    <p>Dibuixa el retall damunt de la imatge i aplica’l a tot el lot.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Dibuixa el retall amb el ratolí damunt de la imatge, amb la graella dels terços a sobre i les mides en píxels actualitzant-se mentre arrossegues. Pots partir de zero fent un rectangle nou, moure el que hi ha o estirar-ne les cantonades.</p>
+    <p>La gràcia, però, és el lot: si carregues vint fotos i deixes marcada la casella, el mateix retall relatiu s’aplica a totes. Com que es guarda en proporcions i no en píxels, funciona encara que les imatges no facin la mateixa mida.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Arrossega-hi les imatges; la primera apareix a l’àrea de treball.</li>
+      <li>Dibuixa o ajusta el rectangle, i si en necessites una de concreta, fixa la relació d’aspecte.</li>
+      <li>Prem «Retalla» i baixa el resultat, en ZIP si n’hi ha més d’una.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Com fixo un quadrat perfecte?</dt>
+      <dd>Tria 1:1 a la relació d’aspecte. A partir d’aquell moment el rectangle manté la proporció mentre l’estires, i el que ja hi havia s’hi ajusta conservant-ne el centre.</dd>
+      <dt>Les meves fotos no fan la mateixa mida, funciona igual?</dt>
+      <dd>Sí. El retall es guarda com a fracció de cada imatge, de manera que «el terç central» és el terç central de cadascuna, no un rectangle de píxels que en unes quedaria fora.</dd>
+      <dt>Puc retallar-ne una de diferent de la resta?</dt>
+      <dd>Desmarca «Aplica el mateix retall a totes» i es retallarà només la que tens seleccionada a la tira de miniatures.</dd>
+      <dt>Es perd qualitat en retallar?</dt>
+      <dd>El retall en si no en perd cap. El que pot fer-ho és tornar a codificar: deixa «Mantén l’original» amb una qualitat alta si l’origen era PNG o un JPEG bo.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="../comprimir-imatges/" data-search="comprimir imatges baixa el pes per qualitat o fins a una mida objectiu concreta. comprimir compressió reduir pes optimitzar kb mida comprimir-imatges"><b>Comprimir imatges</b><span>Baixa el pes per qualitat o fins a una mida objectiu concreta.</span></a>
+      <a class="card" href="../redimensionar-imatges/" data-search="redimensionar imatges amplada i alçada amb control d’ajust i sense ampliar per defecte. redimensionar mida escalar amplada alçada resize redimensionar-imatges"><b>Redimensionar imatges</b><span>Amplada i alçada amb control d’ajust i sense ampliar per defecte.</span></a>
+      <a class="card" href="../girar-imatges/" data-search="girar i reflectir rotació de 90° en 90° i volteig horitzontal o vertical. girar rotar rotate flip mirall voltejar girar-imatges"><b>Girar i reflectir</b><span>Rotació de 90° en 90° i volteig horitzontal o vertical.</span></a>
+      <a class="card" href="../treure-metadades-imatge/" data-search="treure metadades elimina exif, gps i perfils recodificant la imatge al mateix format. exif metadades gps privacitat netejar strip treure-metadades-imatge"><b>Treure metadades</b><span>Elimina EXIF, GPS i perfils recodificant la imatge al mateix format.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-crop","slug": "retallar-imatges","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

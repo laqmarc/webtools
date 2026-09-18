@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Organise pages online, in your browser — WebTools</title>
+<meta name="description" content="The other PDF tools ask you to type “1-3, 7” at a document you cannot see. This one draws it for you: every page as a thumbnail, to drag where it belongs,…">
+<link rel="canonical" href="http://localhost:5180/en/organise-pdf-pages/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/organitzar-pdf/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/organizar-pdf/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/organise-pdf-pages/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/organitzar-pdf/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Organise pages online, in your browser — WebTools">
+<meta property="og:description" content="The other PDF tools ask you to type “1-3, 7” at a document you cannot see. This one draws it for you: every page as a thumbnail, to drag where it belongs,…">
+<meta property="og:url" content="http://localhost:5180/en/organise-pdf-pages/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Organise pages",
+          "item": "http://localhost:5180/en/organise-pdf-pages/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Organise pages",
+      "url": "http://localhost:5180/en/organise-pdf-pages/",
+      "description": "The other PDF tools ask you to type “1-3, 7” at a document you cannot see. This one draws it for you: every page as a thumbnail, to drag where it belongs,…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can I undo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The “Back to the original” button restores the order, the rotations and the dropped pages in one go. And until you export, the file on your disk has not been touched."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do the thumbnails take a while?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because each page is genuinely drawn by the rendering engine, exactly as a PDF reader would. On long documents they appear as they are produced."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is quality lost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "None. The thumbnails are only for looking at; the export copies the original pages without redrawing them."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../organitzar-pdf/" hreflang="ca">Català</a><a class="lang" href="../../es/organizar-pdf/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / PDF</nav>
+  <header class="tool-head">
+    <h1>Organise pages</h1>
+    <p>See every page, drag them about, turn them and drop the spares.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>The other PDF tools ask you to type “1-3, 7” at a document you cannot see. This one draws it for you: every page as a thumbnail, to drag where it belongs, turn one at a time and drop the ones that are in the way.</p>
+    <p>Once the result is in front of you, you export. The new PDF is built by copying the original pages in the order you left them, so the text, the links and the quality are untouched.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the PDF and wait for the thumbnails.</li>
+      <li>Drag the pages about, turn the crooked ones and drop the spares.</li>
+      <li>Press “Export the PDF”.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Can I undo?</dt>
+      <dd>The “Back to the original” button restores the order, the rotations and the dropped pages in one go. And until you export, the file on your disk has not been touched.</dd>
+      <dt>Why do the thumbnails take a while?</dt>
+      <dd>Because each page is genuinely drawn by the rendering engine, exactly as a PDF reader would. On long documents they appear as they are produced.</dd>
+      <dt>Is quality lost?</dt>
+      <dd>None. The thumbnails are only for looking at; the export copies the original pages without redrawing them.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../compress-pdf/" data-search="compress pdf re-encodes the images inside without touching the text or structure. pdf compress shrink reduce size optimise scan compress-pdf"><b>Compress PDF</b><span>Re-encodes the images inside without touching the text or structure.</span></a>
+      <a class="card" href="../pdf-to-images/" data-search="pdf to images one image per page, at whatever resolution you need. pdf image jpg png webp convert pages rasterise export pdf-to-images"><b>PDF to images</b><span>One image per page, at whatever resolution you need.</span></a>
+      <a class="card" href="../pdf-to-text/" data-search="pdf to text pulls out the document’s text layer, without ocr. pdf text extract copy content txt pdf-to-text"><b>PDF to text</b><span>Pulls out the document’s text layer, without OCR.</span></a>
+      <a class="card" href="../extract-images-from-pdf/" data-search="extract images from a pdf pulls the embedded photos and graphics out as separate files. pdf extract images photos save jpg png extract-images-from-pdf"><b>Extract images from a PDF</b><span>Pulls the embedded photos and graphics out as separate files.</span></a>
+      <a class="card" href="../merge-pdf/" data-search="merge pdf glue several pdfs into one, in the order you want. pdf merge join combine append merge-pdf"><b>Merge PDF</b><span>Glue several PDFs into one, in the order you want.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "pdf-organize","slug": "organise-pdf-pages","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

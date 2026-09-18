@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redimensionar imatges en línia, al navegador — WebTools</title>
+<meta name="description" content="Canvia la mida de les imatges indicant amplada, alçada o totes dues. Si només omples una de les dues caselles, l’altra es calcula sola per mantenir la…">
+<link rel="canonical" href="http://localhost:5180/redimensionar-imatges/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/redimensionar-imatges/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/redimensionar-imagenes/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/resize-images/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/redimensionar-imatges/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Redimensionar imatges en línia, al navegador — WebTools">
+<meta property="og:description" content="Canvia la mida de les imatges indicant amplada, alçada o totes dues. Si només omples una de les dues caselles, l’altra es calcula sola per mantenir la…">
+<meta property="og:url" content="http://localhost:5180/redimensionar-imatges/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Redimensionar imatges",
+          "item": "http://localhost:5180/redimensionar-imatges/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Redimensionar imatges",
+      "url": "http://localhost:5180/redimensionar-imatges/",
+      "description": "Canvia la mida de les imatges indicant amplada, alçada o totes dues. Si només omples una de les dues caselles, l’altra es calcula sola per mantenir la…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Per què no s’amplien les imatges petites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè hi ha activada l’opció de no ampliar. Ampliar no afegeix detall, només interpola píxels i el resultat surt tou. Desactiva-la si de debò necessites la mida més gran."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quina diferència hi ha entre «cap a dins» i «omple i retalla»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "«Cap a dins» encabeix la imatge sencera dins de les mides que dones, de manera que el resultat pot ser més petit en un dels costats. «Omple i retalla» cobreix tot el rectangle i talla el sobrant pels costats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Es veurà borrós?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L’escalat fa servir el filtre de qualitat alta del navegador, que va bé per reduir. Per a reduccions molt agressives, fer dues passes (per exemple a la meitat i després a la mida final) de vegades conserva més nitidesa."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/redimensionar-imagenes/" hreflang="es">Español</a><a class="lang" href="../en/resize-images/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge</nav>
+  <header class="tool-head">
+    <h1>Redimensionar imatges</h1>
+    <p>Amplada i alçada amb control d’ajust i sense ampliar per defecte.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Canvia la mida de les imatges indicant amplada, alçada o totes dues. Si només omples una de les dues caselles, l’altra es calcula sola per mantenir la proporció.</p>
+    <p>Quan hi poses les dues mides pots decidir què passa amb la diferència de proporció: encabir la imatge sencera a dins, omplir el rectangle retallant el que sobra, o deformar-la fins a la mida exacta.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Afegeix-hi les imatges.</li>
+      <li>Escriu l’amplada, l’alçada o totes dues, i tria com vols que s’ajustin.</li>
+      <li>Processa i descarrega.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Per què no s’amplien les imatges petites?</dt>
+      <dd>Perquè hi ha activada l’opció de no ampliar. Ampliar no afegeix detall, només interpola píxels i el resultat surt tou. Desactiva-la si de debò necessites la mida més gran.</dd>
+      <dt>Quina diferència hi ha entre «cap a dins» i «omple i retalla»?</dt>
+      <dd>«Cap a dins» encabeix la imatge sencera dins de les mides que dones, de manera que el resultat pot ser més petit en un dels costats. «Omple i retalla» cobreix tot el rectangle i talla el sobrant pels costats.</dd>
+      <dt>Es veurà borrós?</dt>
+      <dd>L’escalat fa servir el filtre de qualitat alta del navegador, que va bé per reduir. Per a reduccions molt agressives, fer dues passes (per exemple a la meitat i després a la mida final) de vegades conserva més nitidesa.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="../comprimir-imatges/" data-search="comprimir imatges baixa el pes per qualitat o fins a una mida objectiu concreta. comprimir compressió reduir pes optimitzar kb mida comprimir-imatges"><b>Comprimir imatges</b><span>Baixa el pes per qualitat o fins a una mida objectiu concreta.</span></a>
+      <a class="card" href="../retallar-imatges/" data-search="retallar imatges dibuixa el retall damunt de la imatge i aplica’l a tot el lot. retallar crop tallar aspecte quadrat visual ratolí retallar-imatges"><b>Retallar imatges</b><span>Dibuixa el retall damunt de la imatge i aplica’l a tot el lot.</span></a>
+      <a class="card" href="../girar-imatges/" data-search="girar i reflectir rotació de 90° en 90° i volteig horitzontal o vertical. girar rotar rotate flip mirall voltejar girar-imatges"><b>Girar i reflectir</b><span>Rotació de 90° en 90° i volteig horitzontal o vertical.</span></a>
+      <a class="card" href="../treure-metadades-imatge/" data-search="treure metadades elimina exif, gps i perfils recodificant la imatge al mateix format. exif metadades gps privacitat netejar strip treure-metadades-imatge"><b>Treure metadades</b><span>Elimina EXIF, GPS i perfils recodificant la imatge al mateix format.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-resize","slug": "redimensionar-imatges","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

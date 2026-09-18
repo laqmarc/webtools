@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>View the metadata online, in your browser — WebTools</title>
+<meta name="description" content="See everything a photograph is carrying: camera and lens model, aperture, shutter speed, ISO, dates and, if location was on, the exact coordinates of where…">
+<link rel="canonical" href="http://localhost:5180/en/view-image-metadata/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/veure-metadades-imatge/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/ver-metadatos-imagen/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/view-image-metadata/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/veure-metadades-imatge/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="View the metadata online, in your browser — WebTools">
+<meta property="og:description" content="See everything a photograph is carrying: camera and lens model, aperture, shutter speed, ISO, dates and, if location was on, the exact coordinates of where…">
+<meta property="og:url" content="http://localhost:5180/en/view-image-metadata/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "View the metadata",
+          "item": "http://localhost:5180/en/view-image-metadata/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "View the metadata",
+      "url": "http://localhost:5180/en/view-image-metadata/",
+      "description": "See everything a photograph is carrying: camera and lens model, aperture, shutter speed, ISO, dates and, if location was on, the exact coordinates of where…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does my photo have no metadata?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because something stripped it along the way. WhatsApp, Instagram and most networks remove it on upload, and a screenshot never had any."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What exactly should worry me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The GPS coordinates, especially on photos taken at home. Also the date and, in professional settings, the camera body’s serial number, which identifies the device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I remove it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With “Strip metadata”, which re-encodes the image from the bare pixels and copies no fields."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../veure-metadades-imatge/" hreflang="ca">Català</a><a class="lang" href="../../es/ver-metadatos-imagen/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Images</nav>
+  <header class="tool-head">
+    <h1>View the metadata</h1>
+    <p>Camera, exposure, dates and the GPS coordinates if there are any.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>See everything a photograph is carrying: camera and lens model, aperture, shutter speed, ISO, dates and, if location was on, the exact coordinates of where it was taken.</p>
+    <p>It is the other half of “Strip metadata”: first you look at what is there, then you decide whether it bothers you. Nothing leaves the tab, which with personal photos is not a small detail.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in a photo.</li>
+      <li>Read the data grouped by topic.</li>
+      <li>If there is GPS, you get a prominent warning.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>Why does my photo have no metadata?</dt>
+      <dd>Because something stripped it along the way. WhatsApp, Instagram and most networks remove it on upload, and a screenshot never had any.</dd>
+      <dt>What exactly should worry me?</dt>
+      <dd>The GPS coordinates, especially on photos taken at home. Also the date and, in professional settings, the camera body’s serial number, which identifies the device.</dd>
+      <dt>How do I remove it?</dt>
+      <dd>With “Strip metadata”, which re-encodes the image from the bare pixels and copies no fields.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../convert-images/" data-search="convert images png, jpg, webp and avif in any direction, in batches. png jpg jpeg webp avif convert image format convert-images"><b>Convert images</b><span>PNG, JPG, WebP and AVIF in any direction, in batches.</span></a>
+      <a class="card" href="../compress-images/" data-search="compress images cut the weight by quality, or down to a size you pick. compress shrink reduce file size optimise kb image compress-images"><b>Compress images</b><span>Cut the weight by quality, or down to a size you pick.</span></a>
+      <a class="card" href="../resize-images/" data-search="resize images width and height with fit control, and no upscaling by default. resize scale width height image dimensions resize-images"><b>Resize images</b><span>Width and height with fit control, and no upscaling by default.</span></a>
+      <a class="card" href="../crop-images/" data-search="crop images draw the crop on the picture and apply it to the whole batch. crop cut aspect square visual mouse image crop-images"><b>Crop images</b><span>Draw the crop on the picture and apply it to the whole batch.</span></a>
+      <a class="card" href="../rotate-images/" data-search="rotate and flip quarter turns, and horizontal or vertical flips. rotate turn flip mirror image rotate-images"><b>Rotate and flip</b><span>Quarter turns, and horizontal or vertical flips.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "image-exif","slug": "view-image-metadata","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imatges a GIF animat en línia, al navegador — WebTools</title>
+<meta name="description" content="Fes un GIF animat a partir d’una sèrie d’imatges. L’ordre és el de la llista, i com que les files es poden arrossegar, reordenar els fotogrames és qüestió de…">
+<link rel="canonical" href="http://localhost:5180/imatges-a-gif/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/imatges-a-gif/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/imagenes-a-gif/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/images-to-gif/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/imatges-a-gif/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Imatges a GIF animat en línia, al navegador — WebTools">
+<meta property="og:description" content="Fes un GIF animat a partir d’una sèrie d’imatges. L’ordre és el de la llista, i com que les files es poden arrossegar, reordenar els fotogrames és qüestió de…">
+<meta property="og:url" content="http://localhost:5180/imatges-a-gif/">
+<meta property="og:locale" content="ca_ES">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Imatges a GIF animat",
+          "item": "http://localhost:5180/imatges-a-gif/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Imatges a GIF animat",
+      "url": "http://localhost:5180/imatges-a-gif/",
+      "description": "Fes un GIF animat a partir d’una sèrie d’imatges. L’ordre és el de la llista, i com que les files es poden arrossegar, reordenar els fotogrames és qüestió de…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Per què pesa tant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè el GIF és un format dels anys vuitanta: sense pèrdua, limitat a 256 colors i sense compressió entre fotogrames. Baixa l’amplada, retalla la paleta o fes servir menys fotogrames."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quina durada de fotograma he de posar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "100 ms són deu imatges per segon, que és el que es veu fluid sense disparar el pes. Per sota de 20 ms molts navegadors imposen el seu propi mínim igualment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Què fa «torna enrere en acabar»?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Afegeix els fotogrames del revés al final, de manera que l’animació va i torna en comptes de fer un salt sec en reiniciar-se."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/imagenes-a-gif/" hreflang="es">Español</a><a class="lang" href="../en/images-to-gif/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge</nav>
+  <header class="tool-head">
+    <h1>Imatges a GIF animat</h1>
+    <p>Un GIF a partir d’una seqüència d’imatges, en l’ordre que hi deixis.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Fes un GIF animat a partir d’una sèrie d’imatges. L’ordre és el de la llista, i com que les files es poden arrossegar, reordenar els fotogrames és qüestió de moure’ls.</p>
+    <p>Els fotogrames s’encaixen dins d’un llenç comú, centrats i sense deformar-se, de manera que barrejar imatges de mides diferents no fa saltar l’animació.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Arrossega-hi les imatges en l’ordre que vulguis.</li>
+      <li>Ajusta la durada del fotograma i l’amplada.</li>
+      <li>Combina i baixa el GIF.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Per què pesa tant?</dt>
+      <dd>Perquè el GIF és un format dels anys vuitanta: sense pèrdua, limitat a 256 colors i sense compressió entre fotogrames. Baixa l’amplada, retalla la paleta o fes servir menys fotogrames.</dd>
+      <dt>Quina durada de fotograma he de posar?</dt>
+      <dd>100 ms són deu imatges per segon, que és el que es veu fluid sense disparar el pes. Per sota de 20 ms molts navegadors imposen el seu propi mínim igualment.</dd>
+      <dt>Què fa «torna enrere en acabar»?</dt>
+      <dd>Afegeix els fotogrames del revés al final, de manera que l’animació va i torna en comptes de fer un salt sec en reiniciar-se.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../convertir-imatges/" data-search="convertir imatges png, jpg, webp i avif entre si, en lot. png jpg jpeg webp avif convertir converteix format convertir-imatges"><b>Convertir imatges</b><span>PNG, JPG, WebP i AVIF entre si, en lot.</span></a>
+      <a class="card" href="../comprimir-imatges/" data-search="comprimir imatges baixa el pes per qualitat o fins a una mida objectiu concreta. comprimir compressió reduir pes optimitzar kb mida comprimir-imatges"><b>Comprimir imatges</b><span>Baixa el pes per qualitat o fins a una mida objectiu concreta.</span></a>
+      <a class="card" href="../redimensionar-imatges/" data-search="redimensionar imatges amplada i alçada amb control d’ajust i sense ampliar per defecte. redimensionar mida escalar amplada alçada resize redimensionar-imatges"><b>Redimensionar imatges</b><span>Amplada i alçada amb control d’ajust i sense ampliar per defecte.</span></a>
+      <a class="card" href="../retallar-imatges/" data-search="retallar imatges dibuixa el retall damunt de la imatge i aplica’l a tot el lot. retallar crop tallar aspecte quadrat visual ratolí retallar-imatges"><b>Retallar imatges</b><span>Dibuixa el retall damunt de la imatge i aplica’l a tot el lot.</span></a>
+      <a class="card" href="../girar-imatges/" data-search="girar i reflectir rotació de 90° en 90° i volteig horitzontal o vertical. girar rotar rotate flip mirall voltejar girar-imatges"><b>Girar i reflectir</b><span>Rotació de 90° en 90° i volteig horitzontal o vertical.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "images-to-gif","slug": "imatges-a-gif","lang": "ca"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

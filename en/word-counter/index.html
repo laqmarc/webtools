@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Count words and characters online, in your browser — WebTools</title>
+<meta name="description" content="Counts characters, words, lines, paragraphs and sentences as you type, and tells you how long it takes to read and how long to say out loud.">
+<link rel="canonical" href="http://localhost:5180/en/word-counter/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/comptar-paraules/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/contar-palabras/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/word-counter/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/comptar-paraules/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Count words and characters online, in your browser — WebTools">
+<meta property="og:description" content="Counts characters, words, lines, paragraphs and sentences as you type, and tells you how long it takes to read and how long to say out loud.">
+<meta property="og:url" content="http://localhost:5180/en/word-counter/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Count words and characters",
+          "item": "http://localhost:5180/en/word-counter/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Count words and characters",
+      "url": "http://localhost:5180/en/word-counter/",
+      "description": "Counts characters, words, lines, paragraphs and sentences as you type, and tells you how long it takes to read and how long to say out loud.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does it count words?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As runs of letters and digits, so a web address counts as several. It is the same rule most counters use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does the reading time come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "220 words per minute for silent reading and 130 for reading aloud, which are the usual averages for an adult with ordinary prose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why 158 characters for the meta description?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because that is roughly where Google starts truncating it in results. It is not a written rule: it depends on the device and the query."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../comptar-paraules/" hreflang="ca">Català</a><a class="lang" href="../../es/contar-palabras/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Text and web</nav>
+  <header class="tool-head">
+    <h1>Count words and characters</h1>
+    <p>A live count, reading time and the limits each platform imposes.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Counts characters, words, lines, paragraphs and sentences as you type, and tells you how long it takes to read and how long to say out loud.</p>
+    <p>Below are the limits people actually fight with: the title and meta description for search, and what fits in a post. The bar turns red when you go over.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste or type the text.</li>
+      <li>Watch the count, which updates itself.</li>
+      <li>Keep an eye on the limit bars if you are writing for a specific place.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>How does it count words?</dt>
+      <dd>As runs of letters and digits, so a web address counts as several. It is the same rule most counters use.</dd>
+      <dt>Where does the reading time come from?</dt>
+      <dd>220 words per minute for silent reading and 130 for reading aloud, which are the usual averages for an adult with ordinary prose.</dd>
+      <dt>Why 158 characters for the meta description?</dt>
+      <dd>Because that is roughly where Google starts truncating it in results. It is not a written rule: it depends on the device and the query.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../minify-css/" data-search="minify css csso: it restructures and merges rules, not just strips spaces. css minify compress csso optimise minify-css"><b>Minify CSS</b><span>CSSO: it restructures and merges rules, not just strips spaces.</span></a>
+      <a class="card" href="../minify-javascript/" data-search="minify javascript terser in the browser, with optional name mangling. js javascript minify compress terser uglify minify-javascript"><b>Minify JavaScript</b><span>Terser in the browser, with optional name mangling.</span></a>
+      <a class="card" href="../change-case/" data-search="change letter case uppercase, lowercase, title case, camelcase, snake_case and more. uppercase lowercase camelcase snakecase kebabcase title convert text change-case"><b>Change letter case</b><span>UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.</span></a>
+      <a class="card" href="../sort-lines/" data-search="sort and clean up lines sort, drop duplicates and blanks, number or reverse a list. sort lines duplicates dedupe list alphabetical number clean sort-lines"><b>Sort and clean up lines</b><span>Sort, drop duplicates and blanks, number or reverse a list.</span></a>
+      <a class="card" href="../url-encode/" data-search="url encode and decode percent-encoding, for whole addresses or for a single parameter. url encode decode percent escape address parameter query url-encode"><b>URL encode and decode</b><span>Percent-encoding, for whole addresses or for a single parameter.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "text-count","slug": "word-counter","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

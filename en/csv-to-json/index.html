@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CSV to JSON online, in your browser — WebTools</title>
+<meta name="description" content="Turn a table into a list of JSON objects, with the headers as field names. The separator is detected from the first line, but you can force it if detection…">
+<link rel="canonical" href="http://localhost:5180/en/csv-to-json/">
+<link rel="alternate" hreflang="ca" href="http://localhost:5180/csv-a-json/">
+<link rel="alternate" hreflang="es" href="http://localhost:5180/es/csv-a-json/">
+<link rel="alternate" hreflang="en" href="http://localhost:5180/en/csv-to-json/">
+<link rel="alternate" hreflang="x-default" href="http://localhost:5180/csv-a-json/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="CSV to JSON online, in your browser — WebTools">
+<meta property="og:description" content="Turn a table into a list of JSON objects, with the headers as field names. The separator is detected from the first line, but you can force it if detection…">
+<meta property="og:url" content="http://localhost:5180/en/csv-to-json/">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="../../assets/styles.css">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#161922" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "http://localhost:5180/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "CSV to JSON",
+          "item": "http://localhost:5180/en/csv-to-json/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "CSV to JSON",
+      "url": "http://localhost:5180/en/csv-to-json/",
+      "description": "Turn a table into a list of JSON objects, with the headers as field names. The separator is detected from the first line, but you can force it if detection…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does converting numbers and booleans do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Without it everything comes out as quoted text. With it, “42” becomes the number 42 and “true” the boolean. Values that look numeric but are not — a postcode with a leading zero — are left as text."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My CSV has no headers.",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Untick the box. Each row comes out as a list of values instead of an object with field names."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if two columns share a name?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The second wins, because a JSON object cannot have two identical keys. Rename one of the columns before converting."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../csv-a-json/" hreflang="ca">Català</a><a class="lang" href="../../es/csv-a-json/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Data</nav>
+  <header class="tool-head">
+    <h1>CSV to JSON</h1>
+    <p>Detects the separator, respects quotes and types the values.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>Turn a table into a list of JSON objects, with the headers as field names. The separator is detected from the first line, but you can force it if detection goes wrong.</p>
+    <p>The reader follows RFC 4180: it respects quotes, doubled quotes inside a value, and line breaks in the middle of a quoted field.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Paste the CSV or open the file.</li>
+      <li>Check that the separator and the header box are right.</li>
+      <li>Copy the JSON or download it.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>What does converting numbers and booleans do?</dt>
+      <dd>Without it everything comes out as quoted text. With it, “42” becomes the number 42 and “true” the boolean. Values that look numeric but are not — a postcode with a leading zero — are left as text.</dd>
+      <dt>My CSV has no headers.</dt>
+      <dd>Untick the box. Each row comes out as a list of values instead of an object with field names.</dd>
+      <dt>What if two columns share a name?</dt>
+      <dd>The second wins, because a JSON object cannot have two identical keys. Rename one of the columns before converting.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../json-to-csv/" data-search="json to csv an array of objects into a table, flattening nested objects. json csv table excel export convert json-to-csv"><b>JSON to CSV</b><span>An array of objects into a table, flattening nested objects.</span></a>
+      <a class="card" href="../json-to-yaml/" data-search="json to yaml a straight conversion that keeps the key order. json yaml yml convert configuration json-to-yaml"><b>JSON to YAML</b><span>A straight conversion that keeps the key order.</span></a>
+      <a class="card" href="../yaml-to-json/" data-search="yaml to json takes files with several documents in them. yaml yml json convert configuration yaml-to-json"><b>YAML to JSON</b><span>Takes files with several documents in them.</span></a>
+      <a class="card" href="../format-json/" data-search="format and validate json indent, minify or sort keys, and get the error’s line and column. json format validate pretty print minify sort keys format-json"><b>Format and validate JSON</b><span>Indent, minify or sort keys, and get the error’s line and column.</span></a>
+      <a class="card" href="../decode-jwt/" data-search="decode a jwt header, payload and expiry. the signature is not verified. jwt token jose decode auth bearer decode-jwt"><b>Decode a JWT</b><span>Header, payload and expiry. The signature is not verified.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "csv-to-json","slug": "csv-to-json","lang": "en"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>
