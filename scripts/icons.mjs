@@ -249,20 +249,30 @@ export function encodeIco(sizes = ICO_SIZES) {
 
 export const ICO_FILE = 'favicon.ico';
 
-/** Every icon file the manifest and the page heads point at. */
+/**
+ * Every icon file the manifest and the page heads point at.
+ *
+ * Sota assets/ i no a icons/ a l'arrel, i no es cap manic: l'Apache del Plesk
+ * porta actiu l'alies classic `Alias /icons/ "/usr/share/apache2/icons/"` per
+ * als llistats de directori, o sigui que /icons/ mai no arriba al docroot.
+ * Els fitxers hi eren, pujats i tot, i cada URL donava 404 —i sense un icon de
+ * 192 i un de 512 que es puguin baixar, el Chrome no considera el lloc
+ * instal·lable i no dispara mai beforeinstallprompt. Comprovat: /icons/back.gif
+ * servia una icona del sistema. No els tornis a moure alla.
+ */
 export const ICON_FILES = [
-  { file: 'icons/icon-192.png', size: 192, opts: {} },
-  { file: 'icons/icon-512.png', size: 512, opts: {} },
-  { file: 'icons/maskable-512.png', size: 512, opts: { maskable: true, opaque: true } },
-  { file: 'icons/apple-touch-icon.png', size: 180, opts: { opaque: true } },
+  { file: 'assets/icons/icon-192.png', size: 192, opts: {} },
+  { file: 'assets/icons/icon-512.png', size: 512, opts: {} },
+  { file: 'assets/icons/maskable-512.png', size: 512, opts: { maskable: true, opaque: true } },
+  { file: 'assets/icons/apple-touch-icon.png', size: 180, opts: { opaque: true } },
 ];
 
-export const OG_FILE = 'icons/og.png';
+export const OG_FILE = 'assets/icons/og.png';
 
 export function buildIcons() {
   return [
     ...ICON_FILES.map(({ file, size, opts }) => ({ file, data: encodePng(size, renderIcon(size, opts)) })),
-    { file: 'icons/icon.svg', data: Buffer.from(renderSvg(), 'utf8') },
+    { file: 'assets/icons/icon.svg', data: Buffer.from(renderSvg(), 'utf8') },
     { file: ICO_FILE, data: encodeIco() },
     { file: OG_FILE, data: encodePng(OG_WIDTH, renderOgCard(), OG_HEIGHT) },
   ];

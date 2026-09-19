@@ -1,5 +1,5 @@
 // Generat per scripts/build-pages.mjs. No l'editis.
-const VERSION = 'fc312b674127';
+const VERSION = '4499905d1be4';
 const SHELL_CACHE = 'webtools-shell-' + VERSION;
 const LIB_CACHE = 'webtools-vendor-v1';
 const SHELL = [
@@ -14,13 +14,13 @@ const SHELL = [
   "assets/fonts/play-700-latin-ext.woff2",
   "assets/fonts/play-700-latin.woff2",
   "manifest.webmanifest",
-  "icons/icon.svg",
+  "assets/icons/icon.svg",
   "favicon.ico",
-  "icons/icon-192.png",
-  "icons/icon-512.png",
-  "icons/maskable-512.png",
-  "icons/apple-touch-icon.png",
-  "icons/og.png",
+  "assets/icons/icon-192.png",
+  "assets/icons/icon-512.png",
+  "assets/icons/maskable-512.png",
+  "assets/icons/apple-touch-icon.png",
+  "assets/icons/og.png",
   "i18n/ca.json",
   "i18n/es.json",
   "i18n/en.json",

@@ -204,8 +204,8 @@ ${hreflangs(alternates, pageId)}
 <link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/play-700-latin.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/google-sans-latin.woff2">
 <link rel="icon" href="${toRoot}${ICO_FILE}" sizes="32x32">
-<link rel="icon" href="${toRoot}icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="${toRoot}icons/apple-touch-icon.png">
+<link rel="icon" href="${toRoot}assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${toRoot}assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="${toLang}manifest.webmanifest">
 <!-- beforeinstallprompt no es repeteix: si quan arriba no hi ha ningu escoltant,
      s'ha perdut fins a la navegacio seguent. src/main.js es un modul diferit i a
@@ -461,10 +461,10 @@ function renderManifest(allPages, locale) {
     theme_color: '#f6f3ec',
     categories: ['utilities', 'productivity', 'photo'],
     icons: [
-      { src: `${locale.dir ? '../' : './'}icons/icon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
-      { src: `${locale.dir ? '../' : './'}icons/icon-192.png`, sizes: '192x192', type: 'image/png', purpose: 'any' },
-      { src: `${locale.dir ? '../' : './'}icons/icon-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any' },
-      { src: `${locale.dir ? '../' : './'}icons/maskable-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+      { src: `${locale.dir ? '../' : './'}assets/icons/icon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
+      { src: `${locale.dir ? '../' : './'}assets/icons/icon-192.png`, sizes: '192x192', type: 'image/png', purpose: 'any' },
+      { src: `${locale.dir ? '../' : './'}assets/icons/icon-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any' },
+      { src: `${locale.dir ? '../' : './'}assets/icons/maskable-512.png`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
     shortcuts: ['image-compress', 'png-a-webp', 'pdf-merge', 'json-format'].map(shortcut).filter(Boolean),
     file_handlers: [
@@ -573,7 +573,7 @@ async function renderServiceWorker(out, editions) {
     'assets/styles.css',
     ...(await fontFiles(out)).map((f) => `assets/fonts/${f}`),
     'manifest.webmanifest',
-    'icons/icon.svg',
+    'assets/icons/icon.svg',
     ICO_FILE,
     ...ICON_FILES.map((i) => i.file),
     OG_FILE,
@@ -763,8 +763,13 @@ export async function buildPages({ out = ROOT, site = SITE_BASE.url, quiet = fal
     }
   }
 
-  await mkdir(join(out, 'icons'), { recursive: true });
-  for (const icon of buildIcons()) await writeFile(join(out, icon.file), icon.data);
+  // La carpeta surt del camí de cada fitxer i no d'una constant: així tornar a
+  // moure les icones no torna a trencar la construcció.
+  for (const icon of buildIcons()) {
+    const target = join(out, icon.file);
+    await mkdir(dirname(target), { recursive: true });
+    await writeFile(target, icon.data);
+  }
 
   await mkdir(join(out, 'i18n'), { recursive: true });
   for (const locale of LOCALES) {
