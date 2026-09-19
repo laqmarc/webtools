@@ -37,21 +37,27 @@ if (themeBtn) {
 // Chrome hides the install affordance in the address bar, where most people
 // never look, so the button offers it once the browser says the app qualifies.
 // There is nothing to show on iOS or in an already-installed window.
+//
+// L'esdeveniment no s'espera aqui: quan arriba, aquest modul encara esta
+// esperant les traduccions, i beforeinstallprompt no es torna a disparar. El
+// guarda un script del <head> a window.__installPrompt i avisa amb
+// 'webtools:installable'; aqui nomes cal mirar si ja hi es i escoltar l'avis.
 const installBtn = document.getElementById('install');
 if (installBtn) {
-  let prompt = null;
-  addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    prompt = e;
+  const offer = () => {
+    if (!window.__installPrompt) return;
     installBtn.hidden = matchMedia('(display-mode: standalone)').matches;
-  });
-  addEventListener('appinstalled', () => { installBtn.hidden = true; prompt = null; });
+  };
+  offer();
+  addEventListener('webtools:installable', offer);
+  addEventListener('appinstalled', () => { installBtn.hidden = true; });
   installBtn.onclick = async () => {
+    const prompt = window.__installPrompt;
     if (!prompt) return;
     installBtn.disabled = true;
     await prompt.prompt();
     const { outcome } = await prompt.userChoice;
-    prompt = null;
+    window.__installPrompt = null;
     installBtn.disabled = false;
     if (outcome === 'accepted') installBtn.hidden = true;
   };

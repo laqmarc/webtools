@@ -32,6 +32,11 @@
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
+<!-- beforeinstallprompt no es repeteix: si quan arriba no hi ha ningu escoltant,
+     s'ha perdut fins a la navegacio seguent. src/main.js es un modul diferit i a
+     mes espera les traduccions abans d'arribar-hi, o sigui que pot trigar mes
+     d'un segon a estar-hi a temps. Aixo nomes el guarda; el boto el fa servir. -->
+<script>window.__installPrompt=null;addEventListener('beforeinstallprompt',function(e){e.preventDefault();window.__installPrompt=e;dispatchEvent(new Event('webtools:installable'))});addEventListener('appinstalled',function(){window.__installPrompt=null});</script>
 <meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
 <meta name="apple-mobile-web-app-capable" content="yes">

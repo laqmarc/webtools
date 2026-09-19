@@ -1,5 +1,5 @@
 // Generat per scripts/build-pages.mjs. No l'editis.
-const VERSION = '9a67d9379ac0';
+const VERSION = 'fc312b674127';
 const SHELL_CACHE = 'webtools-shell-' + VERSION;
 const LIB_CACHE = 'webtools-vendor-v1';
 const SHELL = [
