@@ -11,7 +11,7 @@
 import { h, clear } from '../core/dom.js';
 import { formatBytes, downloadBlob, downloadZip } from '../core/files.js';
 import { dropzone } from './dropzone.js';
-import { t } from '../i18n.js';
+import { t, tn } from '../i18n.js';
 
 // Built on mount, not at import: the language file has not arrived yet when
 // this module is first evaluated.
@@ -49,7 +49,7 @@ export function mount(root) {
     label: t('crop.drop'),
     hint: t('crop.dropHint'),
     onFiles: addFiles,
-    onRejected: (bad) => note('err', t('crop.notImages', { n: bad.length })),
+    onRejected: (bad) => note('err', tn('crop.notImages', bad.length)),
   });
 
   async function addFiles(files) {
@@ -248,7 +248,7 @@ export function mount(root) {
       if (outputs.length === 1) downloadBlob(outputs[0].blob, outputs[0].name);
       else await downloadZip(outputs, 'retallades.zip');
       const total = outputs.reduce((n, o) => n + o.blob.size, 0);
-      note('ok', t('crop.done', { n: outputs.length, size: formatBytes(total) }));
+      note('ok', tn('crop.done', outputs.length, { size: formatBytes(total) }));
     } catch (e) {
       note('err', e.message);
     } finally {

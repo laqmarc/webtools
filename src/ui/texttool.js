@@ -50,6 +50,23 @@ export function mountTextTool(root, tool, mod) {
   }
   const schedule = debounce(go, 250);
 
+  // Una eina de fitxers ens hi ha enviat el resultat: el primer fitxer entra
+  // com a text. La resta no hi cabrien, i encadenar cap a un formatador de
+  // JSON amb vint fitxers no és el que ningú volia dir.
+  (async () => {
+    let q;
+    try { q = new URLSearchParams(location.search); } catch { return; }
+    const from = q.get('from');
+    if (!from) return;
+    q.delete('from');
+    const rest = q.toString();
+    try { history.replaceState(history.state, '', location.pathname + (rest ? `?${rest}` : '')); } catch { /* ignore */ }
+    const [first] = await (await import('../core/handoff.js')).claim(from);
+    if (!first) return;
+    input.value = await first.text();
+    go();
+  })();
+
   // Amb h() els nuls desapareixen; amb append() s'escriuen tal qual, i una
   // eina sense opcions es quedava amb un «null» de text a sobre.
   root.append(...[

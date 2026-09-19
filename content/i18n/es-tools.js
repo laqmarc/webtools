@@ -176,6 +176,64 @@ export const TOOLS = {
     },
   },
 
+  'svg-to-pdf': {
+    slug: 'svg-a-pdf',
+    title: 'SVG a PDF',
+    desc: 'Un PDF de una página al tamaño real del dibujo.',
+    keywords: 'svg pdf imprimir vectorial página exportar',
+    params: {
+      dpi: { label: 'Resolución', hint: 'El dibujo se rasteriza: más resolución, más peso y más detalle.', unit: ' ppp' },
+      transparent: { label: 'Fondo transparente' },
+      background: { label: 'Color de fondo' },
+    },
+  },
+  'svg-to-css': {
+    slug: 'svg-a-css',
+    title: 'SVG a CSS',
+    desc: 'El dibujo dentro de un data URI, sin ninguna petición de más.',
+    keywords: 'svg css data uri base64 background incrustar inline',
+    params: {
+      mode: {
+        label: 'Qué quieres',
+        options: {
+          css: 'Regla CSS con background-image',
+          var: 'Variable CSS',
+          img: 'Etiqueta <img>',
+          uri: 'Solo el data URI',
+        },
+      },
+    },
+  },
+  'svg-sprite': {
+    slug: 'sprite-svg',
+    title: 'Sprite SVG',
+    desc: 'Todo un juego de iconos en un solo archivo, para usarlo con <use>.',
+    keywords: 'sprite svg symbol use iconos juego combinar',
+    params: {
+      prefix: { label: 'Prefijo de los identificadores', hint: 'Déjalo vacío para usar solo el nombre del archivo.' },
+      currentColor: { label: 'Colores a currentColor', hint: 'Así el color lo decide el CSS que los use.' },
+      hidden: { label: 'Oculto, para ponerlo al principio del <body>' },
+    },
+  },
+  'svg-recolour': {
+    slug: 'recolorear-svg',
+    title: 'Recolorear SVG',
+    desc: 'Cambia los colores de un juego entero sin abrirlos uno a uno.',
+    keywords: 'svg color recolorear tinte fill stroke currentcolor',
+    params: {
+      mode: {
+        label: 'Qué quieres cambiar',
+        options: {
+          all: 'Todos los colores, a uno solo',
+          one: 'Solo un color concreto',
+          current: 'Todos, a currentColor',
+        },
+      },
+      from: { label: 'Color que quieres cambiar' },
+      to: { label: 'Color nuevo' },
+    },
+  },
+
   // ---------------------------------------------------------------- pdf
   'pdf-compress': {
     slug: 'comprimir-pdf',

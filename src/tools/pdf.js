@@ -1,6 +1,6 @@
 import { pdfLib, fflate } from '../core/deps.js';
 import { baseName, formatBytes } from '../core/files.js';
-import { t as tr } from '../i18n.js';
+import { t as tr, tn as trn } from '../i18n.js';
 
 const PAGE_SIZES = { a4: [595.28, 841.89], letter: [612, 792], a3: [841.89, 1190.55], a5: [419.53, 595.28] };
 const MM = 72 / 25.4;
@@ -305,7 +305,7 @@ async function compress(input, p, ctx = {}) {
     return {
       name: input.name,
       blob: input.blob,
-      note: tr('note.pdfUnsafeImages', { n: entries.length }),
+      note: trn('note.pdfUnsafeImages', entries.length),
     };
   }
 

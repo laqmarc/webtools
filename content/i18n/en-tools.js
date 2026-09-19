@@ -172,6 +172,64 @@ export const TOOLS = {
     },
   },
 
+  'svg-to-pdf': {
+    slug: 'svg-to-pdf',
+    title: 'SVG to PDF',
+    desc: 'A one-page PDF at the drawing’s real size.',
+    keywords: 'svg pdf print vector page export',
+    params: {
+      dpi: { label: 'Resolution', hint: 'The drawing is rasterised: more resolution, more weight and more detail.', unit: ' dpi' },
+      transparent: { label: 'Transparent background' },
+      background: { label: 'Background colour' },
+    },
+  },
+  'svg-to-css': {
+    slug: 'svg-to-css',
+    title: 'SVG to CSS',
+    desc: 'The drawing inside a data URI, with no extra request.',
+    keywords: 'svg css data uri base64 background embed inline',
+    params: {
+      mode: {
+        label: 'What you want',
+        options: {
+          css: 'CSS rule with background-image',
+          var: 'CSS variable',
+          img: '<img> tag',
+          uri: 'Just the data URI',
+        },
+      },
+    },
+  },
+  'svg-sprite': {
+    slug: 'svg-sprite',
+    title: 'SVG sprite',
+    desc: 'A whole icon set in one file, ready for <use>.',
+    keywords: 'sprite svg symbol use icons set combine',
+    params: {
+      prefix: { label: 'Prefix for the ids', hint: 'Leave it empty to use the file name alone.' },
+      currentColor: { label: 'Colours to currentColor', hint: 'Then the CSS that uses them decides the colour.' },
+      hidden: { label: 'Hidden, to drop at the top of the <body>' },
+    },
+  },
+  'svg-recolour': {
+    slug: 'recolour-svg',
+    title: 'Recolour SVG',
+    desc: 'Change a whole set’s colours without opening them one by one.',
+    keywords: 'svg colour recolour tint fill stroke currentcolor',
+    params: {
+      mode: {
+        label: 'What to change',
+        options: {
+          all: 'Every colour, to a single one',
+          one: 'One particular colour only',
+          current: 'Everything, to currentColor',
+        },
+      },
+      from: { label: 'Colour to change' },
+      to: { label: 'New colour' },
+    },
+  },
+
   // ---------------------------------------------------------------- pdf
   'pdf-compress': {
     slug: 'compress-pdf',

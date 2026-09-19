@@ -1,5 +1,5 @@
 // Generat per scripts/build-pages.mjs. No l'editis.
-const VERSION = 'e5861d986bce';
+const VERSION = 'a5017992c3f9';
 const SHELL_CACHE = 'webtools-shell-' + VERSION;
 const LIB_CACHE = 'webtools-vendor-v1';
 const SHELL = [
@@ -19,12 +19,14 @@ const SHELL = [
   "icons/icon-512.png",
   "icons/maskable-512.png",
   "icons/apple-touch-icon.png",
+  "icons/og.png",
   "i18n/ca.json",
   "i18n/es.json",
   "i18n/en.json",
   "src/core/deps.js",
   "src/core/dom.js",
   "src/core/files.js",
+  "src/core/handoff.js",
   "src/core/pdfrender.js",
   "src/core/pool.js",
   "src/i18n.js",
@@ -42,8 +44,10 @@ const SHELL = [
   "src/ui/cropeditor.js",
   "src/ui/dropzone.js",
   "src/ui/filetool.js",
+  "src/ui/palette.js",
   "src/ui/params.js",
   "src/ui/pdforganize.js",
+  "src/ui/sendto.js",
   "src/ui/texttool.js",
   "src/workers/image.worker.js",
   "convertir-imatges/",
@@ -59,6 +63,10 @@ const SHELL = [
   "treure-el-fons/",
   "optimitzar-svg/",
   "svg-a-png/",
+  "svg-a-pdf/",
+  "svg-a-css/",
+  "sprite-svg/",
+  "recolorir-svg/",
   "comprimir-pdf/",
   "organitzar-pdf/",
   "pdf-a-imatges/",
@@ -125,6 +133,10 @@ const SHELL = [
   "es/quitar-el-fondo/",
   "es/optimizar-svg/",
   "es/svg-a-png/",
+  "es/svg-a-pdf/",
+  "es/svg-a-css/",
+  "es/sprite-svg/",
+  "es/recolorear-svg/",
   "es/comprimir-pdf/",
   "es/organizar-pdf/",
   "es/pdf-a-imagenes/",
@@ -191,6 +203,10 @@ const SHELL = [
   "en/remove-background/",
   "en/optimise-svg/",
   "en/svg-to-png/",
+  "en/svg-to-pdf/",
+  "en/svg-to-css/",
+  "en/svg-sprite/",
+  "en/recolour-svg/",
   "en/compress-pdf/",
   "en/organise-pdf-pages/",
   "en/pdf-to-images/",
@@ -268,8 +284,65 @@ self.addEventListener('message', (e) => {
   }
 });
 
+// Compartir des del sistema. Android envia un POST amb multipart/form-data a
+// l'adreça que diu el manifest; això no és una pàgina, és un lliurament. Els
+// fitxers van a la mateixa taula d'IndexedDB que fa servir «envia-ho a una
+// altra eina», i el navegador acaba a la portada amb ?from=, que ja sap
+// recollir-los i preguntar on van.
+const HANDOFF_DB = 'webtools';
+const HANDOFF_STORE = 'handoff';
+
+function stashShared(files) {
+  return new Promise((resolve) => {
+    const id = Math.random().toString(36).slice(2, 8) + Date.now().toString(36).slice(-3);
+    let req;
+    try { req = indexedDB.open(HANDOFF_DB, 1); } catch { resolve(null); return; }
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(HANDOFF_STORE)) {
+        req.result.createObjectStore(HANDOFF_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onerror = () => resolve(null);
+    req.onsuccess = () => {
+      const db = req.result;
+      const tx = db.transaction(HANDOFF_STORE, 'readwrite');
+      tx.objectStore(HANDOFF_STORE).put({
+        id,
+        at: Date.now(),
+        files: files.map((f) => ({ name: f.name || 'compartit', blob: f })),
+      });
+      tx.oncomplete = () => { db.close(); resolve(id); };
+      tx.onerror = () => { db.close(); resolve(null); };
+    };
+  });
+}
+
+async function receiveShare(e, url) {
+  const home = url.pathname.replace(/share-target\/?$/, '');
+  try {
+    const form = await e.request.formData();
+    const files = form.getAll('files').filter((f) => f && typeof f === 'object' && 'size' in f);
+    // Compartir un enllaç o un tros de text també és compartir: entra com a
+    // fitxer de text i les eines de text l'accepten igual.
+    const words = [form.get('text'), form.get('url')].filter(Boolean).join('\n').trim();
+    if (!files.length && words) {
+      files.push(new File([words], 'compartit.txt', { type: 'text/plain' }));
+    }
+    const id = files.length ? await stashShared(files) : null;
+    return Response.redirect(id ? home + '?from=' + id : home, 303);
+  } catch {
+    return Response.redirect(home, 303);
+  }
+}
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
+  const shared = new URL(req.url);
+  if (req.method === 'POST' && shared.origin === self.location.origin
+      && /\/share-target\/?$/.test(shared.pathname)) {
+    e.respondWith(receiveShare(e, shared));
+    return;
+  }
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;

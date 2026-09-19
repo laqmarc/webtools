@@ -3,6 +3,63 @@ import { t } from '../i18n.js';
 
 const KEY = (id) => `webtools:params:${id}`;
 
+// Claus que la pàgina ja fa servir per a altres coses i que no són mai un
+// paràmetre d'eina.
+const RESERVED = new Set(['q', 'sw', 'from', 'share']);
+
+/** Una cadena de l'URL, convertida al tipus que el camp espera. */
+function coerce(field, raw) {
+  if (field.type === 'checkbox') {
+    if (/^(1|true|si|sí|yes|on)$/i.test(raw)) return true;
+    if (/^(0|false|no|off)$/i.test(raw)) return false;
+    return null;
+  }
+  if (field.type === 'range' || field.type === 'number') {
+    const n = Number(raw);
+    return Number.isFinite(n) ? clamp(n, field) : null;
+  }
+  if (field.type === 'select') {
+    return field.options?.some((o) => String(o.v) === raw) ? raw : null;
+  }
+  return raw;
+}
+
+/**
+ * El que digui l'URL guanya. Serveix per compartir una configuració sencera
+ * per xat i per aterrar amb l'eina ja parada on toca, que és mig ús de les
+ * pàgines de variant.
+ */
+function fromUrl(schema, lock) {
+  const out = {};
+  let q;
+  try { q = new URLSearchParams(location.search); } catch { return out; }
+  for (const f of schema) {
+    if (lock.includes(f.key) || RESERVED.has(f.key) || !q.has(f.key)) continue;
+    const v = coerce(f, q.get(f.key));
+    if (v !== null) out[f.key] = v;
+  }
+  return out;
+}
+
+/**
+ * Deixa a la barra d'adreces només el que s'aparta del valor per defecte.
+ * Amb els setze paràmetres d'algunes eines, escriure'ls tots faria un URL
+ * que ningú enganxaria enlloc.
+ */
+function toUrl(schema, values, preset, lock) {
+  let q;
+  try { q = new URLSearchParams(location.search); } catch { return; }
+  const base = defaults(schema, preset);
+  for (const f of schema) {
+    if (lock.includes(f.key) || RESERVED.has(f.key)) continue;
+    if (values[f.key] === base[f.key]) q.delete(f.key);
+    else q.set(f.key, String(values[f.key]));
+  }
+  const search = q.toString();
+  const url = location.pathname + (search ? `?${search}` : '') + location.hash;
+  try { history.replaceState(history.state, '', url); } catch { /* file:// */ }
+}
+
 /** Defaults, with a landing page's presets replacing them where given. */
 function defaults(schema, preset) {
   return Object.fromEntries(schema.map((f) => [f.key, f.key in preset ? preset[f.key] : f.def]));
@@ -17,7 +74,9 @@ function load(storeKey, schema, preset, lock) {
       if (f.key in saved && typeof saved[f.key] === typeof f.def) values[f.key] = saved[f.key];
     }
   } catch { /* corrupt or unavailable storage: defaults are fine */ }
-  return values;
+  // Per damunt de tot: un enllaç compartit ha d'ensenyar el mateix a tothom,
+  // tinguin el que tinguin desat de l'última vegada.
+  return Object.assign(values, fromUrl(schema, lock));
 }
 
 /**
@@ -34,6 +93,7 @@ export function paramsForm(storeKey, schema, onChange, { preset = {}, lock = [],
 
   const persist = () => {
     try { localStorage.setItem(KEY(storeKey), JSON.stringify(values)); } catch { /* private mode */ }
+    toUrl(schema, values, preset, lock);
   };
 
   const refresh = () => {
@@ -93,6 +153,7 @@ export function paramsForm(storeKey, schema, onChange, { preset = {}, lock = [],
       const base = defaults(schema, preset);
       Object.assign(values, base);
       try { localStorage.removeItem(KEY(storeKey)); } catch { /* ignore */ }
+      toUrl(schema, base, preset, lock);
       for (const f of shown) {
         const input = rows.get(f.key).querySelector('input, select, textarea');
         if (!input) continue;

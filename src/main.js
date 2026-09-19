@@ -57,6 +57,12 @@ if (installBtn) {
   };
 }
 
+// -------------------------------------------------------------- palette
+// Ctrl+K des de qualsevol pàgina. La caixa de la barra només filtra a la
+// portada; fora d'allà, tocar-la obre la paleta en comptes de fer-te
+// navegar i tornar a començar.
+const palette = (await import('./ui/palette.js')).mountPalette(PAGE.home || './');
+
 // ---------------------------------------------------------------- search
 const searchBox = document.getElementById('search');
 if (searchBox) {
@@ -65,12 +71,16 @@ if (searchBox) {
   const cards = [...document.querySelectorAll('.card[data-search]')];
   const empty = document.getElementById('no-results');
 
+  if (!cards.length) {
+    searchBox.title = t('palette.open');
+    searchBox.readOnly = true; // que ningú escrigui en una caixa que no filtra res
+    searchBox.addEventListener('focus', () => { searchBox.blur(); palette.show(); });
+    searchBox.addEventListener('click', () => palette.show());
+  }
+
   const filter = debounce(() => {
     const q = searchBox.value.trim().toLowerCase();
-    if (!cards.length) {
-      if (q) location.href = `${searchBox.dataset.home || '../'}?q=${encodeURIComponent(q)}`;
-      return;
-    }
+    if (!cards.length) return;
     const words = q.split(/\s+/).filter(Boolean);
     let shown = 0;
     for (const card of cards) {
@@ -98,9 +108,28 @@ if (searchBox) {
   addEventListener('keydown', (e) => {
     if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName)) {
       e.preventDefault();
-      searchBox.focus();
+      if (cards.length) searchBox.focus();
+      else palette.show();
     }
   });
+}
+
+// ------------------------------------------------------- shared with us
+// Arribem d'un «Compartir → WebTools» del sistema, o d'un «envia-ho a una
+// altra eina» que apuntava a la portada. Els fitxers ja són desats; només
+// falta preguntar què n'hem de fer.
+if (PAGE.kind === 'home' && new URLSearchParams(location.search).has('from')) {
+  (async () => {
+    const q = new URLSearchParams(location.search);
+    const id = q.get('from');
+    q.delete('from');
+    const rest = q.toString();
+    try { history.replaceState(history.state, '', location.pathname + (rest ? `?${rest}` : '')); } catch { /* ignore */ }
+    const files = await (await import('./core/handoff.js')).claim(id);
+    if (!files.length) return;
+    const { sendTo } = await import('./ui/sendto.js');
+    sendTo(files.map((f) => ({ name: f.name, blob: f })), { home: PAGE.home || './' });
+  })();
 }
 
 // --------------------------------------------------- old hash bookmarks

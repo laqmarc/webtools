@@ -292,6 +292,71 @@ export const TOOLS = [
     ],
   },
 
+  {
+    id: 'svg-to-pdf', slug: 'svg-a-pdf', area: 'vector', kind: 'file', load: VECTOR,
+    title: 'SVG a PDF',
+    desc: 'Un PDF d’una pàgina a la mida real del dibuix.',
+    keywords: 'svg pdf imprimir vectorial pàgina exportar',
+    accepts: ['.svg', 'image/svg+xml'],
+    params: [
+      { key: 'dpi', label: 'Resolució', type: 'range', min: 72, max: 600, step: 12, def: 150, unit: ' ppp',
+        hint: 'El dibuix es rasteritza: més resolució, més pes i més detall.' },
+      { key: 'transparent', label: 'Fons transparent', type: 'checkbox', def: false },
+      { key: 'background', label: 'Color de fons', type: 'color', def: '#ffffff', showIf: (p) => !p.transparent },
+    ],
+  },
+  {
+    id: 'svg-to-css', slug: 'svg-a-css', area: 'vector', kind: 'file', load: VECTOR,
+    title: 'SVG a CSS',
+    desc: 'El dibuix dins d’un data URI, sense cap petició de més.',
+    keywords: 'svg css data uri base64 background incrustar inline',
+    accepts: ['.svg', 'image/svg+xml'],
+    params: [
+      {
+        key: 'mode', label: 'Què en vols', type: 'select', def: 'css',
+        options: [
+          { v: 'css', t: 'Regla CSS amb background-image' },
+          { v: 'var', t: 'Variable CSS' },
+          { v: 'img', t: 'Etiqueta <img>' },
+          { v: 'uri', t: 'Només el data URI' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'svg-sprite', slug: 'sprite-svg', area: 'vector', kind: 'file', load: VECTOR, aggregate: true,
+    title: 'Sprite SVG',
+    desc: 'Tot un joc d’icones en un sol fitxer, per fer-lo servir amb <use>.',
+    keywords: 'sprite svg symbol use icones joc combinar',
+    accepts: ['.svg', 'image/svg+xml'],
+    params: [
+      { key: 'prefix', label: 'Prefix dels identificadors', type: 'text', def: 'icona',
+        hint: 'Deixa-ho buit per fer servir només el nom del fitxer.' },
+      { key: 'currentColor', label: 'Colors a currentColor', type: 'checkbox', def: true,
+        hint: 'Així el color el decideix el CSS que les faci servir.' },
+      { key: 'hidden', label: 'Amagat, per posar-lo al principi del <body>', type: 'checkbox', def: true },
+    ],
+  },
+  {
+    id: 'svg-recolour', slug: 'recolorir-svg', area: 'vector', kind: 'file', load: VECTOR,
+    title: 'Recolorir SVG',
+    desc: 'Canvia els colors d’un joc sencer sense obrir-los d’un en un.',
+    keywords: 'svg color recolorir tint fill stroke currentcolor',
+    accepts: ['.svg', 'image/svg+xml'],
+    params: [
+      {
+        key: 'mode', label: 'Què vols canviar', type: 'select', def: 'all',
+        options: [
+          { v: 'all', t: 'Tots els colors, a un de sol' },
+          { v: 'one', t: 'Només un color concret' },
+          { v: 'current', t: 'Tots, a currentColor' },
+        ],
+      },
+      { key: 'from', label: 'Color que vols canviar', type: 'color', def: '#000000', showIf: (p) => p.mode === 'one' },
+      { key: 'to', label: 'Color nou', type: 'color', def: '#b4451f', showIf: (p) => p.mode !== 'current' },
+    ],
+  },
+
   // -------------------------------------------------------------------- pdf
   {
     id: 'pdf-compress', slug: 'comprimir-pdf', area: 'pdf', kind: 'file', load: PDF,

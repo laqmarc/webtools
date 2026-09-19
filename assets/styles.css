@@ -964,6 +964,108 @@ pre.out {
   .diff .ln > i { padding: 0 .25rem; }
 }
 
+/* ======================================================== paleta d'ordres */
+
+.pal {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: grid;
+  grid-template-rows: auto;
+  align-content: start;
+  justify-items: center;
+  padding: clamp(.75rem, 8vh, 6rem) 1rem 1rem;
+  background: rgb(0 0 0 / .5);
+  backdrop-filter: blur(3px);
+}
+.pal[hidden] { display: none; }
+
+.pal-box {
+  display: flex;
+  flex-direction: column;
+  width: min(38rem, 100%);
+  max-height: min(34rem, 80dvh);
+  overflow: hidden;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+}
+
+.pal-input {
+  flex: none;
+  padding: .85rem 1.1rem;
+  font: inherit;
+  font-size: 1.02em;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+.pal-input:focus { outline: none; }
+.pal-input::placeholder { color: var(--fg-3); }
+
+.pal-list { flex: 1; overflow-y: auto; overscroll-behavior: contain; padding: .35rem; }
+
+/* La paleta les fa amb <a> i el menu d'encadenar amb <button>: sense
+   width i text-align explicits, el boto s'arronsa al seu contingut i se'l
+   centra, i la mateixa llista surt esglaonada en un lloc i recta a l'altre. */
+.pal-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0 .75rem;
+  width: 100%;
+  padding: .5rem .75rem;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+}
+.pal-item b { grid-area: 1 / 1; font: 700 .92rem/1.3 var(--display); }
+.pal-item span {
+  grid-area: 2 / 1;
+  overflow: hidden;
+  font-size: .8rem;
+  color: var(--fg-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pal-area {
+  grid-area: 1 / 2 / 3 / 3;
+  align-self: center;
+  font: 700 .64rem/1 var(--display);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--fg-3);
+  white-space: nowrap;
+}
+/* Una sola classe per al teclat i per al ratolí: el cursor de la llista és
+   l'estat, i el hover el mou en comptes de pintar-ne un segon de diferent. */
+.pal-item.on { background: var(--accent); color: var(--accent-fg); }
+.pal-item.on span, .pal-item.on .pal-area { color: inherit; opacity: .85; }
+
+.pal-empty { margin: 0; padding: 1.5rem .75rem; color: var(--fg-2); text-align: center; }
+
+.pal-hint {
+  flex: none;
+  padding: .5rem 1.1rem;
+  font-size: .72rem;
+  color: var(--fg-3);
+  background: var(--bg-3);
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 34rem) {
+  .pal { padding: 0; }
+  .pal-box { width: 100%; max-height: 100dvh; height: 100dvh; border: 0; border-radius: 0; }
+  .pal-hint { display: none; }
+  .pal-item { grid-template-columns: minmax(0, 1fr); }
+  .pal-area { grid-area: 3 / 1; justify-self: start; margin-top: .15rem; }
+}
+
 /* ============================================================ abans/després */
 
 .cmp {

@@ -57,6 +57,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://webtools.quexulo.cat/svg-a-pdf/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/svg-a-css/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/sprite-svg/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/recolorir-svg/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://webtools.quexulo.cat/comprimir-pdf/</loc>
     <priority>0.8</priority>
   </url>
@@ -317,6 +333,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://webtools.quexulo.cat/es/svg-a-pdf/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/es/svg-a-css/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/es/sprite-svg/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/es/recolorear-svg/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://webtools.quexulo.cat/es/comprimir-pdf/</loc>
     <priority>0.8</priority>
   </url>
@@ -574,6 +606,22 @@
   </url>
   <url>
     <loc>https://webtools.quexulo.cat/en/svg-to-png/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/en/svg-to-pdf/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/en/svg-to-css/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/en/svg-sprite/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://webtools.quexulo.cat/en/recolour-svg/</loc>
     <priority>0.8</priority>
   </url>
   <url>

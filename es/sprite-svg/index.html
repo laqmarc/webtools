@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprite SVG en línea, en el navegador — WebTools</title>
+<meta name="description" content="Veinte iconos son veinte peticiones, y al navegador cada una le cuesta más de lo que pesa. Un sprite los pone todos en un solo archivo como &lt;symbol&gt;, y luego…">
+<link rel="canonical" href="https://webtools.quexulo.cat/es/sprite-svg/">
+<link rel="alternate" hreflang="ca" href="https://webtools.quexulo.cat/sprite-svg/">
+<link rel="alternate" hreflang="es" href="https://webtools.quexulo.cat/es/sprite-svg/">
+<link rel="alternate" hreflang="en" href="https://webtools.quexulo.cat/en/svg-sprite/">
+<link rel="alternate" hreflang="x-default" href="https://webtools.quexulo.cat/sprite-svg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Sprite SVG en línea, en el navegador — WebTools">
+<meta property="og:description" content="Veinte iconos son veinte peticiones, y al navegador cada una le cuesta más de lo que pesa. Un sprite los pone todos en un solo archivo como &lt;symbol&gt;, y luego…">
+<meta property="og:url" content="https://webtools.quexulo.cat/es/sprite-svg/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:image" content="https://webtools.quexulo.cat/icons/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WebTools">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/styles.css">
+<!-- Les dues cares que surten a tot arreu. El navegador no les descobriria
+     fins a haver llegit el CSS, i el titular apareixeria un instant amb la
+     serif del sistema. Els subconjunts latin-ext els demana només qui els
+     necessita, via unicode-range. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../assets/fonts/play-700-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../assets/fonts/google-sans-latin.woff2">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "https://webtools.quexulo.cat/es/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sprite SVG",
+          "item": "https://webtools.quexulo.cat/es/sprite-svg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Sprite SVG",
+      "url": "https://webtools.quexulo.cat/es/sprite-svg/",
+      "description": "Veinte iconos son veinte peticiones, y al navegador cada una le cuesta más de lo que pesa. Un sprite los pone todos en un solo archivo como \u003csymbol>, y luego…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "es",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cómo lo uso?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pega el contenido al principio del \u003cbody> y luego llama a cada icono con \u003csvg>\u003cuse href=\"#su-id\">\u003c/use>\u003c/svg>. Si lo dejas como archivo aparte, la referencia tiene que ser sprite.svg#su-id."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿De dónde salen los identificadores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Del nombre de cada archivo, en minúsculas y con guiones, con el prefijo delante. Si dos archivos acaban con el mismo nombre, al segundo se le añade un número."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué mis iconos salen negros?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque con currentColor marcado heredan el color del texto. Pónles un color en el CSS de quien los usa, o desmarca la opción para conservar los colores originales."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Busca una herramienta…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><a class="lang" href="../../sprite-svg/" hreflang="ca">Català</a><span class="lang on" aria-current="true">Español</span><a class="lang" href="../../en/svg-sprite/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instalar</button>
+  <button id="theme" class="icon-btn" title="Cambia el tema" aria-label="Cambia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Todas las herramientas</a> / Imagen vectorial</nav>
+  <header class="tool-head">
+    <h1>Sprite SVG</h1>
+    <p>Todo un juego de iconos en un solo archivo, para usarlo con &lt;use&gt;.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Esta herramienta necesita JavaScript, porque es tu navegador quien procesa los archivos: no hay ningún servidor que pueda hacerlo en su lugar.</div></noscript>
+  <article class="prose">
+    <p>Veinte iconos son veinte peticiones, y al navegador cada una le cuesta más de lo que pesa. Un sprite los pone todos en un solo archivo como &lt;symbol&gt;, y luego cada uno se usa con &lt;use href=&quot;#icono-flecha&quot;&gt;.</p>
+    <p>De paso, si dejas marcada la opción de currentColor, los colores de dentro desaparecen y el color lo decide el CSS que los muestre: el mismo icono sirve para un botón claro y para uno oscuro sin duplicarlo.</p>
+    <h2>Cómo se usa</h2>
+    <ol>
+      <li>Deja aquí todos los iconos a la vez.</li>
+      <li>Ponle un prefijo si quieres que los identificadores no choquen con nada.</li>
+      <li>Procesa: sale un solo sprite.svg.</li>
+    </ol>
+    <h2>Preguntas frecuentes</h2>
+    <dl class="faq">
+      <dt>¿Cómo lo uso?</dt>
+      <dd>Pega el contenido al principio del &lt;body&gt; y luego llama a cada icono con &lt;svg&gt;&lt;use href=&quot;#su-id&quot;&gt;&lt;/use&gt;&lt;/svg&gt;. Si lo dejas como archivo aparte, la referencia tiene que ser sprite.svg#su-id.</dd>
+      <dt>¿De dónde salen los identificadores?</dt>
+      <dd>Del nombre de cada archivo, en minúsculas y con guiones, con el prefijo delante. Si dos archivos acaban con el mismo nombre, al segundo se le añade un número.</dd>
+      <dt>¿Por qué mis iconos salen negros?</dt>
+      <dd>Porque con currentColor marcado heredan el color del texto. Pónles un color en el CSS de quien los usa, o desmarca la opción para conservar los colores originales.</dd>
+    </dl>
+    <h2>Herramientas relacionadas</h2>
+    <div class="grid">
+      <a class="card" href="../optimizar-svg/" data-search="optimizar svg svgo en el navegador: quita metadatos de editor y redondea trazados. svg optimizar svgo minificar vector limpiar optimizar-svg"><b>Optimizar SVG</b><span>SVGO en el navegador: quita metadatos de editor y redondea trazados.</span></a>
+      <a class="card" href="../svg-a-png/" data-search="svg a png rasteriza al tamaño que quieras, con fondo transparente o sólido. svg png rasterizar exportar bitmap webp svg-a-png"><b>SVG a PNG</b><span>Rasteriza al tamaño que quieras, con fondo transparente o sólido.</span></a>
+      <a class="card" href="../svg-a-pdf/" data-search="svg a pdf un pdf de una página al tamaño real del dibujo. svg pdf imprimir vectorial página exportar svg-a-pdf"><b>SVG a PDF</b><span>Un PDF de una página al tamaño real del dibujo.</span></a>
+      <a class="card" href="../svg-a-css/" data-search="svg a css el dibujo dentro de un data uri, sin ninguna petición de más. svg css data uri base64 background incrustar inline svg-a-css"><b>SVG a CSS</b><span>El dibujo dentro de un data URI, sin ninguna petición de más.</span></a>
+      <a class="card" href="../recolorear-svg/" data-search="recolorear svg cambia los colores de un juego entero sin abrirlos uno a uno. svg color recolorear tinte fill stroke currentcolor recolorear-svg"><b>Recolorear SVG</b><span>Cambia los colores de un juego entero sin abrirlos uno a uno.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>No se sube nada a ningún servidor.</strong> Todo el procesamiento ocurre dentro de esta pestaña.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-sprite","slug": "sprite-svg","lang": "es","home": "../"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

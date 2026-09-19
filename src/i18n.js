@@ -45,6 +45,17 @@ export function t(key, vars) {
   return s;
 }
 
+/**
+ * Com t(), però amb singular. Català, castellà i anglès comparteixen la
+ * mateixa regla —u contra tota la resta— així que amb dues formes n'hi ha
+ * prou i no cal arrossegar Intl.PluralRules per a «1 fitxer(s)».
+ */
+export function tn(key, n, vars) {
+  const one = `${key}.one`;
+  const pick = n === 1 && dict.ui?.[one] ? one : key;
+  return t(pick, { ...vars, n });
+}
+
 /** Shorthand for the overwhelmingly common `throw new Error(t(...))`. */
 export const fail = (key, vars) => {
   throw new Error(t(key, vars));
@@ -79,9 +90,19 @@ export function localiseTool(tool) {
 
   return {
     ...tool,
+    slug: over.slug || tool.slug,
     title: over.title || tool.title,
     desc: over.desc || tool.desc,
     params: params || tool.params,
     presets: presets || tool.presets,
   };
+}
+
+/**
+ * Where a tool lives in the language now loaded. The registry slugs are the
+ * Catalan ones, so anything that builds a link at runtime — the command
+ * palette, the hand-off between tools — has to go through this.
+ */
+export function toolSlug(tool) {
+  return dict.tools?.[tool.id]?.slug || tool.slug;
 }

@@ -3,9 +3,13 @@ import { formatBytes, downloadBlob, downloadZip, sniffType, matchesAccept } from
 import { mapLimit, POOL_SIZE } from '../core/pool.js';
 import { dropzone } from './dropzone.js';
 import { paramsForm } from './params.js';
-import { t } from '../i18n.js';
+import { sendTo, targetsFor } from './sendto.js';
+import { claim } from '../core/handoff.js';
+import { t, tn } from '../i18n.js';
 
 let seq = 0;
+
+const homePath = () => window.__PAGE__?.home || '../';
 
 /** Generic batch page: drop files, set parameters, run, download. */
 export function mountFileTool(root, tool, mod) {
@@ -30,8 +34,7 @@ export function mountFileTool(root, tool, mod) {
     label: t(tool.aggregate ? 'file.dropCombine' : 'file.drop'),
     hint: acceptHint(tool),
     onFiles: add,
-    onRejected: (bad) => notify('err', t('file.rejected', {
-      n: bad.length,
+    onRejected: (bad) => notify('err', tn('file.rejected', bad.length, {
       names: bad.slice(0, 3).map((f) => f.name).join(', ') + (bad.length > 3 ? '…' : ''),
     })),
   });
@@ -124,6 +127,12 @@ export function mountFileTool(root, tool, mod) {
         : null,
       outs.length === 1
         ? h('button', { class: 'btn', onclick: () => downloadBlob(outs[0].blob, outs[0].name) }, t('file.download'))
+        : null,
+      outs.length && targetsFor(outs, tool.id).length
+        ? h('button', {
+          class: 'btn ghost',
+          onclick: () => sendTo(outs, { excludeId: tool.id, home: homePath(), onFail: (m) => notify('err', m) }),
+        }, t('chain.sendAll'))
         : null,
     ];
     actions.append(...buttons.filter(Boolean));
@@ -247,6 +256,12 @@ export function mountFileTool(root, tool, mod) {
         comparable
           ? h('button', { class: 'x-btn', title: t('file.compare'), onclick: () => compare(it, out) }, '◑')
           : null,
+        targetsFor(it.outputs, tool.id).length
+          ? h('button', {
+            class: 'x-btn', title: t('chain.send'), 'aria-label': t('chain.send'),
+            onclick: () => sendTo(it.outputs, { excludeId: tool.id, home: homePath(), onFail: (m) => notify('err', m) }),
+          }, '⇢')
+          : null,
         h('button', {
           class: 'x-btn', title: t('file.download'), 'aria-label': t('file.download'),
           onclick: () => (it.outputs.length > 1
@@ -337,10 +352,31 @@ export function mountFileTool(root, tool, mod) {
       const usable = opened.filter((f) => matchesAccept(f, tool.accepts));
       if (usable.length) add(usable);
       if (usable.length < opened.length) {
-        notify('err', t('file.openedExternally', { n: opened.length - usable.length }));
+        notify('err', tn('file.openedExternally', opened.length - usable.length));
       }
     });
   }
+
+  // Venim d'un «envia-ho a…» d'una altra eina: els fitxers són a IndexedDB i
+  // el paquet s'esborra en recollir-lo. El ?from= també marxa de l'URL, que
+  // si no algú compartiria un enllaç que ja no porta enlloc.
+  (async () => {
+    let q;
+    try { q = new URLSearchParams(location.search); } catch { return; }
+    const from = q.get('from');
+    if (!from) return;
+    q.delete('from');
+    const rest = q.toString();
+    try { history.replaceState(history.state, '', location.pathname + (rest ? `?${rest}` : '')); } catch { /* ignore */ }
+    const handed = await claim(from);
+    const usable = handed.filter((f) => matchesAccept(f, tool.accepts));
+    if (usable.length) {
+      add(usable);
+      notify('ok', tn('chain.received', usable.length));
+    } else if (handed.length) {
+      notify('err', tn('chain.wrongKind', handed.length));
+    }
+  })();
 
   // A screenshot in the clipboard is the most common way an image exists at
   // all, and saving it to disk first just to pick it again is busywork.
@@ -351,7 +387,7 @@ export function mountFileTool(root, tool, mod) {
     if (!usable.length) return;
     e.preventDefault();
     add(usable);
-    notify('ok', t('file.pasted', { n: usable.length }));
+    notify('ok', tn('file.pasted', usable.length));
   };
   document.addEventListener('paste', onPaste);
 

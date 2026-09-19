@@ -75,6 +75,14 @@
     "note.ocrPdf": "{pages} pages with a text layer · {words} words",
     "note.gifFrames": "{n} frames · {w}×{h}",
     "note.pdfNoEmbedded": "no embedded images: the weight is text or vectors",
+    "note.svgRasterised": "rasterised at {dpi} dpi ({w}×{h} px); the text inside is no longer text",
+    "note.svgUriBig": "{kb} kB inside the CSS: for a drawing this big a separate file is the better trade",
+    "note.spriteIds": "ids: {ids}",
+    "note.recolourNone": "no colour written in the file: this SVG inherits the colour of whatever shows it",
+    "note.recolourDone": "{n} colours changed",
+    "note.recolourDone.one": "one colour changed",
+    "err.spriteEmpty": "None of the files has anything to put in the sprite.",
+    "note.pdfUnsafeImages.one": "one image in a format that cannot be re-encoded safely",
     "note.pdfUnsafeImages": "{n} image(s) in formats that cannot be re-encoded safely",
     "note.pdfRecoded": "{touched} of {total} images re-encoded",
     "note.pdfUntouched": "{n} untouched",
@@ -198,6 +206,28 @@
     "count.copyText": "Copy the text",
     "count.seoTitle": "SEO title",
     "count.metaDesc": "Meta description",
+    "area.image": "Images",
+    "area.vector": "Vector images",
+    "area.pdf": "PDF",
+    "area.data": "Data",
+    "area.web": "Text and web",
+    "palette.title": "All tools",
+    "palette.placeholder": "Jump to a tool…",
+    "palette.hint": "↑↓ to move · Enter to open · Esc to close",
+    "palette.open": "All tools (Ctrl+K)",
+    "chain.send": "Send the result to another tool",
+    "chain.sendAll": "Send to another tool",
+    "chain.title": "Send the result to…",
+    "chain.heading.one": "Where does this file go?",
+    "chain.heading": "Where do these {n} files go?",
+    "chain.hint": "Only tools that accept these files are listed · Esc to close",
+    "chain.none": "No other tool accepts these files.",
+    "chain.handing": "Handing the files over…",
+    "chain.failed": "The browser will not let us stash the files to hand them over. Download them and drop them again.",
+    "chain.received.one": "One file received from the previous tool.",
+    "chain.received": "{n} file(s) received from the previous tool.",
+    "chain.wrongKind.one": "The file that arrived is not what this tool takes.",
+    "chain.wrongKind": "The {n} files that arrived are not what this tool takes.",
     "shell.search": "Search for a tool…",
     "shell.theme": "Toggle theme",
     "shell.install": "Install",
@@ -236,8 +266,11 @@
     "file.included": "included",
     "file.error": "Error",
     "file.combinedResult": "combined result",
+    "file.rejected.one": "One file in a format this tool does not take: {names}",
     "file.rejected": "{n} file(s) in a format this tool does not take: {names}",
+    "file.pasted.one": "One file pasted from the clipboard.",
     "file.pasted": "{n} file(s) pasted from the clipboard.",
+    "file.openedExternally.one": "One file opened from the system that this tool does not take.",
     "file.openedExternally": "{n} file(s) opened from the system that this tool does not take.",
     "file.dragToReorder": "Drag the rows to reorder them",
     "file.plainFile": "file",
@@ -271,7 +304,9 @@
     "crop.whole": "Whole image",
     "crop.removeThis": "Remove this one",
     "crop.readout": "{w} × {h} px · from ({x}, {y}) · original {ow} × {oh}",
+    "crop.done.one": "One image · {size} — downloaded.",
     "crop.done": "{n} image(s) · {size} — downloaded.",
+    "crop.notImages.one": "One file that is not an image.",
     "crop.notImages": "{n} file(s) that are not images.",
     "crop.cannotOpen": "Could not open {name}.",
     "org.drop": "Drop a PDF to organise it",
@@ -293,6 +328,11 @@
   },
   "tools": {
     "image-convert": {
+      "slug": "convert-images",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Convert images",
       "desc": "PNG, JPG, WebP and AVIF in any direction, in batches.",
       "params": {
@@ -313,6 +353,11 @@
       }
     },
     "image-compress": {
+      "slug": "compress-images",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Compress images",
       "desc": "Cut the weight by quality, or down to a size you pick.",
       "params": {
@@ -352,6 +397,11 @@
       ]
     },
     "image-resize": {
+      "slug": "resize-images",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Resize images",
       "desc": "Width and height with fit control, and no upscaling by default.",
       "params": {
@@ -392,10 +442,17 @@
       ]
     },
     "image-crop": {
+      "slug": "crop-images",
+      "area": "image",
       "title": "Crop images",
       "desc": "Draw the crop on the picture and apply it to the whole batch."
     },
     "image-rotate": {
+      "slug": "rotate-images",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Rotate and flip",
       "desc": "Quarter turns, and horizontal or vertical flips.",
       "params": {
@@ -427,6 +484,11 @@
       }
     },
     "image-strip": {
+      "slug": "strip-image-metadata",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Strip metadata",
       "desc": "Removes EXIF, GPS and profiles by re-encoding to the same format.",
       "params": {
@@ -441,6 +503,11 @@
       }
     },
     "image-watermark": {
+      "slug": "watermark-images",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Watermark images",
       "desc": "Text on top, in a corner or tiled across the whole photo.",
       "params": {
@@ -495,10 +562,17 @@
       }
     },
     "image-exif": {
+      "slug": "view-image-metadata",
+      "area": "image",
       "title": "View the metadata",
       "desc": "Camera, exposure, dates and the GPS coordinates if there are any."
     },
     "favicons": {
+      "slug": "favicon-generator",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Favicon generator",
       "desc": "One image into the whole icon set, with the .ico and the HTML snippet.",
       "params": {
@@ -514,6 +588,11 @@
       }
     },
     "images-to-gif": {
+      "slug": "images-to-gif",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Images to animated GIF",
       "desc": "A GIF from a sequence of images, in the order you leave them.",
       "params": {
@@ -537,6 +616,11 @@
       }
     },
     "remove-background": {
+      "slug": "remove-background",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Remove an image background",
       "desc": "Cuts the subject out with a model that runs on your own machine.",
       "params": {
@@ -569,6 +653,12 @@
       }
     },
     "svg-optimize": {
+      "slug": "optimise-svg",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
       "title": "Optimise SVG",
       "desc": "SVGO in the browser: drops editor metadata and rounds paths.",
       "params": {
@@ -592,6 +682,12 @@
       }
     },
     "svg-to-png": {
+      "slug": "svg-to-png",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
       "title": "SVG to PNG",
       "desc": "Rasterise at any size, on a transparent or solid background.",
       "params": {
@@ -617,7 +713,106 @@
         }
       }
     },
+    "svg-to-pdf": {
+      "slug": "svg-to-pdf",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
+      "title": "SVG to PDF",
+      "desc": "A one-page PDF at the drawing’s real size.",
+      "params": {
+        "dpi": {
+          "label": "Resolution",
+          "hint": "The drawing is rasterised: more resolution, more weight and more detail.",
+          "unit": " dpi"
+        },
+        "transparent": {
+          "label": "Transparent background"
+        },
+        "background": {
+          "label": "Background colour"
+        }
+      }
+    },
+    "svg-to-css": {
+      "slug": "svg-to-css",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
+      "title": "SVG to CSS",
+      "desc": "The drawing inside a data URI, with no extra request.",
+      "params": {
+        "mode": {
+          "label": "What you want",
+          "options": {
+            "css": "CSS rule with background-image",
+            "var": "CSS variable",
+            "img": "<img> tag",
+            "uri": "Just the data URI"
+          }
+        }
+      }
+    },
+    "svg-sprite": {
+      "slug": "svg-sprite",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
+      "title": "SVG sprite",
+      "desc": "A whole icon set in one file, ready for <use>.",
+      "params": {
+        "prefix": {
+          "label": "Prefix for the ids",
+          "hint": "Leave it empty to use the file name alone."
+        },
+        "currentColor": {
+          "label": "Colours to currentColor",
+          "hint": "Then the CSS that uses them decides the colour."
+        },
+        "hidden": {
+          "label": "Hidden, to drop at the top of the <body>"
+        }
+      }
+    },
+    "svg-recolour": {
+      "slug": "recolour-svg",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ],
+      "title": "Recolour SVG",
+      "desc": "Change a whole set’s colours without opening them one by one.",
+      "params": {
+        "mode": {
+          "label": "What to change",
+          "options": {
+            "all": "Every colour, to a single one",
+            "one": "One particular colour only",
+            "current": "Everything, to currentColor"
+          }
+        },
+        "from": {
+          "label": "Colour to change"
+        },
+        "to": {
+          "label": "New colour"
+        }
+      }
+    },
     "pdf-compress": {
+      "slug": "compress-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Compress PDF",
       "desc": "Re-encodes the images inside without touching the text or structure.",
       "params": {
@@ -662,10 +857,18 @@
       ]
     },
     "pdf-organize": {
+      "slug": "organise-pdf-pages",
+      "area": "pdf",
       "title": "Organise pages",
       "desc": "See every page, drag them about, turn them and drop the spares."
     },
     "pdf-to-images": {
+      "slug": "pdf-to-images",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "PDF to images",
       "desc": "One image per page, at whatever resolution you need.",
       "params": {
@@ -689,6 +892,12 @@
       }
     },
     "pdf-to-text": {
+      "slug": "pdf-to-text",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "PDF to text",
       "desc": "Pulls out the document’s text layer, without OCR.",
       "params": {
@@ -706,6 +915,12 @@
       }
     },
     "pdf-extract-images": {
+      "slug": "extract-images-from-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Extract images from a PDF",
       "desc": "Pulls the embedded photos and graphics out as separate files.",
       "params": {
@@ -725,6 +940,12 @@
       }
     },
     "pdf-merge": {
+      "slug": "merge-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Merge PDF",
       "desc": "Glue several PDFs into one, in the order you want.",
       "params": {
@@ -741,6 +962,12 @@
       }
     },
     "pdf-split": {
+      "slug": "split-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Split PDF",
       "desc": "One page per file, blocks of N pages, or ranges you choose.",
       "params": {
@@ -762,6 +989,12 @@
       }
     },
     "pdf-rotate": {
+      "slug": "rotate-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Rotate PDF pages",
       "desc": "Turn every page, or only the ones you name.",
       "params": {
@@ -780,6 +1013,12 @@
       }
     },
     "pdf-extract": {
+      "slug": "extract-pdf-pages",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Extract pages",
       "desc": "Keep only some pages, or delete them from the document.",
       "params": {
@@ -793,6 +1032,11 @@
       }
     },
     "images-to-pdf": {
+      "slug": "images-to-pdf",
+      "area": "pdf",
+      "accepts": [
+        "image/*"
+      ],
       "title": "Images to PDF",
       "desc": "A PDF with one image per page, with size and margins under control.",
       "params": {
@@ -823,6 +1067,12 @@
       }
     },
     "pdf-watermark": {
+      "slug": "watermark-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Watermark a PDF",
       "desc": "Text on every page, in one spot or tiled diagonally.",
       "params": {
@@ -867,6 +1117,12 @@
       }
     },
     "pdf-page-numbers": {
+      "slug": "number-pdf-pages",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "Number the pages",
       "desc": "Adds page numbers, in the format and position you choose.",
       "params": {
@@ -908,6 +1164,13 @@
       }
     },
     "ocr": {
+      "slug": "ocr-images-and-pdf",
+      "area": "pdf",
+      "accepts": [
+        "image/*",
+        ".pdf",
+        "application/pdf"
+      ],
       "title": "OCR: read text from images and PDFs",
       "desc": "Recognises the text in scans and photos, and makes a searchable PDF.",
       "params": {
@@ -945,6 +1208,8 @@
       ]
     },
     "json-to-csv": {
+      "slug": "json-to-csv",
+      "area": "data",
       "title": "JSON to CSV",
       "desc": "An array of objects into a table, flattening nested objects.",
       "params": {
@@ -966,6 +1231,8 @@
       }
     },
     "csv-to-json": {
+      "slug": "csv-to-json",
+      "area": "data",
       "title": "CSV to JSON",
       "desc": "Detects the separator, respects quotes and types the values.",
       "params": {
@@ -996,6 +1263,8 @@
       }
     },
     "json-to-yaml": {
+      "slug": "json-to-yaml",
+      "area": "data",
       "title": "JSON to YAML",
       "desc": "A straight conversion that keeps the key order.",
       "params": {
@@ -1013,6 +1282,8 @@
       }
     },
     "yaml-to-json": {
+      "slug": "yaml-to-json",
+      "area": "data",
       "title": "YAML to JSON",
       "desc": "Takes files with several documents in them.",
       "params": {
@@ -1027,6 +1298,8 @@
       }
     },
     "json-format": {
+      "slug": "format-json",
+      "area": "data",
       "title": "Format and validate JSON",
       "desc": "Indent, minify or sort keys, and get the error’s line and column.",
       "params": {
@@ -1045,10 +1318,14 @@
       }
     },
     "jwt-decode": {
+      "slug": "decode-jwt",
+      "area": "data",
       "title": "Decode a JWT",
       "desc": "Header, payload and expiry. The signature is not verified."
     },
     "base64-text": {
+      "slug": "base64-text",
+      "area": "data",
       "title": "Base64 (text)",
       "desc": "Encode and decode UTF-8 text, with a URL-safe variant.",
       "params": {
@@ -1068,6 +1345,9 @@
       }
     },
     "base64-file": {
+      "slug": "file-to-base64",
+      "area": "data",
+      "accepts": [],
       "title": "File to Base64",
       "desc": "Makes a data URI ready to paste into CSS or HTML.",
       "params": {
@@ -1084,10 +1364,14 @@
       }
     },
     "hash": {
+      "slug": "hash-md5-sha256",
+      "area": "data",
       "title": "Hash and checksum",
       "desc": "MD5, SHA-1, SHA-256, SHA-384 and SHA-512 of text or files."
     },
     "minify-css": {
+      "slug": "minify-css",
+      "area": "web",
       "title": "Minify CSS",
       "desc": "CSSO: it restructures and merges rules, not just strips spaces.",
       "params": {
@@ -1100,6 +1384,8 @@
       }
     },
     "minify-js": {
+      "slug": "minify-javascript",
+      "area": "web",
       "title": "Minify JavaScript",
       "desc": "Terser in the browser, with optional name mangling.",
       "params": {
@@ -1118,10 +1404,14 @@
       }
     },
     "text-count": {
+      "slug": "word-counter",
+      "area": "web",
       "title": "Count words and characters",
       "desc": "A live count, reading time and the limits each platform imposes."
     },
     "text-case": {
+      "slug": "change-case",
+      "area": "web",
       "title": "Change letter case",
       "desc": "UPPERCASE, lowercase, Title Case, camelCase, snake_case and more.",
       "params": {
@@ -1143,6 +1433,8 @@
       }
     },
     "text-lines": {
+      "slug": "sort-lines",
+      "area": "web",
       "title": "Sort and clean up lines",
       "desc": "Sort, drop duplicates and blanks, number or reverse a list.",
       "params": {
@@ -1177,6 +1469,8 @@
       }
     },
     "url-encode": {
+      "slug": "url-encode",
+      "area": "web",
       "title": "URL encode and decode",
       "desc": "Percent-encoding, for whole addresses or for a single parameter.",
       "params": {
@@ -1200,6 +1494,8 @@
       }
     },
     "html-entities": {
+      "slug": "html-entities",
+      "area": "web",
       "title": "HTML entities",
       "desc": "Escape text to put inside HTML, or undo it.",
       "params": {
@@ -1216,6 +1512,8 @@
       }
     },
     "slugify": {
+      "slug": "slug-generator",
+      "area": "web",
       "title": "Slug generator for URLs",
       "desc": "Turns a title into a clean address, with no accents or symbols.",
       "params": {
@@ -1236,6 +1534,8 @@
       }
     },
     "format-html": {
+      "slug": "format-html",
+      "area": "web",
       "title": "Format HTML",
       "desc": "Indents and tidies up messy or minified markup.",
       "params": {
@@ -1253,6 +1553,8 @@
       }
     },
     "format-xml": {
+      "slug": "format-xml",
+      "area": "web",
       "title": "Format and validate XML",
       "desc": "Indents the document and tells you if the markup does not close.",
       "params": {
@@ -1262,6 +1564,8 @@
       }
     },
     "format-sql": {
+      "slug": "format-sql",
+      "area": "web",
       "title": "Format SQL",
       "desc": "Long one-line queries, laid out and readable.",
       "params": {
@@ -1285,18 +1589,26 @@
       }
     },
     "color": {
+      "slug": "colour-converter",
+      "area": "web",
       "title": "Colours and contrast",
       "desc": "HEX, RGB, HSL and OKLCH, a tone scale and a WCAG check."
     },
     "regex": {
+      "slug": "regex-tester",
+      "area": "web",
       "title": "Regular expression tester",
       "desc": "Highlighted matches, named groups and live replacement."
     },
     "qr": {
+      "slug": "qr-code-generator",
+      "area": "web",
       "title": "QR code generator",
       "desc": "Download as vector SVG or PNG at any resolution."
     },
     "diff": {
+      "slug": "compare-text",
+      "area": "web",
       "title": "Compare texts",
       "desc": "Line-by-line differences, with the matching blocks folded away."
     }

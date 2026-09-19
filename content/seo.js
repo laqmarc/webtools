@@ -259,6 +259,74 @@ export const PAGES = {
     ],
   },
 
+  'svg-to-pdf': {
+    intro: [
+      'Un SVG és un dibuix, no un document: si el vols enviar a impremta, adjuntar a un correu o firmar, el que et demanaran és un PDF. Això en fa un d’una pàgina, amb la pàgina exactament a la mida del dibuix.',
+      'La conversió rasteritza. Traduïr un SVG a instruccions de pintura d’un PDF —gradients, màscares, retallats, text amb tipografia— seria escriure un motor de renderitzat sencer dins del navegador, i el resultat encara seria pitjor en els casos rars. Així que el dibuix entra com a imatge a la resolució que demanis, i la pàgina queda a la mida bona en punts.',
+    ],
+    steps: [
+      'Deixa-hi els SVG.',
+      'Tria la resolució: 150 ppp per a pantalla, 300 per imprimir.',
+      'Digues si el fons ha de ser transparent i processa.',
+    ],
+    faq: [
+      { q: 'El text del PDF es podrà seleccionar?', a: 'No. El dibuix hi entra com a imatge, o sigui que el text que hi hagi dins de l’SVG deixa de ser text. Si el que vols és un PDF amb text de veritat, exporta’l des del programa on has fet el dibuix.' },
+      { q: 'Quina resolució he de posar?', a: '150 ppp va bé per a qualsevol cosa que es miri en pantalla. Per imprimir, 300. Per sobre de 300 el fitxer creix de pressa i gairebé ningú no en veurà la diferència.' },
+      { q: 'Per què la pàgina no és A4?', a: 'Perquè un logotip de 200×80 px dins d’un A4 és sobretot paper buit. La pàgina surt de la mida del dibuix; si el necessites en A4, col·loca’l des del programa de maquetació.' },
+    ],
+  },
+
+  'svg-to-css': {
+    intro: [
+      'Una icona petita dins del full d’estil s’estalvia una petició sencera, i sobretot s’estalvia el moment en què la pàgina ja es veu però les icones encara no hi són. Això et torna l’SVG ja embolicat en la regla que has d’enganxar.',
+      'La codificació és amb percentatges, no amb base64. Un SVG és text: passar-lo a base64 l’engreixa un terç llarg a canvi de res. Només s’escapen els caractèrs que trencarien un url(), així que el resultat queda curt i encara es pot llegir.',
+    ],
+    steps: [
+      'Afegeix-hi les icones.',
+      'Tria si vols una regla, una variable CSS, una etiqueta <img> o només el data URI.',
+      'Processa i enganxa el resultat al teu full d’estil.',
+    ],
+    faq: [
+      { q: 'Quan val la pena i quan no?', a: 'Per sota d’uns 3 kB gairebé sempre sí. Per sobre, el data URI viatja dins del CSS a cada càrrega i ja no es pot cachejar per separat: un fitxer a part surt més a compte.' },
+      { q: 'Puc canviar-ne el color des del CSS?', a: 'Només el que sigui fons o màscara. Un data URI dins de background-image és una imatge i currentColor no hi arriba. Si el vols pintar amb CSS, fes servir un sprite amb <use>, o mask-image.' },
+      { q: 'Per què les cometes són simples a dins?', a: 'Perquè la regla les fa servir dobles per fora. Canviar les de dins és la manera més curta de no haver d’escapar res més.' },
+    ],
+  },
+
+  'svg-sprite': {
+    intro: [
+      'Vint icones són vint peticions, i al navegador cadascuna li costa més del que pesa. Un sprite les posa totes en un sol fitxer com a <symbol>, i després cada una es fa servir amb <use href="#icona-fletxa">.',
+      'De passada, si deixes marcada l’opció de currentColor, els colors de dins desapareixen i el color el decideix el CSS que les mostri: la mateixa icona serveix per a un botó clar i per a un de fosc sense duplicar-la.',
+    ],
+    steps: [
+      'Deixa-hi totes les icones alhora.',
+      'Posa-hi un prefix si vols que els identificadors no xoquin amb res.',
+      'Processa: en surt un sol sprite.svg.',
+    ],
+    faq: [
+      { q: 'Com el faig servir?', a: 'Enganxa el contingut al principi del <body> i després crida cada icona amb <svg><use href="#el-seu-id"></use></svg>. Si el deixes com a fitxer a part, la referència ha de ser sprite.svg#el-seu-id.' },
+      { q: 'D’on surten els identificadors?', a: 'Del nom de cada fitxer, en minúscules i amb guions, amb el prefix al davant. Si dos fitxers acaben amb el mateix nom, al segon se li afegeix un número.' },
+      { q: 'Per què les meves icones surten negres?', a: 'Perquè amb currentColor marcat hereten el color del text. Posa-hi un color al CSS de qui les fa servir, o desmarca l’opció per conservar els colors originals.' },
+    ],
+  },
+
+  'svg-recolour': {
+    intro: [
+      'Un joc d’icones descarregat mai no ve del color que et va bé. Obrir-les d’una en una per canviar un #000000 és la mena de feina que hauria de fer una màquina.',
+      'Es poden canviar tots els colors a un de sol, només un color concret, o tots a currentColor perquè el decideixi el CSS. Es miren els atributs i també el que hi hagi dins d’un style=””, que és on els deixen bona part dels exportadors.',
+    ],
+    steps: [
+      'Deixa-hi el joc d’icones sencer.',
+      'Tria si canvies tots els colors, només un, o els passes a currentColor.',
+      'Tria el color nou i processa.',
+    ],
+    faq: [
+      { q: 'Què és currentColor?', a: 'És dir-li a l’SVG que agafi el color del text de l’element que el conté. Així la icona canvia de color sola quan canvia el botó on viu, sense haver-ne de guardar una versió per color.' },
+      { q: 'No m’ha canviat res, per què?', a: 'Segurament el fitxer no té cap color escrit: un SVG sense fill es pinta de negre per defecte. En aquest cas et tornem l’original amb un avís, en comptes de fer veure que s’ha fet alguna cosa.' },
+      { q: 'Toca els colors que hi ha dins d’un <style>?', a: 'No. Per a això caldria entendre CSS de debo, i és més honest deixar-ho al cercar-i-substituir del teu editor que endevinar-ho a mitges.' },
+    ],
+  },
+
   ocr: {
     intro: [
       'Un escaneig o una foto d’un document són una imatge: el text que hi veus no es pot seleccionar, ni cercar, ni copiar. L’OCR el reconeix i te’l torna com a text de veritat.',

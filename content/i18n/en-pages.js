@@ -176,6 +176,55 @@ export const PAGES = {
     ],
   },
 
+  'svg-to-pdf': {
+    intro: [
+      'An SVG is a drawing, not a document: send it to a printer, attach it to an email or sign it, and what you will be asked for is a PDF. This makes a one-page one, with the page exactly the size of the drawing.',
+      'The conversion rasterises. Translating an SVG into a PDF’s own painting instructions — gradients, masks, clips, text with fonts — would mean writing a whole rendering engine inside the browser, and it would still be worse in the odd cases. So the drawing goes in as an image at the resolution you ask for, and the page comes out the right size in points.',
+    ],
+    steps: ['Drop in the SVGs.', 'Pick the resolution: 150 dpi for screens, 300 for print.', 'Say whether the background should be transparent, and process.'],
+    faq: [
+      { q: 'Will the PDF text be selectable?', a: 'No. The drawing goes in as an image, so any text inside the SVG stops being text. If you want a PDF with real text, export it from whatever you drew it in.' },
+      { q: 'What resolution should I use?', a: '150 dpi is fine for anything that will be looked at on a screen. For print, 300. Above 300 the file grows fast and almost nobody will see the difference.' },
+      { q: 'Why is the page not A4?', a: 'Because a 200×80 px logo inside an A4 is mostly empty paper. The page comes from the size of the drawing; if you need it on A4, place it from your layout software.' },
+    ],
+  },
+  'svg-to-css': {
+    intro: [
+      'A small icon inside the stylesheet saves a whole request, and more importantly it saves the moment where the page is already visible but the icons are not there yet. This hands the SVG back already wrapped in the rule you have to paste.',
+      'The encoding is percent, not base64. An SVG is text: base64 makes it a third bigger in exchange for nothing. Only the characters that would break a url() are escaped, which keeps the result short and still readable.',
+    ],
+    steps: ['Add the icons.', 'Pick a rule, a CSS variable, an <img> tag or just the data URI.', 'Process, and paste the result into your stylesheet.'],
+    faq: [
+      { q: 'When is it worth it and when not?', a: 'Under about 3 kB, almost always. Above that, the data URI travels inside the CSS on every load and can no longer be cached separately: a separate file is the better trade.' },
+      { q: 'Can I change its colour from CSS?', a: 'Only where it is a background or a mask. A data URI in background-image is an image, and currentColor does not reach inside it. To paint it with CSS, use a sprite with <use>, or mask-image.' },
+      { q: 'Why are the quotes single inside?', a: 'Because the rule uses double ones outside. Swapping the inner ones is the shortest way to avoid escaping anything else.' },
+    ],
+  },
+  'svg-sprite': {
+    intro: [
+      'Twenty icons are twenty requests, and each one costs the browser more than it weighs. A sprite puts them all in one file as <symbol>, and then each is used with <use href="#icon-arrow">.',
+      'While it is at it, leaving the currentColor option on strips the colours from inside, so the CSS that shows them decides: the same icon serves a light button and a dark one without a duplicate.',
+    ],
+    steps: ['Drop in all the icons at once.', 'Add a prefix if you want the ids not to clash with anything.', 'Process: one sprite.svg comes out.'],
+    faq: [
+      { q: 'How do I use it?', a: 'Paste the contents at the top of the <body>, then call each icon with <svg><use href="#its-id"></use></svg>. If you keep it as a separate file, the reference has to be sprite.svg#its-id.' },
+      { q: 'Where do the ids come from?', a: 'From each file name, lowercased and hyphenated, with the prefix in front. If two files end up with the same name, the second gets a number.' },
+      { q: 'Why are my icons black?', a: 'Because with currentColor on they inherit the text colour. Set a colour in the CSS of whatever uses them, or untick the option to keep the original colours.' },
+    ],
+  },
+  'svg-recolour': {
+    intro: [
+      'A downloaded icon set never arrives in the colour you need. Opening them one by one to change a #000000 is exactly the kind of work a machine should be doing.',
+      'You can change every colour to a single one, one particular colour only, or everything to currentColor so the CSS decides. It looks at the attributes and also inside style=””, which is where a good half of the exporters leave them.',
+    ],
+    steps: ['Drop in the whole icon set.', 'Choose whether to change every colour, just one, or move them to currentColor.', 'Pick the new colour and process.'],
+    faq: [
+      { q: 'What is currentColor?', a: 'It tells the SVG to take the text colour of whatever contains it. The icon then changes colour on its own when the button it lives in changes, with no per-colour copies to keep.' },
+      { q: 'Nothing changed — why?', a: 'The file probably has no colour written in it at all: an SVG with no fill is painted black by default. In that case we hand the original back with a note, rather than pretending something happened.' },
+      { q: 'Does it touch colours inside a <style>?', a: 'No. That would mean understanding CSS properly, and leaving it to your editor’s find-and-replace is more honest than half-guessing.' },
+    ],
+  },
+
   // ---------------------------------------------------------------- pdf
   'pdf-compress': {
     intro: [

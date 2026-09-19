@@ -50,15 +50,15 @@ function chunk(type, data) {
   return Buffer.concat([length, body, crc]);
 }
 
-export function encodePng(size, rgba) {
+export function encodePng(size, rgba, height = size) {
   const ihdr = Buffer.alloc(13);
   ihdr.writeUInt32BE(size, 0);
-  ihdr.writeUInt32BE(size, 4);
+  ihdr.writeUInt32BE(height, 4);
   ihdr[8] = 8; // 8 bits per channel
   ihdr[9] = 6; // truecolour with alpha
   const stride = size * 4;
-  const raw = Buffer.alloc((stride + 1) * size);
-  for (let y = 0; y < size; y++) {
+  const raw = Buffer.alloc((stride + 1) * height);
+  for (let y = 0; y < height; y++) {
     raw[y * (stride + 1)] = 0; // filter type: none
     rgba.copy(raw, y * (stride + 1) + 1, y * stride, (y + 1) * stride);
   }
@@ -134,6 +134,85 @@ export function renderSvg() {
 `;
 }
 
+// ------------------------------------------------------- targeta social
+//
+// Sense aquesta imatge, cada enllaç compartit a un xat surt com una fitxa
+// buida. No hi va text: rasteritzar una tipografia dins de Node voldria dir
+// desfer la transformació glyf d'un woff2 a mà, i qui comparteix l'enllaç ja
+// veu el títol i la descripció al costat de la imatge. O sigui que el que hi
+// ha de fer la imatge és una cosa: que es reconegui d'una ullada.
+
+export const OG_WIDTH = 1200;
+export const OG_HEIGHT = 630;
+
+const OG_BG = [0x14, 0x12, 0x0f];   // --bg fosc
+const OG_LINE = [0x4a, 0x44, 0x37]; // --line-2 fosc
+
+/** El mateix ◩ de la icona, gran i centrat, dins d'un marc rovell. */
+export function renderOgCard(W = OG_WIDTH, H = OG_HEIGHT) {
+  const rgba = Buffer.alloc(W * H * 4);
+  const SS = 3;
+  const samples = SS * SS;
+
+  const box = Math.round(H * 0.42);        // costat del glif
+  const ox = (W - box) / 2;
+  const oy = (H - box) / 2 - H * 0.02;     // una mica amunt: pesa millor
+  const inset = Math.round(H * 0.055);     // marge del marc
+  const frame = Math.max(2, Math.round(H * 0.006));
+  const rule = { y: H - inset - Math.round(H * 0.12), w: Math.round(W * 0.18), t: frame * 2 };
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      let mark = 0;
+      for (let sy = 0; sy < SS; sy++) {
+        for (let sx = 0; sx < SS; sx++) {
+          const px = x + (sx + 0.5) / SS;
+          const py = y + (sy + 0.5) / SS;
+
+          // El glif: quadrat amb la meitat esquerra plena.
+          const lx = (px - ox) / box;
+          const ly = (py - oy) / box;
+          if (lx >= 0 && lx <= 1 && ly >= 0 && ly <= 1) {
+            const onOutline = lx < STROKE || lx > 1 - STROKE || ly < STROKE || ly > 1 - STROKE;
+            if (onOutline || lx < 0.5) { mark++; continue; }
+          }
+
+          // El marc.
+          const inFrame = px >= inset && px <= W - inset && py >= inset && py <= H - inset;
+          const inInner = px >= inset + frame && px <= W - inset - frame
+            && py >= inset + frame && py <= H - inset - frame;
+          if (inFrame && !inInner) { mark++; continue; }
+
+          // Un pal curt a sota del glif, que trenca la simetria.
+          if (py >= rule.y && py <= rule.y + rule.t
+            && px >= (W - rule.w) / 2 && px <= (W + rule.w) / 2) mark++;
+        }
+      }
+
+      const i = (y * W + x) * 4;
+      const a = mark / samples;
+      for (let c = 0; c < 3; c++) rgba[i + c] = Math.round(OG_BG[c] + (FG[c] - OG_BG[c]) * a);
+      rgba[i + 3] = 255;
+    }
+  }
+
+  // Una vora d'un píxel, perquè la targeta no es fongui amb el fons fosc del
+  // client de xat que la mostri.
+  for (let x = 0; x < W; x++) {
+    for (const y of [0, H - 1]) {
+      const i = (y * W + x) * 4;
+      for (let c = 0; c < 3; c++) rgba[i + c] = OG_LINE[c];
+    }
+  }
+  for (let y = 0; y < H; y++) {
+    for (const x of [0, W - 1]) {
+      const i = (y * W + x) * 4;
+      for (let c = 0; c < 3; c++) rgba[i + c] = OG_LINE[c];
+    }
+  }
+  return rgba;
+}
+
 /** Every icon file the manifest and the page heads point at. */
 export const ICON_FILES = [
   { file: 'icons/icon-192.png', size: 192, opts: {} },
@@ -142,9 +221,12 @@ export const ICON_FILES = [
   { file: 'icons/apple-touch-icon.png', size: 180, opts: { opaque: true } },
 ];
 
+export const OG_FILE = 'icons/og.png';
+
 export function buildIcons() {
   return [
     ...ICON_FILES.map(({ file, size, opts }) => ({ file, data: encodePng(size, renderIcon(size, opts)) })),
     { file: 'icons/icon.svg', data: Buffer.from(renderSvg(), 'utf8') },
+    { file: OG_FILE, data: encodePng(OG_WIDTH, renderOgCard(), OG_HEIGHT) },
   ];
 }

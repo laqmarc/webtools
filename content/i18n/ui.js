@@ -12,6 +12,73 @@ export const UI = {
   ...ERRORS,
   ...PANELS,
 
+  // --- àrees -----------------------------------------------------------
+  // Viuen aquí i no al registre perquè les necessiten totes dues bandes: el
+  // generador per als títols de secció i el navegador per a la paleta i per
+  // al menú d'encadenar eines.
+  'area.image': ['Imatge', 'Imagen', 'Images'],
+  'area.vector': ['Imatge vectorial', 'Imagen vectorial', 'Vector images'],
+  'area.pdf': ['PDF', 'PDF', 'PDF'],
+  'area.data': ['Dades', 'Datos', 'Data'],
+  'area.web': ['Text i web', 'Texto y web', 'Text and web'],
+
+  // --- paleta d'ordres --------------------------------------------------
+  'palette.title': ['Totes les eines', 'Todas las herramientas', 'All tools'],
+  'palette.placeholder': ['Vés a una eina…', 'Ve a una herramienta…', 'Jump to a tool…'],
+  'palette.hint': [
+    '↑↓ per moure’t · Retorn per obrir · Esc per tancar',
+    '↑↓ para moverte · Intro para abrir · Esc para cerrar',
+    '↑↓ to move · Enter to open · Esc to close',
+  ],
+  'palette.open': ['Totes les eines (Ctrl+K)', 'Todas las herramientas (Ctrl+K)', 'All tools (Ctrl+K)'],
+
+  // --- encadenar eines --------------------------------------------------
+  'chain.send': ['Envia el resultat a una altra eina', 'Envía el resultado a otra herramienta', 'Send the result to another tool'],
+  'chain.sendAll': ['Envia-ho a una altra eina', 'Enviarlo a otra herramienta', 'Send to another tool'],
+  'chain.title': ['Envia el resultat a…', 'Envía el resultado a…', 'Send the result to…'],
+  'chain.heading.one': ['On va aquest fitxer?', '¿Adónde va este archivo?', 'Where does this file go?'],
+  'chain.heading': [
+    'On van aquests {n} fitxers?',
+    '¿Adónde van estos {n} archivos?',
+    'Where do these {n} files go?',
+  ],
+  'chain.hint': [
+    'Només hi surten les eines que accepten aquests fitxers · Esc per tancar',
+    'Solo aparecen las herramientas que aceptan estos archivos · Esc para cerrar',
+    'Only tools that accept these files are listed · Esc to close',
+  ],
+  'chain.none': [
+    'Cap altra eina no accepta aquests fitxers.',
+    'Ninguna otra herramienta acepta estos archivos.',
+    'No other tool accepts these files.',
+  ],
+  'chain.handing': ['Passant els fitxers…', 'Pasando los archivos…', 'Handing the files over…'],
+  'chain.failed': [
+    'El navegador no deixa desar els fitxers per passar-los. Descarrega’ls i torna a arrossegar-los.',
+    'El navegador no deja guardar los archivos para pasarlos. Descárgalos y vuelve a arrastrarlos.',
+    'The browser will not let us stash the files to hand them over. Download them and drop them again.',
+  ],
+  'chain.received.one': [
+    'Un fitxer rebut de l’eina anterior.',
+    'Un archivo recibido de la herramienta anterior.',
+    'One file received from the previous tool.',
+  ],
+  'chain.received': [
+    '{n} fitxer(s) rebuts de l’eina anterior.',
+    '{n} archivo(s) recibidos de la herramienta anterior.',
+    '{n} file(s) received from the previous tool.',
+  ],
+  'chain.wrongKind.one': [
+    'El fitxer que arribava no serveix per a aquesta eina.',
+    'El archivo que llegaba no sirve para esta herramienta.',
+    'The file that arrived is not what this tool takes.',
+  ],
+  'chain.wrongKind': [
+    'Els {n} fitxers que arribaven no serveixen per a aquesta eina.',
+    'Los {n} archivos que llegaban no sirven para esta herramienta.',
+    'The {n} files that arrived are not what this tool takes.',
+  ],
+
   // --- shell -----------------------------------------------------------
   'shell.search': ['Cerca una eina…', 'Busca una herramienta…', 'Search for a tool…'],
   'shell.theme': ['Canvia el tema', 'Cambia el tema', 'Toggle theme'],
@@ -57,8 +124,11 @@ export const UI = {
   'file.included': ['inclòs', 'incluido', 'included'],
   'file.error': ['Error', 'Error', 'Error'],
   'file.combinedResult': ['resultat combinat', 'resultado combinado', 'combined result'],
+  'file.rejected.one': ['Un fitxer amb un format que aquesta eina no accepta: {names}', 'Un archivo con un formato que esta herramienta no acepta: {names}', 'One file in a format this tool does not take: {names}'],
   'file.rejected': ['{n} fitxer(s) amb un format que aquesta eina no accepta: {names}', '{n} archivo(s) con un formato que esta herramienta no acepta: {names}', '{n} file(s) in a format this tool does not take: {names}'],
+  'file.pasted.one': ['Un fitxer enganxat del porta-retalls.', 'Un archivo pegado del portapapeles.', 'One file pasted from the clipboard.'],
   'file.pasted': ['{n} fitxer(s) enganxat(s) del porta-retalls.', '{n} archivo(s) pegado(s) del portapapeles.', '{n} file(s) pasted from the clipboard.'],
+  'file.openedExternally.one': ['Un fitxer obert des del sistema que aquesta eina no accepta.', 'Un archivo abierto desde el sistema que esta herramienta no acepta.', 'One file opened from the system that this tool does not take.'],
   'file.openedExternally': ['{n} fitxer(s) obert(s) des del sistema que aquesta eina no accepta.', '{n} archivo(s) abierto(s) desde el sistema que esta herramienta no acepta.', '{n} file(s) opened from the system that this tool does not take.'],
   'file.dragToReorder': ['Arrossega les files per canviar-ne l’ordre', 'Arrastra las filas para cambiar el orden', 'Drag the rows to reorder them'],
   'file.plainFile': ['fitxer', 'archivo', 'file'],
@@ -100,7 +170,9 @@ export const UI = {
   'crop.whole': ['Tota la imatge', 'Toda la imagen', 'Whole image'],
   'crop.removeThis': ['Treu aquesta', 'Quitar esta', 'Remove this one'],
   'crop.readout': ['{w} × {h} px · des de ({x}, {y}) · original {ow} × {oh}', '{w} × {h} px · desde ({x}, {y}) · original {ow} × {oh}', '{w} × {h} px · from ({x}, {y}) · original {ow} × {oh}'],
+  'crop.done.one': ['Una imatge · {size} — descarregada.', 'Una imagen · {size} — descargada.', 'One image · {size} — downloaded.'],
   'crop.done': ['{n} imatge(s) · {size} — descarregat.', '{n} imagen(es) · {size} — descargado.', '{n} image(s) · {size} — downloaded.'],
+  'crop.notImages.one': ['Un fitxer que no és una imatge.', 'Un archivo que no es una imagen.', 'One file that is not an image.'],
   'crop.notImages': ['{n} fitxer(s) que no són imatges.', '{n} archivo(s) que no son imágenes.', '{n} file(s) that are not images.'],
   'crop.cannotOpen': ['No s’ha pogut obrir {name}.', 'No se ha podido abrir {name}.', 'Could not open {name}.'],
 

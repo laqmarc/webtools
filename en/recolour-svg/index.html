@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recolour SVG online, in your browser — WebTools</title>
+<meta name="description" content="A downloaded icon set never arrives in the colour you need. Opening them one by one to change a #000000 is exactly the kind of work a machine should be doing.">
+<link rel="canonical" href="https://webtools.quexulo.cat/en/recolour-svg/">
+<link rel="alternate" hreflang="ca" href="https://webtools.quexulo.cat/recolorir-svg/">
+<link rel="alternate" hreflang="es" href="https://webtools.quexulo.cat/es/recolorear-svg/">
+<link rel="alternate" hreflang="en" href="https://webtools.quexulo.cat/en/recolour-svg/">
+<link rel="alternate" hreflang="x-default" href="https://webtools.quexulo.cat/recolorir-svg/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="Recolour SVG online, in your browser — WebTools">
+<meta property="og:description" content="A downloaded icon set never arrives in the colour you need. Opening them one by one to change a #000000 is exactly the kind of work a machine should be doing.">
+<meta property="og:url" content="https://webtools.quexulo.cat/en/recolour-svg/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://webtools.quexulo.cat/icons/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WebTools">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../../assets/styles.css">
+<!-- Les dues cares que surten a tot arreu. El navegador no les descobriria
+     fins a haver llegit el CSS, i el titular apareixeria un instant amb la
+     serif del sistema. Els subconjunts latin-ext els demana només qui els
+     necessita, via unicode-range. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../assets/fonts/play-700-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../assets/fonts/google-sans-latin.woff2">
+<link rel="icon" href="../../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "https://webtools.quexulo.cat/en/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Recolour SVG",
+          "item": "https://webtools.quexulo.cat/en/recolour-svg/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "Recolour SVG",
+      "url": "https://webtools.quexulo.cat/en/recolour-svg/",
+      "description": "A downloaded icon set never arrives in the colour you need. Opening them one by one to change a #000000 is exactly the kind of work a machine should be doing.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is currentColor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It tells the SVG to take the text colour of whatever contains it. The icon then changes colour on its own when the button it lives in changes, with no per-colour copies to keep."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nothing changed — why?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The file probably has no colour written in it at all: an SVG with no fill is painted black by default. In that case we hand the original back with a note, rather than pretending something happened."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it touch colours inside a \u003cstyle>?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. That would mean understanding CSS properly, and leaving it to your editor’s find-and-replace is more honest than half-guessing."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Search for a tool…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Language"><a class="lang" href="../../recolorir-svg/" hreflang="ca">Català</a><a class="lang" href="../../es/recolorear-svg/" hreflang="es">Español</a><span class="lang on" aria-current="true">English</span></nav>
+  <button id="install" class="btn ghost sm" hidden>Install</button>
+  <button id="theme" class="icon-btn" title="Toggle theme" aria-label="Toggle theme">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">All tools</a> / Vector images</nav>
+  <header class="tool-head">
+    <h1>Recolour SVG</h1>
+    <p>Change a whole set’s colours without opening them one by one.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">This tool needs JavaScript, because your browser is what processes the files: there is no server to do it instead.</div></noscript>
+  <article class="prose">
+    <p>A downloaded icon set never arrives in the colour you need. Opening them one by one to change a #000000 is exactly the kind of work a machine should be doing.</p>
+    <p>You can change every colour to a single one, one particular colour only, or everything to currentColor so the CSS decides. It looks at the attributes and also inside style=””, which is where a good half of the exporters leave them.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Drop in the whole icon set.</li>
+      <li>Choose whether to change every colour, just one, or move them to currentColor.</li>
+      <li>Pick the new colour and process.</li>
+    </ol>
+    <h2>Frequently asked questions</h2>
+    <dl class="faq">
+      <dt>What is currentColor?</dt>
+      <dd>It tells the SVG to take the text colour of whatever contains it. The icon then changes colour on its own when the button it lives in changes, with no per-colour copies to keep.</dd>
+      <dt>Nothing changed — why?</dt>
+      <dd>The file probably has no colour written in it at all: an SVG with no fill is painted black by default. In that case we hand the original back with a note, rather than pretending something happened.</dd>
+      <dt>Does it touch colours inside a &lt;style&gt;?</dt>
+      <dd>No. That would mean understanding CSS properly, and leaving it to your editor’s find-and-replace is more honest than half-guessing.</dd>
+    </dl>
+    <h2>Related tools</h2>
+    <div class="grid">
+      <a class="card" href="../optimise-svg/" data-search="optimise svg svgo in the browser: drops editor metadata and rounds paths. svg optimise svgo minify vector clean optimise-svg"><b>Optimise SVG</b><span>SVGO in the browser: drops editor metadata and rounds paths.</span></a>
+      <a class="card" href="../svg-to-png/" data-search="svg to png rasterise at any size, on a transparent or solid background. svg png rasterise export bitmap webp svg-to-png"><b>SVG to PNG</b><span>Rasterise at any size, on a transparent or solid background.</span></a>
+      <a class="card" href="../svg-to-pdf/" data-search="svg to pdf a one-page pdf at the drawing’s real size. svg pdf print vector page export svg-to-pdf"><b>SVG to PDF</b><span>A one-page PDF at the drawing’s real size.</span></a>
+      <a class="card" href="../svg-to-css/" data-search="svg to css the drawing inside a data uri, with no extra request. svg css data uri base64 background embed inline svg-to-css"><b>SVG to CSS</b><span>The drawing inside a data URI, with no extra request.</span></a>
+      <a class="card" href="../svg-sprite/" data-search="svg sprite a whole icon set in one file, ready for &lt;use&gt;. sprite svg symbol use icons set combine svg-sprite"><b>SVG sprite</b><span>A whole icon set in one file, ready for &lt;use&gt;.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Nothing is uploaded anywhere.</strong> All the work happens inside this tab.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-recolour","slug": "recolour-svg","lang": "en","home": "../"};</script>
+<script type="module" src="../../src/main.js"></script>
+</body>
+</html>

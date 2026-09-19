@@ -17,6 +17,7 @@
 import { mkdir, writeFile, rm, readFile, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { Script } from 'node:vm';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -24,7 +25,7 @@ import { TOOLS, AREAS, VARIANTS, expandVariant, byId } from '../src/registry.js'
 import { SITE as SITE_BASE } from '../content/seo.js';
 import { LOCALES, DEFAULT_LOCALE, toolStrings, pageCopy } from '../content/i18n/index.js';
 import { UI, uiFor } from '../content/i18n/ui.js';
-import { buildIcons, ICON_FILES } from './icons.mjs';
+import { buildIcons, ICON_FILES, OG_FILE, OG_WIDTH, OG_HEIGHT } from './icons.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST = '.pages-manifest.json';
@@ -44,14 +45,9 @@ function clip(text, max = 158) {
   return `${s.slice(0, s.lastIndexOf(' ', max - 1))}…`;
 }
 
-const AREA_NAMES = {
-  image: ['Imatge', 'Imagen', 'Images'],
-  vector: ['Imatge vectorial', 'Imagen vectorial', 'Vector images'],
-  pdf: ['PDF', 'PDF', 'PDF'],
-  data: ['Dades', 'Datos', 'Data'],
-  web: ['Text i web', 'Texto y web', 'Text and web'],
-};
-const areaName = (areaId, locale) => AREA_NAMES[areaId][LOCALES.findIndex((l) => l.code === locale.code)];
+// Els noms d'àrea són a content/i18n/ui.js, no aquí: el navegador també els
+// necessita per a la paleta d'ordres i per al menú d'encadenar.
+const areaName = (areaId, locale) => uiFor(locale.code)[`area.${areaId}`] || areaId;
 
 // ------------------------------------------------------------ page model
 
@@ -195,7 +191,11 @@ ${hreflangs(alternates, pageId)}
 <meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${esc(canonical)}">
 <meta property="og:locale" content="${locale.ogLocale}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="${esc(`${SITE_URL}/${OG_FILE}`)}">
+<meta property="og:image:width" content="${OG_WIDTH}">
+<meta property="og:image:height" content="${OG_HEIGHT}">
+<meta property="og:image:alt" content="${esc(SITE_BASE.name)}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="${toRoot}assets/styles.css">
 <!-- Les dues cares que surten a tot arreu. El navegador no les descobriria
      fins a haver llegit el CSS, i el titular apareixeria un instant amb la
@@ -232,7 +232,7 @@ ${body}
   <p><strong>${esc(T['shell.footerLead'])}</strong> ${esc(T['shell.footer'])}</p>
 </footer>
 
-<script>window.__PAGE__=${ld(boot).replace(/\n\s*/g, '')};</script>
+<script>window.__PAGE__=${ld({ ...boot, home: toLang }).replace(/\n\s*/g, '')};</script>
 <script type="module" src="${toRoot}src/main.js"></script>
 </body>
 </html>
@@ -472,6 +472,24 @@ function renderManifest(allPages, locale) {
       { action: `./${slugOf('svg-optimize')}/`, accept: { 'image/svg+xml': ['.svg'] } },
       { action: `./${slugOf('pdf-merge')}/`, accept: { 'application/pdf': ['.pdf'] } },
     ],
+    // «Compartir → WebTools» des de la galeria o des del gestor de fitxers.
+    // No és cap pàgina: el service worker intercepta el POST, desa el que
+    // arribi i et deixa a la portada perquè triïs l'eina. L'adreça és igual
+    // en tots tres idiomes perquè ningú no l'escriu mai.
+    share_target: {
+      action: './share-target',
+      method: 'POST',
+      enctype: 'multipart/form-data',
+      params: {
+        title: 'title',
+        text: 'text',
+        url: 'url',
+        files: [{
+          name: 'files',
+          accept: ['image/*', 'application/pdf', 'text/*', '.svg', '.json', '.csv', '.yaml', '.yml', '.xml'],
+        }],
+      },
+    },
   }, null, 2)}\n`;
 }
 
@@ -499,14 +517,17 @@ ${rows.map((r) => `  <url>\n    <loc>${r.loc}</loc>\n    <priority>${r.priority}
 function renderLocaleJson(locale) {
   const tools = {};
   for (const tool of TOOLS) {
-    const over = locale.content.TOOLS?.[tool.id];
-    if (!over) continue;
-    const entry = {};
+    const over = locale.content.TOOLS?.[tool.id] || {};
+    // El slug hi va sempre, fins i tot en català i fins i tot quan no hi ha
+    // res més traduït: és l'única manera que el JavaScript pugui construir un
+    // enllaç a una altra eina sense saber en quin idioma és la pàgina.
+    const entry = { slug: toolStrings(locale, tool).slug, area: tool.area };
+    if (tool.accepts) entry.accepts = tool.accepts;
     if (over.title) entry.title = over.title;
     if (over.desc) entry.desc = over.desc;
     if (over.params) entry.params = over.params;
     if (over.presets) entry.presets = over.presets;
-    if (Object.keys(entry).length) tools[tool.id] = entry;
+    tools[tool.id] = entry;
   }
   return `${JSON.stringify({ lang: locale.code, ui: uiFor(locale.code), tools }, null, 2)}\n`;
 }
@@ -548,6 +569,7 @@ async function renderServiceWorker(out, editions) {
     'manifest.webmanifest',
     'icons/icon.svg',
     ...ICON_FILES.map((i) => i.file),
+    OG_FILE,
     ...LOCALES.map((l) => `i18n/${l.code}.json`),
     ...(await jsFilesUnder(join(out, 'src'))).map((f) => `src/${f}`),
   ];
@@ -595,8 +617,65 @@ self.addEventListener('message', (e) => {
   }
 });
 
+// Compartir des del sistema. Android envia un POST amb multipart/form-data a
+// l'adreça que diu el manifest; això no és una pàgina, és un lliurament. Els
+// fitxers van a la mateixa taula d'IndexedDB que fa servir «envia-ho a una
+// altra eina», i el navegador acaba a la portada amb ?from=, que ja sap
+// recollir-los i preguntar on van.
+const HANDOFF_DB = 'webtools';
+const HANDOFF_STORE = 'handoff';
+
+function stashShared(files) {
+  return new Promise((resolve) => {
+    const id = Math.random().toString(36).slice(2, 8) + Date.now().toString(36).slice(-3);
+    let req;
+    try { req = indexedDB.open(HANDOFF_DB, 1); } catch { resolve(null); return; }
+    req.onupgradeneeded = () => {
+      if (!req.result.objectStoreNames.contains(HANDOFF_STORE)) {
+        req.result.createObjectStore(HANDOFF_STORE, { keyPath: 'id' });
+      }
+    };
+    req.onerror = () => resolve(null);
+    req.onsuccess = () => {
+      const db = req.result;
+      const tx = db.transaction(HANDOFF_STORE, 'readwrite');
+      tx.objectStore(HANDOFF_STORE).put({
+        id,
+        at: Date.now(),
+        files: files.map((f) => ({ name: f.name || 'compartit', blob: f })),
+      });
+      tx.oncomplete = () => { db.close(); resolve(id); };
+      tx.onerror = () => { db.close(); resolve(null); };
+    };
+  });
+}
+
+async function receiveShare(e, url) {
+  const home = url.pathname.replace(/share-target\\/?$/, '');
+  try {
+    const form = await e.request.formData();
+    const files = form.getAll('files').filter((f) => f && typeof f === 'object' && 'size' in f);
+    // Compartir un enllaç o un tros de text també és compartir: entra com a
+    // fitxer de text i les eines de text l'accepten igual.
+    const words = [form.get('text'), form.get('url')].filter(Boolean).join('\\n').trim();
+    if (!files.length && words) {
+      files.push(new File([words], 'compartit.txt', { type: 'text/plain' }));
+    }
+    const id = files.length ? await stashShared(files) : null;
+    return Response.redirect(id ? home + '?from=' + id : home, 303);
+  } catch {
+    return Response.redirect(home, 303);
+  }
+}
+
 self.addEventListener('fetch', (e) => {
   const req = e.request;
+  const shared = new URL(req.url);
+  if (req.method === 'POST' && shared.origin === self.location.origin
+      && /\\/share-target\\/?$/.test(shared.pathname)) {
+    e.respondWith(receiveShare(e, shared));
+    return;
+  }
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== self.location.origin) return;
@@ -697,7 +776,17 @@ export async function buildPages({ out = ROOT, site = SITE_BASE.url, quiet = fal
     await writeFile(join(base, 'manifest.webmanifest'), renderManifest(pages, locale), 'utf8');
   }
 
-  await writeFile(join(out, 'sw.js'), await renderServiceWorker(out, editions), 'utf8');
+  // El service worker s'escriu des de dins d'una plantilla de cadena, i una
+  // barra invertida mal comptada hi passa desapercebuda: el fitxer surt, es
+  // publica, i el navegador el rebutja en silenci amb un «script evaluation
+  // failed» que no veu ningú. Això el parseja abans de desar-lo.
+  const worker = await renderServiceWorker(out, editions);
+  try {
+    new Script(worker, { filename: 'sw.js' });
+  } catch (e) {
+    throw new Error(`sw.js generat amb un error de sintaxi: ${e.message}`);
+  }
+  await writeFile(join(out, 'sw.js'), worker, 'utf8');
   await writeFile(join(out, 'sitemap.xml'), renderSitemap(editions), 'utf8');
   // The deployment is a git pull into the docroot, so the build system is
   // served alongside the site. There is nothing secret in it, but there is no

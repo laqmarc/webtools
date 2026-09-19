@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG a CSS en línia, al navegador — WebTools</title>
+<meta name="description" content="Una icona petita dins del full d’estil s’estalvia una petició sencera, i sobretot s’estalvia el moment en què la pàgina ja es veu però les icones encara no…">
+<link rel="canonical" href="https://webtools.quexulo.cat/svg-a-css/">
+<link rel="alternate" hreflang="ca" href="https://webtools.quexulo.cat/svg-a-css/">
+<link rel="alternate" hreflang="es" href="https://webtools.quexulo.cat/es/svg-a-css/">
+<link rel="alternate" hreflang="en" href="https://webtools.quexulo.cat/en/svg-to-css/">
+<link rel="alternate" hreflang="x-default" href="https://webtools.quexulo.cat/svg-a-css/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="WebTools">
+<meta property="og:title" content="SVG a CSS en línia, al navegador — WebTools">
+<meta property="og:description" content="Una icona petita dins del full d’estil s’estalvia una petició sencera, i sobretot s’estalvia el moment en què la pàgina ja es veu però les icones encara no…">
+<meta property="og:url" content="https://webtools.quexulo.cat/svg-a-css/">
+<meta property="og:locale" content="ca_ES">
+<meta property="og:image" content="https://webtools.quexulo.cat/icons/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="WebTools">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../assets/styles.css">
+<!-- Les dues cares que surten a tot arreu. El navegador no les descobriria
+     fins a haver llegit el CSS, i el titular apareixeria un instant amb la
+     serif del sistema. Els subconjunts latin-ext els demana només qui els
+     necessita, via unicode-range. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/play-700-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../assets/fonts/google-sans-latin.woff2">
+<link rel="icon" href="../icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../manifest.webmanifest">
+<meta name="theme-color" content="#14120f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f3ec" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="WebTools">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "WebTools",
+          "item": "https://webtools.quexulo.cat/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SVG a CSS",
+          "item": "https://webtools.quexulo.cat/svg-a-css/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SVG a CSS",
+      "url": "https://webtools.quexulo.cat/svg-a-css/",
+      "description": "Una icona petita dins del full d’estil s’estalvia una petició sencera, i sobretot s’estalvia el moment en què la pàgina ja es veu però les icones encara no…",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any modern browser",
+      "browserRequirements": "Requires JavaScript",
+      "inLanguage": "ca",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quan val la pena i quan no?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per sota d’uns 3 kB gairebé sempre sí. Per sobre, el data URI viatja dins del CSS a cada càrrega i ja no es pot cachejar per separat: un fitxer a part surt més a compte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puc canviar-ne el color des del CSS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Només el que sigui fons o màscara. Un data URI dins de background-image és una imatge i currentColor no hi arriba. Si el vols pintar amb CSS, fes servir un sprite amb \u003cuse>, o mask-image."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Per què les cometes són simples a dins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Perquè la regla les fa servir dobles per fora. Canviar les de dins és la manera més curta de no haver d’escapar res més."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="../"><span class="brand-mark">◩</span> WebTools</a>
+  <input id="search" class="search" type="search" placeholder="Cerca una eina…" autocomplete="off" spellcheck="false" data-home="../">
+  <span class="grow"></span>
+  <nav class="langs" aria-label="Idioma"><span class="lang on" aria-current="true">Català</span><a class="lang" href="../es/svg-a-css/" hreflang="es">Español</a><a class="lang" href="../en/svg-to-css/" hreflang="en">English</a></nav>
+  <button id="install" class="btn ghost sm" hidden>Instal·la</button>
+  <button id="theme" class="icon-btn" title="Canvia el tema" aria-label="Canvia el tema">◐</button>
+</header>
+
+<main class="app">
+  <nav class="crumb"><a href="../">Totes les eines</a> / Imatge vectorial</nav>
+  <header class="tool-head">
+    <h1>SVG a CSS</h1>
+    <p>El dibuix dins d’un data URI, sense cap petició de més.</p>
+  </header>
+  <div id="tool"></div>
+  <noscript><div class="msg err">Aquesta eina necessita JavaScript, perquè és el teu navegador qui processa els fitxers: no hi ha cap servidor que ho pugui fer al seu lloc.</div></noscript>
+  <article class="prose">
+    <p>Una icona petita dins del full d’estil s’estalvia una petició sencera, i sobretot s’estalvia el moment en què la pàgina ja es veu però les icones encara no hi són. Això et torna l’SVG ja embolicat en la regla que has d’enganxar.</p>
+    <p>La codificació és amb percentatges, no amb base64. Un SVG és text: passar-lo a base64 l’engreixa un terç llarg a canvi de res. Només s’escapen els caractèrs que trencarien un url(), així que el resultat queda curt i encara es pot llegir.</p>
+    <h2>Com es fa servir</h2>
+    <ol>
+      <li>Afegeix-hi les icones.</li>
+      <li>Tria si vols una regla, una variable CSS, una etiqueta &lt;img&gt; o només el data URI.</li>
+      <li>Processa i enganxa el resultat al teu full d’estil.</li>
+    </ol>
+    <h2>Preguntes freqüents</h2>
+    <dl class="faq">
+      <dt>Quan val la pena i quan no?</dt>
+      <dd>Per sota d’uns 3 kB gairebé sempre sí. Per sobre, el data URI viatja dins del CSS a cada càrrega i ja no es pot cachejar per separat: un fitxer a part surt més a compte.</dd>
+      <dt>Puc canviar-ne el color des del CSS?</dt>
+      <dd>Només el que sigui fons o màscara. Un data URI dins de background-image és una imatge i currentColor no hi arriba. Si el vols pintar amb CSS, fes servir un sprite amb &lt;use&gt;, o mask-image.</dd>
+      <dt>Per què les cometes són simples a dins?</dt>
+      <dd>Perquè la regla les fa servir dobles per fora. Canviar les de dins és la manera més curta de no haver d’escapar res més.</dd>
+    </dl>
+    <h2>Eines relacionades</h2>
+    <div class="grid">
+      <a class="card" href="../optimitzar-svg/" data-search="optimitzar svg svgo al navegador: treu metadades d’editor i arrodoneix camins. svg optimitzar svgo minificar vector netejar optimitzar-svg"><b>Optimitzar SVG</b><span>SVGO al navegador: treu metadades d’editor i arrodoneix camins.</span></a>
+      <a class="card" href="../svg-a-png/" data-search="svg a png rasteritza a la mida que vulguis, amb fons transparent o sòlid. svg png rasteritzar exportar bitmap webp svg-a-png"><b>SVG a PNG</b><span>Rasteritza a la mida que vulguis, amb fons transparent o sòlid.</span></a>
+      <a class="card" href="../svg-a-pdf/" data-search="svg a pdf un pdf d’una pàgina a la mida real del dibuix. svg pdf imprimir vectorial pàgina exportar svg-a-pdf"><b>SVG a PDF</b><span>Un PDF d’una pàgina a la mida real del dibuix.</span></a>
+      <a class="card" href="../sprite-svg/" data-search="sprite svg tot un joc d’icones en un sol fitxer, per fer-lo servir amb &lt;use&gt;. sprite svg symbol use icones joc combinar sprite-svg"><b>Sprite SVG</b><span>Tot un joc d’icones en un sol fitxer, per fer-lo servir amb &lt;use&gt;.</span></a>
+      <a class="card" href="../recolorir-svg/" data-search="recolorir svg canvia els colors d’un joc sencer sense obrir-los d’un en un. svg color recolorir tint fill stroke currentcolor recolorir-svg"><b>Recolorir SVG</b><span>Canvia els colors d’un joc sencer sense obrir-los d’un en un.</span></a>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <p><strong>Res no puja a cap servidor.</strong> Tot el processament passa dins d’aquesta pestanya.</p>
+</footer>
+
+<script>window.__PAGE__={"kind": "tool","tool": "svg-to-css","slug": "svg-a-css","lang": "ca","home": "../"};</script>
+<script type="module" src="../src/main.js"></script>
+</body>
+</html>

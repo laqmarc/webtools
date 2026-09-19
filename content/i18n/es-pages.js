@@ -178,6 +178,55 @@ export const PAGES = {
     ],
   },
 
+  'svg-to-pdf': {
+    intro: [
+      'Un SVG es un dibujo, no un documento: si lo quieres mandar a imprenta, adjuntar a un correo o firmar, lo que te pedirán es un PDF. Esto hace uno de una página, con la página exactamente al tamaño del dibujo.',
+      'La conversión rasteriza. Traducir un SVG a instrucciones de pintura de un PDF —degradados, máscaras, recortes, texto con tipografía— sería escribir un motor de renderizado entero dentro del navegador, y el resultado aún sería peor en los casos raros. Así que el dibujo entra como imagen a la resolución que pidas, y la página queda al tamaño bueno en puntos.',
+    ],
+    steps: ['Deja aquí los SVG.', 'Elige la resolución: 150 ppp para pantalla, 300 para imprimir.', 'Di si el fondo debe ser transparente y procesa.'],
+    faq: [
+      { q: '¿Se podrá seleccionar el texto del PDF?', a: 'No. El dibujo entra como imagen, o sea que el texto que haya dentro del SVG deja de ser texto. Si lo que quieres es un PDF con texto de verdad, explórtalo desde el programa donde hiciste el dibujo.' },
+      { q: '¿Qué resolución tengo que poner?', a: '150 ppp va bien para cualquier cosa que se mire en pantalla. Para imprimir, 300. Por encima de 300 el archivo crece deprisa y casi nadie verá la diferencia.' },
+      { q: '¿Por qué la página no es A4?', a: 'Porque un logotipo de 200×80 px dentro de un A4 es sobre todo papel vacío. La página sale del tamaño del dibujo; si lo necesitas en A4, colócalo desde el programa de maquetación.' },
+    ],
+  },
+  'svg-to-css': {
+    intro: [
+      'Un icono pequeño dentro de la hoja de estilo se ahorra una petición entera, y sobre todo se ahorra el momento en que la página ya se ve pero los iconos todavía no están. Esto te devuelve el SVG ya envuelto en la regla que tienes que pegar.',
+      'La codificación es con porcentajes, no con base64. Un SVG es texto: pasarlo a base64 lo engorda un tercio largo a cambio de nada. Solo se escapan los caracteres que romperían un url(), así que el resultado queda corto y todavía se puede leer.',
+    ],
+    steps: ['Añade los iconos.', 'Elige si quieres una regla, una variable CSS, una etiqueta <img> o solo el data URI.', 'Procesa y pega el resultado en tu hoja de estilo.'],
+    faq: [
+      { q: '¿Cuándo vale la pena y cuándo no?', a: 'Por debajo de unos 3 kB casi siempre sí. Por encima, el data URI viaja dentro del CSS en cada carga y ya no se puede cachear por separado: un archivo aparte sale más a cuenta.' },
+      { q: '¿Puedo cambiarle el color desde el CSS?', a: 'Solo lo que sea fondo o máscara. Un data URI dentro de background-image es una imagen y currentColor no llega. Si lo quieres pintar con CSS, usa un sprite con <use>, o mask-image.' },
+      { q: '¿Por qué las comillas son simples dentro?', a: 'Porque la regla las usa dobles por fuera. Cambiar las de dentro es la manera más corta de no tener que escapar nada más.' },
+    ],
+  },
+  'svg-sprite': {
+    intro: [
+      'Veinte iconos son veinte peticiones, y al navegador cada una le cuesta más de lo que pesa. Un sprite los pone todos en un solo archivo como <symbol>, y luego cada uno se usa con <use href="#icono-flecha">.',
+      'De paso, si dejas marcada la opción de currentColor, los colores de dentro desaparecen y el color lo decide el CSS que los muestre: el mismo icono sirve para un botón claro y para uno oscuro sin duplicarlo.',
+    ],
+    steps: ['Deja aquí todos los iconos a la vez.', 'Ponle un prefijo si quieres que los identificadores no choquen con nada.', 'Procesa: sale un solo sprite.svg.'],
+    faq: [
+      { q: '¿Cómo lo uso?', a: 'Pega el contenido al principio del <body> y luego llama a cada icono con <svg><use href="#su-id"></use></svg>. Si lo dejas como archivo aparte, la referencia tiene que ser sprite.svg#su-id.' },
+      { q: '¿De dónde salen los identificadores?', a: 'Del nombre de cada archivo, en minúsculas y con guiones, con el prefijo delante. Si dos archivos acaban con el mismo nombre, al segundo se le añade un número.' },
+      { q: '¿Por qué mis iconos salen negros?', a: 'Porque con currentColor marcado heredan el color del texto. Pónles un color en el CSS de quien los usa, o desmarca la opción para conservar los colores originales.' },
+    ],
+  },
+  'svg-recolour': {
+    intro: [
+      'Un juego de iconos descargado nunca viene del color que te conviene. Abrirlos uno a uno para cambiar un #000000 es la clase de trabajo que debería hacer una máquina.',
+      'Se pueden cambiar todos los colores a uno solo, solo un color concreto, o todos a currentColor para que lo decida el CSS. Se miran los atributos y también lo que haya dentro de un style=””, que es donde los dejan buena parte de los exportadores.',
+    ],
+    steps: ['Deja aquí el juego de iconos entero.', 'Elige si cambias todos los colores, solo uno, o los pasas a currentColor.', 'Elige el color nuevo y procesa.'],
+    faq: [
+      { q: '¿Qué es currentColor?', a: 'Es decirle al SVG que coja el color del texto del elemento que lo contiene. Así el icono cambia de color solo cuando cambia el botón donde vive, sin tener que guardar una versión por color.' },
+      { q: 'No me ha cambiado nada, ¿por qué?', a: 'Seguramente el archivo no tiene ningún color escrito: un SVG sin fill se pinta de negro por defecto. En ese caso te devolvemos el original con un aviso, en vez de aparentar que se ha hecho algo.' },
+      { q: '¿Toca los colores que hay dentro de un <style>?', a: 'No. Para eso habría que entender CSS de verdad, y es más honesto dejarlo al buscar-y-reemplazar de tu editor que adivinarlo a medias.' },
+    ],
+  },
+
   // ---------------------------------------------------------------- pdf
   'pdf-compress': {
     intro: [

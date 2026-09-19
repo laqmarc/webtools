@@ -75,6 +75,14 @@
     "note.ocrPdf": "{pages} pàgines amb capa de text · {words} paraules",
     "note.gifFrames": "{n} fotogrames · {w}×{h}",
     "note.pdfNoEmbedded": "no hi ha imatges incrustades: el pes és text o vectors",
+    "note.svgRasterised": "rasteritzat a {dpi} ppp ({w}×{h} px); el text de dins ja no és text",
+    "note.svgUriBig": "{kb} kB dins del CSS: per a un dibuix així de gran surt més a compte un fitxer a part",
+    "note.spriteIds": "identificadors: {ids}",
+    "note.recolourNone": "cap color escrit al fitxer: aquest SVG hereta el color de qui el mostra",
+    "note.recolourDone": "{n} colors canviats",
+    "note.recolourDone.one": "un color canviat",
+    "err.spriteEmpty": "Cap dels fitxers té res per posar a l’sprite.",
+    "note.pdfUnsafeImages.one": "una imatge en un format que no es pot recodificar amb seguretat",
     "note.pdfUnsafeImages": "{n} imatge(s) en formats que no es poden recodificar amb seguretat",
     "note.pdfRecoded": "{touched} de {total} imatges recodificades",
     "note.pdfUntouched": "{n} intactes",
@@ -198,6 +206,28 @@
     "count.copyText": "Copia el text",
     "count.seoTitle": "Títol SEO",
     "count.metaDesc": "Meta descripció",
+    "area.image": "Imatge",
+    "area.vector": "Imatge vectorial",
+    "area.pdf": "PDF",
+    "area.data": "Dades",
+    "area.web": "Text i web",
+    "palette.title": "Totes les eines",
+    "palette.placeholder": "Vés a una eina…",
+    "palette.hint": "↑↓ per moure’t · Retorn per obrir · Esc per tancar",
+    "palette.open": "Totes les eines (Ctrl+K)",
+    "chain.send": "Envia el resultat a una altra eina",
+    "chain.sendAll": "Envia-ho a una altra eina",
+    "chain.title": "Envia el resultat a…",
+    "chain.heading.one": "On va aquest fitxer?",
+    "chain.heading": "On van aquests {n} fitxers?",
+    "chain.hint": "Només hi surten les eines que accepten aquests fitxers · Esc per tancar",
+    "chain.none": "Cap altra eina no accepta aquests fitxers.",
+    "chain.handing": "Passant els fitxers…",
+    "chain.failed": "El navegador no deixa desar els fitxers per passar-los. Descarrega’ls i torna a arrossegar-los.",
+    "chain.received.one": "Un fitxer rebut de l’eina anterior.",
+    "chain.received": "{n} fitxer(s) rebuts de l’eina anterior.",
+    "chain.wrongKind.one": "El fitxer que arribava no serveix per a aquesta eina.",
+    "chain.wrongKind": "Els {n} fitxers que arribaven no serveixen per a aquesta eina.",
     "shell.search": "Cerca una eina…",
     "shell.theme": "Canvia el tema",
     "shell.install": "Instal·la",
@@ -236,8 +266,11 @@
     "file.included": "inclòs",
     "file.error": "Error",
     "file.combinedResult": "resultat combinat",
+    "file.rejected.one": "Un fitxer amb un format que aquesta eina no accepta: {names}",
     "file.rejected": "{n} fitxer(s) amb un format que aquesta eina no accepta: {names}",
+    "file.pasted.one": "Un fitxer enganxat del porta-retalls.",
     "file.pasted": "{n} fitxer(s) enganxat(s) del porta-retalls.",
+    "file.openedExternally.one": "Un fitxer obert des del sistema que aquesta eina no accepta.",
     "file.openedExternally": "{n} fitxer(s) obert(s) des del sistema que aquesta eina no accepta.",
     "file.dragToReorder": "Arrossega les files per canviar-ne l’ordre",
     "file.plainFile": "fitxer",
@@ -271,7 +304,9 @@
     "crop.whole": "Tota la imatge",
     "crop.removeThis": "Treu aquesta",
     "crop.readout": "{w} × {h} px · des de ({x}, {y}) · original {ow} × {oh}",
+    "crop.done.one": "Una imatge · {size} — descarregada.",
     "crop.done": "{n} imatge(s) · {size} — descarregat.",
+    "crop.notImages.one": "Un fitxer que no és una imatge.",
     "crop.notImages": "{n} fitxer(s) que no són imatges.",
     "crop.cannotOpen": "No s’ha pogut obrir {name}.",
     "org.drop": "Arrossega un PDF per organitzar-lo",
@@ -291,5 +326,322 @@
     "org.exported": "{n} pàgines · {size} — descarregat.",
     "org.buildFailed": "No s’ha pogut construir el PDF: {msg}"
   },
-  "tools": {}
+  "tools": {
+    "image-convert": {
+      "slug": "convertir-imatges",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-compress": {
+      "slug": "comprimir-imatges",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-resize": {
+      "slug": "redimensionar-imatges",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-crop": {
+      "slug": "retallar-imatges",
+      "area": "image"
+    },
+    "image-rotate": {
+      "slug": "girar-imatges",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-strip": {
+      "slug": "treure-metadades-imatge",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-watermark": {
+      "slug": "marca-aigua-imatge",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "image-exif": {
+      "slug": "veure-metadades-imatge",
+      "area": "image"
+    },
+    "favicons": {
+      "slug": "generador-de-favicons",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "images-to-gif": {
+      "slug": "imatges-a-gif",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "remove-background": {
+      "slug": "treure-el-fons",
+      "area": "image",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "svg-optimize": {
+      "slug": "optimitzar-svg",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "svg-to-png": {
+      "slug": "svg-a-png",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "svg-to-pdf": {
+      "slug": "svg-a-pdf",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "svg-to-css": {
+      "slug": "svg-a-css",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "svg-sprite": {
+      "slug": "sprite-svg",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "svg-recolour": {
+      "slug": "recolorir-svg",
+      "area": "vector",
+      "accepts": [
+        ".svg",
+        "image/svg+xml"
+      ]
+    },
+    "pdf-compress": {
+      "slug": "comprimir-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-organize": {
+      "slug": "organitzar-pdf",
+      "area": "pdf"
+    },
+    "pdf-to-images": {
+      "slug": "pdf-a-imatges",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-to-text": {
+      "slug": "pdf-a-text",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-extract-images": {
+      "slug": "extreure-imatges-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-merge": {
+      "slug": "unir-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-split": {
+      "slug": "separar-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-rotate": {
+      "slug": "girar-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-extract": {
+      "slug": "extreure-pagines-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "images-to-pdf": {
+      "slug": "imatges-a-pdf",
+      "area": "pdf",
+      "accepts": [
+        "image/*"
+      ]
+    },
+    "pdf-watermark": {
+      "slug": "marca-aigua-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "pdf-page-numbers": {
+      "slug": "numerar-pagines-pdf",
+      "area": "pdf",
+      "accepts": [
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "ocr": {
+      "slug": "ocr-imatge-i-pdf",
+      "area": "pdf",
+      "accepts": [
+        "image/*",
+        ".pdf",
+        "application/pdf"
+      ]
+    },
+    "json-to-csv": {
+      "slug": "json-a-csv",
+      "area": "data"
+    },
+    "csv-to-json": {
+      "slug": "csv-a-json",
+      "area": "data"
+    },
+    "json-to-yaml": {
+      "slug": "json-a-yaml",
+      "area": "data"
+    },
+    "yaml-to-json": {
+      "slug": "yaml-a-json",
+      "area": "data"
+    },
+    "json-format": {
+      "slug": "formatar-json",
+      "area": "data"
+    },
+    "jwt-decode": {
+      "slug": "descodificar-jwt",
+      "area": "data"
+    },
+    "base64-text": {
+      "slug": "base64-text",
+      "area": "data"
+    },
+    "base64-file": {
+      "slug": "fitxer-a-base64",
+      "area": "data",
+      "accepts": []
+    },
+    "hash": {
+      "slug": "hash-md5-sha256",
+      "area": "data"
+    },
+    "minify-css": {
+      "slug": "minificar-css",
+      "area": "web"
+    },
+    "minify-js": {
+      "slug": "minificar-javascript",
+      "area": "web"
+    },
+    "text-count": {
+      "slug": "comptar-paraules",
+      "area": "web"
+    },
+    "text-case": {
+      "slug": "canviar-majuscules",
+      "area": "web"
+    },
+    "text-lines": {
+      "slug": "ordenar-linies",
+      "area": "web"
+    },
+    "url-encode": {
+      "slug": "codificar-url",
+      "area": "web"
+    },
+    "html-entities": {
+      "slug": "entitats-html",
+      "area": "web"
+    },
+    "slugify": {
+      "slug": "generar-slug",
+      "area": "web"
+    },
+    "format-html": {
+      "slug": "formatar-html",
+      "area": "web"
+    },
+    "format-xml": {
+      "slug": "formatar-xml",
+      "area": "web"
+    },
+    "format-sql": {
+      "slug": "formatar-sql",
+      "area": "web"
+    },
+    "color": {
+      "slug": "convertidor-de-colors",
+      "area": "web"
+    },
+    "regex": {
+      "slug": "provador-de-regex",
+      "area": "web"
+    },
+    "qr": {
+      "slug": "generador-qr",
+      "area": "web"
+    },
+    "diff": {
+      "slug": "comparar-textos",
+      "area": "web"
+    }
+  }
 }

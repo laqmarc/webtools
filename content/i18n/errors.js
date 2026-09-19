@@ -307,6 +307,34 @@ export const ERRORS = {
     'no hay imágenes incrustadas: el peso es texto o vectores',
     'no embedded images: the weight is text or vectors',
   ],
+  'note.svgRasterised': [
+    'rasteritzat a {dpi} ppp ({w}×{h} px); el text de dins ja no és text',
+    'rasterizado a {dpi} ppp ({w}×{h} px); el texto de dentro ya no es texto',
+    'rasterised at {dpi} dpi ({w}×{h} px); the text inside is no longer text',
+  ],
+  'note.svgUriBig': [
+    '{kb} kB dins del CSS: per a un dibuix així de gran surt més a compte un fitxer a part',
+    '{kb} kB dentro del CSS: para un dibujo así de grande sale más a cuenta un archivo aparte',
+    '{kb} kB inside the CSS: for a drawing this big a separate file is the better trade',
+  ],
+  'note.spriteIds': ['identificadors: {ids}', 'identificadores: {ids}', 'ids: {ids}'],
+  'note.recolourNone': [
+    'cap color escrit al fitxer: aquest SVG hereta el color de qui el mostra',
+    'ningún color escrito en el archivo: este SVG hereda el color de quien lo muestra',
+    'no colour written in the file: this SVG inherits the colour of whatever shows it',
+  ],
+  'note.recolourDone': ['{n} colors canviats', '{n} colores cambiados', '{n} colours changed'],
+  'note.recolourDone.one': ['un color canviat', 'un color cambiado', 'one colour changed'],
+  'err.spriteEmpty': [
+    'Cap dels fitxers té res per posar a l’sprite.',
+    'Ninguno de los archivos tiene nada que poner en el sprite.',
+    'None of the files has anything to put in the sprite.',
+  ],
+  'note.pdfUnsafeImages.one': [
+    'una imatge en un format que no es pot recodificar amb seguretat',
+    'una imagen en un formato que no se puede recodificar con seguridad',
+    'one image in a format that cannot be re-encoded safely',
+  ],
   'note.pdfUnsafeImages': [
     '{n} imatge(s) en formats que no es poden recodificar amb seguretat',
     '{n} imagen(es) en formatos que no se pueden recodificar con seguridad',
