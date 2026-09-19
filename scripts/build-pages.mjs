@@ -25,7 +25,7 @@ import { TOOLS, AREAS, VARIANTS, expandVariant, byId } from '../src/registry.js'
 import { SITE as SITE_BASE } from '../content/seo.js';
 import { LOCALES, DEFAULT_LOCALE, toolStrings, pageCopy } from '../content/i18n/index.js';
 import { UI, uiFor } from '../content/i18n/ui.js';
-import { buildIcons, ICON_FILES, OG_FILE, OG_WIDTH, OG_HEIGHT } from './icons.mjs';
+import { buildIcons, ICON_FILES, ICO_FILE, OG_FILE, OG_WIDTH, OG_HEIGHT } from './icons.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST = '.pages-manifest.json';
@@ -203,6 +203,7 @@ ${hreflangs(alternates, pageId)}
      necessita, via unicode-range. -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/play-700-latin.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="${toRoot}assets/fonts/google-sans-latin.woff2">
+<link rel="icon" href="${toRoot}${ICO_FILE}" sizes="32x32">
 <link rel="icon" href="${toRoot}icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${toRoot}icons/apple-touch-icon.png">
 <link rel="manifest" href="${toLang}manifest.webmanifest">
@@ -568,6 +569,7 @@ async function renderServiceWorker(out, editions) {
     ...(await fontFiles(out)).map((f) => `assets/fonts/${f}`),
     'manifest.webmanifest',
     'icons/icon.svg',
+    ICO_FILE,
     ...ICON_FILES.map((i) => i.file),
     OG_FILE,
     ...LOCALES.map((l) => `i18n/${l.code}.json`),

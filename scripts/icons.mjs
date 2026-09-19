@@ -213,6 +213,42 @@ export function renderOgCard(W = OG_WIDTH, H = OG_HEIGHT) {
   return rgba;
 }
 
+// ------------------------------------------------------------------- ICO
+//
+// Un SVG de favicon el llegeixen els navegadors d'ara, pero qui demana
+// /favicon.ico a seques —Safari vell, lectors de RSS, la miniatura d'un xat,
+// el rastrejador que en vol una per als resultats— es troba un 404. Un .ico
+// es un index de mides amb les imatges a darrere, i des de Vista cada imatge
+// pot ser un PNG tal qual, o sigui que aqui nomes cal empaquetar els que ja
+// sabem dibuixar.
+const ICO_SIZES = [16, 32, 48];
+
+export function encodeIco(sizes = ICO_SIZES) {
+  const pngs = sizes.map((size) => encodePng(size, renderIcon(size)));
+  const dir = Buffer.alloc(6 + sizes.length * 16);
+  dir.writeUInt16LE(0, 0); // reservat
+  dir.writeUInt16LE(1, 2); // 1 = icona, 2 = cursor
+  dir.writeUInt16LE(sizes.length, 4);
+
+  let offset = dir.length;
+  sizes.forEach((size, i) => {
+    const at = 6 + i * 16;
+    dir[at] = size >= 256 ? 0 : size; // 0 vol dir 256
+    dir[at + 1] = size >= 256 ? 0 : size;
+    dir[at + 2] = 0; // colors de la paleta: cap, es truecolour
+    dir[at + 3] = 0; // reservat
+    dir.writeUInt16LE(1, at + 4); // plans
+    dir.writeUInt16LE(32, at + 6); // bits per pixel
+    dir.writeUInt32LE(pngs[i].length, at + 8);
+    dir.writeUInt32LE(offset, at + 12);
+    offset += pngs[i].length;
+  });
+
+  return Buffer.concat([dir, ...pngs]);
+}
+
+export const ICO_FILE = 'favicon.ico';
+
 /** Every icon file the manifest and the page heads point at. */
 export const ICON_FILES = [
   { file: 'icons/icon-192.png', size: 192, opts: {} },
@@ -227,6 +263,7 @@ export function buildIcons() {
   return [
     ...ICON_FILES.map(({ file, size, opts }) => ({ file, data: encodePng(size, renderIcon(size, opts)) })),
     { file: 'icons/icon.svg', data: Buffer.from(renderSvg(), 'utf8') },
+    { file: ICO_FILE, data: encodeIco() },
     { file: OG_FILE, data: encodePng(OG_WIDTH, renderOgCard(), OG_HEIGHT) },
   ];
 }

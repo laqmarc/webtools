@@ -61,7 +61,14 @@ if (installBtn) {
 // Ctrl+K des de qualsevol pàgina. La caixa de la barra només filtra a la
 // portada; fora d'allà, tocar-la obre la paleta en comptes de fer-te
 // navegar i tornar a començar.
-const palette = (await import('./ui/palette.js')).mountPalette(PAGE.home || './');
+//
+// Sense await aquí dalt: un top-level await parteix el mòdul i tot el que ve
+// després s'executa en un microtask posterior, que pot caure després del
+// 'load' de la finestra. El registre del service worker, que s'hi enganxa,
+// es va quedar escoltant un esdeveniment que ja havia passat.
+const paletteReady = import('./ui/palette.js')
+  .then((m) => m.mountPalette(PAGE.home || './'));
+const showPalette = () => paletteReady.then((p) => p.show());
 
 // ---------------------------------------------------------------- search
 const searchBox = document.getElementById('search');
@@ -74,8 +81,8 @@ if (searchBox) {
   if (!cards.length) {
     searchBox.title = t('palette.open');
     searchBox.readOnly = true; // que ningú escrigui en una caixa que no filtra res
-    searchBox.addEventListener('focus', () => { searchBox.blur(); palette.show(); });
-    searchBox.addEventListener('click', () => palette.show());
+    searchBox.addEventListener('focus', () => { searchBox.blur(); showPalette(); });
+    searchBox.addEventListener('click', () => showPalette());
   }
 
   const filter = debounce(() => {
@@ -109,7 +116,7 @@ if (searchBox) {
     if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName)) {
       e.preventDefault();
       if (cards.length) searchBox.focus();
-      else palette.show();
+      else showPalette();
     }
   });
 }
@@ -153,11 +160,14 @@ if ('serviceWorker' in navigator) {
       for (const reg of regs) { reg.active?.postMessage('unregister'); reg.unregister(); }
     });
   } else if (flag === '1' || !local) {
-    addEventListener('load', () => {
-      navigator.serviceWorker
-        .register(new URL('../sw.js', import.meta.url))
-        .catch((e) => console.warn('WebTools: could not register the offline worker.', e));
-    });
+    // Esperar el 'load' deixa la càrrega de la pàgina tranquil·la, però si ja
+    // ha passat —un await d'aquí sobre n'hi ha prou— l'oient no s'engegaria
+    // mai i el lloc es quedaria sense worker i sense poder-se instal·lar.
+    const register = () => navigator.serviceWorker
+      .register(new URL('../sw.js', import.meta.url))
+      .catch((e) => console.warn('WebTools: could not register the offline worker.', e));
+    if (document.readyState === 'complete') register();
+    else addEventListener('load', register);
   }
 }
 

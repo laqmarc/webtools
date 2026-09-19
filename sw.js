@@ -1,5 +1,5 @@
 // Generat per scripts/build-pages.mjs. No l'editis.
-const VERSION = 'a5017992c3f9';
+const VERSION = '9a67d9379ac0';
 const SHELL_CACHE = 'webtools-shell-' + VERSION;
 const LIB_CACHE = 'webtools-vendor-v1';
 const SHELL = [
@@ -15,6 +15,7 @@ const SHELL = [
   "assets/fonts/play-700-latin.woff2",
   "manifest.webmanifest",
   "icons/icon.svg",
+  "favicon.ico",
   "icons/icon-192.png",
   "icons/icon-512.png",
   "icons/maskable-512.png",
